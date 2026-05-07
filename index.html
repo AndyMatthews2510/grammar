@@ -7,16 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:     #0f1f2e;
-    --muted:   #6b7a8d;
-    --border:  #dde4ed;
-    --bg:      #f7f8fb;
-    --white:   #ffffff;
-    --forest:  #1a5c3a;
-    --forest-lt:#e8f5ee;
-    --teal:    #0891b2;
-    --teal-lt: #e0f2fe;
-    --amber:   #d97706;
+    --ink:       #0f1f2e;
+    --muted:     #6b7a8d;
+    --border:    #dde4ed;
+    --bg:        #f7f8fb;
+    --white:     #ffffff;
+    --forest:    #1a5c3a;
+    --forest-lt: #e8f5ee;
+    --teal:      #0891b2;
+    --teal-lt:   #e0f2fe;
+    --violet:    #7c3aed;
+    --violet-lt: #f3f0ff;
+    --amber:     #d97706;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
@@ -31,8 +33,9 @@
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse at 20% 60%, rgba(8,145,178,0.2) 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 30%, rgba(26,92,58,0.25) 0%, transparent 50%);
+      radial-gradient(ellipse at 15% 60%, rgba(8,145,178,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 30%, rgba(26,92,58,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 90%, rgba(124,58,237,0.2) 0%, transparent 50%);
   }
   .h-tag {
     display: inline-block;
@@ -82,19 +85,15 @@
     position: relative;
     overflow: hidden;
   }
-  .lesson-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  }
-  .lesson-card.adverb::before  { background: linear-gradient(90deg, var(--teal), #06b6d4); }
+  .lesson-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .lesson-card.adverb::before    { background: linear-gradient(90deg, var(--teal), #06b6d4); }
   .lesson-card.adjective::before { background: linear-gradient(90deg, var(--forest), #34d399); }
+  .lesson-card.noun::before      { background: linear-gradient(90deg, var(--violet), #c084fc); }
 
-  .lesson-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(15,31,46,0.1);
-  }
-  .lesson-card.adverb:hover   { border-color: var(--teal); }
+  .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,31,46,0.1); }
+  .lesson-card.adverb:hover    { border-color: var(--teal); }
   .lesson-card.adjective:hover { border-color: var(--forest); }
+  .lesson-card.noun:hover      { border-color: var(--violet); }
 
   .card-tag {
     display: inline-block;
@@ -103,8 +102,9 @@
     padding: 0.22rem 0.7rem; border-radius: 2rem;
     margin-bottom: 1rem;
   }
-  .adverb  .card-tag { background: var(--teal-lt);   color: #0e7490; }
+  .adverb    .card-tag { background: var(--teal-lt);   color: #0e7490; }
   .adjective .card-tag { background: var(--forest-lt); color: var(--forest); }
+  .noun      .card-tag { background: var(--violet-lt); color: #5b21b6; }
 
   .card-title {
     font-family: 'Playfair Display', serif;
@@ -133,8 +133,9 @@
     transition: transform 0.15s, color 0.15s;
   }
   .lesson-card:hover .card-arrow { transform: translateX(4px); }
-  .lesson-card.adverb:hover   .card-arrow { color: var(--teal); }
+  .lesson-card.adverb:hover    .card-arrow { color: var(--teal); }
   .lesson-card.adjective:hover .card-arrow { color: var(--forest); }
+  .lesson-card.noun:hover      .card-arrow { color: var(--violet); }
 
   .coming-soon {
     background: var(--white);
@@ -182,6 +183,17 @@
       <div class="card-tag">Clauses</div>
       <div class="card-title">Adjective Clauses</div>
       <div class="card-desc">Discover how to describe people, things, and places using <em>who, which, that, whose, where,</em> and <em>when</em> — and master the comma rule.</div>
+      <div class="card-meta">
+        <span class="meta-pill">3 exercises</span>
+        <span class="meta-pill">14 questions</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="lesson-card noun" href="noun_clauses.html">
+      <div class="card-tag">Clauses</div>
+      <div class="card-title">Noun Clauses</div>
+      <div class="card-desc">Use an entire idea as a single noun — as the subject, object, or complement — with <em>that, what, whether, how</em> and more.</div>
       <div class="card-meta">
         <span class="meta-pill">3 exercises</span>
         <span class="meta-pill">14 questions</span>
