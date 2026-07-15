@@ -958,11 +958,8 @@ const sentences = [
   },
 ];
 
-const identifyState = {};
-
 function buildTokens() {
   sentences.forEach(s => {
-    identifyState[s.id] = new Set();
     const container = document.getElementById(s.id + '-tokens');
     s.words.forEach((word, i) => {
       const span = document.createElement('span');
@@ -970,56 +967,43 @@ function buildTokens() {
       span.className = 'token' + (isPunct ? ' punctuation' : '');
       span.textContent = word;
       span.dataset.idx = i;
-      if (!isPunct) {
-        span.onclick = () => {
-          if (span.classList.contains('correct-token') || span.classList.contains('missed-token')) return;
-          if (identifyState[s.id].has(i)) {
-            identifyState[s.id].delete(i);
-            span.classList.remove('selected');
-          } else {
-            identifyState[s.id].add(i);
-            span.classList.add('selected');
-          }
-        };
-      }
       container.appendChild(span);
+    });
+    // Single delegated listener — never needs re-attaching
+    container.addEventListener('click', function(e) {
+      const tok = e.target;
+      if (!tok.classList.contains('token') || tok.classList.contains('punctuation')) return;
+      if (tok.classList.contains('correct-token') || tok.classList.contains('missed-token')) return;
+      if (document.querySelector('#' + s.id + ' .verify-btn').disabled) return;
+      tok.classList.toggle('selected');
     });
   });
 }
 
 function checkIdentify(id) {
   const s = sentences.find(x => x.id === id);
-  const selected = identifyState[id];
   const correct = new Set(s.clause);
   const fb = document.getElementById(id + '-fb');
-  const container = document.getElementById(id + '-tokens');
-  const tokens = container.querySelectorAll('.token');
-
+  const tokens = document.getElementById(id + '-tokens').querySelectorAll('.token:not(.punctuation)');
   let allCorrect = true;
-  let missed = false;
 
   tokens.forEach(t => {
-    if (t.classList.contains('punctuation')) return;
     const idx = parseInt(t.dataset.idx);
     const shouldSelect = correct.has(idx);
-    const didSelect = selected.has(idx);
+    const didSelect = t.classList.contains('selected');
+    t.classList.remove('selected');
     if (shouldSelect && didSelect) {
-      t.classList.remove('selected');
       t.classList.add('correct-token', 'pop');
     } else if (shouldSelect && !didSelect) {
       t.classList.add('missed-token', 'pop');
       allCorrect = false;
-      missed = true;
     } else if (!shouldSelect && didSelect) {
-      t.classList.remove('selected');
       t.classList.add('missed-token', 'pop');
       allCorrect = false;
     }
-    t.onclick = null;
   });
 
   const typeSpan = `<span class="type-label" style="background:${s.typeColor}22;color:${s.typeColor};border:1.5px solid ${s.typeColor}40">${s.type}</span>`;
-
   if (allCorrect) {
     fb.innerHTML = '✓ Perfect! That\'s a ' + typeSpan + ' clause.';
     fb.className = 'feedback-msg show ok';
@@ -1029,23 +1013,22 @@ function checkIdentify(id) {
     fb.className = 'feedback-msg show bad';
     scores.identify[id] = false;
   }
-
   document.querySelector(`#${id} .verify-btn`).disabled = true;
-  document.querySelector(`#${id} .reset-btn`).disabled = true;
   updateProgress();
 }
 
 function resetIdentify(id) {
-  if (scores.identify[id] !== undefined) return; // already checked
-  identifyState[id] = new Set();
-  const container = document.getElementById(id + '-tokens');
-  container.querySelectorAll('.token').forEach(t => {
-    t.classList.remove('selected');
+  document.getElementById(id + '-tokens').querySelectorAll('.token').forEach(t => {
+    t.classList.remove('selected', 'correct-token', 'missed-token', 'pop');
   });
+  document.querySelector(`#${id} .verify-btn`).disabled = false;
+  delete scores.identify[id];
+  const fb = document.getElementById(id + '-fb');
+  fb.className = 'feedback-msg'; fb.textContent = '';
+  updateProgress();
 }
 
 function retryAll() {
-  // reset MC
   ['q1','q2','q3','q4'].forEach(qId => {
     const card = document.getElementById(qId);
     card.classList.remove('correct','wrong');
@@ -1054,60 +1037,32 @@ function retryAll() {
       b.classList.remove('selected-correct','selected-wrong','reveal-correct','pop');
     });
     const fb = document.getElementById(qId + '-fb');
-    fb.className = 'feedback-msg';
-    fb.textContent = '';
+    fb.className = 'feedback-msg'; fb.textContent = '';
   });
-
-  // reset combine
   ['c1','c2','c3','c4'].forEach(id => {
     const card = document.getElementById(id);
     card.classList.remove('correct','wrong');
     const inp = document.getElementById(id + '-input');
     inp.value = ''; inp.disabled = false;
-    const btn = card.querySelector('.check-btn');
-    btn.disabled = false;
+    card.querySelector('.check-btn').disabled = false;
     const fb = document.getElementById(id + '-fb');
     fb.className = 'feedback-msg'; fb.textContent = '';
   });
-
-  // reset identify
   sentences.forEach(s => {
-    identifyState[s.id] = new Set();
-    const container = document.getElementById(s.id + '-tokens');
-    container.querySelectorAll('.token').forEach(t => {
-      t.className = t.textContent.match(/^[.,!?]$/) ? 'token punctuation' : 'token';
+    document.getElementById(s.id + '-tokens').querySelectorAll('.token').forEach(t => {
+      t.classList.remove('selected', 'correct-token', 'missed-token', 'pop');
     });
-    buildTokenClickHandlers(s);
     document.querySelector(`#${s.id} .verify-btn`).disabled = false;
     document.querySelector(`#${s.id} .reset-btn`).disabled = false;
     const fb = document.getElementById(s.id + '-fb');
     fb.className = 'feedback-msg'; fb.textContent = '';
   });
-
-  // reset score
   Object.keys(scores.mc).forEach(k => delete scores.mc[k]);
   Object.keys(scores.combine).forEach(k => delete scores.combine[k]);
   Object.keys(scores.identify).forEach(k => delete scores.identify[k]);
   document.getElementById('progress-bar').style.width = '0%';
   document.getElementById('score-section').classList.remove('show');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function buildTokenClickHandlers(s) {
-  const container = document.getElementById(s.id + '-tokens');
-  container.querySelectorAll('.token').forEach(t => {
-    if (t.classList.contains('punctuation')) return;
-    const i = parseInt(t.dataset.idx);
-    t.onclick = () => {
-      if (identifyState[s.id].has(i)) {
-        identifyState[s.id].delete(i);
-        t.classList.remove('selected');
-      } else {
-        identifyState[s.id].add(i);
-        t.classList.add('selected');
-      }
-    };
-  });
 }
 
 // init

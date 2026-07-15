@@ -656,57 +656,55 @@ const sents = [
   { id:'i5', words:['Please','tell','me','how','you','did','that','.'], clause:[3,4,5,6], role:'object', color:'#be185d' },
 ];
 
-const idState = {};
-
 function buildTokens(){
   sents.forEach(s=>{
-    idState[s.id]=new Set();
-    const c=document.getElementById(s.id+'-tok');
+    const container=document.getElementById(s.id+'-tok');
     s.words.forEach((w,i)=>{
       const sp=document.createElement('span');
-      const isPunct=/^[.,!?]$/.test(w);
-      sp.className='tok'+(isPunct?' punct':'');
+      sp.className='tok'+(/^[.,!?]$/.test(w)?' punct':'');
       sp.textContent=w; sp.dataset.idx=i;
-      if(!isPunct) sp.onclick=()=>toggleTok(sp,s.id,i);
-      c.appendChild(sp);
+      container.appendChild(sp);
+    });
+    container.addEventListener('click',function(e){
+      const tok=e.target;
+      if(!tok.classList.contains('tok')||tok.classList.contains('punct')) return;
+      if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss')) return;
+      if(document.querySelector('#'+s.id+' .verify-btn').disabled) return;
+      tok.classList.toggle('sel');
     });
   });
 }
 
-function toggleTok(sp,sid,i){
-  if(sp.classList.contains('c-ok')||sp.classList.contains('c-miss')) return;
-  if(idState[sid].has(i)){ idState[sid].delete(i); sp.classList.remove('sel'); }
-  else{ idState[sid].add(i); sp.classList.add('sel'); }
-}
-
 function checkId(id){
   const s=sents.find(x=>x.id===id);
-  const sel=idState[id];
   const correct=new Set(s.clause);
   const fb=document.getElementById(id+'-fb');
-  const toks=document.getElementById(id+'-tok').querySelectorAll('.tok');
+  const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');
   let ok=true;
   toks.forEach(t=>{
-    if(t.classList.contains('punct')) return;
     const i=parseInt(t.dataset.idx);
-    const should=correct.has(i),did=sel.has(i);
-    if(should&&did){ t.classList.remove('sel'); t.classList.add('c-ok','pop'); }
+    const should=correct.has(i),did=t.classList.contains('sel');
+    t.classList.remove('sel');
+    if(should&&did){ t.classList.add('c-ok','pop'); }
     else if(should&&!did){ t.classList.add('c-miss','pop'); ok=false; }
-    else if(!should&&did){ t.classList.remove('sel'); t.classList.add('c-miss','pop'); ok=false; }
-    t.onclick=null;
+    else if(!should&&did){ t.classList.add('c-miss','pop'); ok=false; }
   });
   const lbl=`<span class="t-lbl" style="background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}35">${s.role}</span>`;
   if(ok){ fb.innerHTML='✓ Perfect! This noun clause is the '+lbl+' of the sentence.'; fb.className='fb show ok'; scores.id[id]=true; }
   else{ fb.innerHTML='✗ Not quite — highlighted words show the correct clause. It acts as the '+lbl+'.'; fb.className='fb show bad'; scores.id[id]=false; }
   document.querySelector('#'+id+' .verify-btn').disabled=true;
-  document.querySelector('#'+id+' .reset-btn').disabled=true;
   updateProgress();
 }
 
 function resetId(id){
-  if(scores.id[id]!==undefined) return;
-  idState[id]=new Set();
-  document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel'));
+  document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>{
+    t.classList.remove('sel','c-ok','c-miss','pop');
+  });
+  document.querySelector('#'+id+' .verify-btn').disabled=false;
+  delete scores.id[id];
+  const fb=document.getElementById(id+'-fb');
+  fb.className='fb'; fb.textContent='';
+  updateProgress();
 }
 
 function retryAll(){
@@ -724,10 +722,9 @@ function retryAll(){
     const fb=document.getElementById(id+'-fb'); fb.className='fb'; fb.textContent='';
   });
   sents.forEach(s=>{
-    idState[s.id]=new Set();
-    const toks=document.getElementById(s.id+'-tok').querySelectorAll('.tok');
-    toks.forEach(t=>{ t.className=/^[.,!?]$/.test(t.textContent)?'tok punct':'tok'; });
-    reattach(s);
+    document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>{
+      t.classList.remove('sel','c-ok','c-miss','pop');
+    });
     document.querySelector('#'+s.id+' .verify-btn').disabled=false;
     document.querySelector('#'+s.id+' .reset-btn').disabled=false;
     const fb=document.getElementById(s.id+'-fb'); fb.className='fb'; fb.textContent='';
@@ -738,14 +735,6 @@ function retryAll(){
   document.getElementById('pb').style.width='0%';
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function reattach(s){
-  document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>{
-    if(t.classList.contains('punct')) return;
-    const i=parseInt(t.dataset.idx);
-    t.onclick=()=>toggleTok(t,s.id,i);
-  });
 }
 
 buildTokens();
