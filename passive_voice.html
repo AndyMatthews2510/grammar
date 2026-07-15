@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passive Voice — Interactive Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--blue:#1d4ed8;--blue-dk:#1e3a8a;--blue-lt:#eff6ff;--blue-mid:#bfdbfe;--teal3:#0e7490;--teal3-lt:#e0f2fe;--grn:#166534;--grn-lt:#dcfce7;--rose3:#9f1239;--rose3-lt:#fff1f2;--ink:#0f1f2e;--muted:#6b7a8d;--border:#dde4ed;--bg:#f7f8fb;--white:#ffffff;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+  #pb-wrap{position:fixed;top:0;left:0;right:0;z-index:100;height:4px;background:var(--border);}
+  #pb{height:100%;background:linear-gradient(90deg,var(--blue),#38bdf8);width:0%;transition:width 0.5s ease;}
+  header{background:#0a1628;padding:3.5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(29,78,216,.5) 0%,transparent 55%),radial-gradient(ellipse at 10% 80%,rgba(14,116,144,.3) 0%,transparent 50%);}
+  header::after{content:'→';position:absolute;right:7%;top:15%;font-size:8rem;color:rgba(29,78,216,.12);line-height:1;}
+  .h-tag{display:inline-block;background:var(--teal3);color:white;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .9rem;border-radius:2rem;margin-bottom:1.2rem;position:relative;}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.4rem);font-weight:700;color:white;line-height:1.08;position:relative;}
+  header h1 em{color:#93c5fd;font-style:normal;}
+  header p{color:#6080a0;font-size:1.05rem;margin-top:.9rem;font-style:italic;position:relative;}
+  .ex-strip{margin:2rem auto 0;max-width:640px;background:rgba(29,78,216,.2);border:1px solid rgba(147,197,253,.2);border-radius:.75rem;padding:1rem 1.5rem;font-size:1rem;color:white;position:relative;}
+  .ex-strip .active{color:#fca5a5;font-style:italic;} .ex-strip .passive{color:#93c5fd;font-style:italic;} .ex-strip .lbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.65;margin-right:.4rem;}
+  .section{padding:3rem 1.5rem;max-width:820px;margin:0 auto;}
+  .sec-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:var(--ink);margin-bottom:.35rem;}
+  .sec-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  hr.div{border:none;border-top:2px solid var(--border);max-width:820px;margin:0 auto;}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem;}
+  @media(max-width:560px){.compare{grid-template-columns:1fr;}}
+  .cmp{border-radius:.85rem;padding:1.25rem;border:1.5px solid var(--border);}
+  .cmp.active{background:#fff0f0;border-color:#fca5a5;} .cmp.passive{background:var(--blue-lt);border-color:var(--blue-mid);}
+  .cmp .lbl{font-size:.73rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;}
+  .cmp.active .lbl{color:var(--rose3);} .cmp.passive .lbl{color:var(--blue);}
+  .cmp .sent{font-size:1.08rem;font-style:italic;color:var(--ink);margin-bottom:.45rem;}
+  .cmp .note{font-size:.85rem;color:var(--muted);}
+  .hi-b{color:var(--blue);font-weight:700;} .hi-g{color:var(--grn);font-weight:700;}
+  .tense-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.88rem;}
+  .tense-table th{background:var(--blue);color:white;padding:.6rem .8rem;text-align:left;font-weight:600;}
+  .tense-table td{padding:.55rem .8rem;border-bottom:1px solid var(--border);vertical-align:top;}
+  .tense-table tr:nth-child(even) td{background:var(--blue-lt);}
+  .tense-name{font-weight:600;color:var(--blue-dk);}
+  .formula{color:var(--muted);font-size:.82rem;}
+  .tense-ex{font-style:italic;}
+  .when-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:.5rem;}
+  .when-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.1rem 1.3rem;display:flex;gap:.85rem;align-items:flex-start;}
+  .when-icon{font-size:1.4rem;flex-shrink:0;margin-top:.05rem;}
+  .when-head{font-weight:600;font-size:.92rem;color:var(--blue-dk);margin-bottom:.3rem;}
+  .when-ex{font-size:.88rem;font-style:italic;color:var(--muted);}
+  .key-rule{background:#0a1628;color:white;border-radius:.75rem;padding:1rem 1.4rem;font-size:.95rem;line-height:1.65;margin-top:1rem;}
+  .key-rule strong{color:#93c5fd;}
+  .ex-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;}
+  .ex-badge{background:var(--blue);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
+  .ex-badge.teal{background:var(--teal3);} .ex-badge.grn{background:var(--grn);}
+  .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
+  .q-card.correct{border-color:var(--grn);background:var(--grn-lt);}
+  .q-card.wrong{border-color:#ef4444;background:#fff0f0;}
+  .q-num{font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.5rem;}
+  .q-text{font-size:1rem;color:var(--ink);line-height:1.65;margin-bottom:.85rem;}
+  .q-sent{font-style:italic;color:var(--blue);font-size:1rem;display:block;margin-bottom:.6rem;}
+  .mc-opts{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .mc-btn{border:2px solid var(--border);background:var(--bg);color:var(--ink);padding:.4rem 1.1rem;border-radius:2rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;transition:all .15s;}
+  .mc-btn:hover:not(:disabled){border-color:var(--blue);color:var(--blue);background:var(--blue-lt);}
+  .mc-btn.sel-ok{border-color:var(--grn);background:var(--grn-lt);color:var(--grn);}
+  .mc-btn.sel-bad{border-color:#ef4444;background:#fff0f0;color:#ef4444;}
+  .mc-btn.rev-ok{border-color:var(--grn);background:var(--grn-lt);color:var(--grn);}
+  .mc-btn:disabled{cursor:not-allowed;opacity:.55;}
+  .fb{margin-top:.7rem;font-size:.88rem;font-weight:500;display:none;}
+  .fb.show{display:block;} .fb.ok{color:var(--grn);} .fb.bad{color:#dc2626;}
+  .cmb-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
+  .cmb-card.correct{border-color:var(--grn);background:var(--grn-lt);}
+  .cmb-card.wrong{border-color:#ef4444;background:#fff0f0;}
+  .s-pill{background:#f1f5f9;border:1px solid var(--border);border-radius:.45rem;padding:.35rem .75rem;font-size:.9rem;font-style:italic;display:inline-block;margin-bottom:.6rem;}
+  .cmb-input{width:100%;border:1.5px solid var(--border);border-radius:.55rem;padding:.65rem .9rem;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--ink);background:var(--bg);outline:none;transition:border-color .15s;margin-bottom:.6rem;}
+  .cmb-input:focus{border-color:var(--blue);background:var(--white);}
+  .check-btn{background:var(--blue);color:white;border:none;border-radius:2rem;padding:.48rem 1.35rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .15s;}
+  .check-btn:hover:not(:disabled){background:var(--blue-dk);}
+  .check-btn:disabled{opacity:.5;cursor:not-allowed;}
+  .id-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.2rem 1.4rem;margin-bottom:.85rem;}
+  .id-instruct{font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.75rem;}
+  .tokens{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem;line-height:2;}
+  .tok{padding:.25rem .52rem;border-radius:.4rem;border:2px solid transparent;cursor:pointer;font-size:1rem;transition:all .12s;user-select:none;}
+  .tok:hover{background:var(--blue-lt);border-color:var(--blue);}
+  .tok.sel{background:var(--blue-lt);border-color:var(--blue);color:var(--blue-dk);font-weight:700;}
+  .tok.c-ok{background:var(--grn-lt);border-color:var(--grn);color:var(--grn);font-weight:600;}
+  .tok.c-miss{background:#fff0f0;border-color:#ef4444;}
+  .tok.punct{cursor:default;} .tok.punct:hover{background:transparent;border-color:transparent;}
+  .verify-btn{background:var(--teal3);color:white;border:none;border-radius:2rem;padding:.48rem 1.35rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .15s;margin-right:.5rem;}
+  .verify-btn:hover:not(:disabled){background:#0e6480;}
+  .reset-btn{background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:2rem;padding:.48rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:all .15s;}
+  .reset-btn:hover{border-color:var(--blue);color:var(--blue);}
+  #score-sec{text-align:center;padding:3rem 1.5rem 4rem;max-width:820px;margin:0 auto;display:none;}
+  #score-sec.show{display:block;}
+  .s-ring{width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--blue) calc(var(--pct)*1%),var(--border) 0);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative;}
+  .s-ring::after{content:'';width:100px;height:100px;background:var(--bg);border-radius:50%;position:absolute;}
+  .s-num{position:relative;z-index:1;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--blue-dk);}
+  .s-msg{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;}
+  .s-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  .retry-btn{background:#0a1628;color:white;border:none;border-radius:2rem;padding:.75rem 2rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;}
+  .retry-btn:hover{background:var(--blue-dk);}
+  @keyframes popIn{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+  .pop{animation:popIn .25s cubic-bezier(.34,1.56,.64,1);}
+  footer{text-align:center;padding:2rem;font-size:.82rem;color:var(--muted);border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div id="pb-wrap"><div id="pb"></div></div>
+<header>
+  <div class="h-tag">Grammar Made Simple</div>
+  <h1>The <em>Passive Voice</em></h1>
+  <p>Shifting the focus from who does the action to what happens.</p>
+  <div class="ex-strip">
+    <span class="lbl">Active:</span><span class="active">The chef cooked the meal.</span><br>
+    <span class="lbl">Passive:</span><span class="passive">The meal was cooked by the chef.</span>
+  </div>
+</header>
+
+<div class="section">
+  <h2 class="sec-title">Active vs Passive</h2>
+  <p class="sec-sub">Both sentences can describe the same event — the difference is where the focus goes.</p>
+  <div class="compare">
+    <div class="cmp active"><div class="lbl">Active Voice</div><div class="sent">"<span style="color:#9f1239;font-weight:700">The scientist</span> discovered a new species."</div><div class="note">Focus on the <em>doer</em> (the scientist). Subject = the one doing the action.</div></div>
+    <div class="cmp passive"><div class="lbl">Passive Voice</div><div class="sent">"A new species <span class="hi-b">was discovered</span> by the scientist."</div><div class="note">Focus on the <em>result</em> (the species). Subject = the one receiving the action.</div></div>
+  </div>
+  <div style="background:var(--blue-lt);border:2px solid var(--blue-mid);border-radius:1rem;padding:1.3rem 1.6rem;font-size:.95rem;line-height:1.7">
+    <strong style="color:var(--blue-dk)">The formula:</strong> &nbsp;<span class="hi-b">be</span> (in the correct tense) + <span class="hi-b">past participle</span><br>
+    The "by + agent" part is optional — leave it out when the doer is unknown or unimportant.
+  </div>
+  <table class="tense-table">
+    <thead><tr><th>Tense</th><th>Formula</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tense-name">Present simple</span></td><td><span class="formula">is/are + pp</span></td><td class="tense-ex">The office <span class="hi-b">is cleaned</span> every day.</td></tr>
+      <tr><td><span class="tense-name">Past simple</span></td><td><span class="formula">was/were + pp</span></td><td class="tense-ex">The window <span class="hi-b">was broken</span> last night.</td></tr>
+      <tr><td><span class="tense-name">Present perfect</span></td><td><span class="formula">has/have been + pp</span></td><td class="tense-ex">The contract <span class="hi-b">has been signed</span>.</td></tr>
+      <tr><td><span class="tense-name">Future simple</span></td><td><span class="formula">will be + pp</span></td><td class="tense-ex">The results <span class="hi-b">will be announced</span> tomorrow.</td></tr>
+      <tr><td><span class="tense-name">Modal</span></td><td><span class="formula">modal + be + pp</span></td><td class="tense-ex">The form <span class="hi-b">must be completed</span> in full.</td></tr>
+      <tr><td><span class="tense-name">Present continuous</span></td><td><span class="formula">is/are being + pp</span></td><td class="tense-ex">The road <span class="hi-b">is being repaired</span>.</td></tr>
+    </tbody>
+  </table>
+</div>
+<hr class="div">
+
+<div class="section">
+  <h2 class="sec-title">When to Use the Passive</h2>
+  <p class="sec-sub">The passive isn't wrong — it's a stylistic choice. Use it when one of these applies.</p>
+  <div class="when-grid">
+    <div class="when-card"><span class="when-icon">❓</span><div><div class="when-head">The doer is unknown or obvious</div><div class="when-ex">"My bike was stolen." (we don't know who)<br>"He was arrested." (clearly by police)</div></div></div>
+    <div class="when-card"><span class="when-icon">🎯</span><div><div class="when-head">Focus on the result, not the doer</div><div class="when-ex">"The bridge was built in 1889." (the bridge matters, not who built it)</div></div></div>
+    <div class="when-card"><span class="when-icon">📄</span><div><div class="when-head">Formal or impersonal writing</div><div class="when-ex">"It has been decided that..." / "Participants were asked to..."</div></div></div>
+  </div>
+  <div class="key-rule">🔑 <strong>Quick check:</strong> Ask "who does the action?" If the answer is unimportant, unknown, or obvious — passive. If it matters — active.</div>
+</div>
+<hr class="div">
+
+<div class="section" id="ex1">
+  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Active or Passive?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Identify whether each sentence is active or passive, and the tense.</p>
+
+  <div class="q-card" id="q1"><div class="q-num">Question 1 of 5</div><span class="q-sent">"The cake was eaten by the children."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q1','Passive — past simple')">Active — past simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Passive — past simple')">Passive — past simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Passive — past simple')">Passive — present perfect</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Passive — past simple')">Active — present perfect</button>
+    </div><div class="fb" id="q1-fb"></div>
+  </div>
+
+  <div class="q-card" id="q2"><div class="q-num">Question 2 of 5</div><span class="q-sent">"The company will launch a new product next month."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q2','Active — future simple')">Active — future simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Active — future simple')">Passive — future simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Active — future simple')">Active — present simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Active — future simple')">Passive — past simple</button>
+    </div><div class="fb" id="q2-fb"></div>
+  </div>
+
+  <div class="q-card" id="q3"><div class="q-num">Question 3 of 5</div><span class="q-sent">"A new school has been built in our town."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q3','Passive — present perfect')">Active — past simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Passive — present perfect')">Active — present perfect</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Passive — present perfect')">Passive — past simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Passive — present perfect')">Passive — present perfect</button>
+    </div><div class="fb" id="q3-fb"></div>
+  </div>
+
+  <div class="q-card" id="q4"><div class="q-num">Question 4 of 5</div><span class="q-sent">"Thousands of people visit the museum every year."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q4','Active — present simple')">Active — present simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Active — present simple')">Passive — present simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Active — present simple')">Active — past simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Active — present simple')">Passive — present perfect</button>
+    </div><div class="fb" id="q4-fb"></div>
+  </div>
+
+  <div class="q-card" id="q5"><div class="q-num">Question 5 of 5</div><span class="q-sent">"The report must be submitted by Friday."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q5','Passive — modal')">Active — modal</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Passive — modal')">Passive — modal</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Passive — modal')">Active — past simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Passive — modal')">Passive — past simple</button>
+    </div><div class="fb" id="q5-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<div class="section" id="ex2">
+  <div class="ex-hdr"><span class="ex-badge teal">Exercise 2</span><h2 class="ex-title">Rewrite as Passive</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Change each active sentence to passive. You can include "by..." or leave it out.</p>
+
+  <div class="cmb-card" id="c1"><div class="q-num">Question 1 of 4</div><div class="s-pill">"The chef cooked the meal."</div><input class="cmb-input" id="c1-in" placeholder="The meal …"><button class="check-btn" onclick="checkCmb('c1',['meal','was cooked'])">Check ✓</button><div class="fb" id="c1-fb"></div></div>
+  <div class="cmb-card" id="c2"><div class="q-num">Question 2 of 4</div><div class="s-pill">"Scientists have discovered a new planet."</div><input class="cmb-input" id="c2-in" placeholder="A new planet …"><button class="check-btn" onclick="checkCmb('c2',['planet','has been discovered'])">Check ✓</button><div class="fb" id="c2-fb"></div></div>
+  <div class="cmb-card" id="c3"><div class="q-num">Question 3 of 4</div><div class="s-pill">"They will announce the results tomorrow."</div><input class="cmb-input" id="c3-in" placeholder="The results …"><button class="check-btn" onclick="checkCmb('c3',['results','will be announced'])">Check ✓</button><div class="fb" id="c3-fb"></div></div>
+  <div class="cmb-card" id="c4"><div class="q-num">Question 4 of 4</div><div class="s-pill">"Someone broke the window last night."</div><input class="cmb-input" id="c4-in" placeholder="The window …"><button class="check-btn" onclick="checkCmb('c4',['window','was broken'])">Check ✓</button><div class="fb" id="c4-fb"></div></div>
+</div>
+<hr class="div">
+
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge grn">Exercise 3</span><h2 class="ex-title">Click the Passive Verb Phrase</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Click all the words that form the passive verb phrase (be + past participle).</p>
+
+  <div class="id-card" id="i1"><div class="q-num">Sentence 1 of 5</div><div class="id-instruct">Click all the words in the passive verb phrase.</div><div class="tokens" id="i1-tok"></div><button class="verify-btn" onclick="checkId('i1')">Check ✓</button><button class="reset-btn" onclick="resetId('i1')">Reset</button><div class="fb" id="i1-fb"></div></div>
+  <div class="id-card" id="i2"><div class="q-num">Sentence 2 of 5</div><div class="id-instruct">Click all the words in the passive verb phrase.</div><div class="tokens" id="i2-tok"></div><button class="verify-btn" onclick="checkId('i2')">Check ✓</button><button class="reset-btn" onclick="resetId('i2')">Reset</button><div class="fb" id="i2-fb"></div></div>
+  <div class="id-card" id="i3"><div class="q-num">Sentence 3 of 5</div><div class="id-instruct">Click all the words in the passive verb phrase.</div><div class="tokens" id="i3-tok"></div><button class="verify-btn" onclick="checkId('i3')">Check ✓</button><button class="reset-btn" onclick="resetId('i3')">Reset</button><div class="fb" id="i3-fb"></div></div>
+  <div class="id-card" id="i4"><div class="q-num">Sentence 4 of 5</div><div class="id-instruct">Click all the words in the passive verb phrase.</div><div class="tokens" id="i4-tok"></div><button class="verify-btn" onclick="checkId('i4')">Check ✓</button><button class="reset-btn" onclick="resetId('i4')">Reset</button><div class="fb" id="i4-fb"></div></div>
+  <div class="id-card" id="i5"><div class="q-num">Sentence 5 of 5</div><div class="id-instruct">Click all the words in the passive verb phrase.</div><div class="tokens" id="i5-tok"></div><button class="verify-btn" onclick="checkId('i5')">Check ✓</button><button class="reset-btn" onclick="resetId('i5')">Reset</button><div class="fb" id="i5-fb"></div></div>
+</div>
+
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/14</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<footer>Passive Voice — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
+
+<script>
+const TOTAL=14;
+const scores={mc:{},cmb:{},id:{}};
+function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.cmb).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
+function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.cmb).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
+function showScore(){const sc=getScore(),pct=Math.round(sc/TOTAL*100);document.getElementById('s-ring').style.setProperty('--pct',pct);document.getElementById('s-num').textContent=sc+'/'+TOTAL;const msgs=[[0,39,'Keep practising! 💪','Review and try again.'],[40,69,'Good effort! 👍','You\'re on the right track.'],[70,84,'Well done! ✨','Strong understanding of the passive.'],[85,100,'Excellent! 🎉','You\'ve mastered the passive voice!']];const[,,msg,sub]=msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);document.getElementById('s-msg').textContent=msg;document.getElementById('s-sub').textContent=sub;const sec=document.getElementById('score-sec');sec.classList.add('show');sec.scrollIntoView({behavior:'smooth',block:'center'});}
+const expl={q1:'was + eaten = passive, past simple.',q2:'"will launch" — the company is the subject doing the action = active, future simple.',q3:'has been + built = passive, present perfect.',q4:'"visit" — people are the subject doing the action = active, present simple.',q5:'must be + submitted = passive, modal.'};
+function checkMC(btn,qId,correct){const card=document.getElementById(qId);card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-fb');const ok=btn.textContent.trim()===correct;if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}updateProgress();}
+function checkCmb(id,keywords){const val=document.getElementById(id+'-in').value.trim().toLowerCase();const card=document.getElementById(id);const fb=document.getElementById(id+'-fb');document.getElementById(id+'-in').disabled=true;card.querySelector('.check-btn').disabled=true;const hasAll=keywords.every(k=>val.includes(k.toLowerCase()));if(hasAll&&val.length>8){card.classList.add('correct');fb.textContent='✓ Well done! Correct passive construction.';fb.className='fb show ok';scores.cmb[id]=true;}else{card.classList.add('wrong');fb.textContent='✗ Check your passive structure: be (correct tense) + past participle. Key phrase: "'+keywords[1]+'"';fb.className='fb show bad';scores.cmb[id]=false;}updateProgress();}
+const sents=[
+  {id:'i1',words:['The','letter','was','written','by','her','mother','.'],clause:[2,3],fix:'was written = be + past participle (past simple passive)',color:'#1d4ed8'},
+  {id:'i2',words:['The','results','will','be','announced','tomorrow','.'],clause:[2,3,4],fix:'will be announced = will + be + past participle (future passive)',color:'#1d4ed8'},
+  {id:'i3',words:['All','tickets','have','been','sold','.'],clause:[2,3,4],fix:'have been sold = have + been + past participle (present perfect passive)',color:'#1d4ed8'},
+  {id:'i4',words:['The','car','must','be','repaired','immediately','.'],clause:[2,3,4],fix:'must be repaired = modal + be + past participle (modal passive)',color:'#1d4ed8'},
+  {id:'i5',words:['New','offices','are','being','built','in','the','city','centre','.'],clause:[2,3,4],fix:'are being built = are + being + past participle (present continuous passive)',color:'#1d4ed8'},
+];
+function buildTokens(){sents.forEach(s=>{const container=document.getElementById(s.id+'-tok');s.words.forEach((w,i)=>{const sp=document.createElement('span');sp.className='tok'+(/^[.,!?;]$/.test(w)?' punct':'');sp.textContent=w;sp.dataset.idx=i;container.appendChild(sp);});container.addEventListener('click',function(e){const tok=e.target;if(!tok.classList.contains('tok')||tok.classList.contains('punct'))return;if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss'))return;if(document.querySelector('#'+s.id+' .verify-btn').disabled)return;tok.classList.toggle('sel');});});}
+function checkId(id){const s=sents.find(x=>x.id===id);const correct=new Set(s.clause);const fb=document.getElementById(id+'-fb');const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');let ok=true;toks.forEach(t=>{const i=parseInt(t.dataset.idx);const should=correct.has(i),did=t.classList.contains('sel');t.classList.remove('sel');if(should&&did){t.classList.add('c-ok','pop');}else if(should&&!did){t.classList.add('c-miss','pop');ok=false;}else if(!should&&did){t.classList.add('c-miss','pop');ok=false;}});if(ok){fb.textContent='✓ Correct! '+s.fix;fb.className='fb show ok';scores.id[id]=true;}else{fb.textContent='✗ Not quite. Highlighted = the passive verb phrase. '+s.fix;fb.className='fb show bad';scores.id[id]=false;}document.querySelector('#'+id+' .verify-btn').disabled=true;updateProgress();}
+function resetId(id){document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));document.querySelector('#'+id+' .verify-btn').disabled=false;delete scores.id[id];const fb=document.getElementById(id+'-fb');fb.className='fb';fb.textContent='';updateProgress();}
+function retryAll(){['q1','q2','q3','q4','q5'].forEach(qId=>{const card=document.getElementById(qId);card.classList.remove('correct','wrong');card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});const fb=document.getElementById(qId+'-fb');fb.className='fb';fb.textContent='';});['c1','c2','c3','c4'].forEach(id=>{const card=document.getElementById(id);card.classList.remove('correct','wrong');const inp=document.getElementById(id+'-in');inp.value='';inp.disabled=false;card.querySelector('.check-btn').disabled=false;const fb=document.getElementById(id+'-fb');fb.className='fb';fb.textContent='';});sents.forEach(s=>{document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));document.querySelector('#'+s.id+' .verify-btn').disabled=false;const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';});Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);Object.keys(scores.cmb).forEach(k=>delete scores.cmb[k]);Object.keys(scores.id).forEach(k=>delete scores.id[k]);document.getElementById('pb').style.width='0%';document.getElementById('score-sec').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'});}
+buildTokens();
+</script>
+</body>
+</html>
