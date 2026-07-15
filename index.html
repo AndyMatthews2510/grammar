@@ -7,141 +7,172 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:       #0f1f2e;
-    --muted:     #6b7a8d;
-    --border:    #dde4ed;
-    --bg:        #f7f8fb;
-    --white:     #ffffff;
-    --forest:    #1a5c3a;
-    --forest-lt: #e8f5ee;
-    --teal:      #0891b2;
-    --teal-lt:   #e0f2fe;
-    --violet:    #7c3aed;
-    --violet-lt: #f3f0ff;
-    --terra:     #9a3412;
-    --terra-lt:  #fff7ed;
-    --navy:      #1e3a5f;
-    --navy-lt:   #eef2f7;
-    --amber:     #d97706;
+    --ink:#0f1f2e; --muted:#6b7a8d; --border:#dde4ed; --bg:#f7f8fb; --white:#ffffff; --amber:#d97706;
+    --vtense:#0f766e; --vtense-lt:#e6faf8;
+    --honey:#92400e;  --honey-lt:#fffbeb;
+    --navy:#1e3a5f;   --navy-lt:#eef2f7;
+    --crim:#881337;   --crim-lt:#fff1f2;
+    --teal:#0891b2;   --teal-lt:#e0f2fe;
+    --forest:#1a5c3a; --forest-lt:#e8f5ee;
+    --violet:#7c3aed; --violet-lt:#f3f0ff;
+    --terra:#9a3412;  --terra-lt:#fff7ed;
+    --blue:#1d4ed8;   --blue-lt:#eff6ff;
+    --plum:#6b21a8;   --plum-lt:#faf5ff;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; }
 
   header {
-    background: var(--ink);
-    padding: 3.5rem 2rem 3rem;
-    text-align: center;
-    position: relative; overflow: hidden;
+    background:var(--ink); padding:3.5rem 2rem 3.5rem;
+    text-align:center; position:relative; overflow:hidden;
   }
   header::before {
-    content: '';
-    position: absolute; inset: 0;
+    content:''; position:absolute; inset:0;
     background:
-      radial-gradient(ellipse at 10% 60%, rgba(8,145,178,0.15) 0%, transparent 45%),
-      radial-gradient(ellipse at 88% 25%, rgba(26,92,58,0.15) 0%, transparent 45%),
-      radial-gradient(ellipse at 50% 95%, rgba(124,58,237,0.15) 0%, transparent 45%),
-      radial-gradient(ellipse at 75% 60%, rgba(154,52,18,0.15) 0%, transparent 45%),
-      radial-gradient(ellipse at 25% 20%, rgba(30,58,95,0.25) 0%, transparent 45%);
+      radial-gradient(ellipse at 8%  55%, rgba(15,118,110,.15) 0%, transparent 40%),
+      radial-gradient(ellipse at 92% 20%, rgba(26,92,58,.14)  0%, transparent 40%),
+      radial-gradient(ellipse at 50% 95%, rgba(124,58,237,.12) 0%, transparent 40%),
+      radial-gradient(ellipse at 75% 60%, rgba(154,52,18,.12)  0%, transparent 40%),
+      radial-gradient(ellipse at 22% 15%, rgba(30,58,95,.18)   0%, transparent 40%),
+      radial-gradient(ellipse at 55% 35%, rgba(136,19,55,.1)   0%, transparent 40%),
+      radial-gradient(ellipse at 15% 80%, rgba(146,64,14,.12)  0%, transparent 40%),
+      radial-gradient(ellipse at 85% 75%, rgba(29,78,216,.11)  0%, transparent 40%),
+      radial-gradient(ellipse at 40% 60%, rgba(107,33,168,.1)  0%, transparent 40%);
   }
   .h-tag {
-    display: inline-block;
-    background: var(--amber); color: var(--ink);
-    font-size: 0.68rem; font-weight: 700;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 0.28rem 0.9rem; border-radius: 2rem;
-    margin-bottom: 1.1rem; position: relative;
+    display:inline-block; background:var(--amber); color:var(--ink);
+    font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    padding:.28rem .9rem; border-radius:2rem; margin-bottom:1.1rem; position:relative;
   }
   header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 700; color: white;
-    line-height: 1.1; position: relative;
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2.2rem,5vw,3.8rem); font-weight:700; color:white;
+    line-height:1.1; position:relative;
   }
-  header h1 em { color: #6ee7b7; font-style: normal; }
-  header p { color: #93aab8; font-size: 1rem; margin-top: 0.85rem; font-style: italic; position: relative; }
+  header h1 em { color:#6ee7b7; font-style:normal; }
+  header p { color:#93aab8; font-size:1rem; margin-top:.85rem; font-style:italic; position:relative; }
 
-  main { max-width: 920px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  main { max-width:980px; margin:0 auto; padding:3rem 1.5rem 4rem; }
 
-  .intro { text-align: center; margin-bottom: 2.5rem; }
-  .intro h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
-  .intro p { color: var(--muted); font-size: 0.95rem; }
+  .intro { text-align:center; margin-bottom:3rem; }
+  .intro h2 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:600; color:var(--ink); margin-bottom:.4rem; }
+  .intro p { color:var(--muted); font-size:.95rem; max-width:560px; margin:0 auto; }
 
-  .section-label {
-    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.12em; color: var(--muted);
-    margin-bottom: 1rem; padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
+  /* ── SECTION HEADERS ── */
+  .sec-block { margin-bottom:2.75rem; }
+  .sec-header {
+    display:flex; align-items:flex-start; gap:1rem;
+    margin-bottom:1.1rem; padding-bottom:1rem;
+    border-bottom:2px solid var(--border);
   }
+  .sec-num {
+    font-family:'Playfair Display',serif;
+    font-size:2rem; font-weight:700; line-height:1;
+    flex-shrink:0; margin-top:.05rem;
+  }
+  .sec-info {}
+  .sec-title {
+    font-family:'Playfair Display',serif;
+    font-size:1.15rem; font-weight:700; color:var(--ink);
+    margin-bottom:.2rem;
+  }
+  .sec-desc { font-size:.85rem; color:var(--muted); line-height:1.55; }
 
-  .lessons { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.1rem; margin-bottom: 2rem; }
+  /* section accent colours */
+  .sec-block.s1 .sec-num { color:#0f766e; }
+  .sec-block.s1 .sec-header { border-color:#9ecece; }
+  .sec-block.s2 .sec-num { color:var(--navy); }
+  .sec-block.s2 .sec-header { border-color:#b8cce0; }
+  .sec-block.s3 .sec-num { color:var(--teal); }
+  .sec-block.s3 .sec-header { border-color:#a5d8e6; }
+  .sec-block.s4 .sec-num { color:var(--plum); }
+  .sec-block.s4 .sec-header { border-color:#c4b5fd; }
+
+  /* ── LESSON CARDS ── */
+  .lessons { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1rem; }
 
   .lesson-card {
-    background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    text-decoration: none;
-    color: var(--ink);
-    display: block;
-    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
-    position: relative; overflow: hidden;
+    background:var(--white); border:1.5px solid var(--border); border-radius:1rem;
+    padding:1.4rem; text-decoration:none; color:var(--ink); display:block;
+    transition:transform .18s, box-shadow .18s, border-color .18s;
+    position:relative; overflow:hidden;
   }
-  .lesson-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-  .lesson-card.adverb::before     { background: linear-gradient(90deg, var(--teal), #06b6d4); }
-  .lesson-card.adjective::before  { background: linear-gradient(90deg, var(--forest), #34d399); }
-  .lesson-card.noun::before       { background: linear-gradient(90deg, var(--violet), #c084fc); }
-  .lesson-card.participle::before { background: linear-gradient(90deg, var(--terra), #fb923c); }
-  .lesson-card.sentence::before   { background: linear-gradient(90deg, var(--navy), #c9820a); }
+  .lesson-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; }
 
-  .lesson-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,31,46,0.1); }
-  .lesson-card.adverb:hover     { border-color: var(--teal); }
-  .lesson-card.adjective:hover  { border-color: var(--forest); }
-  .lesson-card.noun:hover       { border-color: var(--violet); }
-  .lesson-card.participle:hover { border-color: var(--terra); }
-  .lesson-card.sentence:hover   { border-color: var(--navy); }
+  /* colour bars */
+  .vtenses::before    { background:linear-gradient(90deg,#0f766e,#34d399); }
+  .articles::before   { background:linear-gradient(90deg,var(--honey),#f59e0b); }
+  .sentence::before   { background:linear-gradient(90deg,var(--navy),#c9820a); }
+  .problems::before   { background:linear-gradient(90deg,var(--crim),#f97316); }
+  .adverb::before     { background:linear-gradient(90deg,var(--teal),#06b6d4); }
+  .adjective::before  { background:linear-gradient(90deg,var(--forest),#34d399); }
+  .noun::before       { background:linear-gradient(90deg,var(--violet),#c084fc); }
+  .participle::before { background:linear-gradient(90deg,var(--terra),#fb923c); }
+  .passive::before    { background:linear-gradient(90deg,var(--blue),#38bdf8); }
+  .conditionals::before { background:linear-gradient(90deg,var(--plum),#a855f7); }
 
+  /* hover border */
+  .lesson-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(15,31,46,.1); }
+  .vtenses:hover    { border-color:#0f766e; }
+  .articles:hover   { border-color:var(--honey); }
+  .sentence:hover   { border-color:var(--navy); }
+  .problems:hover   { border-color:var(--crim); }
+  .adverb:hover     { border-color:var(--teal); }
+  .adjective:hover  { border-color:var(--forest); }
+  .noun:hover       { border-color:var(--violet); }
+  .participle:hover { border-color:var(--terra); }
+  .passive:hover    { border-color:var(--blue); }
+  .conditionals:hover { border-color:var(--plum); }
+
+  /* tag chips */
   .card-tag {
-    display: inline-block;
-    font-size: 0.67rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    padding: 0.2rem 0.65rem; border-radius: 2rem;
-    margin-bottom: 0.85rem;
+    display:inline-block; font-size:.67rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em;
+    padding:.18rem .6rem; border-radius:2rem; margin-bottom:.8rem;
   }
-  .adverb    .card-tag { background: var(--teal-lt);   color: #0e7490; }
-  .adjective .card-tag { background: var(--forest-lt); color: var(--forest); }
-  .noun      .card-tag { background: var(--violet-lt); color: #5b21b6; }
-  .participle .card-tag { background: var(--terra-lt); color: var(--terra); }
-  .sentence  .card-tag { background: var(--navy-lt);   color: var(--navy); }
+  .vtenses    .card-tag { background:var(--vtense-lt); color:#0f766e; }
+  .articles   .card-tag { background:var(--honey-lt);  color:var(--honey); }
+  .sentence   .card-tag { background:var(--navy-lt);   color:var(--navy); }
+  .problems   .card-tag { background:var(--crim-lt);   color:var(--crim); }
+  .adverb     .card-tag { background:var(--teal-lt);   color:#0e7490; }
+  .adjective  .card-tag { background:var(--forest-lt); color:var(--forest); }
+  .noun       .card-tag { background:var(--violet-lt); color:#5b21b6; }
+  .participle .card-tag { background:var(--terra-lt);  color:var(--terra); }
+  .passive    .card-tag { background:var(--blue-lt);   color:var(--blue); }
+  .conditionals .card-tag { background:var(--plum-lt); color:var(--plum); }
 
-  .card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.4rem; line-height: 1.2; }
-  .card-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.1rem; }
+  .card-title { font-family:'Playfair Display',serif; font-size:1.18rem; font-weight:700; margin-bottom:.38rem; line-height:1.2; }
+  .card-desc  { font-size:.83rem; color:var(--muted); line-height:1.6; margin-bottom:1rem; }
 
   .card-meta {
-    display: flex; align-items: center; gap: 0.6rem;
-    padding-top: 0.85rem; border-top: 1px solid var(--border);
+    display:flex; align-items:center; gap:.55rem;
+    padding-top:.8rem; border-top:1px solid var(--border);
   }
   .meta-pill {
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: 2rem; padding: 0.16rem 0.55rem;
-    font-size: 0.71rem; font-weight: 500; color: var(--muted);
+    background:var(--bg); border:1px solid var(--border); border-radius:2rem;
+    padding:.14rem .5rem; font-size:.7rem; font-weight:500; color:var(--muted);
   }
-  .card-arrow { margin-left: auto; font-size: 1.1rem; color: var(--muted); transition: transform 0.15s, color 0.15s; }
-  .lesson-card:hover .card-arrow { transform: translateX(4px); }
-  .lesson-card.adverb:hover     .card-arrow { color: var(--teal); }
-  .lesson-card.adjective:hover  .card-arrow { color: var(--forest); }
-  .lesson-card.noun:hover       .card-arrow { color: var(--violet); }
-  .lesson-card.participle:hover .card-arrow { color: var(--terra); }
-  .lesson-card.sentence:hover   .card-arrow { color: var(--navy); }
+  .card-arrow { margin-left:auto; font-size:1.1rem; color:var(--muted); transition:transform .15s, color .15s; }
+  .lesson-card:hover .card-arrow { transform:translateX(4px); }
+  .vtenses:hover    .card-arrow { color:#0f766e; }
+  .articles:hover   .card-arrow { color:var(--honey); }
+  .sentence:hover   .card-arrow { color:var(--navy); }
+  .problems:hover   .card-arrow { color:var(--crim); }
+  .adverb:hover     .card-arrow { color:var(--teal); }
+  .adjective:hover  .card-arrow { color:var(--forest); }
+  .noun:hover       .card-arrow { color:var(--violet); }
+  .participle:hover .card-arrow { color:var(--terra); }
+  .passive:hover    .card-arrow { color:var(--blue); }
+  .conditionals:hover .card-arrow { color:var(--plum); }
 
   .coming-soon {
-    background: var(--white); border: 1.5px dashed var(--border);
-    border-radius: 1rem; padding: 1.5rem;
-    text-align: center; color: var(--muted);
+    background:var(--white); border:1.5px dashed var(--border);
+    border-radius:1rem; padding:1.5rem; text-align:center; color:var(--muted);
   }
-  .coming-soon .cs-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
-  .coming-soon p { font-size: 0.88rem; margin-top: 0.4rem; }
+  .coming-soon .cs-label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; }
+  .coming-soon p { font-size:.88rem; margin-top:.4rem; }
 
-  footer { text-align: center; padding: 2rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--border); }
+  footer { text-align:center; padding:2rem; font-size:.82rem; color:var(--muted); border-top:1px solid var(--border); }
 </style>
 </head>
 <body>
@@ -149,77 +180,130 @@
 <header>
   <div class="h-tag">Grammar Made Simple</div>
   <h1>Interactive <em>Grammar</em> Lessons</h1>
-  <p>Click a lesson below to get started. All exercises check instantly in your browser.</p>
+  <p>Click a lesson to get started. All exercises check instantly in your browser.</p>
 </header>
 
 <main>
   <div class="intro">
     <h2>Choose a lesson</h2>
-    <p>Each lesson includes a clear explanation and three interactive exercises with instant feedback.</p>
+    <p>Lessons are arranged in order of difficulty — start from the top if you are new, or jump to any topic you need.</p>
   </div>
 
-  <div class="section-label">Clauses &amp; Phrases</div>
-
-  <div class="lessons">
-    <a class="lesson-card adverb" href="adverb_clauses.html">
-      <div class="card-tag">Clauses</div>
-      <div class="card-title">Adverb Clauses</div>
-      <div class="card-desc">Add detail about <em>when, why, how,</em> and <em>under what conditions</em> something happens.</div>
-      <div class="card-meta">
-        <span class="meta-pill">3 exercises</span>
-        <span class="meta-pill">13 questions</span>
-        <span class="card-arrow">→</span>
+  <!-- ── SECTION 1: FOUNDATIONS ── -->
+  <div class="sec-block s1">
+    <div class="sec-header">
+      <div class="sec-num">1</div>
+      <div class="sec-info">
+        <div class="sec-title">Foundations</div>
+        <div class="sec-desc">Start here. Understanding how verb tenses work and when to use articles are the building blocks every other lesson depends on.</div>
       </div>
-    </a>
+    </div>
+    <div class="lessons">
+      <a class="lesson-card vtenses" href="verb_tenses.html">
+        <div class="card-tag">Tenses</div>
+        <div class="card-title">Verb Tenses &amp; Their Functions</div>
+        <div class="card-desc">Why do we use the present perfect instead of the past simple? Learn the function behind all 12 major tenses — not just the form.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 q</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card articles" href="articles.html">
+        <div class="card-tag">Articles</div>
+        <div class="card-title">Articles: a, an &amp; the</div>
+        <div class="card-desc">Master when to use the indefinite article, the definite article, or no article at all — including geographic names and tricky special cases.</div>
+        <div class="card-meta"><span class="meta-pill">4 exercises</span><span class="meta-pill">21 q</span><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+  </div>
 
-    <a class="lesson-card adjective" href="adjective_clauses.html">
-      <div class="card-tag">Clauses</div>
-      <div class="card-title">Adjective Clauses</div>
-      <div class="card-desc">Describe people, things, and places using <em>who, which, that, whose, where,</em> and <em>when</em>.</div>
-      <div class="card-meta">
-        <span class="meta-pill">3 exercises</span>
-        <span class="meta-pill">14 questions</span>
-        <span class="card-arrow">→</span>
+  <!-- ── SECTION 2: SENTENCE BUILDING ── -->
+  <div class="sec-block s2">
+    <div class="sec-header">
+      <div class="sec-num">2</div>
+      <div class="sec-info">
+        <div class="sec-title">Sentence Building</div>
+        <div class="sec-desc">Before studying specific clause types, understand what makes a complete sentence — and what can go wrong with it.</div>
       </div>
-    </a>
+    </div>
+    <div class="lessons">
+      <a class="lesson-card sentence" href="sentence_structure.html">
+        <div class="card-tag">Structure</div>
+        <div class="card-title">Sentence Structure</div>
+        <div class="card-desc">Master simple, compound, complex and compound-complex sentences — and understand the difference between independent and dependent clauses.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">14 q</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card problems" href="sentence_problems.html">
+        <div class="card-tag">Problems &amp; Style</div>
+        <div class="card-title">Sentence Problems &amp; Parallelism</div>
+        <div class="card-desc">Spot and fix fragments, run-ons, comma splices, choppy and stringy sentences — plus master parallel structure in lists and comparisons.</div>
+        <div class="card-meta"><span class="meta-pill">4 exercises</span><span class="meta-pill">21 q</span><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+  </div>
 
-    <a class="lesson-card noun" href="noun_clauses.html">
-      <div class="card-tag">Clauses</div>
-      <div class="card-title">Noun Clauses</div>
-      <div class="card-desc">Use an entire idea as a single noun — as the subject, object, or complement of a sentence.</div>
-      <div class="card-meta">
-        <span class="meta-pill">3 exercises</span>
-        <span class="meta-pill">14 questions</span>
-        <span class="card-arrow">→</span>
+  <!-- ── SECTION 3: SUBORDINATE CLAUSES ── -->
+  <div class="sec-block s3">
+    <div class="sec-header">
+      <div class="sec-num">3</div>
+      <div class="sec-info">
+        <div class="sec-title">Subordinate Clauses</div>
+        <div class="sec-desc">Clauses that depend on a main clause — arranged from most intuitive to most abstract. Study them in order for the clearest progression.</div>
       </div>
-    </a>
+    </div>
+    <div class="lessons">
+      <a class="lesson-card adverb" href="adverb_clauses.html">
+        <div class="card-tag">Clauses</div>
+        <div class="card-title">Adverb Clauses</div>
+        <div class="card-desc">Add detail about <em>when, why, how</em> and <em>conditions</em> using connector words like because, although, when and if.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">13 q</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card adjective" href="adjective_clauses.html">
+        <div class="card-tag">Clauses</div>
+        <div class="card-title">Adjective Clauses</div>
+        <div class="card-desc">Describe people, places and things using <em>who, which, that, whose, where</em> and <em>when</em> — and master the comma rule.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">14 q</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card noun" href="noun_clauses.html">
+        <div class="card-tag">Clauses</div>
+        <div class="card-title">Noun Clauses</div>
+        <div class="card-desc">Use an entire idea as a single noun — as the subject, object or complement of a sentence — with that, what, whether and more.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">14 q</span><span class="card-arrow">→</span></div>
+      </a>
+    </div>
+  </div>
 
-    <a class="lesson-card participle" href="participles.html">
-      <div class="card-tag">Phrases</div>
-      <div class="card-title">Participles &amp; Participial Phrases</div>
-      <div class="card-desc">Turn verbs into vivid descriptions with <em>-ing</em> and <em>-ed</em> forms — and avoid the dangling participle.</div>
-      <div class="card-meta">
-        <span class="meta-pill">3 exercises</span>
-        <span class="meta-pill">14 questions</span>
-        <span class="card-arrow">→</span>
+  <!-- ── SECTION 4: ADVANCED STRUCTURES ── -->
+  <div class="sec-block s4">
+    <div class="sec-header">
+      <div class="sec-num">4</div>
+      <div class="sec-info">
+        <div class="sec-title">Advanced Structures</div>
+        <div class="sec-desc">These topics require a solid grasp of verb forms and clause structure — tackle them once you are confident with the earlier sections.</div>
       </div>
-    </a>
-
-    <a class="lesson-card sentence" href="sentence_structure.html">
-      <div class="card-tag">Structure</div>
-      <div class="card-title">Sentence Structure</div>
-      <div class="card-desc">Master simple, compound, complex, and compound-complex sentences — and understand what makes each one work.</div>
-      <div class="card-meta">
-        <span class="meta-pill">3 exercises</span>
-        <span class="meta-pill">14 questions</span>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
+    </div>
+    <div class="lessons">
+      <a class="lesson-card participle" href="participles.html">
+        <div class="card-tag">Phrases</div>
+        <div class="card-title">Participles &amp; Participial Phrases</div>
+        <div class="card-desc">Turn verbs into vivid descriptions using <em>-ing</em> and <em>-ed</em> forms — and learn to avoid the dangling participle.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">14 q</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card passive" href="passive_voice.html">
+        <div class="card-tag">Voice</div>
+        <div class="card-title">The Passive Voice</div>
+        <div class="card-desc">Shift the focus from the doer to the action across all tenses — and know when the passive is the right stylistic choice.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">14 q</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card conditionals" href="conditionals.html">
+        <div class="card-tag">Conditionals</div>
+        <div class="card-title">The Conditionals</div>
+        <div class="card-desc">Master zero, first, second and third conditionals — from always-true facts to impossible past scenarios — and explore modal variations.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">15 q</span><span class="card-arrow">→</span></div>
+      </a>
+    </div>
   </div>
 
   <div class="coming-soon">
     <div class="cs-label">✦ More lessons coming soon</div>
-    <p>Check back here for new topics as they're added.</p>
+    <p>Check back here for new topics as they are added.</p>
   </div>
 </main>
 

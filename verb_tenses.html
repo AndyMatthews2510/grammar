@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verb Tenses & Their Functions — Interactive Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dk:    #134e4a;
+    --md:    #0f766e;
+    --lt:    #e6faf8;
+    --mid:   #99e6df;
+    --acc:   #d97706;
+    --acc-lt:#fef3c7;
+    --acc-mid:#fde68a;
+    --pres:  #0c4a6e;  /* present family — deep sky */
+    --pres-lt:#e0f2fe;
+    --past:  #78350f;  /* past family — amber-brown */
+    --past-lt:#fffbeb;
+    --fut:   #4c1d95;  /* future family — violet */
+    --fut-lt: #f5f3ff;
+    --grn:   #166534;
+    --grn-lt:#dcfce7;
+    --ink:   #0f1f2e;
+    --muted: #6b7a8d;
+    --border:#dde4ed;
+    --bg:    #f7f8fb;
+    --white: #ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+  #pb-wrap{position:fixed;top:0;left:0;right:0;z-index:100;height:4px;background:var(--border);}
+  #pb{height:100%;background:linear-gradient(90deg,var(--dk),var(--acc));width:0%;transition:width 0.5s ease;}
+
+  header{background:#071e1c;padding:3.5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(15,118,110,.5) 0%,transparent 55%),radial-gradient(ellipse at 10% 80%,rgba(217,119,6,.25) 0%,transparent 50%);}
+  header::after{content:'V';position:absolute;right:6%;bottom:5%;font-size:9rem;color:rgba(15,118,110,.1);line-height:1;font-family:'Playfair Display',serif;font-weight:700;}
+  .h-tag{display:inline-block;background:var(--acc);color:var(--ink);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .9rem;border-radius:2rem;margin-bottom:1.2rem;position:relative;}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:700;color:white;line-height:1.08;position:relative;}
+  header h1 em{color:var(--mid);font-style:normal;}
+  header p{color:#6aada8;font-size:1.05rem;margin-top:.9rem;font-style:italic;position:relative;}
+  .ex-strip{margin:2rem auto 0;max-width:680px;background:rgba(15,118,110,.2);border:1px solid rgba(153,230,223,.2);border-radius:.75rem;padding:1rem 1.5rem;font-size:.95rem;color:white;position:relative;line-height:1.8;}
+  .ex-strip .fam{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;opacity:.65;margin-right:.4rem;}
+  .ex-strip .pres-c{color:#7dd3fc;} .ex-strip .past-c{color:#fcd34d;} .ex-strip .fut-c{color:#c4b5fd;}
+
+  .section{padding:3rem 1.5rem;max-width:900px;margin:0 auto;}
+  .sec-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:var(--ink);margin-bottom:.35rem;}
+  .sec-sub{color:var(--muted);font-size:.95rem;margin-bottom:1.75rem;}
+  hr.div{border:none;border-top:2px solid var(--border);max-width:900px;margin:0 auto;}
+
+  /* family headers */
+  .fam-header{display:flex;align-items:center;gap:.85rem;margin-bottom:1rem;}
+  .fam-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
+  .fam-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;}
+  .fam-desc{font-size:.85rem;color:var(--muted);margin-left:auto;}
+
+  /* tense grid */
+  .tense-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.9rem;margin-bottom:2rem;}
+  .tc{background:var(--white);border:1.5px solid var(--border);border-radius:.9rem;padding:1.1rem 1.2rem;position:relative;overflow:hidden;}
+  .tc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+
+  /* present family */
+  .tc.ps::before{background:var(--pres);}   .tc.ps{border-color:#bae6fd;}
+  .tc.pc::before{background:#0369a1;}        .tc.pc{border-color:#bae6fd;}
+  .tc.pps::before{background:#075985;}       .tc.pps{border-color:#bae6fd;}
+  .tc.ppc::before{background:#0c4a6e;}       .tc.ppc{border-color:#bae6fd;}
+
+  /* past family */
+  .tc.pts::before{background:var(--past);}   .tc.pts{border-color:var(--acc-mid);}
+  .tc.ptc::before{background:#92400e;}       .tc.ptc{border-color:var(--acc-mid);}
+  .tc.ptps::before{background:#b45309;}      .tc.ptps{border-color:var(--acc-mid);}
+  .tc.ptpc::before{background:#d97706;}      .tc.ptpc{border-color:var(--acc-mid);}
+
+  /* future family */
+  .tc.fw::before{background:var(--fut);}     .tc.fw{border-color:#ddd6fe;}
+  .tc.fgt::before{background:#6d28d9;}       .tc.fgt{border-color:#ddd6fe;}
+  .tc.fc::before{background:#7c3aed;}        .tc.fc{border-color:#ddd6fe;}
+  .tc.fp::before{background:#8b5cf6;}        .tc.fp{border-color:#ddd6fe;}
+
+  .tc-name{font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:.2rem;}
+  .tc-formula{font-size:.78rem;color:var(--muted);font-family:monospace;margin-bottom:.65rem;background:var(--bg);border-radius:.3rem;padding:.2rem .5rem;display:inline-block;}
+  .tc-uses{display:flex;flex-direction:column;gap:.35rem;}
+  .tc-use{display:flex;gap:.5rem;align-items:flex-start;font-size:.84rem;line-height:1.5;}
+  .use-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.1rem .45rem;border-radius:2rem;white-space:nowrap;flex-shrink:0;margin-top:.05rem;}
+
+  /* use-tag colours by family */
+  .tag-pres{background:var(--pres-lt);color:var(--pres);}
+  .tag-past{background:var(--past-lt);color:var(--past);}
+  .tag-fut{background:var(--fut-lt);color:var(--fut);}
+
+  .tc-ex{font-style:italic;color:var(--muted);font-size:.82rem;margin-top:.45rem;padding-top:.45rem;border-top:1px solid var(--border);}
+  .tc-signals{font-size:.78rem;color:var(--muted);margin-top:.35rem;}
+  .tc-signals strong{color:var(--ink);}
+
+  /* key rule */
+  .key-rule{background:#071e1c;color:white;border-radius:.75rem;padding:1rem 1.4rem;font-size:.95rem;line-height:1.65;margin-top:1rem;}
+  .key-rule strong{color:var(--mid);}
+
+  /* exercises */
+  .ex-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;}
+  .ex-badge{background:var(--dk);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
+  .ex-badge.acc  {background:var(--acc);color:var(--ink);}
+  .ex-badge.grn  {background:var(--grn);}
+  .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+
+  .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
+  .q-card.correct{border-color:var(--grn);background:var(--grn-lt);}
+  .q-card.wrong{border-color:#ef4444;background:#fff0f0;}
+  .q-num{font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.5rem;}
+  .q-text{font-size:1rem;color:var(--ink);line-height:1.65;margin-bottom:.85rem;}
+  .q-sent{font-style:italic;color:var(--dk);font-size:1rem;display:block;margin-bottom:.5rem;}
+  .q-func{font-size:.82rem;color:var(--muted);margin-bottom:.75rem;font-style:italic;}
+
+  .mc-opts{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .mc-btn{border:2px solid var(--border);background:var(--bg);color:var(--ink);padding:.4rem 1.1rem;border-radius:2rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;transition:all .15s;}
+  .mc-btn:hover:not(:disabled){border-color:var(--dk);color:var(--dk);background:var(--lt);}
+  .mc-btn.sel-ok{border-color:var(--grn);background:var(--grn-lt);color:var(--grn);}
+  .mc-btn.sel-bad{border-color:#ef4444;background:#fff0f0;color:#ef4444;}
+  .mc-btn.rev-ok{border-color:var(--grn);background:var(--grn-lt);color:var(--grn);}
+  .mc-btn:disabled{cursor:not-allowed;opacity:.55;}
+  .fb{margin-top:.7rem;font-size:.88rem;font-weight:500;display:none;}
+  .fb.show{display:block;} .fb.ok{color:var(--grn);} .fb.bad{color:#dc2626;}
+
+  /* identify */
+  .id-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.2rem 1.4rem;margin-bottom:.85rem;}
+  .id-instruct{font-size:.85rem;color:var(--muted);font-style:italic;margin-bottom:.75rem;}
+  .id-task{font-size:.88rem;background:var(--lt);border-left:3px solid var(--md);padding:.5rem .8rem;border-radius:0 .4rem .4rem 0;margin-bottom:.75rem;color:var(--ink);}
+  .tokens{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem;line-height:2;}
+  .tok{padding:.25rem .52rem;border-radius:.4rem;border:2px solid transparent;cursor:pointer;font-size:1rem;transition:all .12s;user-select:none;}
+  .tok:hover{background:var(--lt);border-color:var(--md);}
+  .tok.sel{background:var(--acc-lt);border-color:var(--acc);color:var(--ink);font-weight:700;}
+  .tok.c-ok{background:var(--grn-lt);border-color:var(--grn);color:var(--grn);font-weight:600;}
+  .tok.c-miss{background:#fff0f0;border-color:#ef4444;}
+  .tok.punct{cursor:default;} .tok.punct:hover{background:transparent;border-color:transparent;}
+  .verify-btn{background:var(--md);color:white;border:none;border-radius:2rem;padding:.48rem 1.35rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .15s;margin-right:.5rem;}
+  .verify-btn:hover:not(:disabled){background:var(--dk);}
+  .reset-btn{background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:2rem;padding:.48rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:all .15s;}
+  .reset-btn:hover{border-color:var(--md);color:var(--md);}
+
+  #score-sec{text-align:center;padding:3rem 1.5rem 4rem;max-width:900px;margin:0 auto;display:none;}
+  #score-sec.show{display:block;}
+  .s-ring{width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--md) calc(var(--pct)*1%),var(--border) 0);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative;}
+  .s-ring::after{content:'';width:100px;height:100px;background:var(--bg);border-radius:50%;position:absolute;}
+  .s-num{position:relative;z-index:1;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--dk);}
+  .s-msg{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;}
+  .s-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  .retry-btn{background:#071e1c;color:white;border:none;border-radius:2rem;padding:.75rem 2rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;}
+  .retry-btn:hover{background:var(--dk);}
+  @keyframes popIn{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+  .pop{animation:popIn .25s cubic-bezier(.34,1.56,.64,1);}
+  footer{text-align:center;padding:2rem;font-size:.82rem;color:var(--muted);border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div id="pb-wrap"><div id="pb"></div></div>
+
+<header>
+  <div class="h-tag">Grammar Made Simple</div>
+  <h1>Verb Tenses &amp; <em>Their Functions</em></h1>
+  <p>It's not just about when — it's about why you choose one tense over another.</p>
+  <div class="ex-strip">
+    <span class="fam">Present:</span><span class="pres-c">"She works in Paris." &nbsp; "She is working from home this week."</span><br>
+    <span class="fam">Past:</span><span class="past-c">"She left." &nbsp; "She was leaving when I arrived."</span><br>
+    <span class="fam">Future:</span><span class="fut-c">"She will call you." &nbsp; "She is going to call you."</span>
+  </div>
+</header>
+
+<!-- ══ PRESENT TENSES ══ -->
+<div class="section">
+  <div class="fam-header">
+    <div class="fam-dot" style="background:var(--pres)"></div>
+    <div class="fam-title" style="color:var(--pres)">Present Tenses</div>
+    <div class="fam-desc">All four describe situations connected to now — but in very different ways.</div>
+  </div>
+  <div class="tense-grid">
+
+    <div class="tc ps">
+      <div class="tc-name">Present Simple</div>
+      <div class="tc-formula">verb / verb+s</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-pres">Fact / truth</span><span>Things that are always or generally true.<br><em>"Water boils at 100°C."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Habit / routine</span><span>Things done regularly.<br><em>"She goes to the gym on Mondays."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Permanent state</span><span>Long-term situations or feelings.<br><em>"I love jazz." &nbsp; "He lives in Bangkok."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Schedule</span><span>Fixed timetables and programmes.<br><em>"The train leaves at 9am."</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> always, usually, often, sometimes, never, every day/week/month</div>
+    </div>
+
+    <div class="tc pc">
+      <div class="tc-name">Present Continuous</div>
+      <div class="tc-formula">am/is/are + verb-ing</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-pres">Action now</span><span>Happening at this very moment.<br><em>"He is talking on the phone."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Temporary</span><span>A situation that won't last.<br><em>"I'm staying at a hotel this week."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Future plan</span><span>A confirmed arrangement for the future.<br><em>"We're meeting them for dinner tomorrow."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Changing trend</span><span>Something developing or evolving.<br><em>"Prices are rising every month."</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> now, at the moment, currently, today, this week, still, tomorrow (plans)</div>
+    </div>
+
+    <div class="tc pps">
+      <div class="tc-name">Present Perfect Simple</div>
+      <div class="tc-formula">have/has + past participle</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-pres">Experience</span><span>A life experience (ever/never).<br><em>"Have you ever been to Japan?"</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Recent news</span><span>A past event with present relevance.<br><em>"She has lost her keys — can you help?"</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Unfinished time</span><span>In a period of time that is not yet over.<br><em>"I've sent five emails this morning."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Since / for</span><span>An unfinished state from a past point.<br><em>"She has lived here for ten years."</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> just, already, yet, ever, never, recently, for, since, today, this week/year</div>
+    </div>
+
+    <div class="tc ppc">
+      <div class="tc-name">Present Perfect Continuous</div>
+      <div class="tc-formula">have/has + been + verb-ing</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-pres">Ongoing duration</span><span>Action from the past that is still happening now, emphasising how long.<br><em>"I've been waiting for two hours."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-pres">Recent activity</span><span>An action that just stopped, visible in the present.<br><em>"You're out of breath — have you been running?"</em></span></div>
+      </div>
+      <div class="tc-ex"><strong>vs. Present Perfect Simple:</strong> "I've read the book" (finished it) vs "I've been reading the book" (still reading / emphasis on the activity).</div>
+      <div class="tc-signals"><strong>Signal words:</strong> for, since, all day/morning/week, how long, lately, recently</div>
+    </div>
+
+  </div>
+
+  <!-- ══ PAST TENSES ══ -->
+  <div class="fam-header" style="margin-top:.5rem">
+    <div class="fam-dot" style="background:var(--past)"></div>
+    <div class="fam-title" style="color:var(--past)">Past Tenses</div>
+    <div class="fam-desc">Each describes past events from a different angle — completed, ongoing, or even earlier.</div>
+  </div>
+  <div class="tense-grid">
+
+    <div class="tc pts">
+      <div class="tc-name">Past Simple</div>
+      <div class="tc-formula">verb-ed / irregular form</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-past">Completed action</span><span>A specific, finished action in the past.<br><em>"She left at 8 o'clock."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-past">Sequence of events</span><span>A series of past actions, one after another.<br><em>"He arrived, sat down, and opened his laptop."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-past">Finished period</span><span>A state that was true for a period now over.<br><em>"I lived in London for three years."</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> yesterday, last week/year, in 2010, ago, when, then, after that, once</div>
+    </div>
+
+    <div class="tc ptc">
+      <div class="tc-name">Past Continuous</div>
+      <div class="tc-formula">was/were + verb-ing</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-past">In progress at a time</span><span>What was happening at a specific past moment.<br><em>"At 9pm last night, I was watching TV."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-past">Background action</span><span>A longer action interrupted by a shorter one.<br><em>"I was cooking when the phone rang."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-past">Parallel actions</span><span>Two ongoing actions at the same past time.<br><em>"While she was studying, he was playing guitar."</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> while, when, at 9 o'clock, all morning/evening, as</div>
+    </div>
+
+    <div class="tc ptps">
+      <div class="tc-name">Past Perfect Simple</div>
+      <div class="tc-formula">had + past participle</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-past">Earlier past</span><span>An action completed before another past event — the "past of the past".<br><em>"When I arrived, the film had already started."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-past">Explains a past state</span><span>Gives the reason for a past situation.<br><em>"She was tired because she hadn't slept."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-past">Third conditional</span><span>Imagining a different past outcome.<br><em>"If she had studied, she would have passed."</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> already, by the time, when, before, after, never…before, once</div>
+    </div>
+
+    <div class="tc ptpc">
+      <div class="tc-name">Past Perfect Continuous</div>
+      <div class="tc-formula">had + been + verb-ing</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-past">Duration before past point</span><span>How long something had been going on before a past event.<br><em>"He had been driving for six hours when he finally stopped."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-past">Cause of past situation</span><span>Explains a past result by showing a past ongoing activity.<br><em>"She was exhausted because she had been working all night."</em></span></div>
+      </div>
+      <div class="tc-ex"><strong>vs. Past Perfect Simple:</strong> "She had read the report" (finished it) vs "She had been reading the report" (emphasis on the ongoing activity before).</div>
+      <div class="tc-signals"><strong>Signal words:</strong> for, since, all day/week (before a past event), how long</div>
+    </div>
+
+  </div>
+
+  <!-- ══ FUTURE FORMS ══ -->
+  <div class="fam-header" style="margin-top:.5rem">
+    <div class="fam-dot" style="background:var(--fut)"></div>
+    <div class="fam-title" style="color:var(--fut)">Future Forms</div>
+    <div class="fam-desc">English has several ways to talk about the future — the choice signals your attitude toward the event.</div>
+  </div>
+  <div class="tense-grid">
+
+    <div class="tc fw">
+      <div class="tc-name">Will (Future Simple)</div>
+      <div class="tc-formula">will + base verb</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-fut">Prediction</span><span>What you think will happen (no evidence).<br><em>"It will be cold tomorrow."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-fut">Spontaneous decision</span><span>A decision made at the moment of speaking.<br><em>"I'll have the salad, please."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-fut">Promise / offer</span><span>Committing to do something for someone.<br><em>"I'll help you move house."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-fut">Refusal (won't)</span><span>A strong refusal or unwillingness.<br><em>"She won't listen to anyone."</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> tomorrow, next week, probably, I think, I'm sure, I promise, I expect</div>
+    </div>
+
+    <div class="tc fgt">
+      <div class="tc-name">Going to</div>
+      <div class="tc-formula">am/is/are + going to + base verb</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-fut">Intention / plan</span><span>A decision made before the moment of speaking.<br><em>"I'm going to visit my parents this weekend."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-fut">Evidence-based prediction</span><span>A prediction based on what you can see or know right now.<br><em>"Look at those clouds — it's going to rain."</em></span></div>
+      </div>
+      <div class="tc-ex"><strong>will vs going to:</strong> "I'll call a taxi" (spontaneous) vs "I'm going to call a taxi" (already decided).<br>"I think it will rain" (opinion) vs "It's going to rain" (I can see evidence).</div>
+      <div class="tc-signals"><strong>Signal words:</strong> this weekend/year, next month (plans); look at, clearly (evidence)</div>
+    </div>
+
+    <div class="tc fc">
+      <div class="tc-name">Future Continuous</div>
+      <div class="tc-formula">will + be + verb-ing</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-fut">In progress at future time</span><span>An action that will be ongoing at a specific future moment.<br><em>"This time next week, I'll be sitting on a beach."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-fut">Polite enquiry</span><span>Asking about someone's plans without pressure.<br><em>"Will you be using the car tomorrow?"</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> this time next week/month/year, at 3pm tomorrow, still…when</div>
+    </div>
+
+    <div class="tc fp">
+      <div class="tc-name">Future Perfect</div>
+      <div class="tc-formula">will + have + past participle</div>
+      <div class="tc-uses">
+        <div class="tc-use"><span class="use-tag tag-fut">Completed before future point</span><span>An action that will be finished before a certain point in the future.<br><em>"By the time you read this, I will have left."</em></span></div>
+        <div class="tc-use"><span class="use-tag tag-fut">Achievement by deadline</span><span>Predicting something will be done by a future deadline.<br><em>"She will have finished the report by Friday."</em></span></div>
+      </div>
+      <div class="tc-signals"><strong>Signal words:</strong> by, by the time, by then, before, by next week/year</div>
+    </div>
+
+  </div>
+
+  <div class="key-rule">🔑 <strong>The key question:</strong> It's not just <em>when</em> something happens — it's <em>how you see it</em>. Is it a fact? A habit? Something ongoing? Something completed before something else? The tense you choose tells your listener your perspective on the action.</div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex1">
+  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Identify the Function</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence uses a tense for a specific reason. Which function is being shown?</p>
+
+  <div class="q-card" id="q1">
+    <div class="q-num">Question 1 of 6</div>
+    <span class="q-sent">"She goes to the gym every Tuesday morning."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q1','Habit / routine')">Permanent fact</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Habit / routine')">Habit / routine</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Habit / routine')">Action happening now</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Habit / routine')">Future arrangement</button>
+    </div>
+    <div class="fb" id="q1-fb"></div>
+  </div>
+
+  <div class="q-card" id="q2">
+    <div class="q-num">Question 2 of 6</div>
+    <span class="q-sent">"I'm meeting Tom for coffee tomorrow afternoon."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q2','Future arrangement')">Action happening now</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Future arrangement')">Temporary situation</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Future arrangement')">Future arrangement</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Future arrangement')">Ongoing trend</button>
+    </div>
+    <div class="fb" id="q2-fb"></div>
+  </div>
+
+  <div class="q-card" id="q3">
+    <div class="q-num">Question 3 of 6</div>
+    <span class="q-sent">"He hasn't eaten anything today."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q3','Unfinished time period')">Life experience</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Unfinished time period')">Recent news</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Unfinished time period')">Unfinished time period</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Unfinished time period')">Ongoing duration</button>
+    </div>
+    <div class="fb" id="q3-fb"></div>
+  </div>
+
+  <div class="q-card" id="q4">
+    <div class="q-num">Question 4 of 6</div>
+    <span class="q-sent">"When we arrived, the match had already finished."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q4','Earlier past action')">Completed past action</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Earlier past action')">Background past action</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Earlier past action')">Earlier past action</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Earlier past action')">Ongoing past duration</button>
+    </div>
+    <div class="fb" id="q4-fb"></div>
+  </div>
+
+  <div class="q-card" id="q5">
+    <div class="q-num">Question 5 of 6</div>
+    <span class="q-sent">"I'll have the soup, please." <span style="font-size:.82rem;color:var(--muted)">(said in a restaurant)</span></span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q5','Spontaneous decision')">Prediction</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Spontaneous decision')">Spontaneous decision</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Spontaneous decision')">Prior intention</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Spontaneous decision')">Promise</button>
+    </div>
+    <div class="fb" id="q5-fb"></div>
+  </div>
+
+  <div class="q-card" id="q6">
+    <div class="q-num">Question 6 of 6</div>
+    <span class="q-sent">"Look at that tree — it's going to fall!"</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q6','Evidence-based prediction')">Spontaneous decision</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','Evidence-based prediction')">Prior intention</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','Evidence-based prediction')">Prediction without evidence</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','Evidence-based prediction')">Evidence-based prediction</button>
+    </div>
+    <div class="fb" id="q6-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 2 ══ -->
+<div class="section" id="ex2">
+  <div class="ex-hdr"><span class="ex-badge acc">Exercise 2</span><h2 class="ex-title">Choose the Right Tense</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Complete each sentence with the correct tense. Think about the function, not just the time.</p>
+
+  <div class="q-card" id="f1">
+    <div class="q-num">Question 1 of 5</div>
+    <div class="q-text">I'm exhausted — I <span style="border-bottom:2px solid var(--md);min-width:120px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> all day. <span class="q-func">(emphasising the duration of an activity that has just finished or is still happening)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f1','have been working')">worked</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','have been working')">was working</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','have been working')">have worked</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','have been working')">have been working</button>
+    </div>
+    <div class="fb" id="f1-fb"></div>
+  </div>
+
+  <div class="q-card" id="f2">
+    <div class="q-num">Question 2 of 5</div>
+    <div class="q-text">She <span style="border-bottom:2px solid var(--md);min-width:120px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> when the earthquake struck. <span class="q-func">(a background action interrupted by a sudden event)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f2','was sleeping')">slept</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','was sleeping')">was sleeping</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','was sleeping')">had slept</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','was sleeping')">has slept</button>
+    </div>
+    <div class="fb" id="f2-fb"></div>
+  </div>
+
+  <div class="q-card" id="f3">
+    <div class="q-num">Question 3 of 5</div>
+    <div class="q-text">By the time the guests arrive, I <span style="border-bottom:2px solid var(--md);min-width:120px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> dinner. <span class="q-func">(an action that will be completed before a future point)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f3','will have cooked')">will cook</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','will have cooked')">am going to cook</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','will have cooked')">will have cooked</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','will have cooked')">will be cooking</button>
+    </div>
+    <div class="fb" id="f3-fb"></div>
+  </div>
+
+  <div class="q-card" id="f4">
+    <div class="q-num">Question 4 of 5</div>
+    <div class="q-text">She was upset because she <span style="border-bottom:2px solid var(--md);min-width:120px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> her purse. <span class="q-func">(a past action that explains a past situation)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f4','had lost')">lost</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','had lost')">was losing</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','had lost')">had lost</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','had lost')">has lost</button>
+    </div>
+    <div class="fb" id="f4-fb"></div>
+  </div>
+
+  <div class="q-card" id="f5">
+    <div class="q-num">Question 5 of 5</div>
+    <div class="q-text">Don't call me at 3pm — I <span style="border-bottom:2px solid var(--md);min-width:120px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> my driving test. <span class="q-func">(an action that will be in progress at a specific future time)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f5','will be taking')">will take</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','will be taking')">am going to take</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','will be taking')">will have taken</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','will be taking')">will be taking</button>
+    </div>
+    <div class="fb" id="f5-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 3 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge grn">Exercise 3</span><h2 class="ex-title">Click the Verb Phrase</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence uses a tense for a specific function. Click all the words that make up the verb phrase showing that function.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-task">🎯 Find the verb phrase that shows a <strong>fixed schedule or timetable</strong>.</div>
+    <div class="id-instruct">Click all the words in the verb phrase.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-task">🎯 Find the verb phrase that shows an <strong>ongoing action with emphasis on duration</strong>.</div>
+    <div class="id-instruct">Click all the words in the verb phrase.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-task">🎯 Find the verb phrase that shows a <strong>background past action that was interrupted</strong>.</div>
+    <div class="id-instruct">Click all the words in the verb phrase.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-task">🎯 Find the verb phrase that shows the <strong>earlier past action</strong> (the one that happened first).</div>
+    <div class="id-instruct">Click all the words in the verb phrase.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-task">🎯 Find the verb phrase that shows an <strong>action that will be completed before a future point</strong>.</div>
+    <div class="id-instruct">Click all the words in the verb phrase.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+</div>
+
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<footer>Verb Tenses &amp; Their Functions — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
+
+<script>
+const TOTAL=16;
+const scores={mc:{},id:{}};
+function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
+function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
+function showScore(){const sc=getScore(),pct=Math.round(sc/TOTAL*100);document.getElementById('s-ring').style.setProperty('--pct',pct);document.getElementById('s-num').textContent=sc+'/'+TOTAL;const msgs=[[0,39,'Keep practising! 💪','Review each tense section and try again.'],[40,69,'Good effort! 👍','You are getting the hang of tense functions.'],[70,84,'Well done! ✨','You have a solid understanding of verb tenses.'],[85,100,'Excellent! 🎉','You have mastered the functions of each tense!']];const[,,msg,sub]=msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);document.getElementById('s-msg').textContent=msg;document.getElementById('s-sub').textContent=sub;const sec=document.getElementById('score-sec');sec.classList.add('show');sec.scrollIntoView({behavior:'smooth',block:'center'});}
+
+const expl={
+  q1:'Present simple with "every Tuesday" = a regular habit or routine.',
+  q2:'Present continuous for a future arrangement — the meeting is planned and confirmed.',
+  q3:'"Today" is an unfinished time period. Present perfect shows actions within a period that is not yet over.',
+  q4:'Past perfect = the earlier of two past actions. The match finished before we arrived.',
+  q5:'Ordering in a restaurant = a decision made at the moment of speaking: spontaneous decision.',
+  q6:'"Look at that" = visible evidence right now. Going to is used for predictions based on current evidence.',
+  f1:'Present perfect continuous emphasises the duration of an ongoing or recently finished activity.',
+  f2:'Past continuous = the longer background action. It was interrupted by the shorter event (earthquake struck = past simple).',
+  f3:'Future perfect (will have + pp) = completed before a specific future point (before the guests arrive).',
+  f4:'Past perfect explains a past situation: she lost the purse (earlier) → she was upset (later).',
+  f5:'Future continuous (will be + ing) = in progress at a specific future moment (at 3pm tomorrow).',
+};
+
+function checkMC(btn,qId,correct){
+  const card=document.getElementById(qId);
+  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(qId+'-fb');
+  const ok=btn.textContent.trim()===correct;
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  updateProgress();
+}
+
+const sents=[
+  {id:'i1',words:['The','museum','opens','at','9am','on','weekdays','.'],clause:[2],type:'Present simple — schedule/timetable',color:'#0c4a6e'},
+  {id:'i2',words:['They','have','been','arguing','for','two','hours','.'],clause:[1,2,3],type:'Present perfect continuous — ongoing duration',color:'#0c4a6e'},
+  {id:'i3',words:['She','was','reading','when','the','alarm','went','off','.'],clause:[1,2],type:'Past continuous — background action interrupted',color:'#78350f'},
+  {id:'i4',words:['She','had','left','before','I','arrived','.'],clause:[1,2],type:'Past perfect — earlier past action',color:'#78350f'},
+  {id:'i5',words:['By','next','year',',','I','will','have','finished','my','degree','.'],clause:[5,6,7],type:'Future perfect — completed before a future point',color:'#4c1d95'},
+];
+
+function buildTokens(){
+  sents.forEach(s=>{
+    const container=document.getElementById(s.id+'-tok');
+    s.words.forEach((w,i)=>{
+      const sp=document.createElement('span');
+      sp.className='tok'+(/^[.,!?;]$/.test(w)?' punct':'');
+      sp.textContent=w;sp.dataset.idx=i;
+      container.appendChild(sp);
+    });
+    container.addEventListener('click',function(e){
+      const tok=e.target;
+      if(!tok.classList.contains('tok')||tok.classList.contains('punct'))return;
+      if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss'))return;
+      if(document.querySelector('#'+s.id+' .verify-btn').disabled)return;
+      tok.classList.toggle('sel');
+    });
+  });
+}
+
+function checkId(id){
+  const s=sents.find(x=>x.id===id);
+  const correct=new Set(s.clause);
+  const fb=document.getElementById(id+'-fb');
+  const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');
+  let ok=true;
+  toks.forEach(t=>{
+    const i=parseInt(t.dataset.idx);
+    const should=correct.has(i),did=t.classList.contains('sel');
+    t.classList.remove('sel');
+    if(should&&did){t.classList.add('c-ok','pop');}
+    else if(should&&!did){t.classList.add('c-miss','pop');ok=false;}
+    else if(!should&&did){t.classList.add('c-miss','pop');ok=false;}
+  });
+  const lbl=`<span style="display:inline-block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.18rem .6rem;border-radius:1rem;margin-left:.5rem;background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}35">${s.type}</span>`;
+  if(ok){fb.innerHTML='✓ Correct! '+lbl;fb.className='fb show ok';scores.id[id]=true;}
+  else{fb.innerHTML='✗ Not quite — highlighted words show the correct verb phrase. '+lbl;fb.className='fb show bad';scores.id[id]=false;}
+  document.querySelector('#'+id+' .verify-btn').disabled=true;
+  updateProgress();
+}
+
+function resetId(id){
+  document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));
+  document.querySelector('#'+id+' .verify-btn').disabled=false;
+  delete scores.id[id];
+  const fb=document.getElementById(id+'-fb');fb.className='fb';fb.textContent='';
+  updateProgress();
+}
+
+function retryAll(){
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+    const card=document.getElementById(qId);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  sents.forEach(s=>{
+    document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));
+    document.querySelector('#'+s.id+' .verify-btn').disabled=false;
+    const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';
+  });
+  Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);
+  Object.keys(scores.id).forEach(k=>delete scores.id[k]);
+  document.getElementById('pb').style.width='0%';
+  document.getElementById('score-sec').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+buildTokens();
+</script>
+</body>
+</html>
