@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Participles & Participial Phrases — Interactive Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terra:    #9a3412;
+    --terra-dk: #7c2d12;
+    --terra-lt: #fff7ed;
+    --terra-mid:#fed7aa;
+    --sky:      #0369a1;
+    --sky-lt:   #e0f2fe;
+    --sky-mid:  #bae6fd;
+    --sage:     #166534;
+    --sage-lt:  #dcfce7;
+    --slate:    #334155;
+    --ink:      #0f1f2e;
+    --muted:    #6b7a8d;
+    --border:   #dde4ed;
+    --bg:       #f7f8fb;
+    --white:    #ffffff;
+    --gold:     #b45309;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+
+  /* ── PROGRESS ── */
+  #pb-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 4px; background: var(--border); }
+  #pb { height: 100%; background: linear-gradient(90deg, var(--terra), #fb923c); width: 0%; transition: width 0.5s ease; }
+
+  /* ── HEADER ── */
+  header {
+    background: #2d0f02;
+    padding: 3.5rem 2rem 4rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 30%, rgba(154,52,18,0.45) 0%, transparent 55%),
+      radial-gradient(ellipse at 10% 75%, rgba(3,105,161,0.25) 0%, transparent 50%);
+  }
+  header::after {
+    content: '❋';
+    position: absolute; right: 7%; bottom: 5%;
+    font-size: 8rem; color: rgba(154,52,18,0.15);
+    line-height: 1;
+  }
+  .h-tag {
+    display: inline-block;
+    background: var(--sky); color: white;
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.28rem 0.9rem; border-radius: 2rem;
+    margin-bottom: 1.2rem; position: relative;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+    font-weight: 700; color: white;
+    line-height: 1.08; position: relative;
+  }
+  header h1 em { color: #fdba74; font-style: normal; }
+  header p { color: #b0917e; font-size: 1.05rem; margin-top: 0.9rem; font-style: italic; position: relative; }
+  .ex-strip {
+    margin: 2rem auto 0; max-width: 640px;
+    background: rgba(154,52,18,0.25);
+    border: 1px solid rgba(253,186,116,0.25);
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem; color: white; font-style: italic; position: relative;
+  }
+  .ex-strip .kw { color: #fde68a; font-weight: 700; font-style: normal; }
+
+  /* ── LAYOUT ── */
+  .section { padding: 3rem 1.5rem; max-width: 820px; margin: 0 auto; }
+  .sec-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+  .sec-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+  hr.div { border: none; border-top: 2px solid var(--border); max-width: 820px; margin: 0 auto; }
+
+  /* ── DEF BOX ── */
+  .def-box {
+    background: var(--terra-lt); border: 2px solid var(--terra);
+    border-radius: 1rem; padding: 1.4rem 1.75rem;
+    font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.4rem;
+  }
+  .def-box strong { color: var(--terra-dk); }
+  .analogy {
+    background: var(--white); border-left: 4px solid var(--sky);
+    border-radius: 0 0.55rem 0.55rem 0;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.95rem; color: var(--muted); font-style: italic;
+  }
+
+  /* ── TWO TYPE CARDS ── */
+  .type-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  @media(max-width:560px){ .type-pair { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 0.85rem; padding: 1.3rem 1.4rem;
+    border: 2px solid transparent; position: relative; overflow: hidden;
+  }
+  .type-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+  .type-card.present { background: var(--sky-lt);   border-color: var(--sky-mid);  } .type-card.present::before { background: var(--sky); }
+  .type-card.past    { background: var(--terra-lt); border-color: var(--terra-mid); } .type-card.past::before    { background: var(--terra); }
+  .tc-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+  .type-card.present .tc-label { color: var(--sky); }
+  .type-card.past    .tc-label { color: var(--terra-dk); }
+  .tc-form { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
+  .tc-meaning { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.6rem; }
+  .tc-ex { font-size: 0.9rem; font-style: italic; color: var(--slate); }
+
+  /* ── COMPARE ── */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  @media(max-width:560px){ .compare { grid-template-columns: 1fr; } }
+  .cmp { border-radius: 0.85rem; padding: 1.25rem; border: 1.5px solid var(--border); }
+  .cmp.before { background: #f1f5f9; }
+  .cmp.after  { background: var(--terra-lt); border-color: var(--terra); }
+  .cmp .lbl { font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .cmp.before .lbl { color: var(--muted); }
+  .cmp.after  .lbl { color: var(--terra-dk); }
+  .cmp .sent { font-size: 1.05rem; font-style: italic; color: var(--ink); margin-bottom: 0.45rem; }
+  .cmp .note { font-size: 0.85rem; color: var(--muted); }
+  .cmp.after  .note { color: var(--terra-dk); font-weight: 600; }
+  .hi-t { color: var(--terra); font-weight: 700; }
+  .hi-s { color: var(--sky); font-weight: 700; }
+
+  /* ── POSITION BOXES ── */
+  .pos-grid { display: flex; flex-direction: column; gap: 0.9rem; }
+  .pos-box {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 0.85rem; padding: 1.1rem 1.4rem;
+    position: relative;
+  }
+  .pos-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; border-radius: 0.85rem 0 0 0.85rem; }
+  .pos-box.start::before  { background: var(--terra); }
+  .pos-box.middle::before { background: var(--sky); }
+  .pos-box.end::before    { background: var(--sage); }
+  .pos-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 0.3rem; }
+  .pos-box.start  .pos-label { color: var(--terra-dk); }
+  .pos-box.middle .pos-label { color: var(--sky); }
+  .pos-box.end    .pos-label { color: var(--sage); }
+  .pos-rule { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.45rem; }
+  .pos-ex { font-size: 1rem; font-style: italic; color: var(--ink); }
+  .badge { position: absolute; top: 1rem; right: 1rem; font-size: 0.68rem; font-weight: 700; padding: 0.18rem 0.55rem; border-radius: 1rem; }
+  .badge.comma    { background: var(--sage-lt); color: var(--sage); }
+  .badge.no-comma { background: #fee2e2; color: #dc2626; }
+
+  /* ── DANGER BOX ── */
+  .danger-box {
+    background: #fff0f0; border: 2px solid #ef4444;
+    border-radius: 1rem; padding: 1.3rem 1.5rem;
+    margin-top: 1rem;
+  }
+  .danger-title { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #dc2626; margin-bottom: 0.7rem; }
+  .danger-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.93rem; line-height: 1.55; }
+  .danger-row:last-child { margin-bottom: 0; }
+  .d-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+
+  .key-rule {
+    background: #2d0f02; color: white;
+    border-radius: 0.75rem; padding: 1rem 1.4rem;
+    font-size: 0.95rem; line-height: 1.65; margin-top: 1rem;
+  }
+  .key-rule strong { color: #fdba74; }
+
+  /* ── EXERCISES ── */
+  .ex-hdr { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .ex-badge {
+    background: var(--terra); color: white;
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 0.28rem 0.85rem; border-radius: 2rem; white-space: nowrap;
+  }
+  .ex-badge.sky  { background: var(--sky); }
+  .ex-badge.sage { background: var(--sage); }
+  .ex-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+
+  .word-bank {
+    background: var(--terra-lt); border: 1.5px solid var(--terra-mid);
+    border-radius: 0.7rem; padding: 0.85rem 1.2rem;
+    margin-bottom: 1.5rem; font-size: 0.9rem;
+  }
+  .word-bank strong { color: var(--terra-dk); }
+
+  .q-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 0.85rem; padding: 1.15rem 1.4rem;
+    margin-bottom: 0.85rem; transition: border-color 0.2s;
+  }
+  .q-card.correct { border-color: var(--terra); background: var(--terra-lt); }
+  .q-card.wrong   { border-color: #ef4444; background: #fff0f0; }
+  .q-num { font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; }
+  .q-text { font-size: 1rem; color: var(--ink); line-height: 1.65; margin-bottom: 0.85rem; }
+  .hint { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+
+  .mc-opts { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .mc-btn {
+    border: 2px solid var(--border); background: var(--bg);
+    color: var(--ink); padding: 0.4rem 1.1rem;
+    border-radius: 2rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 600;
+    transition: all 0.15s;
+  }
+  .mc-btn:hover:not(:disabled) { border-color: var(--terra); color: var(--terra-dk); background: var(--terra-lt); }
+  .mc-btn.sel-ok  { border-color: var(--terra); background: var(--terra-lt); color: var(--terra-dk); }
+  .mc-btn.sel-bad { border-color: #ef4444; background: #fff0f0; color: #ef4444; }
+  .mc-btn.rev-ok  { border-color: var(--terra); background: var(--terra-lt); color: var(--terra-dk); }
+  .mc-btn:disabled { cursor: not-allowed; opacity: 0.55; }
+
+  .fb { margin-top: 0.7rem; font-size: 0.88rem; font-weight: 500; display: none; }
+  .fb.show { display: block; }
+  .fb.ok  { color: var(--terra-dk); }
+  .fb.bad { color: #dc2626; }
+
+  /* Combine */
+  .cmb-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 0.85rem; padding: 1.15rem 1.4rem;
+    margin-bottom: 0.85rem; transition: border-color 0.2s;
+  }
+  .cmb-card.correct { border-color: var(--terra); background: var(--terra-lt); }
+  .cmb-card.wrong   { border-color: #ef4444; background: #fff0f0; }
+  .pair { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .s-pill { background: #f1f5f9; border: 1px solid var(--border); border-radius: 0.45rem; padding: 0.35rem 0.75rem; font-size: 0.9rem; font-style: italic; }
+  .c-tag { background: var(--terra-lt); color: var(--terra-dk); border: 1.5px solid var(--terra); border-radius: 2rem; padding: 0.22rem 0.75rem; font-size: 0.8rem; font-weight: 700; }
+  .cmb-input {
+    width: 100%; border: 1.5px solid var(--border);
+    border-radius: 0.55rem; padding: 0.65rem 0.9rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+    color: var(--ink); background: var(--bg); outline: none;
+    transition: border-color 0.15s; margin-bottom: 0.6rem;
+  }
+  .cmb-input:focus { border-color: var(--terra); background: var(--white); }
+  .check-btn {
+    background: var(--sky); color: white; border: none;
+    border-radius: 2rem; padding: 0.48rem 1.35rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .check-btn:hover:not(:disabled) { background: #075985; }
+  .check-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Identify */
+  .id-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 0.85rem; padding: 1.2rem 1.4rem;
+    margin-bottom: 0.85rem;
+  }
+  .id-instruct { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 0.75rem; }
+  .tokens { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem; line-height: 2; }
+  .tok {
+    padding: 0.25rem 0.52rem; border-radius: 0.4rem;
+    border: 2px solid transparent; cursor: pointer;
+    font-size: 1rem; transition: all 0.12s; user-select: none;
+  }
+  .tok:hover { background: var(--terra-lt); border-color: var(--terra); }
+  .tok.sel    { background: #fef9c3; border-color: #d97706; color: var(--ink); font-weight: 600; }
+  .tok.c-ok   { background: var(--terra-lt); border-color: var(--terra); color: var(--terra-dk); font-weight: 600; }
+  .tok.c-miss { background: #fff0f0; border-color: #ef4444; }
+  .tok.punct  { cursor: default; }
+  .tok.punct:hover { background: transparent; border-color: transparent; }
+  .verify-btn {
+    background: var(--terra); color: white; border: none;
+    border-radius: 2rem; padding: 0.48rem 1.35rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; transition: background 0.15s; margin-right: 0.5rem;
+  }
+  .verify-btn:hover:not(:disabled) { background: var(--terra-dk); }
+  .reset-btn {
+    background: transparent; color: var(--muted);
+    border: 1.5px solid var(--border); border-radius: 2rem;
+    padding: 0.48rem 1.1rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; cursor: pointer; transition: all 0.15s;
+  }
+  .reset-btn:hover { border-color: var(--terra); color: var(--terra); }
+  .t-lbl {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 0.18rem 0.6rem; border-radius: 1rem; margin-left: 0.5rem;
+  }
+
+  /* Score */
+  #score-sec { text-align: center; padding: 3rem 1.5rem 4rem; max-width: 820px; margin: 0 auto; display: none; }
+  #score-sec.show { display: block; }
+  .s-ring {
+    width: 130px; height: 130px; border-radius: 50%;
+    background: conic-gradient(var(--terra) calc(var(--pct)*1%), var(--border) 0);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem; position: relative;
+  }
+  .s-ring::after { content: ''; width: 100px; height: 100px; background: var(--bg); border-radius: 50%; position: absolute; }
+  .s-num { position: relative; z-index: 1; font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--terra-dk); }
+  .s-msg { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+  .s-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+  .retry-btn {
+    background: #2d0f02; color: white; border: none; border-radius: 2rem;
+    padding: 0.75rem 2rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s;
+  }
+  .retry-btn:hover { background: var(--terra-dk); }
+
+  @keyframes popIn { from { transform:scale(0.8);opacity:0 } to { transform:scale(1);opacity:1 } }
+  .pop { animation: popIn 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+
+  footer { text-align: center; padding: 2rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div id="pb-wrap"><div id="pb"></div></div>
+
+<header>
+  <div class="h-tag">Grammar Made Simple</div>
+  <h1>Participles &amp; <em>Participial Phrases</em></h1>
+  <p>Turning verbs into descriptions — and making sentences more vivid.</p>
+  <div class="ex-strip">
+    <span class="kw">Exhausted by the heat,</span> the children sat in the shade.
+  </div>
+</header>
+
+<!-- SECTION 1: WHAT IS A PARTICIPLE -->
+<div class="section">
+  <h2 class="sec-title">What Is a Participle?</h2>
+  <p class="sec-sub">A participle is a verb that has been borrowed to do the job of an adjective — it describes a noun.</p>
+
+  <div class="def-box">
+    A <strong>participle</strong> is a verb form used as a <strong>describing word</strong>. Instead of saying what something <em>does</em>, it tells you what something <em>is like</em>. There are two kinds: <strong>present participles</strong> (ending in <em>-ing</em>) and <strong>past participles</strong> (usually ending in <em>-ed</em> or an irregular form).
+  </div>
+  <div class="analogy">
+    💡 Think of it as a verb that has "changed jobs" — instead of showing an action, it now describes a noun, just like any other adjective would.
+  </div>
+
+  <div class="type-pair">
+    <div class="type-card present">
+      <div class="tc-label">⏩ Present Participle</div>
+      <div class="tc-form">verb + <em>-ing</em></div>
+      <div class="tc-meaning">Describes something actively doing something, or an ongoing state.</div>
+      <div class="tc-ex">"The <strong>barking</strong> dog kept us awake."<br>"A <strong>rising</strong> tide lifts all boats."</div>
+    </div>
+    <div class="type-card past">
+      <div class="tc-label">⏪ Past Participle</div>
+      <div class="tc-form">verb + <em>-ed</em> &nbsp;/&nbsp; irregular form</div>
+      <div class="tc-meaning">Describes something that has had something done to it — often passive.</div>
+      <div class="tc-ex">"A <strong>broken</strong> promise is hard to forgive."<br>"The <strong>stolen</strong> painting was never found."</div>
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 2: PARTICIPIAL PHRASE -->
+<div class="section">
+  <h2 class="sec-title">What Is a Participial Phrase?</h2>
+  <p class="sec-sub">When a participle gets company — extra words that go with it — it becomes a participial phrase.</p>
+
+  <div class="def-box">
+    A <strong>participial phrase</strong> is a participle <strong>plus extra words</strong> (like an object, or describing words) that all work together as one big description. The whole phrase acts as an adjective, describing a noun in the main sentence.
+  </div>
+
+  <div class="compare">
+    <div class="cmp before">
+      <div class="lbl">Just a participle</div>
+      <div class="sent">The <span class="hi-t">sleeping</span> baby is cute.</div>
+      <div class="note">One word doing the describing.</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">A participial phrase</div>
+      <div class="sent"><span class="hi-t">Sleeping soundly in her crib,</span> the baby looked peaceful.</div>
+      <div class="note">✓ Several words working together as one description.</div>
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 3: POSITION AND COMMA RULE -->
+<div class="section">
+  <h2 class="sec-title">Where Does It Go — and the Comma Rule</h2>
+  <p class="sec-sub">A participial phrase must sit close to the noun it describes. Where it sits determines whether you need a comma.</p>
+
+  <div class="pos-grid">
+    <div class="pos-box start">
+      <span class="badge comma">comma ✓</span>
+      <div class="pos-label">At the start of the sentence</div>
+      <div class="pos-rule">Describes the subject. Always followed by a comma.</div>
+      <div class="pos-ex"><span class="hi-t">Running late,</span> she grabbed her keys and rushed out.</div>
+    </div>
+    <div class="pos-box middle">
+      <span class="badge no-comma">no comma</span>
+      <div class="pos-label">Directly after the noun it describes</div>
+      <div class="pos-rule">Sits right after its noun and is essential to meaning. No commas.</div>
+      <div class="pos-ex">The man <span class="hi-s">sitting by the window</span> is my teacher.</div>
+    </div>
+    <div class="pos-box end">
+      <span class="badge comma">comma ✓</span>
+      <div class="pos-label">At the end — adding extra detail</div>
+      <div class="pos-rule">Adds non-essential information. Preceded by a comma.</div>
+      <div class="pos-ex">She arrived at the party<span style="color:var(--sage);font-weight:700">, wearing a red dress.</span></div>
+    </div>
+  </div>
+
+  <div class="danger-box">
+    <div class="danger-title">⚠️ Watch Out: The Dangling Participle</div>
+    <div class="danger-row"><span class="d-icon">❌</span><span>The participial phrase must describe the <strong>subject</strong> of the main clause. If it doesn't, the sentence becomes confusing — or funny!</span></div>
+    <div class="danger-row"><span class="d-icon">❌</span><span style="font-style:italic;color:#dc2626">"Running down the street, the rain started." &nbsp;</span><span style="font-size:0.82rem;color:var(--muted)">(The rain wasn't running!)</span></div>
+    <div class="danger-row"><span class="d-icon">✓</span><span style="font-style:italic;color:var(--sage)">"Running down the street, <strong>she</strong> got soaked by the rain."</span></div>
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> The participial phrase describes whoever or whatever comes right after it. Always check that it's pointing at the right noun!
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex1">
+  <div class="ex-hdr">
+    <span class="ex-badge">Exercise 1</span>
+    <h2 class="ex-title">Choose the Correct Participle</h2>
+  </div>
+  <div class="word-bank">
+    <strong>Choose:</strong> &nbsp; Each question gives you options. Pick the form that fits the meaning.
+  </div>
+
+  <div class="q-card" id="q1">
+    <div class="q-num">Question 1 of 5</div>
+    <div class="q-text">The woman __________ at the front desk will help you. <span class="hint">(she is actively sitting there right now)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q1','sitting')">sat</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','sitting')">sitting</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','sitting')">to sit</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','sitting')">seated down</button>
+    </div>
+    <div class="fb" id="q1-fb"></div>
+  </div>
+
+  <div class="q-card" id="q2">
+    <div class="q-num">Question 2 of 5</div>
+    <div class="q-text">The __________ vase cannot be repaired. <span class="hint">(something was done to it — it was broken)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q2','broken')">breaking</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','broken')">broke</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','broken')">broken</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','broken')">to break</button>
+    </div>
+    <div class="fb" id="q2-fb"></div>
+  </div>
+
+  <div class="q-card" id="q3">
+    <div class="q-num">Question 3 of 5</div>
+    <div class="q-text">__________ from exhaustion, he fell asleep as soon as he sat down. <span class="hint">(he had been exhausted — passive)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted')">Exhausting</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted')">Exhausted</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted')">Having exhaust</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted')">He exhausted</button>
+    </div>
+    <div class="fb" id="q3-fb"></div>
+  </div>
+
+  <div class="q-card" id="q4">
+    <div class="q-num">Question 4 of 5</div>
+    <div class="q-text">I could hear someone __________ outside my window late at night. <span class="hint">(ongoing action — it was happening)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q4','singing')">sung</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','singing')">to sing</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','singing')">singing</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','singing')">had sung</button>
+    </div>
+    <div class="fb" id="q4-fb"></div>
+  </div>
+
+  <div class="q-card" id="q5">
+    <div class="q-num">Question 5 of 5</div>
+    <div class="q-text">She picked up the __________ letter and read it slowly. <span class="hint">(someone had folded it — it was done to the letter)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q5','folded')">folding</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','folded')">fold</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','folded')">to fold</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','folded')">folded</button>
+    </div>
+    <div class="fb" id="q5-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 2 ══ -->
+<div class="section" id="ex2">
+  <div class="ex-hdr">
+    <span class="ex-badge sky">Exercise 2</span>
+    <h2 class="ex-title">Combine Using a Participial Phrase</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Turn the first sentence into a participial phrase and attach it to the second. Watch your commas!</p>
+
+  <div class="cmb-card" id="c1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="pair">
+      <span class="s-pill">"She was tired after the long flight."</span><span>+</span>
+      <span class="s-pill">"She went straight to bed."</span>
+    </div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Start with <em>Tired after the long flight, …</em></p>
+    <input class="cmb-input" id="c1-in" placeholder="Type your combined sentence here…">
+    <button class="check-btn" onclick="checkCmb('c1',['tired','flight','bed'])">Check ✓</button>
+    <div class="fb" id="c1-fb"></div>
+  </div>
+
+  <div class="cmb-card" id="c2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="pair">
+      <span class="s-pill">"The dog wagged its tail."</span><span>+</span>
+      <span class="s-pill">"It ran to greet its owner."</span>
+    </div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Start with <em>Wagging its tail, …</em></p>
+    <input class="cmb-input" id="c2-in" placeholder="Type your combined sentence here…">
+    <button class="check-btn" onclick="checkCmb('c2',['wagging','tail','owner'])">Check ✓</button>
+    <div class="fb" id="c2-fb"></div>
+  </div>
+
+  <div class="cmb-card" id="c3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="pair">
+      <span class="s-pill">"The window was broken by the storm."</span><span>+</span>
+      <span class="s-pill">"It let in the cold air."</span>
+    </div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Start with <em>Broken by the storm, …</em></p>
+    <input class="cmb-input" id="c3-in" placeholder="Type your combined sentence here…">
+    <button class="check-btn" onclick="checkCmb('c3',['broken','storm','cold','air'])">Check ✓</button>
+    <div class="fb" id="c3-fb"></div>
+  </div>
+
+  <div class="cmb-card" id="c4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="pair">
+      <span class="s-pill">"He had finished his work."</span><span>+</span>
+      <span class="s-pill">"He left the office early."</span>
+    </div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Start with <em>Having finished his work, …</em></p>
+    <input class="cmb-input" id="c4-in" placeholder="Type your combined sentence here…">
+    <button class="check-btn" onclick="checkCmb('c4',['finished','work','office','early'])">Check ✓</button>
+    <div class="fb" id="c4-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 3 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr">
+    <span class="ex-badge sage">Exercise 3</span>
+    <h2 class="ex-title">Find the Participial Phrase</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Click every word that belongs to the participial phrase, then press <strong>Check</strong>.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-instruct">Click all the words in the participial phrase.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-instruct">Click all the words in the participial phrase.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-instruct">Click all the words in the participial phrase.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-instruct">Click all the words in the participial phrase.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-instruct">Click all the words in the participial phrase.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+</div>
+
+<!-- SCORE -->
+<div id="score-sec">
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/14</div></div>
+  <div class="s-msg" id="s-msg">Well done!</div>
+  <div class="s-sub" id="s-sub">You completed all three exercises.</div>
+  <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
+</div>
+
+<footer>Participles &amp; Participial Phrases — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
+
+<script>
+const TOTAL = 14;
+const scores = { mc:{}, cmb:{}, id:{} };
+
+function getScore(){ return Object.values(scores.mc).filter(Boolean).length + Object.values(scores.cmb).filter(Boolean).length + Object.values(scores.id).filter(Boolean).length; }
+
+function updateProgress(){
+  const done = Object.keys(scores.mc).length + Object.keys(scores.cmb).length + Object.keys(scores.id).length;
+  document.getElementById('pb').style.width = Math.round(done/TOTAL*100)+'%';
+  if(done===TOTAL) showScore();
+}
+
+function showScore(){
+  const sc=getScore(), pct=Math.round(sc/TOTAL*100);
+  document.getElementById('s-ring').style.setProperty('--pct',pct);
+  document.getElementById('s-num').textContent=sc+'/'+TOTAL;
+  const msgs=[[0,39,'Keep practising! 💪','Review the lesson and give it another go.'],[40,69,'Good effort! 👍','You\'re getting there — try again to improve.'],[70,84,'Well done! ✨','You have a solid grasp of participial phrases.'],[85,100,'Excellent! 🎉','Outstanding — you\'ve mastered this topic!']];
+  const [,,msg,sub]=msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);
+  document.getElementById('s-msg').textContent=msg;
+  document.getElementById('s-sub').textContent=sub;
+  const sec=document.getElementById('score-sec');
+  sec.classList.add('show');
+  sec.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function checkMC(btn,qId,correct){
+  const card=document.getElementById(qId);
+  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(qId+'-fb');
+  const ok=btn.textContent.trim()===correct;
+  if(ok){ btn.classList.add('sel-ok','pop'); card.classList.add('correct'); fb.textContent='✓ Correct!'; fb.className='fb show ok'; scores.mc[qId]=true; }
+  else{ btn.classList.add('sel-bad','pop'); card.classList.add('wrong'); card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); }); fb.textContent='✗ Not quite. The answer is "'+correct+'".'; fb.className='fb show bad'; scores.mc[qId]=false; }
+  updateProgress();
+}
+
+function checkCmb(id, keywords){
+  const val=document.getElementById(id+'-in').value.trim().toLowerCase();
+  const card=document.getElementById(id);
+  const fb=document.getElementById(id+'-fb');
+  document.getElementById(id+'-in').disabled=true;
+  card.querySelector('.check-btn').disabled=true;
+  const hasKw=keywords.every(k=>val.includes(k.toLowerCase()));
+  const hasComma=val.includes(',');
+  if(hasKw && hasComma && val.length>10){ card.classList.add('correct'); fb.textContent='✓ Great job! Participial phrase used correctly.'; fb.className='fb show ok'; scores.cmb[id]=true; }
+  else if(hasKw && !hasComma){ card.classList.add('wrong'); fb.textContent='✗ Almost there! Don\'t forget the comma after the participial phrase.'; fb.className='fb show bad'; scores.cmb[id]=false; }
+  else{ card.classList.add('wrong'); fb.textContent='✗ Check that you\'ve included the key ideas from both sentences.'; fb.className='fb show bad'; scores.cmb[id]=false; }
+  updateProgress();
+}
+
+const sents=[
+  { id:'i1', words:['Running','late,','she','forgot','her','keys','.'], clause:[0,1], type:'present participle', color:'#0369a1' },
+  { id:'i2', words:['The','man','reading','the','newspaper','is','my','father','.'], clause:[2,3,4], type:'present participle', color:'#0369a1' },
+  { id:'i3', words:['Exhausted','by','the','heat,','the','children','sat','in','the','shade','.'], clause:[0,1,2,3], type:'past participle', color:'#9a3412' },
+  { id:'i4', words:['We','found','a','wallet','lying','on','the','ground','.'], clause:[4,5,6,7], type:'present participle', color:'#0369a1' },
+  { id:'i5', words:['Painted','in','1889,','the','building','is','now','a','museum','.'], clause:[0,1,2], type:'past participle', color:'#9a3412' },
+];
+
+const idState={};
+
+function buildTokens(){
+  sents.forEach(s=>{
+    idState[s.id]=new Set();
+    const c=document.getElementById(s.id+'-tok');
+    s.words.forEach((w,i)=>{
+      const sp=document.createElement('span');
+      const isPunct=w==='.'||w==='!'||w==='?';
+      // Handle tokens that include trailing comma (like "late," or "1889,")
+      sp.className='tok'+(isPunct?' punct':'');
+      sp.textContent=w; sp.dataset.idx=i;
+      if(!isPunct) sp.onclick=()=>toggleTok(sp,s.id,i);
+      c.appendChild(sp);
+    });
+  });
+}
+
+function toggleTok(sp,sid,i){
+  if(sp.classList.contains('c-ok')||sp.classList.contains('c-miss')) return;
+  if(idState[sid].has(i)){ idState[sid].delete(i); sp.classList.remove('sel'); }
+  else{ idState[sid].add(i); sp.classList.add('sel'); }
+}
+
+function checkId(id){
+  const s=sents.find(x=>x.id===id);
+  const sel=idState[id];
+  const correct=new Set(s.clause);
+  const fb=document.getElementById(id+'-fb');
+  const toks=document.getElementById(id+'-tok').querySelectorAll('.tok');
+  let ok=true;
+  toks.forEach(t=>{
+    if(t.classList.contains('punct')) return;
+    const i=parseInt(t.dataset.idx);
+    const should=correct.has(i),did=sel.has(i);
+    if(should&&did){ t.classList.remove('sel'); t.classList.add('c-ok','pop'); }
+    else if(should&&!did){ t.classList.add('c-miss','pop'); ok=false; }
+    else if(!should&&did){ t.classList.remove('sel'); t.classList.add('c-miss','pop'); ok=false; }
+    t.onclick=null;
+  });
+  const lbl=`<span class="t-lbl" style="background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}35">${s.type}</span>`;
+  if(ok){ fb.innerHTML='✓ Correct! That is a '+lbl+'.'; fb.className='fb show ok'; scores.id[id]=true; }
+  else{ fb.innerHTML='✗ Not quite — the highlighted words show the correct phrase. It is a '+lbl+'.'; fb.className='fb show bad'; scores.id[id]=false; }
+  document.querySelector('#'+id+' .verify-btn').disabled=true;
+  document.querySelector('#'+id+' .reset-btn').disabled=true;
+  updateProgress();
+}
+
+function resetId(id){
+  if(scores.id[id]!==undefined) return;
+  idState[id]=new Set();
+  document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel'));
+}
+
+function retryAll(){
+  ['q1','q2','q3','q4','q5'].forEach(qId=>{
+    const card=document.getElementById(qId);
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+    const fb=document.getElementById(qId+'-fb'); fb.className='fb'; fb.textContent='';
+  });
+  ['c1','c2','c3','c4'].forEach(id=>{
+    const card=document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    const inp=document.getElementById(id+'-in'); inp.value=''; inp.disabled=false;
+    card.querySelector('.check-btn').disabled=false;
+    const fb=document.getElementById(id+'-fb'); fb.className='fb'; fb.textContent='';
+  });
+  sents.forEach(s=>{
+    idState[s.id]=new Set();
+    document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>{ t.className=t.textContent==='.'?'tok punct':'tok'; });
+    reattach(s);
+    document.querySelector('#'+s.id+' .verify-btn').disabled=false;
+    document.querySelector('#'+s.id+' .reset-btn').disabled=false;
+    const fb=document.getElementById(s.id+'-fb'); fb.className='fb'; fb.textContent='';
+  });
+  Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);
+  Object.keys(scores.cmb).forEach(k=>delete scores.cmb[k]);
+  Object.keys(scores.id).forEach(k=>delete scores.id[k]);
+  document.getElementById('pb').style.width='0%';
+  document.getElementById('score-sec').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function reattach(s){
+  document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>{
+    if(t.classList.contains('punct')) return;
+    const i=parseInt(t.dataset.idx);
+    t.onclick=()=>toggleTok(t,s.id,i);
+  });
+}
+
+buildTokens();
+</script>
+</body>
+</html>
