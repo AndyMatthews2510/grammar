@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentence Problems &amp; Parallelism — Interactive Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crim:     #881337;
+    --crim-dk:  #6b0f2b;
+    --crim-lt:  #fff1f2;
+    --crim-mid: #fecdd3;
+    --correct:  #166534;
+    --correct-lt:#dcfce7;
+    --correct-mid:#bbf7d0;
+    --slate:    #1e3a5f;
+    --slate-lt: #eef2f7;
+    --amber:    #b45309;
+    --amber-lt: #fffbeb;
+    --amber-mid:#fde68a;
+    --violet:   #5b21b6;
+    --violet-lt:#f3f0ff;
+    --ink:      #0f1f2e;
+    --muted:    #6b7a8d;
+    --border:   #dde4ed;
+    --bg:       #f7f8fb;
+    --white:    #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+
+  #pb-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 4px; background: var(--border); }
+  #pb { height: 100%; background: linear-gradient(90deg, var(--crim), var(--amber)); width: 0%; transition: width 0.5s ease; }
+
+  /* ── HEADER ── */
+  header {
+    background: #1a0a12;
+    padding: 3.5rem 2rem 4rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(136,19,55,0.5) 0%, transparent 55%),
+      radial-gradient(ellipse at 10% 80%, rgba(30,58,95,0.4) 0%, transparent 50%);
+  }
+  header::after {
+    content: '✗';
+    position: absolute; right: 7%; top: 10%;
+    font-size: 8rem; color: rgba(136,19,55,0.12); line-height: 1;
+  }
+  .h-tag {
+    display: inline-block;
+    background: var(--amber); color: var(--ink);
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.28rem 0.9rem; border-radius: 2rem; margin-bottom: 1.2rem; position: relative;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+    font-weight: 700; color: white; line-height: 1.08; position: relative;
+  }
+  header h1 em { color: #fca5a5; font-style: normal; }
+  header p { color: #9e7a85; font-size: 1.05rem; margin-top: 0.9rem; font-style: italic; position: relative; }
+  .ex-strip {
+    margin: 2rem auto 0; max-width: 680px;
+    background: rgba(136,19,55,0.2); border: 1px solid rgba(252,205,211,0.2);
+    border-radius: 0.75rem; padding: 1rem 1.5rem;
+    font-size: 1rem; color: white; position: relative;
+  }
+  .ex-strip .bad { color: #fca5a5; text-decoration: line-through; font-style: italic; }
+  .ex-strip .good { color: #86efac; font-style: italic; }
+  .ex-strip .label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.65; margin-right: 0.4rem; }
+
+  /* ── LAYOUT ── */
+  .section { padding: 3rem 1.5rem; max-width: 820px; margin: 0 auto; }
+  .sec-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+  .sec-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+  hr.div { border: none; border-top: 2px solid var(--border); max-width: 820px; margin: 0 auto; }
+
+  /* ── PROBLEM CARDS ── */
+  .prob-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .prob-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 0.9rem; padding: 1.2rem 1.4rem;
+    position: relative; overflow: hidden;
+  }
+  .prob-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+  .prob-card.frag  ::before { background: var(--crim); }
+  .prob-card.runon ::before { background: #c2410c; }
+  .prob-card.splice::before { background: var(--amber); }
+  .prob-card.choppy::before { background: var(--slate); }
+  .prob-card.string::before { background: var(--violet); }
+  .prob-card.para  ::before { background: var(--correct); }
+
+  .prob-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+  .prob-card.frag   .prob-label { color: var(--crim); }
+  .prob-card.runon  .prob-label { color: #c2410c; }
+  .prob-card.splice .prob-label { color: var(--amber); }
+  .prob-card.choppy .prob-label { color: var(--slate); }
+  .prob-card.string .prob-label { color: var(--violet); }
+  .prob-card.para   .prob-label { color: var(--correct); }
+
+  .prob-what { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.65rem; line-height: 1.5; }
+  .prob-rows { display: flex; flex-direction: column; gap: 0.4rem; }
+  .prob-row { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.92rem; }
+  .row-icon { font-size: 0.85rem; flex-shrink: 0; }
+  .bad-sent  { color: var(--crim);    font-style: italic; text-decoration: line-through; }
+  .good-sent { color: var(--correct); font-style: italic; }
+
+  /* PARALLELISM BOX */
+  .para-box {
+    background: var(--violet-lt); border: 2px solid #c4b5fd;
+    border-radius: 1rem; padding: 1.4rem 1.75rem;
+    font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.2rem;
+  }
+  .para-box strong { color: var(--violet); }
+  .para-example { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.8rem; }
+  .para-ex-row { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.95rem; }
+
+  .analogy {
+    background: var(--white); border-left: 4px solid var(--amber);
+    border-radius: 0 0.55rem 0.55rem 0;
+    padding: 0.85rem 1.2rem; font-size: 0.95rem; color: var(--muted); font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .key-rule {
+    background: #1a0a12; color: white;
+    border-radius: 0.75rem; padding: 1rem 1.4rem;
+    font-size: 0.95rem; line-height: 1.65; margin-top: 1rem;
+  }
+  .key-rule strong { color: var(--amber-mid); }
+
+  /* ── EXERCISES ── */
+  .ex-hdr { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .ex-badge {
+    background: var(--crim); color: white; font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 0.28rem 0.85rem; border-radius: 2rem; white-space: nowrap;
+  }
+  .ex-badge.amber   { background: var(--amber); color: var(--ink); }
+  .ex-badge.correct { background: var(--correct); }
+  .ex-badge.violet  { background: var(--violet); }
+  .ex-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+
+  .q-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 0.85rem; padding: 1.15rem 1.4rem;
+    margin-bottom: 0.85rem; transition: border-color 0.2s;
+  }
+  .q-card.correct { border-color: var(--correct); background: var(--correct-lt); }
+  .q-card.wrong   { border-color: #ef4444; background: #fff0f0; }
+  .q-num { font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; }
+  .q-text { font-size: 1rem; color: var(--ink); line-height: 1.65; margin-bottom: 0.85rem; }
+  .q-sent { font-style: italic; color: var(--crim); font-size: 1rem; display: block; margin-bottom: 0.6rem; }
+  .hint { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+
+  .mc-opts { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .mc-btn {
+    border: 2px solid var(--border); background: var(--bg);
+    color: var(--ink); padding: 0.4rem 1.1rem; border-radius: 2rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 600;
+    transition: all 0.15s;
+  }
+  .mc-btn:hover:not(:disabled) { border-color: var(--crim); color: var(--crim); background: var(--crim-lt); }
+  .mc-btn.sel-ok  { border-color: var(--correct); background: var(--correct-lt); color: var(--correct); }
+  .mc-btn.sel-bad { border-color: #ef4444; background: #fff0f0; color: #ef4444; }
+  .mc-btn.rev-ok  { border-color: var(--correct); background: var(--correct-lt); color: var(--correct); }
+  .mc-btn:disabled { cursor: not-allowed; opacity: 0.55; }
+
+  /* Fix-it MC — longer options */
+  .fix-opts { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.3rem; }
+  .fix-btn {
+    border: 2px solid var(--border); background: var(--bg);
+    color: var(--ink); padding: 0.6rem 1rem; border-radius: 0.6rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-align: left;
+    transition: all 0.15s; line-height: 1.45;
+  }
+  .fix-btn:hover:not(:disabled) { border-color: var(--correct); background: var(--correct-lt); }
+  .fix-btn.sel-ok  { border-color: var(--correct); background: var(--correct-lt); color: var(--correct); font-weight: 600; }
+  .fix-btn.sel-bad { border-color: #ef4444; background: #fff0f0; color: #ef4444; }
+  .fix-btn.rev-ok  { border-color: var(--correct); background: var(--correct-lt); color: var(--correct); font-weight: 600; }
+  .fix-btn:disabled { cursor: not-allowed; opacity: 0.55; }
+
+  .fb { margin-top: 0.7rem; font-size: 0.88rem; font-weight: 500; display: none; }
+  .fb.show { display: block; }
+  .fb.ok  { color: var(--correct); }
+  .fb.bad { color: #dc2626; }
+
+  /* Parallelism rewrite */
+  .rw-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 0.85rem; padding: 1.15rem 1.4rem;
+    margin-bottom: 0.85rem; transition: border-color 0.2s;
+  }
+  .rw-card.correct { border-color: var(--correct); background: var(--correct-lt); }
+  .rw-card.wrong   { border-color: #ef4444; background: #fff0f0; }
+  .rw-input {
+    width: 100%; border: 1.5px solid var(--border);
+    border-radius: 0.55rem; padding: 0.65rem 0.9rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+    color: var(--ink); background: var(--bg); outline: none;
+    transition: border-color 0.15s; margin-bottom: 0.6rem;
+  }
+  .rw-input:focus { border-color: var(--violet); background: var(--white); }
+  .check-btn {
+    background: var(--violet); color: white; border: none;
+    border-radius: 2rem; padding: 0.48rem 1.35rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .check-btn:hover:not(:disabled) { background: #4c1d95; }
+  .check-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Identify (click) */
+  .id-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: 0.85rem; padding: 1.2rem 1.4rem; margin-bottom: 0.85rem;
+  }
+  .id-instruct { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 0.75rem; }
+  .tokens { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem; line-height: 2; }
+  .tok {
+    padding: 0.25rem 0.52rem; border-radius: 0.4rem;
+    border: 2px solid transparent; cursor: pointer;
+    font-size: 1rem; transition: all 0.12s; user-select: none;
+  }
+  .tok:hover { background: var(--crim-lt); border-color: var(--crim); }
+  .tok.sel    { background: var(--amber-lt); border-color: var(--amber); color: var(--ink); font-weight: 600; }
+  .tok.c-ok   { background: var(--correct-lt); border-color: var(--correct); color: var(--correct); font-weight: 600; }
+  .tok.c-miss { background: #fff0f0; border-color: #ef4444; }
+  .tok.punct  { cursor: default; }
+  .tok.punct:hover { background: transparent; border-color: transparent; }
+  .verify-btn {
+    background: var(--crim); color: white; border: none;
+    border-radius: 2rem; padding: 0.48rem 1.35rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; transition: background 0.15s; margin-right: 0.5rem;
+  }
+  .verify-btn:hover:not(:disabled) { background: var(--crim-dk); }
+  .reset-btn {
+    background: transparent; color: var(--muted); border: 1.5px solid var(--border);
+    border-radius: 2rem; padding: 0.48rem 1.1rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.88rem; cursor: pointer; transition: all 0.15s;
+  }
+  .reset-btn:hover { border-color: var(--crim); color: var(--crim); }
+  .t-lbl {
+    display: inline-block; font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 0.18rem 0.6rem; border-radius: 1rem; margin-left: 0.5rem;
+  }
+
+  /* Score */
+  #score-sec { text-align: center; padding: 3rem 1.5rem 4rem; max-width: 820px; margin: 0 auto; display: none; }
+  #score-sec.show { display: block; }
+  .s-ring {
+    width: 130px; height: 130px; border-radius: 50%;
+    background: conic-gradient(var(--crim) calc(var(--pct)*1%), var(--border) 0);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem; position: relative;
+  }
+  .s-ring::after { content: ''; width: 100px; height: 100px; background: var(--bg); border-radius: 50%; position: absolute; }
+  .s-num { position: relative; z-index: 1; font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--crim-dk); }
+  .s-msg { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+  .s-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+  .retry-btn {
+    background: #1a0a12; color: white; border: none; border-radius: 2rem;
+    padding: 0.75rem 2rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s;
+  }
+  .retry-btn:hover { background: var(--crim-dk); }
+
+  @keyframes popIn { from { transform:scale(0.8);opacity:0 } to { transform:scale(1);opacity:1 } }
+  .pop { animation: popIn 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+
+  footer { text-align: center; padding: 2rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div id="pb-wrap"><div id="pb"></div></div>
+
+<header>
+  <div class="h-tag">Grammar Made Simple</div>
+  <h1>Sentence Problems<br>&amp; <em>Parallelism</em></h1>
+  <p>Spotting what goes wrong — and knowing how to fix it.</p>
+  <div class="ex-strip">
+    <span class="label">✗</span><span class="bad">She likes to swim, running, and dance.</span><br>
+    <span class="label">✓</span><span class="good">She likes swimming, running, and dancing.</span>
+  </div>
+</header>
+
+<!-- SECTION 1: SENTENCE PROBLEMS -->
+<div class="section">
+  <h2 class="sec-title">The Five Sentence Problems</h2>
+  <p class="sec-sub">These are the most common errors in written English. Learn to spot them — and fix them.</p>
+
+  <div class="prob-grid">
+    <div class="prob-card frag">
+      <div class="prob-label">① Fragment</div>
+      <div class="prob-what">An incomplete sentence — missing a subject, a verb, or both. Often a dependent clause left on its own.</div>
+      <div class="prob-rows">
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"Running through the park."</span><span class="hint">(no subject)</span></div>
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"Because she was tired."</span><span class="hint">(dependent clause alone)</span></div>
+        <div class="prob-row"><span class="row-icon">✓</span><span class="good-sent">"She was running through the park."</span></div>
+      </div>
+    </div>
+
+    <div class="prob-card runon">
+      <div class="prob-label">② Run-on Sentence</div>
+      <div class="prob-what">Two independent clauses joined with no punctuation or connector at all.</div>
+      <div class="prob-rows">
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"I was tired I went to bed."</span></div>
+        <div class="prob-row"><span class="row-icon">✓</span><span class="good-sent">"I was tired, so I went to bed."</span></div>
+      </div>
+    </div>
+
+    <div class="prob-card splice">
+      <div class="prob-label">③ Comma Splice</div>
+      <div class="prob-what">Two independent clauses joined with only a comma — no coordinator or semicolon.</div>
+      <div class="prob-rows">
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"I forgot my keys, I had to go back inside."</span></div>
+        <div class="prob-row"><span class="row-icon">✓</span><span class="good-sent">"I forgot my keys, so I had to go back inside."</span></div>
+      </div>
+    </div>
+
+    <div class="prob-card choppy">
+      <div class="prob-label">④ Choppy Sentences</div>
+      <div class="prob-what">Too many very short sentences in a row. The writing feels jerky and disconnected.</div>
+      <div class="prob-rows">
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"He woke up. He ate. He left."</span></div>
+        <div class="prob-row"><span class="row-icon">✓</span><span class="good-sent">"After waking up and eating, he left."</span></div>
+      </div>
+    </div>
+
+    <div class="prob-card string">
+      <div class="prob-label">⑤ Stringy Sentence</div>
+      <div class="prob-what">Too many clauses chained together with "and" or "and so." The sentence never seems to end.</div>
+      <div class="prob-rows">
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"She got up and she had breakfast and she went to school and she studied all day."</span></div>
+        <div class="prob-row"><span class="row-icon">✓</span><span class="good-sent">"After getting up and having breakfast, she went to school, where she studied all day."</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 2: PARALLELISM -->
+<div class="section">
+  <h2 class="sec-title">Parallelism</h2>
+  <p class="sec-sub">When you list or compare ideas, every item must have the same grammatical shape.</p>
+
+  <div class="para-box">
+    <strong>Parallelism</strong> means that words, phrases, or clauses in a list or pair must use the <strong>same grammatical form</strong>. If you start with a verb ending in <em>-ing</em>, every item in that list should end in <em>-ing</em>. Mixing forms creates a jarring mismatch.
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:0.85rem">
+    <div class="prob-card para">
+      <div class="prob-label">In lists</div>
+      <div class="prob-rows">
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"She enjoys <u>swimming</u>, <u>hiking</u>, and <u>to read</u>."</span></div>
+        <div class="prob-row"><span class="row-icon">✓</span><span class="good-sent">"She enjoys swimming, hiking, and reading."</span></div>
+      </div>
+    </div>
+    <div class="prob-card para">
+      <div class="prob-label">In pairs</div>
+      <div class="prob-rows">
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"He is tall, athletic, and <u>has intelligence</u>."</span></div>
+        <div class="prob-row"><span class="row-icon">✓</span><span class="good-sent">"He is tall, athletic, and intelligent."</span></div>
+      </div>
+    </div>
+    <div class="prob-card para">
+      <div class="prob-label">In comparisons</div>
+      <div class="prob-rows">
+        <div class="prob-row"><span class="row-icon">❌</span><span class="bad-sent">"She prefers <u>cooking</u> to <u>eat out</u>."</span></div>
+        <div class="prob-row"><span class="row-icon">✓</span><span class="good-sent">"She prefers cooking to eating out."</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analogy">
+    💡 Think of parallelism like a set of matching luggage — every piece should look like it belongs to the same set. One odd bag stands out immediately.
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Quick check:</strong> Find the list or pair. Read just the items. Ask: are they all the same grammatical shape? If not, make them match.
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 1: IDENTIFY THE PROBLEM ══ -->
+<div class="section" id="ex1">
+  <div class="ex-hdr">
+    <span class="ex-badge">Exercise 1</span>
+    <h2 class="ex-title">Identify the Problem</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">What kind of sentence problem does each example contain?</p>
+
+  <div class="q-card" id="q1">
+    <div class="q-num">Question 1 of 6</div>
+    <span class="q-sent">"Because he didn't study for the test."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q1','Fragment')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Fragment')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Fragment')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Fragment')">Stringy sentence</button>
+    </div>
+    <div class="fb" id="q1-fb"></div>
+  </div>
+
+  <div class="q-card" id="q2">
+    <div class="q-num">Question 2 of 6</div>
+    <span class="q-sent">"The sun set it grew cold."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q2','Run-on')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Run-on')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Run-on')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','Run-on')">Choppy</button>
+    </div>
+    <div class="fb" id="q2-fb"></div>
+  </div>
+
+  <div class="q-card" id="q3">
+    <div class="q-num">Question 3 of 6</div>
+    <span class="q-sent">"The food was cold, the waiter apologised."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q3','Comma splice')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Comma splice')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Comma splice')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Comma splice')">Parallelism error</button>
+    </div>
+    <div class="fb" id="q3-fb"></div>
+  </div>
+
+  <div class="q-card" id="q4">
+    <div class="q-num">Question 4 of 6</div>
+    <span class="q-sent">"She woke up. She showered. She dressed. She left."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q4','Choppy')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Choppy')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Choppy')">Choppy</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','Choppy')">Stringy sentence</button>
+    </div>
+    <div class="fb" id="q4-fb"></div>
+  </div>
+
+  <div class="q-card" id="q5">
+    <div class="q-num">Question 5 of 6</div>
+    <span class="q-sent">"We went to the park and we played football and we had a picnic and we watched the sunset and we drove home."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q5','Stringy sentence')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Stringy sentence')">Choppy</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Stringy sentence')">Stringy sentence</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','Stringy sentence')">Comma splice</button>
+    </div>
+    <div class="fb" id="q5-fb"></div>
+  </div>
+
+  <div class="q-card" id="q6">
+    <div class="q-num">Question 6 of 6</div>
+    <span class="q-sent">"The role requires creativity, good communication skills, and to work well under pressure."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q6','Parallelism error')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','Parallelism error')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','Parallelism error')">Choppy</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','Parallelism error')">Parallelism error</button>
+    </div>
+    <div class="fb" id="q6-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 2: CHOOSE THE FIX ══ -->
+<div class="section" id="ex2">
+  <div class="ex-hdr">
+    <span class="ex-badge amber">Exercise 2</span>
+    <h2 class="ex-title">Choose the Best Fix</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence below has a problem. Which option fixes it correctly?</p>
+
+  <div class="q-card" id="f1">
+    <div class="q-num">Question 1 of 5</div>
+    <div class="q-text">Fix the <strong>fragment</strong>: <span class="q-sent">"Exhausted after the long journey."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f1','A')">A) Exhausted after the long journey, she fell asleep on the sofa.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f1','A')">B) Exhausted. After the long journey.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f1','A')">C) After the long journey, exhausted was she.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f1','A')">D) Being exhausted after the long journey, tired.</button>
+    </div>
+    <div class="fb" id="f1-fb"></div>
+  </div>
+
+  <div class="q-card" id="f2">
+    <div class="q-num">Question 2 of 5</div>
+    <div class="q-text">Fix the <strong>comma splice</strong>: <span class="q-sent">"It was raining heavily, we stayed inside."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f2','B')">A) It was raining heavily, but however we stayed inside.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f2','B')">B) It was raining heavily, so we stayed inside.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f2','B')">C) It was raining, heavily we stayed inside.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f2','B')">D) It was raining heavily and, we stayed inside.</button>
+    </div>
+    <div class="fb" id="f2-fb"></div>
+  </div>
+
+  <div class="q-card" id="f3">
+    <div class="q-num">Question 3 of 5</div>
+    <div class="q-text">Fix the <strong>run-on</strong>: <span class="q-sent">"She was exhausted she fell asleep immediately."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f3','C')">A) She was exhausted, she fell asleep immediately.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f3','C')">B) She was exhausted she, fell asleep immediately.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f3','C')">C) She was so exhausted that she fell asleep immediately.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f3','C')">D) She was exhausted — she fell asleep, immediately.</button>
+    </div>
+    <div class="fb" id="f3-fb"></div>
+  </div>
+
+  <div class="q-card" id="f4">
+    <div class="q-num">Question 4 of 5</div>
+    <div class="q-text">Fix the <strong>choppy sentences</strong>: <span class="q-sent">"The dog barked. The cat ran. The mouse hid."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f4','B')">A) The dog barked and the cat ran and the mouse hid.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f4','B')">B) When the dog barked, the cat ran and the mouse hid.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f4','B')">C) The dog. It barked. The cat ran away. The mouse, it hid.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f4','B')">D) Barking, running, hiding — dog, cat, mouse.</button>
+    </div>
+    <div class="fb" id="f4-fb"></div>
+  </div>
+
+  <div class="q-card" id="f5">
+    <div class="q-num">Question 5 of 5</div>
+    <div class="q-text">Fix the <strong>stringy sentence</strong>: <span class="q-sent">"She got up and she had breakfast and she got dressed and she left for work."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f5','D')">A) She got up, she had breakfast, she got dressed, she left for work.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f5','D')">B) She got up. She had breakfast. She got dressed. She left for work.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f5','D')">C) Getting up and having breakfast and getting dressed and leaving for work.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f5','D')">D) After getting up and having breakfast, she got dressed and left for work.</button>
+    </div>
+    <div class="fb" id="f5-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 3: FIX THE PARALLELISM ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr">
+    <span class="ex-badge correct">Exercise 3</span>
+    <h2 class="ex-title">Fix the Parallelism</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence has a parallelism error. Rewrite it so all items match grammatically.</p>
+
+  <div class="rw-card" id="r1">
+    <div class="q-num">Question 1 of 5</div>
+    <span class="q-sent">"The manager is efficient, organised, and shows great patience."</span>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: Make the third item an adjective like the first two.</p>
+    <input class="rw-input" id="r1-in" placeholder="Rewrite the sentence with parallel structure…">
+    <button class="check-btn" onclick="checkRewrite('r1',['efficient','organised','patient'],['patient'])">Check ✓</button>
+    <div class="fb" id="r1-fb"></div>
+  </div>
+
+  <div class="rw-card" id="r2">
+    <div class="q-num">Question 2 of 5</div>
+    <span class="q-sent">"She enjoys reading novels, to watch films, and going for walks."</span>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: Make all three items gerunds (-ing forms).</p>
+    <input class="rw-input" id="r2-in" placeholder="Rewrite the sentence with parallel structure…">
+    <button class="check-btn" onclick="checkRewrite('r2',['reading','watching','going'],['watching'])">Check ✓</button>
+    <div class="fb" id="r2-fb"></div>
+  </div>
+
+  <div class="rw-card" id="r3">
+    <div class="q-num">Question 3 of 5</div>
+    <span class="q-sent">"The course will teach you to write clearly, think critically, and how to solve problems."</span>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: All three items follow "to" — keep that pattern.</p>
+    <input class="rw-input" id="r3-in" placeholder="Rewrite the sentence with parallel structure…">
+    <button class="check-btn" onclick="checkRewrite('r3',['write','think','solve'],['solve'])">Check ✓</button>
+    <div class="fb" id="r3-fb"></div>
+  </div>
+
+  <div class="rw-card" id="r4">
+    <div class="q-num">Question 4 of 5</div>
+    <span class="q-sent">"He said that he was tired, that he needed food, and he wanted to go home."</span>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: All three items should start with "that".</p>
+    <input class="rw-input" id="r4-in" placeholder="Rewrite the sentence with parallel structure…">
+    <button class="check-btn" onclick="checkRewrite('r4',['tired','food','that he wanted'],['that he wanted'])">Check ✓</button>
+    <div class="fb" id="r4-fb"></div>
+  </div>
+
+  <div class="rw-card" id="r5">
+    <div class="q-num">Question 5 of 5</div>
+    <span class="q-sent">"Her speech was inspiring, thought-provoking, and it moved the audience to tears."</span>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: The third item should be a single adjective like the first two.</p>
+    <input class="rw-input" id="r5-in" placeholder="Rewrite the sentence with parallel structure…">
+    <button class="check-btn" onclick="checkRewrite('r5',['inspiring','thought-provoking','moving'],['moving'])">Check ✓</button>
+    <div class="fb" id="r5-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4: CLICK THE BROKEN ITEM ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr">
+    <span class="ex-badge violet">Exercise 4</span>
+    <h2 class="ex-title">Click the Word That Breaks the Pattern</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">In each sentence, one item doesn't match the others. Click every word in the odd-one-out item, then press <strong>Check</strong>.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-instruct">Click all the words in the item that breaks the parallel structure.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-instruct">Click all the words in the item that breaks the parallel structure.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-instruct">Click all the words in the item that breaks the parallel structure.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-instruct">Click all the words in the item that breaks the parallel structure.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-instruct">Click all the words in the item that breaks the parallel structure.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+</div>
+
+<!-- SCORE -->
+<div id="score-sec">
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/21</div></div>
+  <div class="s-msg" id="s-msg">Well done!</div>
+  <div class="s-sub" id="s-sub">You completed all four exercises.</div>
+  <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
+</div>
+
+<footer>Sentence Problems &amp; Parallelism — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
+
+<script>
+const TOTAL = 21; // 6 MC + 5 fix MC + 5 rewrite + 5 click
+const scores = { mc:{}, fix:{}, rw:{}, id:{} };
+
+function getScore(){
+  return Object.values(scores.mc).filter(Boolean).length +
+         Object.values(scores.fix).filter(Boolean).length +
+         Object.values(scores.rw).filter(Boolean).length +
+         Object.values(scores.id).filter(Boolean).length;
+}
+
+function updateProgress(){
+  const done = Object.keys(scores.mc).length + Object.keys(scores.fix).length +
+               Object.keys(scores.rw).length + Object.keys(scores.id).length;
+  document.getElementById('pb').style.width = Math.round(done/TOTAL*100)+'%';
+  if(done===TOTAL) showScore();
+}
+
+function showScore(){
+  const sc=getScore(), pct=Math.round(sc/TOTAL*100);
+  document.getElementById('s-ring').style.setProperty('--pct',pct);
+  document.getElementById('s-num').textContent=sc+'/'+TOTAL;
+  const msgs=[[0,39,'Keep practising! 💪','Review the lesson and try again.'],[40,69,'Good effort! 👍','You\'re on the right track!'],[70,84,'Well done! ✨','You have a strong grasp of sentence problems.'],[85,100,'Excellent! 🎉','You can spot and fix every problem type!']];
+  const [,,msg,sub]=msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);
+  document.getElementById('s-msg').textContent=msg;
+  document.getElementById('s-sub').textContent=sub;
+  const sec=document.getElementById('score-sec');
+  sec.classList.add('show');
+  sec.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+// ── EXERCISE 1: IDENTIFY ──
+const explanations = {
+  q1: 'A dependent clause ("Because…") cannot stand alone — it\'s a Fragment.',
+  q2: 'Two independent clauses with no punctuation or connector between them — Run-on.',
+  q3: 'Two independent clauses joined by only a comma — Comma splice. Add "so", "but", or a semicolon.',
+  q4: 'Four very short sentences in a row — Choppy. Combine them for smoother writing.',
+  q5: 'Five clauses all chained with "and" — Stringy sentence. Vary the structure.',
+  q6: '"creativity", "communication skills", and "to work well" don\'t match — Parallelism error. Try "working well under pressure".',
+};
+
+function checkMC(btn,qId,correct){
+  const card=document.getElementById(qId);
+  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(qId+'-fb');
+  const ok=btn.textContent.trim()===correct;
+  if(ok){
+    btn.classList.add('sel-ok','pop'); card.classList.add('correct');
+    fb.textContent='✓ Correct! '+explanations[qId]; fb.className='fb show ok'; scores.mc[qId]=true;
+  } else {
+    btn.classList.add('sel-bad','pop'); card.classList.add('wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); });
+    fb.textContent='✗ Not quite. The answer is "'+correct+'". '+explanations[qId]; fb.className='fb show bad'; scores.mc[qId]=false;
+  }
+  updateProgress();
+}
+
+// ── EXERCISE 2: FIX-IT MC ──
+const fixExplanations = {
+  f1: 'Option A adds a subject and verb, making it a complete sentence.',
+  f2: 'Option B adds the coordinator "so" after the comma — fixing the splice.',
+  f3: 'Option C restructures into one complex sentence with correct subordination.',
+  f4: 'Option B uses "when" to subordinate one clause and combines the rest.',
+  f5: 'Option D uses a participial phrase to reduce the chain of "ands".',
+};
+
+function checkFix(btn,fId,correct){
+  const card=document.getElementById(fId);
+  card.querySelectorAll('.fix-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(fId+'-fb');
+  const letter=btn.textContent.trim().charAt(0);
+  const ok=letter===correct;
+  if(ok){
+    btn.classList.add('sel-ok','pop'); card.classList.add('correct');
+    fb.textContent='✓ Correct! '+fixExplanations[fId]; fb.className='fb show ok'; scores.fix[fId]=true;
+  } else {
+    btn.classList.add('sel-bad','pop'); card.classList.add('wrong');
+    card.querySelectorAll('.fix-btn').forEach(b=>{ if(b.textContent.trim().charAt(0)===correct) b.classList.add('rev-ok'); });
+    fb.textContent='✗ Not quite. The best fix is option '+correct+'. '+fixExplanations[fId]; fb.className='fb show bad'; scores.fix[fId]=false;
+  }
+  updateProgress();
+}
+
+// ── EXERCISE 3: REWRITE ──
+function checkRewrite(id, mustHave, keyFix){
+  const val=document.getElementById(id+'-in').value.trim().toLowerCase();
+  const card=document.getElementById(id);
+  const fb=document.getElementById(id+'-fb');
+  document.getElementById(id+'-in').disabled=true;
+  card.querySelector('.check-btn').disabled=true;
+
+  const hasAll = mustHave.every(k=>val.includes(k.toLowerCase()));
+  const hasKey = keyFix.some(k=>val.includes(k.toLowerCase()));
+
+  if(hasAll && hasKey && val.length>15){
+    card.classList.add('correct'); fb.textContent='✓ Well done! The items are now parallel.'; fb.className='fb show ok'; scores.rw[id]=true;
+  } else if(!hasKey){
+    card.classList.add('wrong'); fb.textContent='✗ Not quite — check that the corrected item has the right form. Make sure all items match grammatically.'; fb.className='fb show bad'; scores.rw[id]=false;
+  } else {
+    card.classList.add('wrong'); fb.textContent='✗ Make sure all items from the original sentence are included.'; fb.className='fb show bad'; scores.rw[id]=false;
+  }
+  updateProgress();
+}
+
+// ── EXERCISE 4: CLICK THE ODD ONE OUT ──
+const sents=[
+  {
+    id:'i1',
+    words:['She','enjoys','swimming',',','hiking',',','and','to','read','.'],
+    clause:[7,8],
+    fix:'"to read" → should be "reading" to match the -ing pattern',
+    color:'#881337'
+  },
+  {
+    id:'i2',
+    words:['He','is','kind',',','patient',',','and','has','a','lot','of','intelligence','.'],
+    clause:[7,8,9,10,11],
+    fix:'"has a lot of intelligence" → should be the adjective "intelligent"',
+    color:'#881337'
+  },
+  {
+    id:'i3',
+    words:['The','report','was','long',',','detailed',',','and','bored','everyone','.'],
+    clause:[8,9],
+    fix:'"bored everyone" → should be an adjective: "boring"',
+    color:'#881337'
+  },
+  {
+    id:'i4',
+    words:['She','prefers','cooking','to','eat','out','.'],
+    clause:[4,5],
+    fix:'"eat out" → should be "eating out" to match "cooking"',
+    color:'#881337'
+  },
+  {
+    id:'i5',
+    words:['They','decided','to','study','hard',',','complete','the','project',',','and','working','as','a','team','.'],
+    clause:[11,12,13,14],
+    fix:'"working as a team" → should be "work as a team" to match "study" and "complete"',
+    color:'#881337'
+  },
+];
+
+function buildTokens(){
+  sents.forEach(s=>{
+    const container=document.getElementById(s.id+'-tok');
+    s.words.forEach((w,i)=>{
+      const sp=document.createElement('span');
+      sp.className='tok'+(/^[.,!?;]$/.test(w)?' punct':'');
+      sp.textContent=w; sp.dataset.idx=i;
+      container.appendChild(sp);
+    });
+    container.addEventListener('click',function(e){
+      const tok=e.target;
+      if(!tok.classList.contains('tok')||tok.classList.contains('punct')) return;
+      if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss')) return;
+      if(document.querySelector('#'+s.id+' .verify-btn').disabled) return;
+      tok.classList.toggle('sel');
+    });
+  });
+}
+
+function checkId(id){
+  const s=sents.find(x=>x.id===id);
+  const correct=new Set(s.clause);
+  const fb=document.getElementById(id+'-fb');
+  const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');
+  let ok=true;
+  toks.forEach(t=>{
+    const i=parseInt(t.dataset.idx);
+    const should=correct.has(i), did=t.classList.contains('sel');
+    t.classList.remove('sel');
+    if(should&&did){ t.classList.add('c-ok','pop'); }
+    else if(should&&!did){ t.classList.add('c-miss','pop'); ok=false; }
+    else if(!should&&did){ t.classList.add('c-miss','pop'); ok=false; }
+  });
+  const lbl=`<span class="t-lbl" style="background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}35">not parallel</span>`;
+  if(ok){ fb.innerHTML='✓ Correct! '+s.fix; fb.className='fb show ok'; scores.id[id]=true; }
+  else{ fb.innerHTML='✗ Not quite. The highlighted words are the odd one out. '+s.fix; fb.className='fb show bad'; scores.id[id]=false; }
+  document.querySelector('#'+id+' .verify-btn').disabled=true;
+  updateProgress();
+}
+
+function resetId(id){
+  document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>{
+    t.classList.remove('sel','c-ok','c-miss','pop');
+  });
+  document.querySelector('#'+id+' .verify-btn').disabled=false;
+  delete scores.id[id];
+  const fb=document.getElementById(id+'-fb');
+  fb.className='fb'; fb.textContent='';
+  updateProgress();
+}
+
+function retryAll(){
+  ['q1','q2','q3','q4','q5','q6'].forEach(qId=>{
+    const card=document.getElementById(qId);
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+    const fb=document.getElementById(qId+'-fb'); fb.className='fb'; fb.textContent='';
+  });
+  ['f1','f2','f3','f4','f5'].forEach(id=>{
+    const card=document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.fix-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+    const fb=document.getElementById(id+'-fb'); fb.className='fb'; fb.textContent='';
+  });
+  ['r1','r2','r3','r4','r5'].forEach(id=>{
+    const card=document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    const inp=document.getElementById(id+'-in'); inp.value=''; inp.disabled=false;
+    card.querySelector('.check-btn').disabled=false;
+    const fb=document.getElementById(id+'-fb'); fb.className='fb'; fb.textContent='';
+  });
+  sents.forEach(s=>{
+    document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>{
+      t.classList.remove('sel','c-ok','c-miss','pop');
+    });
+    document.querySelector('#'+s.id+' .verify-btn').disabled=false;
+    const fb=document.getElementById(s.id+'-fb'); fb.className='fb'; fb.textContent='';
+  });
+  Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);
+  Object.keys(scores.fix).forEach(k=>delete scores.fix[k]);
+  Object.keys(scores.rw).forEach(k=>delete scores.rw[k]);
+  Object.keys(scores.id).forEach(k=>delete scores.id[k]);
+  document.getElementById('pb').style.width='0%';
+  document.getElementById('score-sec').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+buildTokens();
+</script>
+</body>
+</html>
