@@ -18,6 +18,7 @@
     --terra:#9a3412;  --terra-lt:#fff7ed;
     --blue:#1d4ed8;   --blue-lt:#eff6ff;
     --plum:#6b21a8;   --plum-lt:#faf5ff;
+    --rose2:#9d174d;  --rose2-lt:#fdf2f8;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; }
@@ -110,6 +111,7 @@
   .participle::before { background:linear-gradient(90deg,var(--terra),#fb923c); }
   .passive::before    { background:linear-gradient(90deg,var(--blue),#38bdf8); }
   .conditionals::before { background:linear-gradient(90deg,var(--plum),#a855f7); }
+  .prepositions::before { background:linear-gradient(90deg,var(--rose2),#ec4899); }
 
   /* hover border */
   .lesson-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(15,31,46,.1); }
@@ -123,6 +125,7 @@
   .participle:hover { border-color:var(--terra); }
   .passive:hover    { border-color:var(--blue); }
   .conditionals:hover { border-color:var(--plum); }
+  .prepositions:hover { border-color:var(--rose2); }
 
   /* tag chips */
   .card-tag {
@@ -140,6 +143,7 @@
   .participle .card-tag { background:var(--terra-lt);  color:var(--terra); }
   .passive    .card-tag { background:var(--blue-lt);   color:var(--blue); }
   .conditionals .card-tag { background:var(--plum-lt); color:var(--plum); }
+  .prepositions .card-tag { background:var(--rose2-lt); color:var(--rose2); }
 
   .card-title { font-family:'Playfair Display',serif; font-size:1.18rem; font-weight:700; margin-bottom:.38rem; line-height:1.2; }
   .card-desc  { font-size:.83rem; color:var(--muted); line-height:1.6; margin-bottom:1rem; }
@@ -164,6 +168,7 @@
   .participle:hover .card-arrow { color:var(--terra); }
   .passive:hover    .card-arrow { color:var(--blue); }
   .conditionals:hover .card-arrow { color:var(--plum); }
+  .prepositions:hover .card-arrow  { color:var(--rose2); }
 
   .coming-soon {
     background:var(--white); border:1.5px dashed var(--border);
@@ -210,6 +215,12 @@
         <div class="card-title">Articles: a, an &amp; the</div>
         <div class="card-desc">Master when to use the indefinite article, the definite article, or no article at all — including geographic names and tricky special cases.</div>
         <div class="card-meta"><span class="meta-pill">4 exercises</span><span class="meta-pill">21 questions</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card prepositions" href="prepositions.html">
+        <div class="card-tag">Prepositions</div>
+        <div class="card-title">Prepositions</div>
+        <div class="card-desc">Learn the rules for in, on and at for both time and place, master movement prepositions, and build a bank of fixed verb and adjective phrases.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
       </a>
     </div>
   </div>
