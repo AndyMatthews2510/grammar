@@ -19,6 +19,9 @@
     --blue:#1d4ed8;   --blue-lt:#eff6ff;
     --plum:#6b21a8;   --plum-lt:#faf5ff;
     --rose2:#9d174d;  --rose2-lt:#fdf2f8;
+    --slateM:#1e3a5f;  --slateM-lt:#eef2f7;
+    --ind2:#3730a3;    --ind2-lt:#eef2ff;
+    --grn6:#166534;    --grn6-lt:#f0fdf4;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; }
@@ -112,6 +115,9 @@
   .passive::before    { background:linear-gradient(90deg,var(--blue),#38bdf8); }
   .conditionals::before { background:linear-gradient(90deg,var(--plum),#a855f7); }
   .prepositions::before { background:linear-gradient(90deg,var(--rose2),#ec4899); }
+  .modals::before       { background:linear-gradient(90deg,var(--slateM),#60a5fa); }
+  .cnouns::before       { background:linear-gradient(90deg,var(--ind2),#818cf8); }
+  .gerunds::before      { background:linear-gradient(90deg,var(--grn6),#34d399); }
 
   /* hover border */
   .lesson-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(15,31,46,.1); }
@@ -126,6 +132,9 @@
   .passive:hover    { border-color:var(--blue); }
   .conditionals:hover { border-color:var(--plum); }
   .prepositions:hover { border-color:var(--rose2); }
+  .modals:hover       { border-color:var(--slateM); }
+  .cnouns:hover       { border-color:var(--ind2); }
+  .gerunds:hover      { border-color:var(--grn6); }
 
   /* tag chips */
   .card-tag {
@@ -144,6 +153,9 @@
   .passive    .card-tag { background:var(--blue-lt);   color:var(--blue); }
   .conditionals .card-tag { background:var(--plum-lt); color:var(--plum); }
   .prepositions .card-tag { background:var(--rose2-lt); color:var(--rose2); }
+  .modals .card-tag       { background:var(--slateM-lt); color:var(--slateM); }
+  .cnouns .card-tag       { background:var(--ind2-lt); color:var(--ind2); }
+  .gerunds .card-tag      { background:var(--grn6-lt); color:var(--grn6); }
 
   .card-title { font-family:'Playfair Display',serif; font-size:1.18rem; font-weight:700; margin-bottom:.38rem; line-height:1.2; }
   .card-desc  { font-size:.83rem; color:var(--muted); line-height:1.6; margin-bottom:1rem; }
@@ -169,6 +181,9 @@
   .passive:hover    .card-arrow { color:var(--blue); }
   .conditionals:hover .card-arrow { color:var(--plum); }
   .prepositions:hover .card-arrow  { color:var(--rose2); }
+  .modals:hover .card-arrow         { color:var(--slateM); }
+  .cnouns:hover .card-arrow         { color:var(--ind2); }
+  .gerunds:hover .card-arrow      { color:var(--grn6); }
 
   .coming-soon {
     background:var(--white); border:1.5px dashed var(--border);
@@ -191,7 +206,7 @@
 <main>
   <div class="intro">
     <h2>Choose a lesson</h2>
-    <p>Lessons are arranged in order of difficulty — start from the top if you are new, or jump to any topic you need.</p>
+    <p>Topics are grouped so that earlier sections lay groundwork for later ones — but every lesson is fully self-contained and can be studied on its own. Follow the order for the most logical progression, or jump straight to whatever you need.</p>
   </div>
 
   <!-- ── SECTION 1: FOUNDATIONS ── -->
@@ -200,7 +215,7 @@
       <div class="sec-num">1</div>
       <div class="sec-info">
         <div class="sec-title">Foundations</div>
-        <div class="sec-desc">Start here. Verb tenses, articles and prepositions are the building blocks every other lesson depends on.</div>
+        <div class="sec-desc">Core topics that appear in virtually every sentence of English. A solid grasp of verb tenses, articles, prepositions and noun types underpins everything else on this site — and rewards study at any level.</div>
       </div>
     </div>
     <div class="lessons">
@@ -222,6 +237,12 @@
         <div class="card-desc">Learn the rules for in, on and at for both time and place, master movement prepositions, and build a bank of fixed verb and adjective phrases.</div>
         <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
       </a>
+      <a class="lesson-card cnouns" href="countable_nouns.html">
+        <div class="card-tag">Nouns</div>
+        <div class="card-title">Countable &amp; Uncountable Nouns</div>
+        <div class="card-desc">Understand which nouns can be counted and which cannot — and master the quantifiers, partitive expressions and common exceptions that follow from that distinction.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
+      </a>
     </div>
   </div>
 
@@ -231,7 +252,7 @@
       <div class="sec-num">2</div>
       <div class="sec-info">
         <div class="sec-title">Sentence Building</div>
-        <div class="sec-desc">Before studying specific clause types, understand what makes a complete sentence — and what can go wrong with it.</div>
+        <div class="sec-desc">Learn what a well-formed sentence looks like and how to recognise the most common errors. These two lessons build the structural awareness needed for the clause work in Section 3.</div>
       </div>
     </div>
     <div class="lessons">
@@ -256,7 +277,7 @@
       <div class="sec-num">3</div>
       <div class="sec-info">
         <div class="sec-title">Subordinate Clauses</div>
-        <div class="sec-desc">Clauses that depend on a main clause — arranged from most intuitive to most abstract. Study them in order for the clearest progression.</div>
+        <div class="sec-desc">Three types of dependent clause, each adding a different dimension to a sentence. Adverb clauses are the most familiar starting point; noun clauses the most abstract. The order here makes a real difference.</div>
       </div>
     </div>
     <div class="lessons">
@@ -287,7 +308,7 @@
       <div class="sec-num">4</div>
       <div class="sec-info">
         <div class="sec-title">Advanced Structures</div>
-        <div class="sec-desc">These topics require a solid grasp of verb forms and clause structure — tackle them once you are confident with the earlier sections.</div>
+        <div class="sec-desc">Five topics where a background in verb forms and clause structure genuinely helps — though each lesson is fully self-contained and can be tackled in any order.</div>
       </div>
     </div>
     <div class="lessons">
@@ -308,6 +329,18 @@
         <div class="card-title">The Conditionals</div>
         <div class="card-desc">Master zero, first, second and third conditionals — from always-true facts to impossible past scenarios — and explore modal variations.</div>
         <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">15 questions</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card modals" href="modal_verbs.html">
+        <div class="card-tag">Modal Verbs</div>
+        <div class="card-title">Modal Verbs</div>
+        <div class="card-desc">Master can, could, may, might, must, should, ought to and more — and understand the six functions they express: ability, permission, obligation, deduction, possibility and advice.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card gerunds" href="gerunds_infinitives.html">
+        <div class="card-tag">Verb Forms</div>
+        <div class="card-title">Gerunds &amp; Infinitives</div>
+        <div class="card-desc">Learn which verbs take -ing, which take to + verb, and which take both — including the pairs where the choice changes the meaning entirely, such as stop smoking vs stop to smoke.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
       </a>
     </div>
   </div>

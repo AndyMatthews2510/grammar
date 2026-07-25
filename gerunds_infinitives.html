@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gerunds &amp; Infinitives — Interactive Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --grn5:     #166534;
+    --grn5-dk:  #14532d;
+    --grn5-lt:  #f0fdf4;
+    --grn5-mid: #bbf7d0;
+    --rose7:    #9f1239;
+    --rose7-lt: #fff1f2;
+    --blue4:    #1d4ed8;
+    --blue4-lt: #eff6ff;
+    --blue4-mid:#bfdbfe;
+    --amber6:   #d97706;
+    --amber6-lt:#fffbeb;
+    --amber6-mid:#fde68a;
+    --violet3:  #6d28d9;
+    --violet3-lt:#f5f3ff;
+    --violet3-mid:#ddd6fe;
+    --ink:      #0f1f2e;
+    --muted:    #6b7a8d;
+    --border:   #dde4ed;
+    --bg:       #f7f8fb;
+    --white:    #ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+  #pb-wrap{position:fixed;top:0;left:0;right:0;z-index:100;height:4px;background:var(--border);}
+  #pb{height:100%;background:linear-gradient(90deg,var(--grn5),#34d399);width:0%;transition:width .5s ease;}
+
+  header{background:#052e16;padding:3.5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(ellipse at 80% 20%,rgba(22,101,52,.6) 0%,transparent 55%),
+    radial-gradient(ellipse at 10% 80%,rgba(109,40,217,.25) 0%,transparent 50%);}
+  header::after{content:'–ing';position:absolute;right:4%;bottom:8%;font-size:5rem;color:rgba(22,101,52,.15);line-height:1;font-family:'Playfair Display',serif;font-weight:700;}
+  .h-tag{display:inline-block;background:var(--amber6);color:var(--ink);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .9rem;border-radius:2rem;margin-bottom:1.2rem;position:relative;}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:700;color:white;line-height:1.08;position:relative;}
+  header h1 em{color:#86efac;font-style:normal;}
+  header p{color:#4a8060;font-size:1.05rem;margin-top:.9rem;font-style:italic;position:relative;}
+  .ex-strip{margin:2rem auto 0;max-width:660px;background:rgba(22,101,52,.25);border:1px solid rgba(134,239,172,.2);border-radius:.75rem;padding:1rem 1.5rem;font-size:1rem;color:white;position:relative;line-height:1.9;}
+  .ex-strip .ger{color:#86efac;font-weight:700;} .ex-strip .inf{color:#93c5fd;font-weight:700;}
+  .ex-strip .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-right:.35rem;}
+
+  .section{padding:3rem 1.5rem;max-width:880px;margin:0 auto;}
+  .sec-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:var(--ink);margin-bottom:.35rem;}
+  .sec-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  hr.div{border:none;border-top:2px solid var(--border);max-width:880px;margin:0 auto;}
+
+  .def-box{background:var(--grn5-lt);border:2px solid var(--grn5);border-radius:1rem;padding:1.4rem 1.75rem;font-size:1.05rem;line-height:1.75;margin-bottom:1.2rem;}
+  .def-box strong{color:var(--grn5-dk);}
+  .analogy{background:var(--white);border-left:4px solid var(--amber6);border-radius:0 .55rem .55rem 0;padding:.85rem 1.2rem;font-size:.95rem;color:var(--muted);font-style:italic;margin-bottom:1.4rem;}
+
+  /* two-column verb lists */
+  .verb-cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.4rem;}
+  @media(max-width:560px){.verb-cols{grid-template-columns:1fr;}}
+  .verb-card{border-radius:.9rem;padding:1.2rem 1.3rem;border:2px solid transparent;}
+  .verb-card.ger{background:var(--grn5-lt);border-color:var(--grn5-mid);}
+  .verb-card.inf{background:var(--blue4-lt);border-color:var(--blue4-mid);}
+  .verb-card.both{background:var(--violet3-lt);border-color:var(--violet3-mid);}
+  .vc-title{font-weight:700;font-size:.88rem;margin-bottom:.6rem;}
+  .verb-card.ger .vc-title{color:var(--grn5);}
+  .verb-card.inf .vc-title{color:var(--blue4);}
+  .verb-card.both .vc-title{color:var(--violet3);}
+  .vc-formula{font-family:monospace;font-size:.8rem;display:inline-block;padding:.15rem .5rem;border-radius:.3rem;margin-bottom:.7rem;}
+  .verb-card.ger  .vc-formula{background:rgba(22,101,52,.12);color:var(--grn5);}
+  .verb-card.inf  .vc-formula{background:rgba(29,78,216,.12);color:var(--blue4);}
+  .verb-card.both .vc-formula{background:rgba(109,40,217,.12);color:var(--violet3);}
+  .vc-verbs{font-size:.88rem;color:var(--ink);line-height:2;margin-bottom:.6rem;}
+  .vc-verbs strong{color:var(--grn5);}
+  .verb-card.inf  .vc-verbs strong{color:var(--blue4);}
+  .verb-card.both .vc-verbs strong{color:var(--violet3);}
+  .vc-ex{font-size:.83rem;font-style:italic;color:var(--muted);line-height:1.65;padding-top:.6rem;border-top:1px solid rgba(0,0,0,.07);}
+
+  /* different-meaning pairs — the key section */
+  .diff-grid{display:flex;flex-direction:column;gap:1.1rem;}
+  .diff-card{background:var(--white);border:2px solid var(--border);border-radius:.9rem;overflow:hidden;}
+  .diff-head{padding:.65rem 1.2rem;font-weight:700;font-size:.9rem;background:var(--ink);color:white;display:flex;align-items:center;gap:.6rem;}
+  .diff-verb{color:var(--amber6-mid);}
+  .diff-body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  @media(max-width:580px){.diff-body{grid-template-columns:1fr;}}
+  .diff-half{padding:.9rem 1.1rem;}
+  .diff-half.g{border-right:1px solid var(--border);}
+  @media(max-width:580px){.diff-half.g{border-right:none;border-bottom:1px solid var(--border);}}
+  .diff-form{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem;display:block;padding:.15rem .5rem;border-radius:2rem;width:fit-content;}
+  .df-ger{background:var(--grn5-lt);color:var(--grn5);}
+  .df-inf{background:var(--blue4-lt);color:var(--blue4);}
+  .diff-sent{font-size:.92rem;font-style:italic;color:var(--ink);margin-bottom:.3rem;line-height:1.5;}
+  .diff-mean{font-size:.82rem;color:var(--muted);line-height:1.5;}
+
+  /* preposition trap */
+  .prep-box{background:var(--amber6-lt);border:2px solid var(--amber6-mid);border-radius:.9rem;padding:1.2rem 1.4rem;margin-bottom:1rem;}
+  .prep-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--amber6);margin-bottom:.6rem;}
+  .prep-rule{font-size:.9rem;color:var(--ink);line-height:1.75;margin-bottom:.65rem;}
+  .prep-ex{font-size:.88rem;font-style:italic;color:var(--muted);line-height:1.8;}
+  .trap-box{background:var(--rose7-lt);border:2px solid #fca5a5;border-radius:.85rem;padding:1.1rem 1.4rem;margin-top:1rem;}
+  .trap-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--rose7);margin-bottom:.5rem;}
+  .trap-row{font-size:.9rem;color:var(--ink);line-height:1.75;}
+  .ex-bad{color:var(--rose7);font-style:italic;text-decoration:line-through;}
+  .ex-good{color:var(--grn5);font-style:italic;}
+
+  .key-rule{background:#052e16;color:white;border-radius:.75rem;padding:1rem 1.4rem;font-size:.95rem;line-height:1.65;margin-top:1rem;}
+  .key-rule strong{color:#86efac;}
+
+  /* exercises */
+  .ex-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;}
+  .ex-badge{background:var(--grn5);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
+  .ex-badge.violet{background:var(--violet3);}
+  .ex-badge.blue{background:var(--blue4);}
+  .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+
+  .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
+  .q-card.correct{border-color:var(--grn5);background:var(--grn5-lt);}
+  .q-card.wrong{border-color:#ef4444;background:#fff0f0;}
+  .q-num{font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.5rem;}
+  .q-text{font-size:1rem;color:var(--ink);line-height:1.65;margin-bottom:.85rem;}
+  .q-sent{font-style:italic;color:var(--grn5-dk);font-size:1rem;display:block;margin-bottom:.5rem;}
+  .blank{display:inline-block;border-bottom:2px solid var(--grn5);min-width:60px;text-align:center;color:var(--grn5);font-weight:700;}
+
+  .mc-opts{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .mc-btn{border:2px solid var(--border);background:var(--bg);color:var(--ink);padding:.4rem 1.1rem;border-radius:2rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;transition:all .15s;}
+  .mc-btn:hover:not(:disabled){border-color:var(--grn5);color:var(--grn5-dk);background:var(--grn5-lt);}
+  .mc-btn.sel-ok{border-color:var(--grn5);background:var(--grn5-lt);color:var(--grn5);}
+  .mc-btn.sel-bad{border-color:#ef4444;background:#fff0f0;color:#ef4444;}
+  .mc-btn.rev-ok{border-color:var(--grn5);background:var(--grn5-lt);color:var(--grn5);}
+  .mc-btn:disabled{cursor:not-allowed;opacity:.55;}
+  .fb{margin-top:.7rem;font-size:.88rem;font-weight:500;display:none;}
+  .fb.show{display:block;} .fb.ok{color:var(--grn5);} .fb.bad{color:#dc2626;}
+
+  /* Ex 2 — longer options */
+  .fix-opts{display:flex;flex-direction:column;gap:.5rem;}
+  .fix-btn{border:2px solid var(--border);background:var(--bg);color:var(--ink);padding:.6rem 1rem;border-radius:.6rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem;text-align:left;transition:all .15s;line-height:1.45;}
+  .fix-btn:hover:not(:disabled){border-color:var(--grn5);background:var(--grn5-lt);}
+  .fix-btn.sel-ok{border-color:var(--grn5);background:var(--grn5-lt);color:var(--grn5);font-weight:600;}
+  .fix-btn.sel-bad{border-color:#ef4444;background:#fff0f0;color:#ef4444;}
+  .fix-btn.rev-ok{border-color:var(--grn5);background:var(--grn5-lt);color:var(--grn5);font-weight:600;}
+  .fix-btn:disabled{cursor:not-allowed;opacity:.55;}
+
+  /* identify */
+  .id-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.2rem 1.4rem;margin-bottom:.85rem;}
+  .id-task{font-size:.88rem;background:var(--grn5-lt);border-left:3px solid var(--grn5);padding:.5rem .8rem;border-radius:0 .4rem .4rem 0;margin-bottom:.75rem;color:var(--ink);}
+  .id-instruct{font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.75rem;}
+  .tokens{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem;line-height:2;}
+  .tok{padding:.25rem .52rem;border-radius:.4rem;border:2px solid transparent;cursor:pointer;font-size:1rem;transition:all .12s;user-select:none;}
+  .tok:hover{background:var(--grn5-lt);border-color:var(--grn5);}
+  .tok.sel{background:var(--amber6-lt);border-color:var(--amber6);color:var(--ink);font-weight:700;}
+  .tok.c-ok{background:var(--grn5-lt);border-color:var(--grn5);color:var(--grn5);font-weight:600;}
+  .tok.c-miss{background:#fff0f0;border-color:#ef4444;}
+  .tok.punct{cursor:default;} .tok.punct:hover{background:transparent;border-color:transparent;}
+  .verify-btn{background:var(--grn5);color:white;border:none;border-radius:2rem;padding:.48rem 1.35rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .15s;margin-right:.5rem;}
+  .verify-btn:hover:not(:disabled){background:var(--grn5-dk);}
+  .reset-btn{background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:2rem;padding:.48rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:all .15s;}
+  .reset-btn:hover{border-color:var(--grn5);color:var(--grn5);}
+
+  #score-sec{text-align:center;padding:3rem 1.5rem 4rem;max-width:880px;margin:0 auto;display:none;}
+  #score-sec.show{display:block;}
+  .s-ring{width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--grn5) calc(var(--pct)*1%),var(--border) 0);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative;}
+  .s-ring::after{content:'';width:100px;height:100px;background:var(--bg);border-radius:50%;position:absolute;}
+  .s-num{position:relative;z-index:1;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--grn5-dk);}
+  .s-msg{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;}
+  .s-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  .retry-btn{background:#052e16;color:white;border:none;border-radius:2rem;padding:.75rem 2rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;}
+  .retry-btn:hover{background:var(--grn5-dk);}
+  @keyframes popIn{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+  .pop{animation:popIn .25s cubic-bezier(.34,1.56,.64,1);}
+  footer{text-align:center;padding:2rem;font-size:.82rem;color:var(--muted);border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div id="pb-wrap"><div id="pb"></div></div>
+
+<header>
+  <div class="h-tag">Grammar Made Simple</div>
+  <h1>Gerunds &amp; <em>Infinitives</em></h1>
+  <p>Two ways to use a verb as a noun — and when the choice changes the meaning entirely.</p>
+  <div class="ex-strip">
+    <span class="lbl">Gerund:</span> "She enjoys <span class="ger">swimming</span>." &nbsp;·&nbsp; "<span class="ger">Smoking</span> is harmful."<br>
+    <span class="lbl">Infinitive:</span> "She wants <span class="inf">to swim</span>." &nbsp;·&nbsp; "He decided <span class="inf">to leave</span>."
+  </div>
+</header>
+
+<!-- SECTION 1: WHAT ARE THEY -->
+<div class="section">
+  <h2 class="sec-title">What Are Gerunds and Infinitives?</h2>
+  <p class="sec-sub">Both allow a verb to act like a noun in a sentence — as the subject, object or complement.</p>
+
+  <div class="def-box">
+    A <strong>gerund</strong> is a verb with <strong>-ing</strong> that functions as a noun: <em>"Swimming is relaxing."</em><br>
+    An <strong>infinitive</strong> is <strong>to + base verb</strong> that also functions as a noun: <em>"To swim is relaxing."</em><br><br>
+    The challenge is knowing <strong>which one follows which verbs</strong> — and the special cases where the choice changes the meaning entirely.
+  </div>
+  <div class="analogy">💡 Think of gerunds and infinitives as two different ways to package an action so it can sit in a noun's position. Most verbs in English have a preference for one or the other — or sometimes both.</div>
+</div>
+<hr class="div">
+
+<!-- SECTION 2: THE VERB LISTS -->
+<div class="section">
+  <h2 class="sec-title">Which Verbs Take Which Form?</h2>
+  <p class="sec-sub">Most verbs that take a gerund or infinitive do so consistently — these lists are worth learning by heart.</p>
+
+  <div class="verb-cols">
+    <div class="verb-card ger">
+      <div class="vc-title">Verbs followed by Gerund only</div>
+      <div class="vc-formula">verb + -ing</div>
+      <div class="vc-verbs">
+        <strong>enjoy</strong> · <strong>avoid</strong> · <strong>finish</strong> · <strong>mind</strong><br>
+        <strong>suggest</strong> · <strong>recommend</strong> · <strong>consider</strong><br>
+        <strong>keep</strong> · <strong>admit</strong> · <strong>deny</strong> · <strong>risk</strong><br>
+        <strong>practise</strong> · <strong>miss</strong> · <strong>imagine</strong><br>
+        <strong>can't help</strong> · <strong>give up</strong> · <strong>put off</strong>
+      </div>
+      <div class="vc-ex">
+        "She <em>enjoys swimming</em>." ✓<br>
+        "He <em>admitted taking</em> the money." ✓<br>
+        "They <em>suggested meeting</em> later." ✓<br>
+        ❌ "She enjoys <em>to swim</em>."
+      </div>
+    </div>
+
+    <div class="verb-card inf">
+      <div class="vc-title">Verbs followed by Infinitive only</div>
+      <div class="vc-formula">to + base verb</div>
+      <div class="vc-verbs">
+        <strong>want</strong> · <strong>need</strong> · <strong>hope</strong> · <strong>decide</strong><br>
+        <strong>plan</strong> · <strong>promise</strong> · <strong>agree</strong> · <strong>refuse</strong><br>
+        <strong>manage</strong> · <strong>afford</strong> · <strong>expect</strong> · <strong>offer</strong><br>
+        <strong>seem</strong> · <strong>appear</strong> · <strong>tend</strong> · <strong>fail</strong><br>
+        <strong>learn</strong> · <strong>pretend</strong> · <strong>threaten</strong>
+      </div>
+      <div class="vc-ex">
+        "She <em>wants to leave</em>." ✓<br>
+        "He <em>managed to finish</em> on time." ✓<br>
+        "They <em>agreed to meet</em> at noon." ✓<br>
+        ❌ "She wants <em>leaving</em>."
+      </div>
+    </div>
+  </div>
+
+  <div class="verb-cols">
+    <div class="verb-card both">
+      <div class="vc-title">Verbs + either form (same meaning)</div>
+      <div class="vc-formula">verb + -ing &nbsp; or &nbsp; to + base verb</div>
+      <div class="vc-verbs">
+        <strong>begin</strong> · <strong>start</strong> · <strong>continue</strong><br>
+        <strong>like</strong> · <strong>love</strong> · <strong>hate</strong> · <strong>prefer</strong><br>
+        <strong>intend</strong> · <strong>attempt</strong> · <strong>bother</strong>
+      </div>
+      <div class="vc-ex">
+        "She <em>started crying</em>." = "She <em>started to cry</em>."<br>
+        "I <em>like swimming</em>." = "I <em>like to swim</em>."<br>
+        "He <em>continued working</em>." = "…<em>to work</em>."
+      </div>
+    </div>
+
+    <div style="background:var(--grn5-lt);border:2px solid var(--grn5-mid);border-radius:.9rem;padding:1.2rem 1.3rem">
+      <div style="font-weight:700;font-size:.88rem;color:var(--grn5);margin-bottom:.55rem">Gerund as subject of a sentence</div>
+      <div style="font-size:.88rem;color:var(--ink);line-height:1.75;margin-bottom:.6rem">When a gerund comes first in a sentence, it is the grammatical subject — treated as singular.</div>
+      <div style="font-size:.84rem;font-style:italic;color:var(--muted);line-height:1.7">
+        "<strong>Swimming</strong> every day is great for your health."<br>
+        "<strong>Smoking</strong> is harmful."<br>
+        "<strong>Learning</strong> a language takes time."<br>
+        <span style="font-size:.78rem">Note: "To swim is great" is possible but formal; gerunds are more natural as subjects.</span>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 3: DIFFERENT MEANINGS -->
+<div class="section">
+  <h2 class="sec-title">Same Verb, Different Meaning</h2>
+  <p class="sec-sub">With these verbs, choosing gerund or infinitive changes the meaning significantly. This is the most important — and most tested — area of this topic.</p>
+
+  <div class="diff-grid">
+    <div class="diff-card">
+      <div class="diff-head"><span class="diff-verb">stop</span></div>
+      <div class="diff-body">
+        <div class="diff-half g">
+          <span class="diff-form df-ger">+ gerund</span>
+          <div class="diff-sent">"She <strong>stopped smoking</strong>."</div>
+          <div class="diff-mean">= She quit the habit permanently. Smoking was the activity she stopped doing.</div>
+        </div>
+        <div class="diff-half">
+          <span class="diff-form df-inf">+ infinitive</span>
+          <div class="diff-sent">"She <strong>stopped to smoke</strong>."</div>
+          <div class="diff-mean">= She paused what she was doing <em>in order to</em> have a cigarette. She is still a smoker.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diff-card">
+      <div class="diff-head"><span class="diff-verb">remember</span></div>
+      <div class="diff-body">
+        <div class="diff-half g">
+          <span class="diff-form df-ger">+ gerund</span>
+          <div class="diff-sent">"I <strong>remember locking</strong> the door."</div>
+          <div class="diff-mean">= I have a memory of doing it. The action happened first; the memory is now.</div>
+        </div>
+        <div class="diff-half">
+          <span class="diff-form df-inf">+ infinitive</span>
+          <div class="diff-sent">"<strong>Remember to lock</strong> the door!"</div>
+          <div class="diff-mean">= Don't forget to do it. The action hasn't happened yet — it needs to happen in the future.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diff-card">
+      <div class="diff-head"><span class="diff-verb">forget</span></div>
+      <div class="diff-body">
+        <div class="diff-half g">
+          <span class="diff-form df-ger">+ gerund</span>
+          <div class="diff-sent">"I'll never <strong>forget meeting</strong> her."</div>
+          <div class="diff-mean">= I cannot forget the memory of that past event. Meeting happened first.</div>
+        </div>
+        <div class="diff-half">
+          <span class="diff-form df-inf">+ infinitive</span>
+          <div class="diff-sent">"I <strong>forgot to meet</strong> her."</div>
+          <div class="diff-mean">= I failed to do something I was supposed to do. I didn't meet her — it was an obligation I missed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diff-card">
+      <div class="diff-head"><span class="diff-verb">try</span></div>
+      <div class="diff-body">
+        <div class="diff-half g">
+          <span class="diff-form df-ger">+ gerund</span>
+          <div class="diff-sent">"<strong>Try drinking</strong> more water."</div>
+          <div class="diff-mean">= Experiment with it as a possible solution. It might help — give it a go.</div>
+        </div>
+        <div class="diff-half">
+          <span class="diff-form df-inf">+ infinitive</span>
+          <div class="diff-sent">"I'm <strong>trying to finish</strong> this report."</div>
+          <div class="diff-mean">= Making an effort to achieve something difficult. There is a sense of struggle or challenge.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diff-card">
+      <div class="diff-head"><span class="diff-verb">regret</span></div>
+      <div class="diff-body">
+        <div class="diff-half g">
+          <span class="diff-form df-ger">+ gerund</span>
+          <div class="diff-sent">"I <strong>regret saying</strong> that."</div>
+          <div class="diff-mean">= I feel sorry about something I said in the past. The action has already happened.</div>
+        </div>
+        <div class="diff-half">
+          <span class="diff-form df-inf">+ infinitive</span>
+          <div class="diff-sent">"I <strong>regret to inform</strong> you…"</div>
+          <div class="diff-mean">= A formal phrase used when delivering bad news. The regret is about the present action of telling.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diff-card">
+      <div class="diff-head"><span class="diff-verb">go on</span></div>
+      <div class="diff-body">
+        <div class="diff-half g">
+          <span class="diff-form df-ger">+ gerund</span>
+          <div class="diff-sent">"She <strong>went on talking</strong> for an hour."</div>
+          <div class="diff-mean">= She continued doing the same thing without stopping.</div>
+        </div>
+        <div class="diff-half">
+          <span class="diff-form df-inf">+ infinitive</span>
+          <div class="diff-sent">"She <strong>went on to become</strong> CEO."</div>
+          <div class="diff-mean">= She did something different next — a new stage or achievement followed.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-rule">🔑 <strong>The pattern for remember, forget, regret:</strong> gerund = past action (it already happened) · infinitive = future action (it still needs to happen or is being communicated now).</div>
+</div>
+<hr class="div">
+
+<!-- SECTION 4: AFTER PREPOSITIONS -->
+<div class="section">
+  <h2 class="sec-title">After Prepositions — Always Gerund</h2>
+  <p class="sec-sub">When a verb follows a preposition, it must be a gerund. No exceptions.</p>
+
+  <div class="prep-box">
+    <div class="prep-title">Rule: preposition + gerund (-ing)</div>
+    <div class="prep-rule">Any preposition (at, for, about, in, of, on, without…) must be followed by a gerund, not an infinitive.</div>
+    <div class="prep-ex">
+      "She is good <strong>at cooking</strong>." &nbsp;·&nbsp; "He's thinking <strong>about leaving</strong>."<br>
+      "I'm interested <strong>in learning</strong> more." &nbsp;·&nbsp; "They left <strong>without saying</strong> goodbye."<br>
+      "She's afraid <strong>of failing</strong>." &nbsp;·&nbsp; "Thank you <strong>for helping</strong> me."
+    </div>
+  </div>
+
+  <div class="trap-box">
+    <div class="trap-title">⚠️ The "to" preposition trap</div>
+    <div class="trap-row">
+      Sometimes <strong>to</strong> is a preposition, not the infinitive marker. In these cases, the verb that follows must be a gerund:<br><br>
+      "I'm <strong>looking forward to</strong> <span class="ex-bad">see</span> you." &nbsp;→&nbsp; "…<strong>looking forward to <span class="ex-good">seeing</span></strong> you." ✓<br>
+      "She's <strong>used to</strong> <span class="ex-bad">work</span> late." &nbsp;→&nbsp; "…<strong>used to <span class="ex-good">working</span></strong> late." ✓<br>
+      "He <strong>objects to</strong> <span class="ex-bad">be</span> treated like that." &nbsp;→&nbsp; "…<strong>objects to <span class="ex-good">being</span></strong> treated…" ✓<br><br>
+      <span style="font-size:.85rem;color:var(--muted)">Test: if you can replace "to" with "towards" or "about", it is a preposition → use gerund.</span>
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex1">
+  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Gerund or Infinitive?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Choose the correct form of the verb in brackets.</p>
+
+  <div class="q-card" id="q1">
+    <div class="q-num">Question 1 of 6</div>
+    <div class="q-text">She enjoys <span class="blank">___</span> early in the morning. <span style="font-size:.82rem;color:var(--muted)">(run)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q1','running')">to run</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','running')">running</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','running')">run</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','running')">to running</button>
+    </div>
+    <div class="fb" id="q1-fb"></div>
+  </div>
+
+  <div class="q-card" id="q2">
+    <div class="q-num">Question 2 of 6</div>
+    <div class="q-text">He decided <span class="blank">___</span> the job. <span style="font-size:.82rem;color:var(--muted)">(accept)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">accepting</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">to accept</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">accept</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">to accepting</button>
+    </div>
+    <div class="fb" id="q2-fb"></div>
+  </div>
+
+  <div class="q-card" id="q3">
+    <div class="q-num">Question 3 of 6</div>
+    <div class="q-text">I can't imagine <span class="blank">___</span> in a city this cold. <span style="font-size:.82rem;color:var(--muted)">(live)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q3','living')">to live</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','living')">living</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','living')">live</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','living')">to living</button>
+    </div>
+    <div class="fb" id="q3-fb"></div>
+  </div>
+
+  <div class="q-card" id="q4">
+    <div class="q-num">Question 4 of 6</div>
+    <div class="q-text">They agreed <span class="blank">___</span> at the café at noon. <span style="font-size:.82rem;color:var(--muted)">(meet)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">meeting</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">to meet</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">meet</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">to meeting</button>
+    </div>
+    <div class="fb" id="q4-fb"></div>
+  </div>
+
+  <div class="q-card" id="q5">
+    <div class="q-num">Question 5 of 6</div>
+    <div class="q-text">She is very good at <span class="blank">___</span> under pressure. <span style="font-size:.82rem;color:var(--muted)">(work)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q5','working')">to work</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','working')">working</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','working')">work</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','working')">worked</button>
+    </div>
+    <div class="fb" id="q5-fb"></div>
+  </div>
+
+  <div class="q-card" id="q6">
+    <div class="q-num">Question 6 of 6</div>
+    <div class="q-text">I'm looking forward to <span class="blank">___</span> you at the conference. <span style="font-size:.82rem;color:var(--muted)">(see)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">see</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">to see</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">seeing</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">having seen</button>
+    </div>
+    <div class="fb" id="q6-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 2 ══ -->
+<div class="section" id="ex2">
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 2</span><h2 class="ex-title">What Does It Mean?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence uses one of the tricky verbs. Choose the correct interpretation.</p>
+
+  <div class="q-card" id="f1">
+    <div class="q-num">Question 1 of 5</div>
+    <span class="q-sent">"He stopped to check his phone."</span>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f1','B')">A) He no longer checks his phone as a habit.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f1','B')">B) He paused what he was doing in order to check his phone.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f1','B')">C) He tried to check his phone but couldn't.</button>
+    </div>
+    <div class="fb" id="f1-fb"></div>
+  </div>
+
+  <div class="q-card" id="f2">
+    <div class="q-num">Question 2 of 5</div>
+    <span class="q-sent">"Remember to call your mother tonight."</span>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f2','C')">A) I recall that you called your mother tonight.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f2','C')">B) I remember the experience of calling your mother.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f2','C')">C) Don't forget — you need to call your mother later.</button>
+    </div>
+    <div class="fb" id="f2-fb"></div>
+  </div>
+
+  <div class="q-card" id="f3">
+    <div class="q-num">Question 3 of 5</div>
+    <span class="q-sent">"I regret saying that to her."</span>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f3','A')">A) I feel sorry about something I said to her in the past.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f3','A')">B) I am about to deliver some bad news to her.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f3','A')">C) I am going to say something to her that I don't want to.</button>
+    </div>
+    <div class="fb" id="f3-fb"></div>
+  </div>
+
+  <div class="q-card" id="f4">
+    <div class="q-num">Question 4 of 5</div>
+    <span class="q-sent">"Try taking a different route to work."</span>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f4','B')">A) Make a great effort to reach your place of work.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f4','B')">B) Experiment with a different route — it might work better.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f4','B')">C) You are struggling to get to work by any route.</button>
+    </div>
+    <div class="fb" id="f4-fb"></div>
+  </div>
+
+  <div class="q-card" id="f5">
+    <div class="q-num">Question 5 of 5</div>
+    <span class="q-sent">"She went on to win three international awards."</span>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkFix(this,'f5','C')">A) She continued winning the same awards repeatedly.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f5','C')">B) She kept on winning without stopping.</button>
+      <button class="fix-btn" onclick="checkFix(this,'f5','C')">C) After what she had done before, her next achievement was winning the awards.</button>
+    </div>
+    <div class="fb" id="f5-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 3 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge blue">Exercise 3</span><h2 class="ex-title">Click the Gerund or Infinitive</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Read the task, then click all the words that make up the gerund or infinitive phrase.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-task">🎯 Click the <strong>gerund used as the subject</strong> of the sentence.</div>
+    <div class="id-instruct">Click all the words in the gerund phrase.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-task">🎯 Click the <strong>infinitive</strong> that follows the verb <em>offered</em>.</div>
+    <div class="id-instruct">Click all the words in the infinitive phrase.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-task">🎯 Click the <strong>gerund after a preposition</strong>.</div>
+    <div class="id-instruct">Click all the words in the gerund phrase.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-task">🎯 Click the <strong>gerund</strong> that is the object of the verb <em>admitted</em>.</div>
+    <div class="id-instruct">Click all the words in the gerund phrase.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-task">🎯 Click the <strong>infinitive</strong> that follows the verb <em>managed</em>.</div>
+    <div class="id-instruct">Click all the words in the infinitive phrase.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+</div>
+
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<footer>Gerunds &amp; Infinitives — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
+
+<script>
+const TOTAL=16;
+const scores={mc:{},fix:{},id:{}};
+function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.fix).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
+function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.fix).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
+function showScore(){const sc=getScore(),pct=Math.round(sc/TOTAL*100);document.getElementById('s-ring').style.setProperty('--pct',pct);document.getElementById('s-num').textContent=sc+'/'+TOTAL;const msgs=[[0,39,'Keep practising! 💪','Review the verb lists and different-meaning pairs, then try again.'],[40,69,'Good effort! 👍','You are on the right track.'],[70,84,'Well done! ✨','You have a solid grasp of gerunds and infinitives.'],[85,100,'Excellent! 🎉','You have mastered this tricky topic!']];const[,,msg,sub]=msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);document.getElementById('s-msg').textContent=msg;document.getElementById('s-sub').textContent=sub;const sec=document.getElementById('score-sec');sec.classList.add('show');sec.scrollIntoView({behavior:'smooth',block:'center'});}
+
+const expl={
+  q1:'"Enjoy" always takes a gerund: "enjoys running". Never "enjoys to run".',
+  q2:'"Decide" always takes an infinitive: "decided to accept". Never "decided accepting".',
+  q3:'"Imagine" always takes a gerund: "can\'t imagine living". Never "imagine to live".',
+  q4:'"Agree" always takes an infinitive: "agreed to meet". Never "agreed meeting".',
+  q5:'After a preposition ("at"), you must use a gerund: "good at working". Never "good at to work".',
+  q6:'"Looking forward to" — here "to" is a preposition, not the infinitive marker. It must be followed by a gerund: "looking forward to seeing".',
+  f1:'Stop + infinitive means to pause in order to do something. "Stopped to check" = he paused what he was doing so he could check his phone.',
+  f2:'Remember + infinitive refers to a future or habitual action that must not be forgotten: a reminder to do something later.',
+  f3:'Regret + gerund expresses sorrow about a past action. The saying already happened.',
+  f4:'Try + gerund means to experiment with something as a possible solution. Try + infinitive means to make an effort despite difficulty.',
+  f5:'"Went on to + infinitive" means she moved on to a new achievement — her next stage. "Went on + gerund" would mean she kept doing the same thing.',
+};
+
+function checkMC(btn,qId,correct){
+  const card=document.getElementById(qId);
+  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(qId+'-fb');
+  const ok=btn.textContent.trim()===correct;
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  updateProgress();
+}
+
+const fixExpl={
+  f1:'Stop + infinitive (to check) = pause in order to do something. Stop + gerund (checking) would mean quitting the habit.',
+  f2:'Remember + infinitive = don\'t forget to do it in the future. Remember + gerund = recall a past experience.',
+  f3:'Regret + gerund = feel sorry about a past action. Regret + infinitive ("regret to inform") is a formal phrase used when delivering bad news right now.',
+  f4:'Try + gerund = experiment with as an option. Try + infinitive = make an effort despite difficulty.',
+  f5:'"Went on to + infinitive" = moved on to a new, different achievement. "Went on + gerund" = continued the same activity.',
+};
+
+function checkFix(btn,fId,correct){
+  const card=document.getElementById(fId);
+  card.querySelectorAll('.fix-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(fId+'-fb');
+  const letter=btn.textContent.trim().charAt(0);
+  const ok=letter===correct;
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+fixExpl[fId];fb.className='fb show ok';scores.fix[fId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.fix-btn').forEach(b=>{if(b.textContent.trim().charAt(0)===correct)b.classList.add('rev-ok');});fb.textContent='✗ Not quite. The answer is option '+correct+'. '+fixExpl[fId];fb.className='fb show bad';scores.fix[fId]=false;}
+  updateProgress();
+}
+
+const sents=[
+  {id:'i1',words:['Swimming','every','day','is','great','for','your','health','.'],clause:[0],type:'Gerund as subject — Swimming',color:'#166534'},
+  {id:'i2',words:['She','offered','to','help','us','move','the','furniture','.'],clause:[2,3],type:'Infinitive after "offered" — to help',color:'#1d4ed8'},
+  {id:'i3',words:['I\'m','thinking','about','changing','careers','.'],clause:[3],type:'Gerund after preposition "about" — changing',color:'#166534'},
+  {id:'i4',words:['He','admitted','stealing','the','money','from','the','safe','.'],clause:[2],type:'Gerund after "admitted" — stealing',color:'#166534'},
+  {id:'i5',words:['She','managed','to','finish','the','report','on','time','.'],clause:[2,3],type:'Infinitive after "managed" — to finish',color:'#1d4ed8'},
+];
+
+function buildTokens(){
+  sents.forEach(s=>{
+    const container=document.getElementById(s.id+'-tok');
+    s.words.forEach((w,i)=>{
+      const sp=document.createElement('span');
+      sp.className='tok'+(/^[.,!?;]$/.test(w)?' punct':'');
+      sp.textContent=w;sp.dataset.idx=i;
+      container.appendChild(sp);
+    });
+    container.addEventListener('click',function(e){
+      const tok=e.target;
+      if(!tok.classList.contains('tok')||tok.classList.contains('punct'))return;
+      if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss'))return;
+      if(document.querySelector('#'+s.id+' .verify-btn').disabled)return;
+      tok.classList.toggle('sel');
+    });
+  });
+}
+
+function checkId(id){
+  const s=sents.find(x=>x.id===id);
+  const correct=new Set(s.clause);
+  const fb=document.getElementById(id+'-fb');
+  const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');
+  let ok=true;
+  toks.forEach(t=>{
+    const i=parseInt(t.dataset.idx);
+    const should=correct.has(i),did=t.classList.contains('sel');
+    t.classList.remove('sel');
+    if(should&&did){t.classList.add('c-ok','pop');}
+    else if(should&&!did){t.classList.add('c-miss','pop');ok=false;}
+    else if(!should&&did){t.classList.add('c-miss','pop');ok=false;}
+  });
+  const lbl=`<span style="display:inline-block;font-size:.75rem;font-weight:700;padding:.18rem .6rem;border-radius:1rem;margin-left:.4rem;background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}35">${s.type}</span>`;
+  if(ok){fb.innerHTML='✓ Correct! '+lbl;fb.className='fb show ok';scores.id[id]=true;}
+  else{fb.innerHTML='✗ Not quite — highlighted words show the answer. '+lbl;fb.className='fb show bad';scores.id[id]=false;}
+  document.querySelector('#'+id+' .verify-btn').disabled=true;
+  updateProgress();
+}
+
+function resetId(id){
+  document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));
+  document.querySelector('#'+id+' .verify-btn').disabled=false;
+  delete scores.id[id];
+  const fb=document.getElementById(id+'-fb');fb.className='fb';fb.textContent='';
+  updateProgress();
+}
+
+function retryAll(){
+  ['q1','q2','q3','q4','q5','q6'].forEach(qId=>{
+    const card=document.getElementById(qId);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  ['f1','f2','f3','f4','f5'].forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.fix-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  sents.forEach(s=>{
+    document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));
+    document.querySelector('#'+s.id+' .verify-btn').disabled=false;
+    const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';
+  });
+  Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);
+  Object.keys(scores.fix).forEach(k=>delete scores.fix[k]);
+  Object.keys(scores.id).forEach(k=>delete scores.id[k]);
+  document.getElementById('pb').style.width='0%';
+  document.getElementById('score-sec').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+buildTokens();
+</script>
+</body>
+</html>
