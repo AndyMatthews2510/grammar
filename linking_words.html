@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linking Words &amp; Discourse Markers — Interactive Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lime:    #4d7c0f;
+    --lime-dk: #365314;
+    --lime-lt: #f7fee7;
+    --lime-mid:#d9f99d;
+    --c-add:   #166534;  --c-add-lt: #dcfce7;  --c-add-mid:#bbf7d0;
+    --c-con:   #9f1239;  --c-con-lt: #fff1f2;  --c-con-mid:#fca5a5;
+    --c-rea:   #b45309;  --c-rea-lt: #fffbeb;  --c-rea-mid:#fde68a;
+    --c-res:   #1d4ed8;  --c-res-lt: #eff6ff;  --c-res-mid:#bfdbfe;
+    --c-exa:   #6d28d9;  --c-exa-lt: #f5f3ff;  --c-exa-mid:#ddd6fe;
+    --c-seq:   #0e7490;  --c-seq-lt: #e0f2fe;  --c-seq-mid:#bae6fd;
+    --c-sum:   #334155;  --c-sum-lt: #f1f5f9;  --c-sum-mid:#cbd5e1;
+    --ink:     #0f1f2e;
+    --muted:   #6b7a8d;
+    --border:  #dde4ed;
+    --bg:      #f7f8fb;
+    --white:   #ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+  #pb-wrap{position:fixed;top:0;left:0;right:0;z-index:100;height:4px;background:var(--border);}
+  #pb{height:100%;background:linear-gradient(90deg,var(--lime),#86efac);width:0%;transition:width .5s ease;}
+
+  header{background:#1a2e05;padding:3.5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(ellipse at 80% 20%,rgba(77,124,15,.55) 0%,transparent 55%),
+    radial-gradient(ellipse at 10% 80%,rgba(29,78,216,.2) 0%,transparent 50%);}
+  header::after{content:'→';position:absolute;right:6%;bottom:8%;font-size:8rem;color:rgba(77,124,15,.12);line-height:1;font-family:'DM Sans',sans-serif;font-weight:300;}
+  .h-tag{display:inline-block;background:#d97706;color:var(--ink);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .9rem;border-radius:2rem;margin-bottom:1.2rem;position:relative;}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5.5vw,4rem);font-weight:700;color:white;line-height:1.08;position:relative;}
+  header h1 em{color:#bef264;font-style:normal;}
+  header p{color:#5a7040;font-size:1.05rem;margin-top:.9rem;font-style:italic;position:relative;}
+  .ex-strip{margin:2rem auto 0;max-width:720px;background:rgba(77,124,15,.22);border:1px solid rgba(190,242,100,.2);border-radius:.75rem;padding:1rem 1.5rem;font-size:.95rem;color:white;position:relative;line-height:2;}
+  .ex-strip .lw{color:#bef264;font-weight:700;}
+
+  .section{padding:3rem 1.5rem;max-width:900px;margin:0 auto;}
+  .sec-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:var(--ink);margin-bottom:.35rem;}
+  .sec-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  hr.div{border:none;border-top:2px solid var(--border);max-width:900px;margin:0 auto;}
+
+  .def-box{background:var(--lime-lt);border:2px solid var(--lime);border-radius:1rem;padding:1.4rem 1.75rem;font-size:1.05rem;line-height:1.75;margin-bottom:1.2rem;}
+  .def-box strong{color:var(--lime-dk);}
+  .analogy{background:var(--white);border-left:4px solid #d97706;border-radius:0 .55rem .55rem 0;padding:.85rem 1.2rem;font-size:.95rem;color:var(--muted);font-style:italic;margin-bottom:1.4rem;}
+
+  /* category cards */
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:1rem;margin-bottom:1.5rem;}
+  .cat-card{background:var(--white);border:2px solid var(--border);border-radius:.9rem;padding:1.15rem 1.3rem;position:relative;overflow:hidden;}
+  .cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+  .cat-card.add::before{background:var(--c-add);}    .cat-card.add{border-color:var(--c-add-mid);}
+  .cat-card.con::before{background:var(--c-con);}    .cat-card.con{border-color:var(--c-con-mid);}
+  .cat-card.rea::before{background:var(--c-rea);}    .cat-card.rea{border-color:var(--c-rea-mid);}
+  .cat-card.res::before{background:var(--c-res);}    .cat-card.res{border-color:var(--c-res-mid);}
+  .cat-card.exa::before{background:var(--c-exa);}    .cat-card.exa{border-color:var(--c-exa-mid);}
+  .cat-card.seq::before{background:var(--c-seq);}    .cat-card.seq{border-color:var(--c-seq-mid);}
+  .cat-card.sum::before{background:var(--c-sum);}    .cat-card.sum{border-color:var(--c-sum-mid);}
+
+  .cat-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;margin-bottom:.45rem;}
+  .cat-card.add .cat-label{color:var(--c-add);}
+  .cat-card.con .cat-label{color:var(--c-con);}
+  .cat-card.rea .cat-label{color:var(--c-rea);}
+  .cat-card.res .cat-label{color:var(--c-res);}
+  .cat-card.exa .cat-label{color:var(--c-exa);}
+  .cat-card.seq .cat-label{color:var(--c-seq);}
+  .cat-card.sum .cat-label{color:var(--c-sum);}
+
+  .cat-words{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.55rem;line-height:1.75;}
+  .cat-rule{font-size:.83rem;color:var(--muted);margin-bottom:.5rem;line-height:1.55;}
+  .cat-ex{font-size:.85rem;font-style:italic;color:var(--ink);line-height:1.7;padding-top:.5rem;border-top:1px solid var(--border);}
+  .lw{font-weight:700;}
+  .cat-card.add .lw{color:var(--c-add);}
+  .cat-card.con .lw{color:var(--c-con);}
+  .cat-card.rea .lw{color:var(--c-rea);}
+  .cat-card.res .lw{color:var(--c-res);}
+  .cat-card.exa .lw{color:var(--c-exa);}
+  .cat-card.seq .lw{color:var(--c-seq);}
+  .cat-card.sum .lw{color:var(--c-sum);}
+
+  /* grammar note */
+  .gram-note{font-size:.78rem;display:inline-block;padding:.12rem .45rem;border-radius:2rem;margin-left:.3rem;font-style:normal;font-weight:600;}
+  .gn-clause{background:#fff9e6;color:#b45309;}
+  .gn-noun{background:#eff6ff;color:#1d4ed8;}
+  .gn-new{background:#f5f3ff;color:#6d28d9;}
+
+  /* confusions section */
+  .conf-card{background:var(--white);border:2px solid var(--border);border-radius:.9rem;overflow:hidden;margin-bottom:1rem;}
+  .conf-head{background:var(--ink);color:white;padding:.65rem 1.2rem;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:.65rem;}
+  .conf-words{color:#fde68a;}
+  .conf-body{padding:1rem 1.2rem;}
+  .conf-row{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;font-size:.88rem;margin-bottom:.5rem;align-items:baseline;line-height:1.6;}
+  .conf-row:last-child{margin-bottom:0;}
+  .conf-tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.12rem .45rem;border-radius:2rem;white-space:nowrap;}
+  .ct-clause{background:#fff9e6;color:#b45309;}
+  .ct-noun{background:#eff6ff;color:#1d4ed8;}
+  .ct-pos{background:var(--lime-lt);color:var(--lime-dk);}
+  .ct-new{background:#f5f3ff;color:#6d28d9;}
+  .conf-sent-bad{color:var(--c-con);font-style:italic;text-decoration:line-through;}
+  .conf-sent-ok{color:var(--c-add);font-style:italic;}
+
+  /* position box */
+  .pos-box{background:var(--c-seq-lt);border:1.5px solid var(--c-seq-mid);border-radius:.85rem;padding:1.1rem 1.4rem;margin-bottom:1rem;}
+  .pos-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--c-seq);margin-bottom:.6rem;}
+  .pos-row{font-size:.9rem;color:var(--ink);line-height:1.85;margin-bottom:.35rem;}
+  .pos-row:last-child{margin-bottom:0;}
+  .pos-row strong{color:var(--c-seq);}
+
+  .key-rule{background:#1a2e05;color:white;border-radius:.75rem;padding:1rem 1.4rem;font-size:.95rem;line-height:1.65;margin-top:1rem;}
+  .key-rule strong{color:#bef264;}
+
+  /* exercises */
+  .ex-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;}
+  .ex-badge{background:var(--lime);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
+  .ex-badge.amber{background:#d97706;color:var(--ink);}
+  .ex-badge.blue{background:var(--c-res);}
+  .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+
+  .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
+  .q-card.correct{border-color:var(--c-add);background:var(--c-add-lt);}
+  .q-card.wrong{border-color:#ef4444;background:#fff0f0;}
+  .q-num{font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.5rem;}
+  .q-text{font-size:1rem;color:var(--ink);line-height:1.65;margin-bottom:.85rem;}
+  .q-sent{font-style:italic;color:var(--lime-dk);font-size:1rem;display:block;margin-bottom:.5rem;}
+  .blank{display:inline-block;border-bottom:2px solid var(--lime);min-width:70px;text-align:center;color:var(--lime);font-weight:700;}
+  .hint{font-size:.82rem;color:var(--muted);font-style:italic;}
+
+  .mc-opts{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .mc-btn{border:2px solid var(--border);background:var(--bg);color:var(--ink);padding:.4rem 1.1rem;border-radius:2rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;transition:all .15s;}
+  .mc-btn:hover:not(:disabled){border-color:var(--lime);color:var(--lime-dk);background:var(--lime-lt);}
+  .mc-btn.sel-ok{border-color:var(--c-add);background:var(--c-add-lt);color:var(--c-add);}
+  .mc-btn.sel-bad{border-color:#ef4444;background:#fff0f0;color:#ef4444;}
+  .mc-btn.rev-ok{border-color:var(--c-add);background:var(--c-add-lt);color:var(--c-add);}
+  .mc-btn:disabled{cursor:not-allowed;opacity:.55;}
+  .fb{margin-top:.7rem;font-size:.88rem;font-weight:500;display:none;}
+  .fb.show{display:block;} .fb.ok{color:var(--c-add);} .fb.bad{color:#dc2626;}
+
+  /* identify */
+  .id-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.2rem 1.4rem;margin-bottom:.85rem;}
+  .id-task{font-size:.88rem;background:var(--lime-lt);border-left:3px solid var(--lime);padding:.5rem .8rem;border-radius:0 .4rem .4rem 0;margin-bottom:.75rem;color:var(--ink);}
+  .id-instruct{font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.75rem;}
+  .tokens{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem;line-height:2;}
+  .tok{padding:.25rem .52rem;border-radius:.4rem;border:2px solid transparent;cursor:pointer;font-size:1rem;transition:all .12s;user-select:none;}
+  .tok:hover{background:var(--lime-lt);border-color:var(--lime);}
+  .tok.sel{background:#fff9e6;border-color:#d97706;color:var(--ink);font-weight:700;}
+  .tok.c-ok{background:var(--c-add-lt);border-color:var(--c-add);color:var(--c-add);font-weight:600;}
+  .tok.c-miss{background:#fff0f0;border-color:#ef4444;}
+  .tok.punct{cursor:default;} .tok.punct:hover{background:transparent;border-color:transparent;}
+  .verify-btn{background:var(--lime);color:white;border:none;border-radius:2rem;padding:.48rem 1.35rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .15s;margin-right:.5rem;}
+  .verify-btn:hover:not(:disabled){background:var(--lime-dk);}
+  .reset-btn{background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:2rem;padding:.48rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:all .15s;}
+  .reset-btn:hover{border-color:var(--lime);color:var(--lime);}
+
+  #score-sec{text-align:center;padding:3rem 1.5rem 4rem;max-width:900px;margin:0 auto;display:none;}
+  #score-sec.show{display:block;}
+  .s-ring{width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--lime) calc(var(--pct)*1%),var(--border) 0);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative;}
+  .s-ring::after{content:'';width:100px;height:100px;background:var(--bg);border-radius:50%;position:absolute;}
+  .s-num{position:relative;z-index:1;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--lime-dk);}
+  .s-msg{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;}
+  .s-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  .retry-btn{background:#1a2e05;color:white;border:none;border-radius:2rem;padding:.75rem 2rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;}
+  .retry-btn:hover{background:var(--lime-dk);}
+  @keyframes popIn{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+  .pop{animation:popIn .25s cubic-bezier(.34,1.56,.64,1);}
+  footer{text-align:center;padding:2rem;font-size:.82rem;color:var(--muted);border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div id="pb-wrap"><div id="pb"></div></div>
+
+<header>
+  <div class="h-tag">Grammar Made Simple</div>
+  <h1>Linking Words &amp;<br><em>Discourse Markers</em></h1>
+  <p>The words that hold your ideas together and show how they connect.</p>
+  <div class="ex-strip">
+    "<span class="lw">Although</span> the weather was cold, we enjoyed the walk."<br>
+    "She studied hard. <span class="lw">As a result</span>, she passed with top marks."<br>
+    "He plays the piano. <span class="lw">In addition</span>, he speaks three languages."
+  </div>
+</header>
+
+<!-- SECTION 1: WHAT ARE THEY -->
+<div class="section">
+  <h2 class="sec-title">What Are Linking Words?</h2>
+  <p class="sec-sub">These are words and phrases that connect ideas — within a sentence, between sentences, or across a whole paragraph.</p>
+
+  <div class="def-box">
+    <strong>Linking words</strong> show the relationship between ideas. They tell your reader whether you are adding, contrasting, explaining, giving a reason, showing a result, giving an example, or summarising. Without them, writing feels like a list of disconnected facts. With them, it flows.
+  </div>
+  <div class="analogy">💡 Think of linking words as the signposts in a piece of writing. They tell the reader where the text is going next: "here comes a contrast", "here is an example", "here is the conclusion".</div>
+</div>
+<hr class="div">
+
+<!-- SECTION 2: THE SEVEN CATEGORIES -->
+<div class="section">
+  <h2 class="sec-title">Seven Types of Linking Word</h2>
+  <p class="sec-sub">Each group does a different job. The colour-coded key below matches the cards.</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;font-size:.78rem;font-weight:700">
+    <span style="background:var(--c-add-lt);color:var(--c-add);padding:.2rem .65rem;border-radius:2rem;border:1px solid var(--c-add-mid)">Adding</span>
+    <span style="background:var(--c-con-lt);color:var(--c-con);padding:.2rem .65rem;border-radius:2rem;border:1px solid var(--c-con-mid)">Contrasting</span>
+    <span style="background:var(--c-rea-lt);color:var(--c-rea);padding:.2rem .65rem;border-radius:2rem;border:1px solid var(--c-rea-mid)">Reasons</span>
+    <span style="background:var(--c-res-lt);color:var(--c-res);padding:.2rem .65rem;border-radius:2rem;border:1px solid var(--c-res-mid)">Results</span>
+    <span style="background:var(--c-exa-lt);color:var(--c-exa);padding:.2rem .65rem;border-radius:2rem;border:1px solid var(--c-exa-mid)">Examples</span>
+    <span style="background:var(--c-seq-lt);color:var(--c-seq);padding:.2rem .65rem;border-radius:2rem;border:1px solid var(--c-seq-mid)">Sequencing</span>
+    <span style="background:var(--c-sum-lt);color:var(--c-sum);padding:.2rem .65rem;border-radius:2rem;border:1px solid var(--c-sum-mid)">Summing up</span>
+  </div>
+
+  <div class="cat-grid">
+
+    <div class="cat-card add">
+      <div class="cat-label">Adding information</div>
+      <div class="cat-words">and · also · too · as well · in addition · furthermore · moreover · besides · what is more</div>
+      <div class="cat-rule">Use to add another point that supports or extends the first. <strong>Also</strong> goes before the main verb (or after <em>be</em>); <strong>too</strong> and <strong>as well</strong> go at the end; <strong>in addition / furthermore / moreover</strong> start a new sentence.</div>
+      <div class="cat-ex">
+        "She is clever. She is <span class="lw">also</span> very kind."<br>
+        "He plays guitar. He sings, <span class="lw">too</span>."<br>
+        "<span class="lw">Furthermore</span>, the study found that sleep improves memory."
+      </div>
+    </div>
+
+    <div class="cat-card con">
+      <div class="cat-label">Contrasting / showing the opposite</div>
+      <div class="cat-words">but · however · although · even though · though · while · whereas · despite · in spite of · nevertheless · on the other hand · yet</div>
+      <div class="cat-rule"><strong>But</strong> joins two clauses. <strong>However</strong> starts a new sentence (or sits between commas). <strong>Although/even though</strong> need a full clause after them. <strong>Despite/in spite of</strong> need a noun or -ing form.</div>
+      <div class="cat-ex">
+        "She was tired, <span class="lw">but</span> she kept working."<br>
+        "<span class="lw">Although</span> she was tired, she kept working."<br>
+        "<span class="lw">Despite</span> her tiredness, she kept working."<br>
+        "It rained. <span class="lw">However</span>, we enjoyed the walk."
+      </div>
+    </div>
+
+    <div class="cat-card rea">
+      <div class="cat-label">Giving reasons</div>
+      <div class="cat-words">because · since · as · due to · owing to · because of · on account of</div>
+      <div class="cat-rule"><strong>Because / since / as</strong> are followed by a full clause (subject + verb). <strong>Because of / due to / owing to</strong> are followed by a noun or noun phrase — never a full clause.</div>
+      <div class="cat-ex">
+        "She left early <span class="lw">because</span> she was tired."<br>
+        "She left early <span class="lw">because of</span> her tiredness."<br>
+        "<span class="lw">Since</span> the weather was bad, we stayed in."<br>
+        "<span class="lw">Due to</span> bad weather, we stayed in."
+      </div>
+    </div>
+
+    <div class="cat-card res">
+      <div class="cat-label">Showing results</div>
+      <div class="cat-words">so · therefore · as a result · consequently · thus · hence · for this reason · this means that</div>
+      <div class="cat-rule"><strong>So</strong> joins two clauses in one sentence. <strong>Therefore / as a result / consequently</strong> usually begin a new sentence, followed by a comma.</div>
+      <div class="cat-ex">
+        "She studied hard, <span class="lw">so</span> she passed."<br>
+        "She studied hard. <span class="lw">As a result</span>, she passed."<br>
+        "The road was closed. <span class="lw">Therefore</span>, we took a different route."
+      </div>
+    </div>
+
+    <div class="cat-card exa">
+      <div class="cat-label">Giving examples</div>
+      <div class="cat-words">for example · for instance · such as · like · including · namely</div>
+      <div class="cat-rule"><strong>For example / for instance</strong> introduce a complete example sentence. <strong>Such as / like / including</strong> introduce examples within a sentence (no comma needed before <em>like</em> in informal use).</div>
+      <div class="cat-ex">
+        "Many animals hibernate. <span class="lw">For example</span>, bears sleep through winter."<br>
+        "Some fruits, <span class="lw">such as</span> mangoes and papayas, grow in tropical climates."<br>
+        "She speaks several languages, <span class="lw">namely</span> French, Arabic, and Thai."
+      </div>
+    </div>
+
+    <div class="cat-card seq">
+      <div class="cat-label">Ordering and sequencing</div>
+      <div class="cat-words">first · firstly · to begin with · then · next · after that · subsequently · finally · lastly · in the end</div>
+      <div class="cat-rule">Used to show the order of steps, events or points. Usually placed at the start of a sentence or clause, followed by a comma.</div>
+      <div class="cat-ex">
+        "<span class="lw">First</span>, preheat the oven to 180°C."<br>
+        "<span class="lw">Then</span>, mix the flour and butter together."<br>
+        "<span class="lw">Finally</span>, leave it to cool before serving."
+      </div>
+    </div>
+
+    <div class="cat-card sum">
+      <div class="cat-label">Summing up</div>
+      <div class="cat-words">in conclusion · to conclude · to sum up · in short · overall · in brief · all in all · to summarise</div>
+      <div class="cat-rule">Used at the end of a piece of writing to signal a final statement. Always followed by a comma. Avoid overusing <em>in conclusion</em> — <em>overall</em> and <em>all in all</em> are less formal alternatives.</div>
+      <div class="cat-ex">
+        "<span class="lw">In conclusion</span>, the evidence strongly supports this theory."<br>
+        "<span class="lw">All in all</span>, it was a productive meeting."<br>
+        "<span class="lw">To sum up</span>, both approaches have their advantages."
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 3: KEY CONFUSIONS -->
+<div class="section">
+  <h2 class="sec-title">The Most Common Mistakes</h2>
+  <p class="sec-sub">These pairs are frequently confused. The key is what comes after each one.</p>
+
+  <div class="conf-card">
+    <div class="conf-head"><span class="conf-words">although / even though &nbsp;vs&nbsp; despite / in spite of</span></div>
+    <div class="conf-body">
+      <div class="conf-row"><span class="conf-tag ct-clause">+ full clause</span><span><strong>although / even though:</strong> always followed by a subject and verb.<br>"<em>Although <u>she was tired</u>, she kept going.</em>" ✓</span></div>
+      <div class="conf-row"><span class="conf-tag ct-noun">+ noun / -ing</span><span><strong>despite / in spite of:</strong> followed by a noun or -ing form — never a clause on its own.<br>"<em>Despite <u>her tiredness</u>, she kept going.</em>" ✓ &nbsp; "<em>Despite <u>being tired</u>, she kept going.</em>" ✓<br><span class="conf-sent-bad">"Despite she was tired, she kept going."</span> ✗</span></div>
+    </div>
+  </div>
+
+  <div class="conf-card">
+    <div class="conf-head"><span class="conf-words">because &nbsp;vs&nbsp; because of / due to</span></div>
+    <div class="conf-body">
+      <div class="conf-row"><span class="conf-tag ct-clause">+ full clause</span><span><strong>because / since / as:</strong> followed by a subject and verb.<br>"<em>She left <u>because she was ill</u>.</em>" ✓</span></div>
+      <div class="conf-row"><span class="conf-tag ct-noun">+ noun / -ing</span><span><strong>because of / due to / owing to:</strong> followed by a noun phrase.<br>"<em>She left <u>because of her illness</u>.</em>" ✓<br><span class="conf-sent-bad">"She left due to she was ill."</span> ✗</span></div>
+    </div>
+  </div>
+
+  <div class="conf-card">
+    <div class="conf-head"><span class="conf-words">however &nbsp;vs&nbsp; but</span></div>
+    <div class="conf-body">
+      <div class="conf-row"><span class="conf-tag ct-clause">joins two clauses</span><span><strong>but:</strong> sits between two clauses in one sentence.<br>"<em>It was cold, <u>but</u> we went out.</em>" ✓ &nbsp; (no comma before <em>but</em> is also acceptable)</span></div>
+      <div class="conf-row"><span class="conf-tag ct-new">new sentence</span><span><strong>however:</strong> usually starts a new sentence, followed by a comma. It can also sit in the middle of a sentence between commas, but it cannot join two clauses the way <em>but</em> does.<br>"<em>It was cold. <u>However</u>, we went out.</em>" ✓<br><span class="conf-sent-bad">"It was cold however we went out."</span> ✗</span></div>
+    </div>
+  </div>
+
+  <div class="pos-box">
+    <div class="pos-title">📍 Position of also · too · as well</div>
+    <div class="pos-row"><strong>also</strong> = goes <em>before</em> the main verb, or directly <em>after</em> be: "She <u>also</u> plays tennis." / "She is <u>also</u> a teacher."</div>
+    <div class="pos-row"><strong>too / as well</strong> = go at the <em>end</em> of a sentence: "She plays tennis, <u>too</u>." / "She plays tennis <u>as well</u>."</div>
+    <div class="pos-row"><strong>in addition / furthermore / moreover</strong> = start a new sentence, followed by a comma.</div>
+  </div>
+
+  <div class="key-rule">🔑 <strong>The quick test:</strong> Look at what comes after the linking word. A subject and verb? → use <em>although, because, however, but</em>. A noun or -ing? → use <em>despite, because of, due to</em>.</div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex1">
+  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Choose the Right Linking Word</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Select the linking word that best fits the meaning of each sentence.</p>
+
+  <div class="q-card" id="q1">
+    <div class="q-num">Question 1 of 6</div>
+    <div class="q-text">She didn't study. <span class="blank">___</span>, she passed the exam. <span class="hint">(surprising contrast)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q1','Nevertheless')">Therefore</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Nevertheless')">Nevertheless</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Nevertheless')">As a result</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','Nevertheless')">For example</button>
+    </div>
+    <div class="fb" id="q1-fb"></div>
+  </div>
+
+  <div class="q-card" id="q2">
+    <div class="q-num">Question 2 of 6</div>
+    <div class="q-text">Many animals can use tools. <span class="blank">___</span>, chimpanzees use sticks to extract termites. <span class="hint">(introducing a specific example)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q2','For example')">However</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','For example')">For example</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','For example')">Therefore</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','For example')">In addition</button>
+    </div>
+    <div class="fb" id="q2-fb"></div>
+  </div>
+
+  <div class="q-card" id="q3">
+    <div class="q-num">Question 3 of 6</div>
+    <div class="q-text">The project ran over budget. <span class="blank">___</span>, it was delivered three weeks late. <span class="hint">(adding another negative point)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q3','Furthermore')">However</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Furthermore')">Furthermore</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Furthermore')">As a result</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Furthermore')">In conclusion</button>
+    </div>
+    <div class="fb" id="q3-fb"></div>
+  </div>
+
+  <div class="q-card" id="q4">
+    <div class="q-num">Question 4 of 6</div>
+    <div class="q-text">The roads were icy. <span class="blank">___</span>, several accidents occurred. <span class="hint">(the icy roads caused the accidents)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q4','As a result')">Although</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','As a result')">Nevertheless</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','As a result')">As a result</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','As a result')">For instance</button>
+    </div>
+    <div class="fb" id="q4-fb"></div>
+  </div>
+
+  <div class="q-card" id="q5">
+    <div class="q-num">Question 5 of 6</div>
+    <div class="q-text"><span class="blank">___</span>, preheat the oven. Then add the ingredients. <span class="hint">(the very first step)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q5','First')">Finally</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','First')">As a result</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','First')">First</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','First')">However</button>
+    </div>
+    <div class="fb" id="q5-fb"></div>
+  </div>
+
+  <div class="q-card" id="q6">
+    <div class="q-num">Question 6 of 6</div>
+    <div class="q-text"><span class="blank">___</span>, the research suggests that regular exercise improves both physical and mental health. <span class="hint">(final statement in an essay)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q6','In conclusion')">For example</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','In conclusion')">In addition</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','In conclusion')">However</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','In conclusion')">In conclusion</button>
+    </div>
+    <div class="fb" id="q6-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 2 ══ -->
+<div class="section" id="ex2">
+  <div class="ex-hdr"><span class="ex-badge amber">Exercise 2</span><h2 class="ex-title">Clause or Noun? Choose the Correct Form</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Some linking words need a full clause after them; others need a noun. Choose carefully.</p>
+
+  <div class="q-card" id="f1">
+    <div class="q-num">Question 1 of 5</div>
+    <div class="q-text"><span class="blank">___</span> the weather was terrible, we decided to go ahead with the outdoor event.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f1','Although')">Despite</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','Although')">Although</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','Although')">In spite of</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','Although')">Because of</button>
+    </div>
+    <div class="fb" id="f1-fb"></div>
+  </div>
+
+  <div class="q-card" id="f2">
+    <div class="q-num">Question 2 of 5</div>
+    <div class="q-text">She succeeded <span class="blank">___</span> many difficulties along the way.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f2','despite')">although</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','despite')">even though</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','despite')">despite</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','despite')">because</button>
+    </div>
+    <div class="fb" id="f2-fb"></div>
+  </div>
+
+  <div class="q-card" id="f3">
+    <div class="q-num">Question 3 of 5</div>
+    <div class="q-text">The match was cancelled <span class="blank">___</span> the heavy rain.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f3','because of')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','because of')">since</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','because of')">as</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','because of')">because of</button>
+    </div>
+    <div class="fb" id="f3-fb"></div>
+  </div>
+
+  <div class="q-card" id="f4">
+    <div class="q-num">Question 4 of 5</div>
+    <div class="q-text">He is a talented musician. He is <span class="blank">___</span> a gifted painter. <span class="hint">(adding a second point — think about position)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f4','also')">too</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','also')">also</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','also')">as well</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','also')">in addition</button>
+    </div>
+    <div class="fb" id="f4-fb"></div>
+  </div>
+
+  <div class="q-card" id="f5">
+    <div class="q-num">Question 5 of 5</div>
+    <div class="q-text">The film was poorly reviewed. <span class="blank">___</span>, it was a huge commercial success. <span class="hint">(the second sentence is surprising given the first)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f5','However')">Therefore</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','However')">However</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','However')">Furthermore</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','However')">As a result</button>
+    </div>
+    <div class="fb" id="f5-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 3 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge blue">Exercise 3</span><h2 class="ex-title">Click the Linking Word or Phrase</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Read the task, then click all the words that make up the linking word or phrase.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-task">🎯 Click the linking word that shows <strong>contrast</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-task">🎯 Click the linking word that introduces the <strong>reason</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-task">🎯 Click the linking phrase that introduces an <strong>example</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-task">🎯 Click the linking phrase that shows a <strong>result</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-task">🎯 Click the linking phrase used to <strong>sum up</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+</div>
+
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<footer>Linking Words &amp; Discourse Markers — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
+
+<script>
+const TOTAL=16;
+const scores={mc:{},id:{}};
+function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
+function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
+function showScore(){const sc=getScore(),pct=Math.round(sc/TOTAL*100);document.getElementById('s-ring').style.setProperty('--pct',pct);document.getElementById('s-num').textContent=sc+'/'+TOTAL;const msgs=[[0,39,'Keep practising! 💪','Review each category and try again.'],[40,69,'Good effort! 👍','You are getting there — focus on the clause vs noun distinction.'],[70,84,'Well done! ✨','You have a strong grasp of linking words.'],[85,100,'Excellent! 🎉','You have mastered linking words and discourse markers!']];const[,,msg,sub]=msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);document.getElementById('s-msg').textContent=msg;document.getElementById('s-sub').textContent=sub;const sec=document.getElementById('score-sec');sec.classList.add('show');sec.scrollIntoView({behavior:'smooth',block:'center'});}
+
+const expl={
+  q1:'"Nevertheless" shows a surprising contrast — she passed despite not studying. "Therefore" and "as a result" would mean she passed because she studied (opposite meaning).',
+  q2:'"For example" introduces a specific example to support a general claim. The sentence gives chimpanzees as evidence for the claim about tool use.',
+  q3:'"Furthermore" adds another negative point to the first. "However" would signal a contrast, which is not what is meant here.',
+  q4:'"As a result" shows that the accidents happened because of the icy roads — a cause-and-effect relationship.',
+  q5:'"First" signals the very first step in a sequence. "Finally" is used for the last step.',
+  q6:'"In conclusion" signals the final, summarising statement — typical in essays and formal writing.',
+  f1:'"Although" must be followed by a full clause (subject + verb): "although the weather was terrible". "Despite" and "in spite of" need a noun or -ing form.',
+  f2:'"Despite" must be followed by a noun or -ing: "despite many difficulties". "Although" and "even though" need a full clause with a verb.',
+  f3:'"Because of" is followed by a noun: "because of the heavy rain". "Because", "since" and "as" need a full clause with a subject and verb.',
+  f4:'"Also" goes in mid-position, after the verb "be": "He is also a gifted painter". "Too" and "as well" go at the end of the sentence.',
+  f5:'"However" signals a surprising contrast — the film did well despite bad reviews. "Therefore" and "as a result" would suggest it failed, which is the opposite meaning.',
+};
+
+function checkMC(btn,qId,correct){
+  const card=document.getElementById(qId);
+  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(qId+'-fb');
+  const ok=btn.textContent.trim()===correct;
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  updateProgress();
+}
+
+const sents=[
+  {id:'i1',words:['Although','she','was','exhausted',',','she','finished','the','report','.'],clause:[0],type:'Although — contrast / concession',color:'#9f1239'},
+  {id:'i2',words:['He','stayed','at','home','because','the','weather','was','too','bad','.'],clause:[4],type:'because — gives the reason',color:'#b45309'},
+  {id:'i3',words:['Some','cities','are','very','expensive',',','for','example','Tokyo','and','Zurich','.'],clause:[6,7],type:'for example — introduces examples',color:'#6d28d9'},
+  {id:'i4',words:['She','trained','every','day','.','As','a','result',',','she','won','the','race','.'],clause:[5,6,7],type:'As a result — shows consequence',color:'#1d4ed8'},
+  {id:'i5',words:['To','sum','up',',','both','options','have','clear','advantages','.'],clause:[0,1,2],type:'To sum up — summarising statement',color:'#334155'},
+];
+
+function buildTokens(){
+  sents.forEach(s=>{
+    const container=document.getElementById(s.id+'-tok');
+    s.words.forEach((w,i)=>{
+      const sp=document.createElement('span');
+      sp.className='tok'+(/^[.,!?;]$/.test(w)?' punct':'');
+      sp.textContent=w;sp.dataset.idx=i;
+      container.appendChild(sp);
+    });
+    container.addEventListener('click',function(e){
+      const tok=e.target;
+      if(!tok.classList.contains('tok')||tok.classList.contains('punct'))return;
+      if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss'))return;
+      if(document.querySelector('#'+s.id+' .verify-btn').disabled)return;
+      tok.classList.toggle('sel');
+    });
+  });
+}
+
+function checkId(id){
+  const s=sents.find(x=>x.id===id);
+  const correct=new Set(s.clause);
+  const fb=document.getElementById(id+'-fb');
+  const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');
+  let ok=true;
+  toks.forEach(t=>{
+    const i=parseInt(t.dataset.idx);
+    const should=correct.has(i),did=t.classList.contains('sel');
+    t.classList.remove('sel');
+    if(should&&did){t.classList.add('c-ok','pop');}
+    else if(should&&!did){t.classList.add('c-miss','pop');ok=false;}
+    else if(!should&&did){t.classList.add('c-miss','pop');ok=false;}
+  });
+  const lbl=`<span style="display:inline-block;font-size:.75rem;font-weight:700;padding:.18rem .6rem;border-radius:1rem;margin-left:.4rem;background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}35">${s.type}</span>`;
+  if(ok){fb.innerHTML='✓ Correct! '+lbl;fb.className='fb show ok';scores.id[id]=true;}
+  else{fb.innerHTML='✗ Not quite — highlighted words show the answer. '+lbl;fb.className='fb show bad';scores.id[id]=false;}
+  document.querySelector('#'+id+' .verify-btn').disabled=true;
+  updateProgress();
+}
+
+function resetId(id){
+  document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));
+  document.querySelector('#'+id+' .verify-btn').disabled=false;
+  delete scores.id[id];
+  const fb=document.getElementById(id+'-fb');fb.className='fb';fb.textContent='';
+  updateProgress();
+}
+
+function retryAll(){
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+    const card=document.getElementById(qId);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  sents.forEach(s=>{
+    document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));
+    document.querySelector('#'+s.id+' .verify-btn').disabled=false;
+    const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';
+  });
+  Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);
+  Object.keys(scores.id).forEach(k=>delete scores.id[k]);
+  document.getElementById('pb').style.width='0%';
+  document.getElementById('score-sec').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+buildTokens();
+</script>
+</body>
+</html>

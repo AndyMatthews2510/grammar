@@ -22,6 +22,10 @@
     --slateM:#1e3a5f;  --slateM-lt:#eef2f7;
     --ind2:#3730a3;    --ind2-lt:#eef2ff;
     --grn6:#166534;    --grn6-lt:#f0fdf4;
+    --sky2:#0369a1;    --sky2-lt:#e0f2fe;
+    --lime2:#4d7c0f;   --lime2-lt:#f7fee7;
+    --pink2:#be185d;   --pink2-lt:#fdf2f8;
+    --coral2:#ea580c;  --coral2-lt:#fff7ed;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; }
@@ -118,6 +122,10 @@
   .modals::before       { background:linear-gradient(90deg,var(--slateM),#60a5fa); }
   .cnouns::before       { background:linear-gradient(90deg,var(--ind2),#818cf8); }
   .gerunds::before      { background:linear-gradient(90deg,var(--grn6),#34d399); }
+  .reported::before     { background:linear-gradient(90deg,var(--sky2),#38bdf8); }
+  .linking::before      { background:linear-gradient(90deg,var(--lime2),#86efac); }
+  .dets::before         { background:linear-gradient(90deg,var(--pink2),#f472b6); }
+  .comps::before        { background:linear-gradient(90deg,var(--coral2),#fb923c); }
 
   /* hover border */
   .lesson-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(15,31,46,.1); }
@@ -135,6 +143,10 @@
   .modals:hover       { border-color:var(--slateM); }
   .cnouns:hover       { border-color:var(--ind2); }
   .gerunds:hover      { border-color:var(--grn6); }
+  .reported:hover     { border-color:var(--sky2); }
+  .linking:hover      { border-color:var(--lime2); }
+  .dets:hover         { border-color:var(--pink2); }
+  .comps:hover        { border-color:var(--coral2); }
 
   /* tag chips */
   .card-tag {
@@ -156,6 +168,10 @@
   .modals .card-tag       { background:var(--slateM-lt); color:var(--slateM); }
   .cnouns .card-tag       { background:var(--ind2-lt); color:var(--ind2); }
   .gerunds .card-tag      { background:var(--grn6-lt); color:var(--grn6); }
+  .reported .card-tag     { background:var(--sky2-lt); color:var(--sky2); }
+  .linking .card-tag      { background:var(--lime2-lt); color:var(--lime2); }
+  .dets .card-tag         { background:var(--pink2-lt); color:var(--pink2); }
+  .comps .card-tag        { background:var(--coral2-lt); color:var(--coral2); }
 
   .card-title { font-family:'Playfair Display',serif; font-size:1.18rem; font-weight:700; margin-bottom:.38rem; line-height:1.2; }
   .card-desc  { font-size:.83rem; color:var(--muted); line-height:1.6; margin-bottom:1rem; }
@@ -184,6 +200,10 @@
   .modals:hover .card-arrow         { color:var(--slateM); }
   .cnouns:hover .card-arrow         { color:var(--ind2); }
   .gerunds:hover .card-arrow      { color:var(--grn6); }
+  .reported:hover .card-arrow     { color:var(--sky2); }
+  .linking:hover .card-arrow      { color:var(--lime2); }
+  .dets:hover .card-arrow         { color:var(--pink2); }
+  .comps:hover .card-arrow        { color:var(--coral2); }
 
   .coming-soon {
     background:var(--white); border:1.5px dashed var(--border);
@@ -252,7 +272,7 @@
       <div class="sec-num">2</div>
       <div class="sec-info">
         <div class="sec-title">Sentence Building</div>
-        <div class="sec-desc">Learn what a well-formed sentence looks like and how to recognise the most common errors. These two lessons build the structural awareness needed for the clause work in Section 3.</div>
+        <div class="sec-desc">Learn what a well-formed sentence looks like, how to compare and rank ideas, and how to recognise and fix the most common errors. These lessons build the structural awareness needed for the clause work in Section 3.</div>
       </div>
     </div>
     <div class="lessons">
@@ -267,6 +287,12 @@
         <div class="card-title">Sentence Problems &amp; Parallelism</div>
         <div class="card-desc">Spot and fix fragments, run-ons, comma splices, choppy and stringy sentences — plus master parallel structure in lists and comparisons.</div>
         <div class="card-meta"><span class="meta-pill">4 exercises</span><span class="meta-pill">21 questions</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card comps" href="comparatives.html">
+        <div class="card-tag">Comparison</div>
+        <div class="card-title">Comparatives &amp; Superlatives</div>
+        <div class="card-desc">Learn to form and use comparatives and superlatives correctly — including spelling rules, irregular forms, the more…the more, as…as, and one of the most…</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
       </a>
     </div>
   </div>
@@ -308,7 +334,7 @@
       <div class="sec-num">4</div>
       <div class="sec-info">
         <div class="sec-title">Advanced Structures</div>
-        <div class="sec-desc">Five topics where a background in verb forms and clause structure genuinely helps — though each lesson is fully self-contained and can be tackled in any order.</div>
+        <div class="sec-desc">Eight topics where a background in verb forms and clause structure genuinely helps — though each lesson is fully self-contained and can be tackled in any order.</div>
       </div>
     </div>
     <div class="lessons">
@@ -340,6 +366,24 @@
         <div class="card-tag">Verb Forms</div>
         <div class="card-title">Gerunds &amp; Infinitives</div>
         <div class="card-desc">Learn which verbs take -ing, which take to + verb, and which take both — including the pairs where the choice changes the meaning entirely, such as stop smoking vs stop to smoke.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card reported" href="reported_speech.html">
+        <div class="card-tag">Reported Speech</div>
+        <div class="card-title">Reported Speech</div>
+        <div class="card-desc">Learn to report what someone said, asked or commanded — with clear guidance on how tenses move back, which words change, and how say differs from tell.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card linking" href="linking_words.html">
+        <div class="card-tag">Linking Words</div>
+        <div class="card-title">Linking Words &amp; Discourse Markers</div>
+        <div class="card-desc">Master the words that hold writing together — adding, contrasting, giving reasons, showing results, sequencing and summing up — including the clause vs noun distinction for despite and although.</div>
+        <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
+      </a>
+      <a class="lesson-card dets" href="determiners.html">
+        <div class="card-tag">Determiners</div>
+        <div class="card-title">Determiners</div>
+        <div class="card-desc">Master each, every, all, both, either, neither, some and any — the words that tell us which one and how many, with clear guidance on the differences that catch learners out.</div>
         <div class="card-meta"><span class="meta-pill">3 exercises</span><span class="meta-pill">16 questions</span><span class="card-arrow">→</span></div>
       </a>
     </div>

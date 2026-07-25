@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reported Speech — Interactive Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky:     #0369a1;
+    --sky-dk:  #075985;
+    --sky-lt:  #e0f2fe;
+    --sky-mid: #bae6fd;
+    --grn7:    #166534;
+    --grn7-lt: #dcfce7;
+    --rose8:   #9f1239;
+    --rose8-lt:#fff1f2;
+    --amber7:  #d97706;
+    --amber7-lt:#fffbeb;
+    --amber7-mid:#fde68a;
+    --violet4: #6d28d9;
+    --violet4-lt:#f5f3ff;
+    --ink:     #0f1f2e;
+    --muted:   #6b7a8d;
+    --border:  #dde4ed;
+    --bg:      #f7f8fb;
+    --white:   #ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+  #pb-wrap{position:fixed;top:0;left:0;right:0;z-index:100;height:4px;background:var(--border);}
+  #pb{height:100%;background:linear-gradient(90deg,var(--sky),#38bdf8);width:0%;transition:width .5s ease;}
+
+  header{background:#021c2e;padding:3.5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(ellipse at 80% 20%,rgba(3,105,161,.55) 0%,transparent 55%),
+    radial-gradient(ellipse at 10% 80%,rgba(109,40,217,.2) 0%,transparent 50%);}
+  header::after{content:'"';position:absolute;right:5%;bottom:0%;font-size:11rem;color:rgba(3,105,161,.12);line-height:1;font-family:'Playfair Display',serif;font-weight:700;}
+  .h-tag{display:inline-block;background:var(--amber7);color:var(--ink);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .9rem;border-radius:2rem;margin-bottom:1.2rem;position:relative;}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4.2rem);font-weight:700;color:white;line-height:1.08;position:relative;}
+  header h1 em{color:#7dd3fc;font-style:normal;}
+  header p{color:#406070;font-size:1.05rem;margin-top:.9rem;font-style:italic;position:relative;}
+  .ex-strip{margin:2rem auto 0;max-width:660px;background:rgba(3,105,161,.22);border:1px solid rgba(125,211,252,.2);border-radius:.75rem;padding:1.1rem 1.5rem;font-size:1rem;color:white;position:relative;line-height:1.9;}
+  .ex-strip .dir{color:#fca5a5;font-style:italic;} .ex-strip .rep{color:#86efac;font-style:italic;}
+  .ex-strip .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-right:.35rem;}
+
+  .section{padding:3rem 1.5rem;max-width:880px;margin:0 auto;}
+  .sec-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:600;color:var(--ink);margin-bottom:.35rem;}
+  .sec-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  hr.div{border:none;border-top:2px solid var(--border);max-width:880px;margin:0 auto;}
+
+  .def-box{background:var(--sky-lt);border:2px solid var(--sky);border-radius:1rem;padding:1.4rem 1.75rem;font-size:1.05rem;line-height:1.8;margin-bottom:1.2rem;}
+  .def-box strong{color:var(--sky-dk);}
+  .analogy{background:var(--white);border-left:4px solid var(--amber7);border-radius:0 .55rem .55rem 0;padding:.85rem 1.2rem;font-size:.95rem;color:var(--muted);font-style:italic;margin-bottom:1.4rem;}
+
+  /* direct vs reported compare */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+  @media(max-width:560px){.compare{grid-template-columns:1fr;}}
+  .cmp{border-radius:.85rem;padding:1.2rem 1.3rem;border:2px solid transparent;}
+  .cmp.dir{background:var(--rose8-lt);border-color:#fca5a5;}
+  .cmp.rep{background:var(--grn7-lt);border-color:#bbf7d0;}
+  .cmp-title{font-weight:700;font-size:.88rem;margin-bottom:.6rem;}
+  .cmp.dir .cmp-title{color:var(--rose8);}
+  .cmp.rep .cmp-title{color:var(--grn7);}
+  .cmp-sent{font-size:.95rem;font-style:italic;color:var(--ink);line-height:1.7;}
+
+  /* tense shift table */
+  .shift-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:1.2rem;}
+  .shift-table th{padding:.6rem .9rem;text-align:left;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;}
+  .shift-table td{padding:.55rem .9rem;border-bottom:1px solid var(--border);vertical-align:middle;line-height:1.55;}
+  .shift-table thead tr{background:var(--sky);color:white;}
+  .shift-table tr:nth-child(even) td{background:var(--sky-lt);}
+  .shift-table .arr{color:var(--sky);font-size:1.1rem;font-weight:700;text-align:center;width:40px;}
+  .sh-dir{font-style:italic;color:var(--rose8);}
+  .sh-rep{font-style:italic;color:var(--grn7);}
+  .stays{color:var(--muted);font-size:.8rem;}
+
+  /* word changes */
+  .word-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.65rem;margin-bottom:1.2rem;}
+  @media(max-width:580px){.word-grid{grid-template-columns:1fr 1fr;}}
+  .word-chip{background:var(--white);border:1.5px solid var(--border);border-radius:.6rem;padding:.6rem .85rem;font-size:.88rem;line-height:1.6;}
+  .wc-dir{color:var(--rose8);font-weight:700;}
+  .wc-arr{color:var(--muted);margin:0 .25rem;}
+  .wc-rep{color:var(--grn7);font-weight:700;}
+
+  /* say vs tell */
+  .say-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.1rem;}
+  @media(max-width:560px){.say-grid{grid-template-columns:1fr;}}
+  .say-card{border-radius:.85rem;padding:1.1rem 1.25rem;border:2px solid transparent;}
+  .say-card.say{background:var(--sky-lt);border-color:var(--sky-mid);}
+  .say-card.tell{background:var(--violet4-lt);border-color:#c4b5fd;}
+  .say-title{font-weight:700;font-size:.88rem;margin-bottom:.5rem;}
+  .say-card.say .say-title{color:var(--sky);}
+  .say-card.tell .say-title{color:var(--violet4);}
+  .say-rule{font-size:.88rem;color:var(--muted);margin-bottom:.5rem;}
+  .say-ex{font-size:.9rem;font-style:italic;color:var(--ink);line-height:1.7;}
+
+  .warn-box{background:var(--amber7-lt);border:1.5px solid var(--amber7-mid);border-radius:.85rem;padding:1.1rem 1.4rem;margin-bottom:1.2rem;}
+  .warn-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--amber7);margin-bottom:.55rem;}
+  .warn-row{font-size:.9rem;color:var(--ink);line-height:1.8;}
+  .ex-wrong{color:var(--rose8);font-style:italic;text-decoration:line-through;}
+  .ex-right{color:var(--grn7);font-style:italic;}
+
+  /* questions section */
+  .q-type{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.1rem 1.3rem;margin-bottom:.85rem;}
+  .qt-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--sky);margin-bottom:.5rem;}
+  .qt-rule{font-size:.88rem;color:var(--ink);margin-bottom:.5rem;line-height:1.55;}
+  .qt-ex{font-size:.88rem;font-style:italic;color:var(--muted);line-height:1.8;}
+  .qt-ex .dir-q{color:var(--rose8);}
+  .qt-ex .rep-q{color:var(--grn7);}
+
+  /* commands */
+  .cmd-row{background:var(--white);border:1.5px solid var(--border);border-radius:.75rem;padding:.9rem 1.2rem;display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;align-items:start;font-size:.88rem;margin-bottom:.65rem;}
+  .cmd-type{font-weight:700;font-size:.8rem;color:var(--sky);white-space:nowrap;padding-top:.1rem;}
+
+  /* still-true box */
+  .still-box{background:var(--grn7-lt);border:2px solid #bbf7d0;border-radius:.85rem;padding:1.1rem 1.4rem;margin-top:1rem;}
+  .still-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--grn7);margin-bottom:.55rem;}
+  .still-row{font-size:.9rem;color:var(--ink);line-height:1.8;}
+
+  .key-rule{background:#021c2e;color:white;border-radius:.75rem;padding:1rem 1.4rem;font-size:.95rem;line-height:1.65;margin-top:1rem;}
+  .key-rule strong{color:#7dd3fc;}
+
+  /* exercises */
+  .ex-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;}
+  .ex-badge{background:var(--sky);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
+  .ex-badge.amber{background:var(--amber7);color:var(--ink);}
+  .ex-badge.grn{background:var(--grn7);}
+  .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+
+  .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
+  .q-card.correct{border-color:var(--grn7);background:var(--grn7-lt);}
+  .q-card.wrong{border-color:#ef4444;background:#fff0f0;}
+  .q-num{font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.5rem;}
+  .q-text{font-size:1rem;color:var(--ink);line-height:1.65;margin-bottom:.85rem;}
+  .q-dir{font-style:italic;color:var(--rose8);font-size:.95rem;display:block;margin-bottom:.5rem;}
+  .q-rep{font-style:italic;color:var(--ink);font-size:.95rem;display:block;margin-bottom:.65rem;}
+  .blank{display:inline-block;border-bottom:2px solid var(--sky);min-width:60px;text-align:center;color:var(--sky);font-weight:700;}
+
+  .mc-opts{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .mc-btn{border:2px solid var(--border);background:var(--bg);color:var(--ink);padding:.4rem 1.1rem;border-radius:2rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;transition:all .15s;}
+  .mc-btn:hover:not(:disabled){border-color:var(--sky);color:var(--sky-dk);background:var(--sky-lt);}
+  .mc-btn.sel-ok{border-color:var(--grn7);background:var(--grn7-lt);color:var(--grn7);}
+  .mc-btn.sel-bad{border-color:#ef4444;background:#fff0f0;color:#ef4444;}
+  .mc-btn.rev-ok{border-color:var(--grn7);background:var(--grn7-lt);color:var(--grn7);}
+  .mc-btn:disabled{cursor:not-allowed;opacity:.55;}
+  .fb{margin-top:.7rem;font-size:.88rem;font-weight:500;display:none;}
+  .fb.show{display:block;} .fb.ok{color:var(--grn7);} .fb.bad{color:#dc2626;}
+
+  /* identify */
+  .id-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.2rem 1.4rem;margin-bottom:.85rem;}
+  .id-task{font-size:.88rem;background:var(--sky-lt);border-left:3px solid var(--sky);padding:.5rem .8rem;border-radius:0 .4rem .4rem 0;margin-bottom:.65rem;color:var(--ink);}
+  .id-pair{margin-bottom:.75rem;}
+  .id-pair .dir-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--rose8);margin-bottom:.15rem;}
+  .id-pair .dir-text{font-style:italic;color:var(--rose8);font-size:.9rem;margin-bottom:.35rem;}
+  .id-pair .rep-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--sky);margin-bottom:.15rem;}
+  .id-instruct{font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.65rem;}
+  .tokens{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem;line-height:2;}
+  .tok{padding:.25rem .52rem;border-radius:.4rem;border:2px solid transparent;cursor:pointer;font-size:1rem;transition:all .12s;user-select:none;}
+  .tok:hover{background:var(--sky-lt);border-color:var(--sky);}
+  .tok.sel{background:var(--amber7-lt);border-color:var(--amber7);color:var(--ink);font-weight:700;}
+  .tok.c-ok{background:var(--grn7-lt);border-color:var(--grn7);color:var(--grn7);font-weight:600;}
+  .tok.c-miss{background:#fff0f0;border-color:#ef4444;}
+  .tok.punct{cursor:default;} .tok.punct:hover{background:transparent;border-color:transparent;}
+  .verify-btn{background:var(--sky);color:white;border:none;border-radius:2rem;padding:.48rem 1.35rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .15s;margin-right:.5rem;}
+  .verify-btn:hover:not(:disabled){background:var(--sky-dk);}
+  .reset-btn{background:transparent;color:var(--muted);border:1.5px solid var(--border);border-radius:2rem;padding:.48rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:all .15s;}
+  .reset-btn:hover{border-color:var(--sky);color:var(--sky);}
+
+  #score-sec{text-align:center;padding:3rem 1.5rem 4rem;max-width:880px;margin:0 auto;display:none;}
+  #score-sec.show{display:block;}
+  .s-ring{width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--sky) calc(var(--pct)*1%),var(--border) 0);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;position:relative;}
+  .s-ring::after{content:'';width:100px;height:100px;background:var(--bg);border-radius:50%;position:absolute;}
+  .s-num{position:relative;z-index:1;font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--sky-dk);}
+  .s-msg{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;}
+  .s-sub{color:var(--muted);font-size:.95rem;margin-bottom:2rem;}
+  .retry-btn{background:#021c2e;color:white;border:none;border-radius:2rem;padding:.75rem 2rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;}
+  .retry-btn:hover{background:var(--sky-dk);}
+  @keyframes popIn{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+  .pop{animation:popIn .25s cubic-bezier(.34,1.56,.64,1);}
+  footer{text-align:center;padding:2rem;font-size:.82rem;color:var(--muted);border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+<div id="pb-wrap"><div id="pb"></div></div>
+
+<header>
+  <div class="h-tag">Grammar Made Simple</div>
+  <h1><em>Reported Speech</em></h1>
+  <p>Telling someone what another person said — in your own words.</p>
+  <div class="ex-strip">
+    <span class="lbl">Direct:</span> <span class="dir">"I'm tired," she said.</span><br>
+    <span class="lbl">Reported:</span> <span class="rep">She said she was tired.</span>
+  </div>
+</header>
+
+<!-- SECTION 1: WHAT IS IT -->
+<div class="section">
+  <h2 class="sec-title">What Is Reported Speech?</h2>
+  <p class="sec-sub">When you tell someone what another person said, you have two choices.</p>
+
+  <div class="compare">
+    <div class="cmp dir">
+      <div class="cmp-title">Direct speech — the exact words</div>
+      <div class="cmp-sent">
+        "I love this city," he said.<br>
+        "We are leaving tomorrow," they told us.<br>
+        "I can't find my keys," she said.
+      </div>
+    </div>
+    <div class="cmp rep">
+      <div class="cmp-title">Reported speech — in your own words</div>
+      <div class="cmp-sent">
+        He said he loved that city.<br>
+        They told us they were leaving the next day.<br>
+        She said she couldn't find her keys.
+      </div>
+    </div>
+  </div>
+
+  <div class="def-box">
+    When you move from direct to reported speech, three things usually change: the <strong>verb tense</strong> moves back one step, <strong>pronouns</strong> change to match the new speaker, and <strong>time and place words</strong> may change. The word "that" is optional: <em>"She said that she was tired"</em> = <em>"She said she was tired."</em>
+  </div>
+
+  <div class="analogy">💡 Think of it like passing on a message. If your friend said "I am coming", you wouldn't text someone else "She am coming" — you'd naturally say "She said she was coming." The language shifts to fit your new perspective.</div>
+</div>
+<hr class="div">
+
+<!-- SECTION 2: TENSE CHANGES -->
+<div class="section">
+  <h2 class="sec-title">The Tense Moves Back One Step</h2>
+  <p class="sec-sub">Each tense in direct speech becomes the tense one step further into the past when reported. Think of it as sliding one position back.</p>
+
+  <table class="shift-table">
+    <thead>
+      <tr><th>Direct speech — exact words</th><th class="arr">→</th><th>Reported speech</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="sh-dir">"I <strong>am</strong> tired."</span><br><span class="stays">present simple</span></td>
+        <td class="arr">→</td>
+        <td><span class="sh-rep">She said she <strong>was</strong> tired.</span><br><span class="stays">past simple</span></td>
+      </tr>
+      <tr>
+        <td><span class="sh-dir">"I <strong>was</strong> there."</span><br><span class="stays">past simple</span></td>
+        <td class="arr">→</td>
+        <td><span class="sh-rep">He said he <strong>had been</strong> there.</span><br><span class="stays">past perfect</span></td>
+      </tr>
+      <tr>
+        <td><span class="sh-dir">"I <strong>have finished</strong>."</span><br><span class="stays">present perfect</span></td>
+        <td class="arr">→</td>
+        <td><span class="sh-rep">She said she <strong>had finished</strong>.</span><br><span class="stays">past perfect</span></td>
+      </tr>
+      <tr>
+        <td><span class="sh-dir">"I <strong>will</strong> help."</span><br><span class="stays">will</span></td>
+        <td class="arr">→</td>
+        <td><span class="sh-rep">He said he <strong>would</strong> help.</span><br><span class="stays">would</span></td>
+      </tr>
+      <tr>
+        <td><span class="sh-dir">"I <strong>can</strong> do it."</span><br><span class="stays">can</span></td>
+        <td class="arr">→</td>
+        <td><span class="sh-rep">She said she <strong>could</strong> do it.</span><br><span class="stays">could</span></td>
+      </tr>
+      <tr>
+        <td><span class="sh-dir">"It <strong>may</strong> rain."</span><br><span class="stays">may</span></td>
+        <td class="arr">→</td>
+        <td><span class="sh-rep">He said it <strong>might</strong> rain.</span><br><span class="stays">might</span></td>
+      </tr>
+      <tr>
+        <td><span class="sh-dir">"I <strong>must</strong> go."</span><br><span class="stays">must (obligation)</span></td>
+        <td class="arr">→</td>
+        <td><span class="sh-rep">She said she <strong>had to</strong> go.</span><br><span class="stays">had to</span></td>
+      </tr>
+      <tr>
+        <td><span class="sh-dir">"would / could / should / might"</span><br><span class="stays">already past</span></td>
+        <td class="arr">→</td>
+        <td><span class="sh-rep"><strong>No change</strong> — these stay the same.</span><br><span class="stays">"She said she should try harder."</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="still-box">
+    <div class="still-title">⚡ When the tense does NOT change</div>
+    <div class="still-row">
+      If something is <strong>still true now</strong>, you can leave the tense as it is:<br>
+      <em>"The Earth orbits the Sun," the teacher said.</em> → <em>"The teacher said the Earth <strong>orbits</strong> the Sun."</em> ✓<br>
+      If you are reporting something <strong>said very recently</strong>, and it is still the case:<br>
+      <em>"She says she is waiting outside."</em> (she's still outside right now) ✓
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 3: WORDS THAT CHANGE -->
+<div class="section">
+  <h2 class="sec-title">Words That Change</h2>
+  <p class="sec-sub">As well as tense, pronouns and time and place words usually need to change too.</p>
+
+  <h3 style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.7rem">Pronouns</h3>
+  <div class="word-grid" style="margin-bottom:1.5rem">
+    <div class="word-chip"><span class="wc-dir">I</span><span class="wc-arr">→</span><span class="wc-rep">he / she</span></div>
+    <div class="word-chip"><span class="wc-dir">we</span><span class="wc-arr">→</span><span class="wc-rep">they</span></div>
+    <div class="word-chip"><span class="wc-dir">my</span><span class="wc-arr">→</span><span class="wc-rep">his / her</span></div>
+    <div class="word-chip"><span class="wc-dir">our</span><span class="wc-arr">→</span><span class="wc-rep">their</span></div>
+    <div class="word-chip"><span class="wc-dir">me</span><span class="wc-arr">→</span><span class="wc-rep">him / her</span></div>
+    <div class="word-chip"><span class="wc-dir">you</span><span class="wc-arr">→</span><span class="wc-rep">I / he / she / they</span></div>
+  </div>
+
+  <h3 style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.7rem">Time and place words</h3>
+  <div class="word-grid">
+    <div class="word-chip"><span class="wc-dir">now</span><span class="wc-arr">→</span><span class="wc-rep">then</span></div>
+    <div class="word-chip"><span class="wc-dir">today</span><span class="wc-arr">→</span><span class="wc-rep">that day</span></div>
+    <div class="word-chip"><span class="wc-dir">yesterday</span><span class="wc-arr">→</span><span class="wc-rep">the day before</span></div>
+    <div class="word-chip"><span class="wc-dir">tomorrow</span><span class="wc-arr">→</span><span class="wc-rep">the next day</span></div>
+    <div class="word-chip"><span class="wc-dir">last week</span><span class="wc-arr">→</span><span class="wc-rep">the week before</span></div>
+    <div class="word-chip"><span class="wc-dir">next week</span><span class="wc-arr">→</span><span class="wc-rep">the following week</span></div>
+    <div class="word-chip"><span class="wc-dir">here</span><span class="wc-arr">→</span><span class="wc-rep">there</span></div>
+    <div class="word-chip"><span class="wc-dir">this</span><span class="wc-arr">→</span><span class="wc-rep">that</span></div>
+    <div class="word-chip"><span class="wc-dir">these</span><span class="wc-arr">→</span><span class="wc-rep">those</span></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 4: SAY VS TELL -->
+<div class="section">
+  <h2 class="sec-title">Say or Tell?</h2>
+  <p class="sec-sub">Both introduce reported speech, but they work differently — this is one of the most common mistakes.</p>
+
+  <div class="say-grid">
+    <div class="say-card say">
+      <div class="say-title">say</div>
+      <div class="say-rule">No person after <em>say</em>. If you want to mention who was spoken to, add <em>to</em>.</div>
+      <div class="say-ex">
+        "She <strong>said</strong> she was tired." ✓<br>
+        "She <strong>said to me</strong> she was tired." ✓<br><br>
+        ❌ <span style="text-decoration:line-through;color:var(--rose8);font-style:italic">"She said me she was tired."</span>
+      </div>
+    </div>
+    <div class="say-card tell">
+      <div class="say-title">tell</div>
+      <div class="say-rule">Always has a person directly after it — no <em>to</em> needed.</div>
+      <div class="say-ex">
+        "She <strong>told me</strong> she was tired." ✓<br>
+        "He <strong>told us</strong> the meeting was cancelled." ✓<br><br>
+        ❌ <span style="text-decoration:line-through;color:var(--rose8);font-style:italic">"She told to me she was tired."</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">⚠️ Quick check</div>
+    <div class="warn-row">
+      <span class="ex-wrong">"She said me it was late."</span> &nbsp;→&nbsp; <span class="ex-right">"She told me it was late."</span> ✓<br>
+      <span class="ex-wrong">"He told to her the news."</span> &nbsp;→&nbsp; <span class="ex-right">"He told her the news."</span> ✓<br>
+      <strong>Memory trick:</strong> <em>tell</em> takes a person like a direct object: "tell <u>someone</u> something". <em>Say</em> does not.
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 5: QUESTIONS -->
+<div class="section">
+  <h2 class="sec-title">Reporting Questions</h2>
+  <p class="sec-sub">When you report a question, two things happen: the question word order disappears, and the tense moves back.</p>
+
+  <div class="q-type">
+    <div class="qt-label">Yes/No questions → use "if" or "whether"</div>
+    <div class="qt-rule">Questions that can be answered yes or no use <strong>if</strong> or <strong>whether</strong> in reported speech. The subject comes before the verb — normal statement order.</div>
+    <div class="qt-ex">
+      <span class="dir-q">"Are you coming to the party?"</span> she asked.<br>
+      → She asked <span class="rep-q">if / whether I was coming to the party</span>.<br><br>
+      <span class="dir-q">"Have you eaten?"</span> he asked.<br>
+      → He asked <span class="rep-q">if I had eaten</span>.
+    </div>
+  </div>
+
+  <div class="q-type">
+    <div class="qt-label">Wh- questions → use the question word</div>
+    <div class="qt-rule">Keep the question word (who, what, where, when, why, how), but switch back to normal statement order. No <em>do / does / did</em>.</div>
+    <div class="qt-ex">
+      <span class="dir-q">"Where do you live?"</span> she asked.<br>
+      → She asked <span class="rep-q">where I lived</span>. &nbsp;<span style="font-size:.82rem;color:var(--muted)">(not: where did I live)</span><br><br>
+      <span class="dir-q">"What time does the train leave?"</span> he asked.<br>
+      → He asked <span class="rep-q">what time the train left</span>.
+    </div>
+  </div>
+
+  <div class="key-rule" style="margin-top:.85rem">🔑 <strong>The golden rule for reported questions:</strong> the word order goes back to normal — subject first, then verb, no question mark. "She asked where <strong>I lived</strong>" — not "where <strong>did I live</strong>".</div>
+</div>
+<hr class="div">
+
+<!-- SECTION 6: COMMANDS -->
+<div class="section">
+  <h2 class="sec-title">Reporting Commands and Requests</h2>
+  <p class="sec-sub">Commands and requests become <strong>tell / ask + person + to + verb</strong>.</p>
+
+  <div class="cmd-row">
+    <div class="cmd-type">Positive command</div>
+    <div>
+      <em style="color:var(--rose8)">"Sit down!"</em> he said to her.<br>
+      → He <strong>told her to sit down</strong>.
+    </div>
+  </div>
+  <div class="cmd-row">
+    <div class="cmd-type">Negative command</div>
+    <div>
+      <em style="color:var(--rose8)">"Don't be late!"</em> the teacher said.<br>
+      → The teacher <strong>told us not to be late</strong>.
+    </div>
+  </div>
+  <div class="cmd-row">
+    <div class="cmd-type">Polite request</div>
+    <div>
+      <em style="color:var(--rose8)">"Could you open the window?"</em> she said.<br>
+      → She <strong>asked me to open the window</strong>.
+    </div>
+  </div>
+  <div class="cmd-row">
+    <div class="cmd-type">Negative request</div>
+    <div>
+      <em style="color:var(--rose8)">"Please don't tell anyone,"</em> he said.<br>
+      → He <strong>asked me not to tell anyone</strong>.
+    </div>
+  </div>
+
+  <div class="key-rule">🔑 <strong>Commands become infinitives:</strong> <em>tell/ask + person + (not) to + verb</em>. No tense shift needed — the infinitive stays the same.</div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex1">
+  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Report What Was Said</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Complete each reported speech sentence with the correct form.</p>
+
+  <div class="q-card" id="q1">
+    <div class="q-num">Question 1 of 6</div>
+    <span class="q-dir">"I am really tired," she said.</span>
+    <span class="q-rep">She said she <span class="blank">___</span> really tired.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q1','was')">is</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','was')">was</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','was')">had been</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','was')">would be</button>
+    </div>
+    <div class="fb" id="q1-fb"></div>
+  </div>
+
+  <div class="q-card" id="q2">
+    <div class="q-num">Question 2 of 6</div>
+    <span class="q-dir">"We will call you tomorrow," they said.</span>
+    <span class="q-rep">They said they <span class="blank">___</span> call me the next day.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q2','would')">will</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','would')">would</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','would')">could</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','would')">might</button>
+    </div>
+    <div class="fb" id="q2-fb"></div>
+  </div>
+
+  <div class="q-card" id="q3">
+    <div class="q-num">Question 3 of 6</div>
+    <span class="q-dir">"I have already eaten," he said.</span>
+    <span class="q-rep">He said he <span class="blank">___</span> already eaten.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q3','had')">has</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','had')">had</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','had')">was</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','had')">would have</button>
+    </div>
+    <div class="fb" id="q3-fb"></div>
+  </div>
+
+  <div class="q-card" id="q4">
+    <div class="q-num">Question 4 of 6</div>
+    <span class="q-dir">"I can't come tonight," she told me.</span>
+    <span class="q-rep">She told me she <span class="blank">___</span> come that night.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q4','couldn\'t')">can't</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','couldn\'t')">couldn't</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','couldn\'t')">wouldn't</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','couldn\'t')">didn't</button>
+    </div>
+    <div class="fb" id="q4-fb"></div>
+  </div>
+
+  <div class="q-card" id="q5">
+    <div class="q-num">Question 5 of 6</div>
+    <span class="q-dir">"I saw him yesterday," she said.</span>
+    <span class="q-rep">She said she had seen him <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q5','the day before')">yesterday</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','the day before')">the day before</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','the day before')">the day after</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','the day before')">that day</button>
+    </div>
+    <div class="fb" id="q5-fb"></div>
+  </div>
+
+  <div class="q-card" id="q6">
+    <div class="q-num">Question 6 of 6</div>
+    <span class="q-dir">"I love working here," he said.</span>
+    <span class="q-rep">He said he loved working <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q6','there')">here</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','there')">there</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','there')">anywhere</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','there')">everywhere</button>
+    </div>
+    <div class="fb" id="q6-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 2 ══ -->
+<div class="section" id="ex2">
+  <div class="ex-hdr"><span class="ex-badge amber">Exercise 2</span><h2 class="ex-title">Questions and Commands</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Report each question or command correctly.</p>
+
+  <div class="q-card" id="f1">
+    <div class="q-num">Question 1 of 5</div>
+    <span class="q-dir">"Are you coming to the party?" she asked me.</span>
+    <span class="q-rep">She asked me <span class="blank">___</span> I was coming to the party.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f1','if')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','if')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','if')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','if')">which</button>
+    </div>
+    <div class="fb" id="f1-fb"></div>
+  </div>
+
+  <div class="q-card" id="f2">
+    <div class="q-num">Question 2 of 5</div>
+    <span class="q-dir">"Where do you work?" he asked.</span>
+    <span class="q-rep">He asked where I <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">work</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">did work</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">worked</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">was working</button>
+    </div>
+    <div class="fb" id="f2-fb"></div>
+  </div>
+
+  <div class="q-card" id="f3">
+    <div class="q-num">Question 3 of 5</div>
+    <span class="q-dir">"Don't touch anything!" the guide told us.</span>
+    <span class="q-rep">The guide told us <span class="blank">___</span> anything.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">don't touch</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">to not touch</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">not to touch</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">to touch not</button>
+    </div>
+    <div class="fb" id="f3-fb"></div>
+  </div>
+
+  <div class="q-card" id="f4">
+    <div class="q-num">Question 4 of 5</div>
+    <span class="q-dir">"What time does the film start?" she asked.</span>
+    <span class="q-rep">She asked what time the film <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f4','started')">starts</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','started')">did start</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','started')">started</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','started')">would start</button>
+    </div>
+    <div class="fb" id="f4-fb"></div>
+  </div>
+
+  <div class="q-card" id="f5">
+    <div class="q-num">Question 5 of 5</div>
+    <span class="q-dir">"Please help me with this," she said to him.</span>
+    <span class="q-rep">She asked him <span class="blank">___</span> her with it.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">helping</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">to help</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">that he help</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">he should help</button>
+    </div>
+    <div class="fb" id="f5-fb"></div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 3 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge grn">Exercise 3</span><h2 class="ex-title">Click the Word That Changed</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence shows a direct quote and the reported version. Click the word in the reported sentence that changed from the original.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-pair">
+      <div class="dir-label">Direct</div>
+      <div class="dir-text">"I am happy here," she said.</div>
+      <div class="rep-label">Reported — click the word that changed</div>
+    </div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-pair">
+      <div class="dir-label">Direct</div>
+      <div class="dir-text">"I will finish it tomorrow," he said.</div>
+      <div class="rep-label">Reported — click the word that changed (tense only, not the time word)</div>
+    </div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-pair">
+      <div class="dir-label">Direct</div>
+      <div class="dir-text">"I have just finished," she said.</div>
+      <div class="rep-label">Reported — click the word that changed</div>
+    </div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-pair">
+      <div class="dir-label">Direct</div>
+      <div class="dir-text">"I can't do it," he said.</div>
+      <div class="rep-label">Reported — click the word that changed</div>
+    </div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-pair">
+      <div class="dir-label">Direct</div>
+      <div class="dir-text">"I'll see you tomorrow," she said.</div>
+      <div class="rep-label">Reported — click the time phrase that changed</div>
+    </div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+</div>
+
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<footer>Reported Speech — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
+
+<script>
+const TOTAL=16;
+const scores={mc:{},id:{}};
+function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
+function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
+function showScore(){const sc=getScore(),pct=Math.round(sc/TOTAL*100);document.getElementById('s-ring').style.setProperty('--pct',pct);document.getElementById('s-num').textContent=sc+'/'+TOTAL;const msgs=[[0,39,'Keep practising! 💪','Review the tense table and try again.'],[40,69,'Good effort! 👍','You are getting there.'],[70,84,'Well done! ✨','You have a solid grasp of reported speech.'],[85,100,'Excellent! 🎉','You have mastered reported speech!']];const[,,msg,sub]=msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);document.getElementById('s-msg').textContent=msg;document.getElementById('s-sub').textContent=sub;const sec=document.getElementById('score-sec');sec.classList.add('show');sec.scrollIntoView({behavior:'smooth',block:'center'});}
+
+const expl={
+  q1:'Present simple moves back to past simple: "am" → "was".',
+  q2:'"Will" moves back to "would" in reported speech.',
+  q3:'Present perfect moves back to past perfect: "have eaten" → "had eaten".',
+  q4:'"Can\'t" moves back to "couldn\'t" in reported speech.',
+  q5:'"Yesterday" changes to "the day before" — you are now reporting from a later point in time.',
+  q6:'"Here" changes to "there" — the speaker is no longer in the same place.',
+  f1:'Yes/no questions use "if" or "whether" in reported speech: "She asked if I was coming."',
+  f2:'In reported questions, word order returns to normal — no "did". "Where did you work?" → "where I worked".',
+  f3:'Negative commands use "not to + verb": "Don\'t touch" → "told us not to touch".',
+  f4:'In reported questions, tense moves back and word order is normal: "does start" → "started".',
+  f5:'Requests use "ask + person + to + verb": "Please help me" → "asked him to help her".',
+};
+
+function checkMC(btn,qId,correct){
+  const card=document.getElementById(qId);
+  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(qId+'-fb');
+  const ok=btn.textContent.trim()===correct;
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  updateProgress();
+}
+
+const sents=[
+  {id:'i1',words:['She','said','she','was','happy','there','.'],clause:[3],type:'was — "am" moved back to "was"',color:'#0369a1'},
+  {id:'i2',words:['He','said','he','would','finish','it','the','next','day','.'],clause:[3],type:'would — "will" moved back to "would"',color:'#0369a1'},
+  {id:'i3',words:['She','said','she','had','just','finished','.'],clause:[3],type:'had — "have" moved back to "had"',color:'#0369a1'},
+  {id:'i4',words:['He','said','he','couldn\'t','do','it','.'],clause:[3],type:'couldn\'t — "can\'t" moved back to "couldn\'t"',color:'#0369a1'},
+  {id:'i5',words:['She','said','she','would','see','me','the','next','day','.'],clause:[6,7,8],type:'"the next day" — "tomorrow" changed to match the new time of reporting',color:'#166534'},
+];
+
+function buildTokens(){
+  sents.forEach(s=>{
+    const container=document.getElementById(s.id+'-tok');
+    s.words.forEach((w,i)=>{
+      const sp=document.createElement('span');
+      sp.className='tok'+(/^[.,!?;]$/.test(w)?' punct':'');
+      sp.textContent=w;sp.dataset.idx=i;
+      container.appendChild(sp);
+    });
+    container.addEventListener('click',function(e){
+      const tok=e.target;
+      if(!tok.classList.contains('tok')||tok.classList.contains('punct'))return;
+      if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss'))return;
+      if(document.querySelector('#'+s.id+' .verify-btn').disabled)return;
+      tok.classList.toggle('sel');
+    });
+  });
+}
+
+function checkId(id){
+  const s=sents.find(x=>x.id===id);
+  const correct=new Set(s.clause);
+  const fb=document.getElementById(id+'-fb');
+  const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');
+  let ok=true;
+  toks.forEach(t=>{
+    const i=parseInt(t.dataset.idx);
+    const should=correct.has(i),did=t.classList.contains('sel');
+    t.classList.remove('sel');
+    if(should&&did){t.classList.add('c-ok','pop');}
+    else if(should&&!did){t.classList.add('c-miss','pop');ok=false;}
+    else if(!should&&did){t.classList.add('c-miss','pop');ok=false;}
+  });
+  const lbl=`<span style="display:inline-block;font-size:.75rem;font-weight:700;padding:.18rem .6rem;border-radius:1rem;margin-left:.4rem;background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}35">${s.type}</span>`;
+  if(ok){fb.innerHTML='✓ Correct! '+lbl;fb.className='fb show ok';scores.id[id]=true;}
+  else{fb.innerHTML='✗ Not quite — highlighted word(s) show the answer. '+lbl;fb.className='fb show bad';scores.id[id]=false;}
+  document.querySelector('#'+id+' .verify-btn').disabled=true;
+  updateProgress();
+}
+
+function resetId(id){
+  document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));
+  document.querySelector('#'+id+' .verify-btn').disabled=false;
+  delete scores.id[id];
+  const fb=document.getElementById(id+'-fb');fb.className='fb';fb.textContent='';
+  updateProgress();
+}
+
+function retryAll(){
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+    const card=document.getElementById(qId);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  sents.forEach(s=>{
+    document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));
+    document.querySelector('#'+s.id+' .verify-btn').disabled=false;
+    const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';
+  });
+  Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);
+  Object.keys(scores.id).forEach(k=>delete scores.id[k]);
+  document.getElementById('pb').style.width='0%';
+  document.getElementById('score-sec').classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+buildTokens();
+</script>
+</body>
+</html>
