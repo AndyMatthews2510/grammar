@@ -258,6 +258,9 @@
   }
   .ex-badge.teal  { background: var(--teal); }
   .ex-badge.coral { background: var(--coral); }
+  .ex-badge.green { background: var(--green); }
+  .mini-cat { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); margin: 1.6rem 0 0.6rem; }
+  .mini-cat:first-of-type { margin-top: 0; }
   .ex-title {
     font-family: 'Fraunces', serif;
     font-size: 1.4rem; font-weight: 600;
@@ -623,10 +626,10 @@
     <div class="q-num">Question 1 of 4</div>
     <div class="q-text">__________ you study regularly, you will improve your English. <span class="hint">(condition)</span></div>
     <div class="mc-options">
-      <button class="mc-btn" onclick="checkMC(this,'q1','If')">because</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','If')">although</button>
-      <button class="mc-btn correct-answer" onclick="checkMC(this,'q1','If')">If</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','If')">while</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','If','If introduces a condition — the outcome depends on this happening.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','If','If introduces a condition — the outcome depends on this happening.')">although</button>
+      <button class="mc-btn correct-answer" onclick="checkMC(this,'q1','If','If introduces a condition — the outcome depends on this happening.')">If</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','If','If introduces a condition — the outcome depends on this happening.')">while</button>
     </div>
     <div class="feedback-msg" id="q1-fb"></div>
   </div>
@@ -636,10 +639,10 @@
     <div class="q-num">Question 2 of 4</div>
     <div class="q-text">She kept smiling __________ she was very nervous inside. <span class="hint">(contrast)</span></div>
     <div class="mc-options">
-      <button class="mc-btn" onclick="checkMC(this,'q2','although')">because</button>
-      <button class="mc-btn correct-answer" onclick="checkMC(this,'q2','although')">although</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','although')">if</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','although')">after</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','although','Although shows a contrast between smiling and feeling nervous.')">because</button>
+      <button class="mc-btn correct-answer" onclick="checkMC(this,'q2','although','Although shows a contrast between smiling and feeling nervous.')">although</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','although','Although shows a contrast between smiling and feeling nervous.')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','although','Although shows a contrast between smiling and feeling nervous.')">after</button>
     </div>
     <div class="feedback-msg" id="q2-fb"></div>
   </div>
@@ -649,10 +652,10 @@
     <div class="q-num">Question 3 of 4</div>
     <div class="q-text">He called me __________ he arrived at the station. <span class="hint">(time)</span></div>
     <div class="mc-options">
-      <button class="mc-btn correct-answer" onclick="checkMC(this,'q3','after')">after</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','after')">because</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','after')">unless</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','after')">if</button>
+      <button class="mc-btn correct-answer" onclick="checkMC(this,'q3','after','After shows the order of two events in time.')">after</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','after','After shows the order of two events in time.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','after','After shows the order of two events in time.')">unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','after','After shows the order of two events in time.')">if</button>
     </div>
     <div class="feedback-msg" id="q3-fb"></div>
   </div>
@@ -662,13 +665,15 @@
     <div class="q-num">Question 4 of 4</div>
     <div class="q-text">I can't sleep __________ it is too hot. <span class="hint">(reason)</span></div>
     <div class="mc-options">
-      <button class="mc-btn" onclick="checkMC(this,'q4','because')">although</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','because')">while</button>
-      <button class="mc-btn correct-answer" onclick="checkMC(this,'q4','because')">because</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','because')">unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','because','Because gives the reason he cannot sleep.')">although</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','because','Because gives the reason he cannot sleep.')">while</button>
+      <button class="mc-btn correct-answer" onclick="checkMC(this,'q4','because','Because gives the reason he cannot sleep.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','because','Because gives the reason he cannot sleep.')">unless</button>
     </div>
     <div class="feedback-msg" id="q4-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="divider">
 
@@ -691,7 +696,7 @@
       <span class="connector-tag">when</span>
     </div>
     <input class="combine-input" id="c1-input" placeholder="Type your combined sentence here…" />
-    <button class="check-btn" onclick="checkCombine('c1','when',['it started to rain','we went inside'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCombine('c1','when',['it started to rain','we went inside'],'When it started to rain, we went inside.')">Check ✓</button>
     <div class="feedback-msg" id="c1-fb"></div>
   </div>
 
@@ -706,7 +711,7 @@
       <span class="connector-tag">although</span>
     </div>
     <input class="combine-input" id="c2-input" placeholder="Type your combined sentence here…" />
-    <button class="check-btn" onclick="checkCombine('c2','although',['french','paris'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCombine('c2','although',['french','paris'],'Although she does not speak French, she travels to Paris every year.')">Check ✓</button>
     <div class="feedback-msg" id="c2-fb"></div>
   </div>
 
@@ -721,7 +726,7 @@
       <span class="connector-tag">after</span>
     </div>
     <input class="combine-input" id="c3-input" placeholder="Type your combined sentence here…" />
-    <button class="check-btn" onclick="checkCombine('c3','after',['homework','video games'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCombine('c3','after',['homework','video games'],'After Tom finishes his homework, he can play video games.')">Check ✓</button>
     <div class="feedback-msg" id="c3-fb"></div>
   </div>
 
@@ -736,9 +741,11 @@
       <span class="connector-tag">unless</span>
     </div>
     <input class="combine-input" id="c4-input" placeholder="Type your combined sentence here…" />
-    <button class="check-btn" onclick="checkCombine('c4','unless',['vegetables','dessert'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCombine('c4','unless',['vegetables','dessert'],'Unless you eat your vegetables, you will not get dessert.')">Check ✓</button>
     <div class="feedback-msg" id="c4-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="divider">
 
@@ -799,15 +806,223 @@
     <button class="reset-btn" onclick="resetIdentify('i5')">Reset</button>
     <div class="feedback-msg" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="divider">
+
+<!-- ════ EXERCISE 4 ════ -->
+<div class="section" id="ex4-section">
+  <div class="ex-header">
+    <span class="ex-badge green">Exercise 4</span>
+    <h2 class="ex-title">Mixed Review</h2>
+  </div>
+  <p class="section-sub" style="margin-bottom:1.5rem">A mix of everything — time, reason, condition, contrast, and the comma rule.</p>
+
+  <div class="mini-cat">Time</div>
+
+  <div class="q-card" id="r1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">__________ the phone rang, I was in the shower.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r1','When','When marks the moment one thing happened during another.')">When</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','When','When marks the moment one thing happened during another.')">Because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','When','When marks the moment one thing happened during another.')">Although</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','When','When marks the moment one thing happened during another.')">Unless</button>
+    </div>
+    <div class="feedback-msg" id="r1-fb"></div>
+  </div>
+
+  <div class="q-card" id="r2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">I have not seen him __________ he moved to Canada.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r2','since','Since marks the starting point of a time period that continues to now.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','since','Since marks the starting point of a time period that continues to now.')">since</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','since','Since marks the starting point of a time period that continues to now.')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','since','Since marks the starting point of a time period that continues to now.')">while</button>
+    </div>
+    <div class="feedback-msg" id="r2-fb"></div>
+  </div>
+
+  <div class="q-card" id="r3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">Please call me __________ you arrive.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r3','as soon as','As soon as means immediately after — a time connector.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','as soon as','As soon as means immediately after — a time connector.')">unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','as soon as','As soon as means immediately after — a time connector.')">as soon as</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','as soon as','As soon as means immediately after — a time connector.')">although</button>
+    </div>
+    <div class="feedback-msg" id="r3-fb"></div>
+  </div>
+
+  <div class="mini-cat">Reason</div>
+
+  <div class="q-card" id="r4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">__________ it was raining, we stayed indoors.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r4','Because','Because gives the direct reason we stayed indoors.')">Although</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Because','Because gives the direct reason we stayed indoors.')">Because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Because','Because gives the direct reason we stayed indoors.')">If</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Because','Because gives the direct reason we stayed indoors.')">While</button>
+    </div>
+    <div class="feedback-msg" id="r4-fb"></div>
+  </div>
+
+  <div class="q-card" id="r5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">She left early __________ she felt sick.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r5','as','Here as means because — it explains the reason.')">unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','as','Here as means because — it explains the reason.')">as</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','as','Here as means because — it explains the reason.')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','as','Here as means because — it explains the reason.')">while</button>
+    </div>
+    <div class="feedback-msg" id="r5-fb"></div>
+  </div>
+
+  <div class="q-card" id="r6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">__________ he studies hard, he understands the material well.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r6','Since','Here since means because, giving the reason he understands well.')">If</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Since','Here since means because, giving the reason he understands well.')">Since</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Since','Here since means because, giving the reason he understands well.')">Unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Since','Here since means because, giving the reason he understands well.')">Although</button>
+    </div>
+    <div class="feedback-msg" id="r6-fb"></div>
+  </div>
+
+  <div class="mini-cat">Condition</div>
+
+  <div class="q-card" id="r7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">__________ you hurry, you will miss the bus.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r7','Unless','Unless means if not — you will miss it if you do not hurry.')">If</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Unless','Unless means if not — you will miss it if you do not hurry.')">Unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Unless','Unless means if not — you will miss it if you do not hurry.')">Although</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Unless','Unless means if not — you will miss it if you do not hurry.')">Because</button>
+    </div>
+    <div class="feedback-msg" id="r7-fb"></div>
+  </div>
+
+  <div class="q-card" id="r8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">We will have the picnic __________ it doesn't rain.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r8','provided that','Provided that sets a condition — it means if.')">unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','provided that','Provided that sets a condition — it means if.')">provided that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','provided that','Provided that sets a condition — it means if.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','provided that','Provided that sets a condition — it means if.')">while</button>
+    </div>
+    <div class="feedback-msg" id="r8-fb"></div>
+  </div>
+
+  <div class="q-card" id="r9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">__________ you don't like vegetables, you should eat them for your health.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r9','Even if','Even if sets a condition that does not change the outcome.')">Because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Even if','Even if sets a condition that does not change the outcome.')">Even if</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Even if','Even if sets a condition that does not change the outcome.')">Unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Even if','Even if sets a condition that does not change the outcome.')">While</button>
+    </div>
+    <div class="feedback-msg" id="r9-fb"></div>
+  </div>
+
+  <div class="mini-cat">Contrast</div>
+
+  <div class="q-card" id="r10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">__________ it was cold, they went swimming.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r10','Although','Although shows a contrast between the cold and swimming anyway.')">Because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','Although','Although shows a contrast between the cold and swimming anyway.')">Although</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','Although','Although shows a contrast between the cold and swimming anyway.')">If</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','Although','Although shows a contrast between the cold and swimming anyway.')">Since</button>
+    </div>
+    <div class="feedback-msg" id="r10-fb"></div>
+  </div>
+
+  <div class="q-card" id="r11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">He passed the test __________ he didn't study much.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r11','even though','Even though shows he passed despite not studying much.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','even though','Even though shows he passed despite not studying much.')">even though</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','even though','Even though shows he passed despite not studying much.')">unless</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','even though','Even though shows he passed despite not studying much.')">if</button>
+    </div>
+    <div class="feedback-msg" id="r11-fb"></div>
+  </div>
+
+  <div class="q-card" id="r12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">My brother loves spicy food, __________ I can't handle it at all.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r12','whereas','Whereas contrasts two different people or situations directly.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','whereas','Whereas contrasts two different people or situations directly.')">whereas</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','whereas','Whereas contrasts two different people or situations directly.')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','whereas','Whereas contrasts two different people or situations directly.')">since</button>
+    </div>
+    <div class="feedback-msg" id="r12-fb"></div>
+  </div>
+
+  <div class="mini-cat">The Comma Rule</div>
+
+  <div class="q-card" id="r13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">Because she was tired__________ she went to bed early.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r13','a comma','The clause comes first, so it needs a comma before the main clause.')">a comma</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','a comma','The clause comes first, so it needs a comma before the main clause.')">no comma</button>
+    </div>
+    <div class="feedback-msg" id="r13-fb"></div>
+  </div>
+
+  <div class="q-card" id="r14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">She went to bed early__________ because she was tired.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r14','no comma','The clause comes last, so no comma is needed.')">a comma</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','no comma','The clause comes last, so no comma is needed.')">no comma</button>
+    </div>
+    <div class="feedback-msg" id="r14-fb"></div>
+  </div>
+
+  <div class="q-card" id="r15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">Although he was nervous__________ he gave a great speech.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r15','a comma','The clause comes first, so it needs a comma before the main clause.')">a comma</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','a comma','The clause comes first, so it needs a comma before the main clause.')">no comma</button>
+    </div>
+    <div class="feedback-msg" id="r15-fb"></div>
+  </div>
+
+  <div class="q-card" id="r16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">He gave a great speech__________ although he was nervous.</div>
+    <div class="mc-options">
+      <button class="mc-btn" onclick="checkMC(this,'r16','no comma','The clause comes last, so no comma is needed.')">a comma</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','no comma','The clause comes last, so no comma is needed.')">no comma</button>
+    </div>
+    <div class="feedback-msg" id="r16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
 <!-- SCORE SECTION -->
 <div id="score-section">
   <div class="score-ring" id="score-ring">
-    <div class="score-num" id="score-num">0/13</div>
+    <div class="score-num" id="score-num">0/29</div>
   </div>
   <div class="score-msg" id="score-msg">Great work!</div>
-  <div class="score-sub" id="score-sub">You completed all three exercises.</div>
+  <div class="score-sub" id="score-sub">You completed all four exercises.</div>
   <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
 </div>
 
@@ -816,8 +1031,8 @@
 <script>
 // ── SCORE TRACKING ──
 const scores = { mc: {}, combine: {}, identify: {} };
-const MC_TOTAL = 4, COMBINE_TOTAL = 4, IDENTIFY_TOTAL = 5;
-const TOTAL = MC_TOTAL + COMBINE_TOTAL + IDENTIFY_TOTAL;
+const MC_TOTAL = 4, COMBINE_TOTAL = 4, IDENTIFY_TOTAL = 5, REVIEW_TOTAL = 16;
+const TOTAL = MC_TOTAL + COMBINE_TOTAL + IDENTIFY_TOTAL + REVIEW_TOTAL;
 
 function getScore() {
   const mc = Object.values(scores.mc).filter(Boolean).length;
@@ -854,7 +1069,7 @@ function showScore() {
 }
 
 // ── EXERCISE 1: MC ──
-function checkMC(btn, qId, correct) {
+function checkMC(btn, qId, correct, why) {
   const card = document.getElementById(qId);
   const btns = card.querySelectorAll('.mc-btn');
   btns.forEach(b => b.disabled = true);
@@ -872,7 +1087,7 @@ function checkMC(btn, qId, correct) {
     card.classList.add('wrong');
     // reveal correct
     btns.forEach(b => { if (b.textContent.trim() === correct) b.classList.add('reveal-correct'); });
-    fb.textContent = '✗ Not quite. The answer is "' + correct + '".';
+    fb.innerHTML = `✗ Not quite. The answer is "${correct}". ${why || ''}`;
     fb.className = 'feedback-msg show bad';
     scores.mc[qId] = false;
   }
@@ -880,7 +1095,7 @@ function checkMC(btn, qId, correct) {
 }
 
 // ── EXERCISE 2: COMBINE ──
-function checkCombine(id, connector, keywords) {
+function checkCombine(id, connector, keywords, correctSentence) {
   const input = document.getElementById(id + '-input');
   const val = input.value.trim().toLowerCase();
   const card = document.getElementById(id);
@@ -902,17 +1117,17 @@ function checkCombine(id, connector, keywords) {
     scores.combine[id] = true;
   } else if (hasConnector && hasKeywords && !hasCommaIfNeeded) {
     card.classList.add('wrong');
-    fb.textContent = '✗ Almost! When the clause comes first, you need a comma after it.';
+    fb.innerHTML = `✗ Almost! When the clause comes first, you need a comma after it. Correct: ${correctSentence}`;
     fb.className = 'feedback-msg show bad';
     scores.combine[id] = false;
   } else if (!hasConnector) {
     card.classList.add('wrong');
-    fb.textContent = '✗ Don\'t forget to use the connector word "' + connector + '".';
+    fb.innerHTML = `✗ Don't forget to use the connector word "${connector}". Correct: ${correctSentence}`;
     fb.className = 'feedback-msg show bad';
     scores.combine[id] = false;
   } else {
     card.classList.add('wrong');
-    fb.textContent = '✗ Make sure both sentences are included. Check spelling too!';
+    fb.innerHTML = `✗ Make sure both sentences are included. Correct: ${correctSentence}`;
     fb.className = 'feedback-msg show bad';
     scores.combine[id] = false;
   }
@@ -1029,7 +1244,7 @@ function resetIdentify(id) {
 }
 
 function retryAll() {
-  ['q1','q2','q3','q4'].forEach(qId => {
+  ['q1','q2','q3','q4','r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'].forEach(qId => {
     const card = document.getElementById(qId);
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b => {
@@ -1064,6 +1279,28 @@ function retryAll() {
   document.getElementById('score-section').classList.remove('show');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function resetGroup(ids, type) {
+  ids.forEach(id => {
+    const card = document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    if (type === 'mc') {
+      card.querySelectorAll('.mc-btn').forEach(b => { b.disabled = false; b.classList.remove('selected-correct','selected-wrong','reveal-correct','pop'); });
+      delete scores.mc[id];
+    } else if (type === 'combine') {
+      const inp = document.getElementById(id + '-input'); inp.value = ''; inp.disabled = false;
+      card.querySelector('.check-btn').disabled = false;
+      delete scores.combine[id];
+    }
+    const fb = document.getElementById(id + '-fb'); if (fb) { fb.className = 'feedback-msg'; fb.textContent = ''; fb.innerHTML = ''; }
+  });
+  updateProgress();
+}
+
+function resetEx1(){ resetGroup(['q1','q2','q3','q4'],'mc'); }
+function resetEx2(){ resetGroup(['c1','c2','c3','c4'],'combine'); }
+function resetEx3(){ sentences.forEach(s => resetIdentify(s.id)); }
+function resetEx4(){ resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'],'mc'); }
 
 // init
 buildTokens();
