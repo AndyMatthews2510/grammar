@@ -197,7 +197,10 @@
   }
   .ex-badge.amber  { background: var(--amber); color: var(--ink); }
   .ex-badge.rose   { background: var(--rose); }
+  .ex-badge.violet { background: var(--violet); }
   .ex-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+  .mini-cat { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--violet); margin: 1.6rem 0 0.6rem; }
+  .mini-cat:first-of-type { margin-top: 0; }
 
   .word-bank {
     background: var(--forest-lt); border: 1.5px solid #a5c8b7;
@@ -436,6 +439,38 @@
 </div>
 <hr class="div">
 
+<!-- SECTION 4 -->
+<div class="section">
+  <h2 class="sec-title">Is the Connector the Doer or the Receiver?</h2>
+  <p class="sec-sub">The connector word can play two different roles inside its own clause — and this decides whether you can leave it out.</p>
+
+  <div class="def-box">
+    Sometimes the connector word is <strong>doing the action</strong> — it sits right before the verb. Other times, someone else does the action and the connector is <strong>receiving</strong> it — a subject slips in between the connector and the verb. When the connector is the receiver, you can often <strong>leave it out</strong> completely (in defining clauses only).
+  </div>
+
+  <div class="compare">
+    <div class="cmp before">
+      <div class="lbl">Connector is the doer</div>
+      <div class="sent">"The man <span class="hi-f">who called you</span> is my brother."</div>
+      <div class="note">"who" sits right before the verb "called" — must keep it.</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">Connector is the receiver</div>
+      <div class="sent">"The man <span class="hi-f">(who) I met yesterday</span> is my brother."</div>
+      <div class="note">✓ "I" comes between "who" and the verb — you can drop "who".</div>
+    </div>
+  </div>
+
+  <div class="analogy">
+    💡 If the connector is glued directly to a verb, it's doing the action and has to stay. If another word (a subject) slips in between the connector and the verb, the connector is only receiving the action — and it's optional.
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> Connector + <em>subject</em> + verb → the connector can usually be dropped. Connector + verb (nothing in between) → the connector must stay.
+  </div>
+</div>
+<hr class="div">
+
 <!-- ══ EXERCISE 1 ══ -->
 <div class="section" id="ex1">
   <div class="ex-hdr">
@@ -450,10 +485,10 @@
     <div class="q-num">Question 1 of 5</div>
     <div class="q-text">The doctor __________ treated me was very kind. <span class="hint">(person)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q1','who')">who</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','who')">which</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','who')">where</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','who')">when</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','who','Who describes a person — the doctor.')">who</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','who','Who describes a person — the doctor.')">which</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','who','Who describes a person — the doctor.')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','who','Who describes a person — the doctor.')">when</button>
     </div>
     <div class="fb" id="q1-fb"></div>
   </div>
@@ -462,10 +497,10 @@
     <div class="q-num">Question 2 of 5</div>
     <div class="q-text">This is the restaurant __________ we had our first date. <span class="hint">(place)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q2','where')">who</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','where')">which</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','where')">where</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','where')">whose</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','where','Where describes a place — the restaurant.')">who</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','where','Where describes a place — the restaurant.')">which</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','where','Where describes a place — the restaurant.')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','where','Where describes a place — the restaurant.')">whose</button>
     </div>
     <div class="fb" id="q2-fb"></div>
   </div>
@@ -474,10 +509,10 @@
     <div class="q-num">Question 3 of 5</div>
     <div class="q-text">The student __________ phone rang during the exam had to leave. <span class="hint">(belonging)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q3','whose')">who</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','whose')">which</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','whose')">whose</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','whose')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','whose','Whose shows belonging — the phone belongs to the student.')">who</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','whose','Whose shows belonging — the phone belongs to the student.')">which</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','whose','Whose shows belonging — the phone belongs to the student.')">whose</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','whose','Whose shows belonging — the phone belongs to the student.')">that</button>
     </div>
     <div class="fb" id="q3-fb"></div>
   </div>
@@ -486,10 +521,10 @@
     <div class="q-num">Question 4 of 5</div>
     <div class="q-text">The laptop __________ I bought last year has already broken. <span class="hint">(thing)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q4','which')">who</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','which')">which</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','which')">whose</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','which')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','which','Which describes a thing — the laptop.')">who</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','which','Which describes a thing — the laptop.')">which</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','which','Which describes a thing — the laptop.')">whose</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','which','Which describes a thing — the laptop.')">where</button>
     </div>
     <div class="fb" id="q4-fb"></div>
   </div>
@@ -498,13 +533,15 @@
     <div class="q-num">Question 5 of 5</div>
     <div class="q-text">I still remember the summer __________ we travelled across Europe. <span class="hint">(time)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q5','when')">which</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','when')">where</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','when')">whose</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','when')">when</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','when','When describes a time — the summer.')">which</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','when','When describes a time — the summer.')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','when','When describes a time — the summer.')">whose</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','when','When describes a time — the summer.')">when</button>
     </div>
     <div class="fb" id="q5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -524,7 +561,7 @@
       <span>→ use</span><span class="c-tag">who</span>
     </div>
     <input class="cmb-input" id="c1-in" placeholder="Type your combined sentence here…">
-    <button class="check-btn" onclick="checkCmb('c1','who',['neighbour','bakes','bread'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c1','who',['neighbour','bakes','bread'],'I have a neighbour who bakes bread every Sunday.')">Check ✓</button>
     <div class="fb" id="c1-fb"></div>
   </div>
 
@@ -536,7 +573,7 @@
       <span>→ use</span><span class="c-tag">which</span>
     </div>
     <input class="cmb-input" id="c2-in" placeholder="Type your combined sentence here…">
-    <button class="check-btn" onclick="checkCmb('c2','which',['castle','12th','century'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c2','which',['castle','12th','century'],'We visited a castle which was built in the 12th century.')">Check ✓</button>
     <div class="fb" id="c2-fb"></div>
   </div>
 
@@ -548,7 +585,7 @@
       <span>→ use</span><span class="c-tag">whose</span>
     </div>
     <input class="cmb-input" id="c3-in" placeholder="Type your combined sentence here…">
-    <button class="check-btn" onclick="checkCmb('c3','whose',['man','daughter','singer'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c3','whose',['man','daughter','singer'],'I met a man whose daughter is a famous singer.')">Check ✓</button>
     <div class="fb" id="c3-fb"></div>
   </div>
 
@@ -560,9 +597,11 @@
       <span>→ use</span><span class="c-tag">where</span>
     </div>
     <input class="cmb-input" id="c4-in" placeholder="Type your combined sentence here…">
-    <button class="check-btn" onclick="checkCmb('c4','where',['bangkok','street food'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c4','where',['bangkok','street food'],'Bangkok is a city where street food is amazing.')">Check ✓</button>
     <div class="fb" id="c4-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -618,20 +657,218 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr">
+    <span class="ex-badge violet">Exercise 4</span>
+    <h2 class="ex-title">Mixed Review</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — connector choice, doer vs. receiver, the comma rule, and clause boundaries.</p>
+
+  <div class="mini-cat">Connector Choice</div>
+
+  <div class="q-card" id="r1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">The company __________ makes this product is based in Japan.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r1','which','Which describes a thing here — the company.')">who</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','which','Which describes a thing here — the company.')">which</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','which','Which describes a thing here — the company.')">whose</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','which','Which describes a thing here — the company.')">where</button>
+    </div>
+    <div class="fb" id="r1-fb"></div>
+  </div>
+
+  <div class="q-card" id="r2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">I'll never forget the place __________ we got engaged.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r2','where','Where describes a place — the engagement location.')">which</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','where','Where describes a place — the engagement location.')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','where','Where describes a place — the engagement location.')">who</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','where','Where describes a place — the engagement location.')">whose</button>
+    </div>
+    <div class="fb" id="r2-fb"></div>
+  </div>
+
+  <div class="q-card" id="r3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">Do you know the woman __________ car is parked outside?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r3','whose','Whose shows the car belongs to the woman.')">who</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','whose','Whose shows the car belongs to the woman.')">which</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','whose','Whose shows the car belongs to the woman.')">whose</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','whose','Whose shows the car belongs to the woman.')">where</button>
+    </div>
+    <div class="fb" id="r3-fb"></div>
+  </div>
+
+  <div class="mini-cat">Doer or Receiver?</div>
+
+  <div class="q-card" id="r4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">"The man <strong>who</strong> called you is my brother." — is "who" the doer or the receiver of the action?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r4','doer','Who sits right before the verb called, so it is doing the action.')">doer</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','doer','Who sits right before the verb called, so it is doing the action.')">receiver</button>
+    </div>
+    <div class="fb" id="r4-fb"></div>
+  </div>
+
+  <div class="q-card" id="r5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">"The book <strong>which</strong> I bought yesterday was expensive." — is "which" the doer or the receiver?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r5','receiver','The subject I comes between which and the verb bought, so which is the receiver — and it could be dropped.')">doer</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','receiver','The subject I comes between which and the verb bought, so which is the receiver — and it could be dropped.')">receiver</button>
+    </div>
+    <div class="fb" id="r5-fb"></div>
+  </div>
+
+  <div class="q-card" id="r6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">"The neighbours <strong>who</strong> live next door are very friendly." — is "who" the doer or the receiver?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r6','doer','Who sits right before the verb live, so it is doing the action.')">doer</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','doer','Who sits right before the verb live, so it is doing the action.')">receiver</button>
+    </div>
+    <div class="fb" id="r6-fb"></div>
+  </div>
+
+  <div class="q-card" id="r7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">"This is the photo <strong>that</strong> my sister took last summer." — is "that" the doer or the receiver?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r7','receiver','The subject my sister comes between that and the verb took, so that is the receiver — and it could be dropped.')">doer</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','receiver','The subject my sister comes between that and the verb took, so that is the receiver — and it could be dropped.')">receiver</button>
+    </div>
+    <div class="fb" id="r7-fb"></div>
+  </div>
+
+  <div class="mini-cat">The Comma Rule</div>
+
+  <div class="q-card" id="r8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">My only sister__________ who lives in London__________ is visiting next week.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r8','commas','Only sister already tells us exactly who — the clause is extra detail, so it needs commas.')">commas</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','commas','Only sister already tells us exactly who — the clause is extra detail, so it needs commas.')">no commas</button>
+    </div>
+    <div class="fb" id="r8-fb"></div>
+  </div>
+
+  <div class="q-card" id="r9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">The woman__________ who called you__________ left her number.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r9','no commas','The clause tells us exactly which woman — it is essential, so no commas.')">commas</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','no commas','The clause tells us exactly which woman — it is essential, so no commas.')">no commas</button>
+    </div>
+    <div class="fb" id="r9-fb"></div>
+  </div>
+
+  <div class="q-card" id="r10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">Mount Everest__________ which is the tallest mountain in the world__________ attracts thousands of climbers.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r10','commas','Mount Everest is already a specific name — the clause is extra detail, so it needs commas.')">commas</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','commas','Mount Everest is already a specific name — the clause is extra detail, so it needs commas.')">no commas</button>
+    </div>
+    <div class="fb" id="r10-fb"></div>
+  </div>
+
+  <div class="q-card" id="r11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">The car__________ that I bought last year__________ has already broken down.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r11','no commas','The clause tells us exactly which car — it is essential, so no commas.')">commas</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','no commas','The clause tells us exactly which car — it is essential, so no commas.')">no commas</button>
+    </div>
+    <div class="fb" id="r11-fb"></div>
+  </div>
+
+  <div class="mini-cat">Clause Boundaries</div>
+
+  <div class="q-card" id="r12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">"The keys that I lost yesterday were finally found under the couch." — Which word does the adjective clause start with?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r12','that','The clause is that I lost yesterday, starting with the connector word.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','that','The clause is that I lost yesterday, starting with the connector word.')">lost</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','that','The clause is that I lost yesterday, starting with the connector word.')">yesterday</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','that','The clause is that I lost yesterday, starting with the connector word.')">found</button>
+    </div>
+    <div class="fb" id="r12-fb"></div>
+  </div>
+
+  <div class="q-card" id="r13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">"The scientist whose research won the Nobel Prize spoke at our university." — Which word does the adjective clause end with?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r13','Prize','The clause is whose research won the Nobel Prize, ending right before spoke.')">Prize</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Prize','The clause is whose research won the Nobel Prize, ending right before spoke.')">university</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Prize','The clause is whose research won the Nobel Prize, ending right before spoke.')">spoke</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Prize','The clause is whose research won the Nobel Prize, ending right before spoke.')">research</button>
+    </div>
+    <div class="fb" id="r13-fb"></div>
+  </div>
+
+  <div class="q-card" id="r14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">"Students who arrive late will not be allowed to enter the exam hall." — How many words are in the adjective clause (including the connector)?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r14','3','The clause is who arrive late — three words.')">2</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','3','The clause is who arrive late — three words.')">3</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','3','The clause is who arrive late — three words.')">4</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','3','The clause is who arrive late — three words.')">5</button>
+    </div>
+    <div class="fb" id="r14-fb"></div>
+  </div>
+
+  <div class="q-card" id="r15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">"The restaurant where we celebrated our anniversary has now closed." — Which word does the adjective clause end with?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r15','anniversary','The clause is where we celebrated our anniversary, ending right before has.')">closed</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','anniversary','The clause is where we celebrated our anniversary, ending right before has.')">anniversary</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','anniversary','The clause is where we celebrated our anniversary, ending right before has.')">celebrated</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','anniversary','The clause is where we celebrated our anniversary, ending right before has.')">where</button>
+    </div>
+    <div class="fb" id="r15-fb"></div>
+  </div>
+
+  <div class="q-card" id="r16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">"My brother Tom, who is a doctor, lives in Chicago." — Why does this clause need commas?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r16','His name already identifies him','His name (Tom) already tells us exactly who — the clause only adds extra detail.')">His name already identifies him</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','His name already identifies him','His name (Tom) already tells us exactly who — the clause only adds extra detail.')">It tells us which brother</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','His name already identifies him','His name (Tom) already tells us exactly who — the clause only adds extra detail.')">"Who" must always have commas</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','His name already identifies him','His name (Tom) already tells us exactly who — the clause only adds extra detail.')">It comes at the start of the sentence</button>
+    </div>
+    <div class="fb" id="r16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
 <!-- SCORE -->
 <div id="score-sec">
-  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/14</div></div>
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/30</div></div>
   <div class="s-msg" id="s-msg">Well done!</div>
-  <div class="s-sub" id="s-sub">You completed all three exercises.</div>
+  <div class="s-sub" id="s-sub">You completed all four exercises.</div>
   <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
 </div>
 
 <footer>Adjective Clauses — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL = 14; // 5 MC + 4 combine + 5 identify
+const TOTAL = 30; // 5 MC + 4 combine + 5 identify + 16 mixed review
 const scores = { mc:{}, cmb:{}, id:{} };
 
 function getScore(){ return Object.values(scores.mc).filter(Boolean).length + Object.values(scores.cmb).filter(Boolean).length + Object.values(scores.id).filter(Boolean).length; }
@@ -657,18 +894,18 @@ function showScore(){
 }
 
 // ── MC ──
-function checkMC(btn, qId, correct){
+function checkMC(btn, qId, correct, why){
   const card = document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb = document.getElementById(qId+'-fb');
   const ok = btn.textContent.trim()===correct;
   if(ok){ btn.classList.add('sel-ok','pop'); card.classList.add('correct'); fb.textContent='✓ Correct!'; fb.className='fb show ok'; scores.mc[qId]=true; }
-  else{ btn.classList.add('sel-bad','pop'); card.classList.add('wrong'); card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); }); fb.textContent='✗ Not quite. The answer is "'+correct+'".'; fb.className='fb show bad'; scores.mc[qId]=false; }
+  else{ btn.classList.add('sel-bad','pop'); card.classList.add('wrong'); card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); }); fb.innerHTML=`✗ Not quite. The answer is "${correct}". ${why||''}`; fb.className='fb show bad'; scores.mc[qId]=false; }
   updateProgress();
 }
 
 // ── COMBINE ──
-function checkCmb(id, connector, keywords){
+function checkCmb(id, connector, keywords, correctSentence){
   const val = document.getElementById(id+'-in').value.trim().toLowerCase();
   const card = document.getElementById(id);
   const fb = document.getElementById(id+'-fb');
@@ -677,8 +914,8 @@ function checkCmb(id, connector, keywords){
   const hasConn = val.includes(connector.toLowerCase());
   const hasKw = keywords.every(k=>val.includes(k.toLowerCase()));
   if(hasConn && hasKw && val.length>10){ card.classList.add('correct'); fb.textContent='✓ Looks good!'; fb.className='fb show ok'; scores.cmb[id]=true; }
-  else if(!hasConn){ card.classList.add('wrong'); fb.textContent='✗ Don\'t forget to use the connector word "'+connector+'".'; fb.className='fb show bad'; scores.cmb[id]=false; }
-  else{ card.classList.add('wrong'); fb.textContent='✗ Make sure both ideas are included. Check your spelling too!'; fb.className='fb show bad'; scores.cmb[id]=false; }
+  else if(!hasConn){ card.classList.add('wrong'); fb.innerHTML=`✗ Don't forget to use the connector word "${connector}". Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false; }
+  else{ card.classList.add('wrong'); fb.innerHTML=`✗ Make sure both ideas are included. Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false; }
   updateProgress();
 }
 
@@ -745,7 +982,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'].forEach(qId=>{
     const card=document.getElementById(qId);
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
@@ -773,6 +1010,28 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+function resetGroup(ids, type){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    if(type==='mc'){
+      card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+      delete scores.mc[id];
+    } else if(type==='cmb'){
+      const inp=document.getElementById(id+'-in'); inp.value=''; inp.disabled=false;
+      card.querySelector('.check-btn').disabled=false;
+      delete scores.cmb[id];
+    }
+    const fb=document.getElementById(id+'-fb'); if(fb){ fb.className='fb'; fb.textContent=''; fb.innerHTML=''; }
+  });
+  updateProgress();
+}
+
+function resetEx1(){ resetGroup(['q1','q2','q3','q4','q5'],'mc'); }
+function resetEx2(){ resetGroup(['c1','c2','c3','c4'],'cmb'); }
+function resetEx3(){ sents.forEach(s=>resetId(s.id)); }
+function resetEx4(){ resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'],'mc'); }
 
 buildTokens();
 </script>
