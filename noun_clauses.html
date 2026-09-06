@@ -172,7 +172,10 @@
   }
   .ex-badge.rose  { background: var(--rose); }
   .ex-badge.amber { background: var(--amber); color: white; }
+  .ex-badge.teal  { background: var(--teal); color: white; }
   .ex-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+  .mini-cat { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin: 1.6rem 0 0.6rem; }
+  .mini-cat:first-of-type { margin-top: 0; }
 
   .word-bank {
     background: var(--violet-lt); border: 1.5px solid #c4b5fd;
@@ -408,6 +411,70 @@
 </div>
 <hr class="div">
 
+<!-- SECTION 4 -->
+<div class="section">
+  <h2 class="sec-title">Starting a Sentence with "It"</h2>
+  <p class="sec-sub">Sometimes a noun clause is really the subject of the sentence — but starting with a long clause sounds heavy. English often moves it to the end and puts a small placeholder word, <strong>it</strong>, at the front instead.</p>
+
+  <div class="def-box">
+    When a noun clause would make an awkward subject, move it to the <strong>end</strong> of the sentence and start with <strong>it</strong> instead. The meaning doesn't change — only the order.
+  </div>
+
+  <div class="compare">
+    <div class="cmp before">
+      <div class="lbl">Clause first (heavy)</div>
+      <div class="sent">"<em>That she passed the exam</em> surprised nobody."</div>
+      <div class="note">Correct, but sounds stiff.</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">With "it" (natural)</div>
+      <div class="sent">"<span class="hi-v">It</span> surprised nobody <span class="hi-v">that she passed the exam</span>."</div>
+      <div class="note">✓ Much more natural!</div>
+    </div>
+  </div>
+
+  <div class="analogy">
+    💡 Think of "it" as holding the subject's place at the front of the queue while the real subject — the noun clause — waits at the back.
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> <em>It + be/verb + (adjective) + that-clause.</em> "That" can often be dropped in speech: "It's clear (that) he's tired."
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2 class="sec-title">Giving Strong Advice: the Base-Form Rule</h2>
+  <p class="sec-sub">After certain verbs and phrases that give strong advice, orders, or urgent opinions, the verb inside the clause behaves in a special way.</p>
+
+  <div class="def-box">
+    After words like <strong>suggest, recommend, insist, demand, propose</strong> — or phrases like <strong>it's important / essential / vital that</strong> — the verb inside the clause stays in its <strong>plain base form</strong> (no <em>-s</em>, no past tense, no "to"), no matter who or what the subject is.
+  </div>
+
+  <div class="compare">
+    <div class="cmp before">
+      <div class="lbl">A normal fact</div>
+      <div class="sent">"I know that he <em>arrives</em> on time."</div>
+      <div class="note">Regular verb form — matches the subject.</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">Strong advice</div>
+      <div class="sent">"I suggest that he <span class="hi-v">arrive</span> on time."</div>
+      <div class="note">✓ Base form — never "arrives" or "arrived".</div>
+    </div>
+  </div>
+
+  <div class="analogy">
+    💡 It doesn't matter if the subject is "he", "she" or "it" — the verb never changes. Even "be" stays in its plain form: "It's essential that she <strong>be</strong> on time," not "is".
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> Strong-advice word/phrase + subject + <em>base-form verb</em>. For negatives, put "not" before the base form: "It's essential that she <strong>not be</strong> late."
+  </div>
+</div>
+<hr class="div">
+
 <!-- ══ EXERCISE 1 ══ -->
 <div class="section" id="ex1">
   <div class="ex-hdr">
@@ -422,10 +489,10 @@
     <div class="q-num">Question 1 of 5</div>
     <div class="q-text">I don't understand __________ she is so upset. <span class="hint">(reason)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q1','why')">that</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','why')">whether</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','why')">where</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','why')">why</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','why','Why asks for a reason.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','why','Why asks for a reason.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','why','Why asks for a reason.')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','why','Why asks for a reason.')">why</button>
     </div>
     <div class="fb" id="q1-fb"></div>
   </div>
@@ -434,10 +501,10 @@
     <div class="q-num">Question 2 of 5</div>
     <div class="q-text">She told me __________ the meeting had been cancelled. <span class="hint">(reporting a fact)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q2','that')">that</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','that')">what</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','that')">whether</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','that')">how</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','that','This reports a fact, so use that.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','that','This reports a fact, so use that.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','that','This reports a fact, so use that.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','that','This reports a fact, so use that.')">how</button>
     </div>
     <div class="fb" id="q2-fb"></div>
   </div>
@@ -446,10 +513,10 @@
     <div class="q-num">Question 3 of 5</div>
     <div class="q-text">I have no idea __________ he put my keys. <span class="hint">(place)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q3','where')">that</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','where')">what</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','where')">where</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','where')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','where','The clause is about a place, so use where.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','where','The clause is about a place, so use where.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','where','The clause is about a place, so use where.')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','where','The clause is about a place, so use where.')">whether</button>
     </div>
     <div class="fb" id="q3-fb"></div>
   </div>
@@ -458,10 +525,10 @@
     <div class="q-num">Question 4 of 5</div>
     <div class="q-text">Do you know __________ the film has started yet? <span class="hint">(yes/no question)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q4','whether')">what</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','whether')">that</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','whether')">whether</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','whether')">why</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','whether','This reports a yes/no question, so use whether.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','whether','This reports a yes/no question, so use whether.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','whether','This reports a yes/no question, so use whether.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','whether','This reports a yes/no question, so use whether.')">why</button>
     </div>
     <div class="fb" id="q4-fb"></div>
   </div>
@@ -470,13 +537,15 @@
     <div class="q-num">Question 5 of 5</div>
     <div class="q-text">__________ you feel about this matters a lot to me. <span class="hint">(subject of the sentence)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q5','how')">that</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','how')">whether</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','how')">how</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','how')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','how','The clause acts as the subject and asks about feeling, so use how.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','how','The clause acts as the subject and asks about feeling, so use how.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','how','The clause acts as the subject and asks about feeling, so use how.')">how</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','how','The clause acts as the subject and asks about feeling, so use how.')">where</button>
     </div>
     <div class="fb" id="q5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -495,7 +564,7 @@
       <span class="s-pill">"I wonder where is she going."</span>
     </div>
     <input class="cmb-input" id="c1-in" placeholder="Rewrite with correct word order…">
-    <button class="check-btn" onclick="checkCmb('c1','where',['she','going'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c1','where',['she','going'],'I wonder where she is going.')">Check ✓</button>
     <div class="fb" id="c1-fb"></div>
   </div>
 
@@ -506,7 +575,7 @@
       <span class="s-pill">"Can you tell me what time is it?"</span>
     </div>
     <input class="cmb-input" id="c2-in" placeholder="Rewrite with correct word order…">
-    <button class="check-btn" onclick="checkCmb('c2','what',['time','it','is'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c2','what',['time','it','is'],'Can you tell me what time it is?')">Check ✓</button>
     <div class="fb" id="c2-fb"></div>
   </div>
 
@@ -517,7 +586,7 @@
       <span class="s-pill">"Nobody knows why did he leave."</span>
     </div>
     <input class="cmb-input" id="c3-in" placeholder="Rewrite with correct word order…">
-    <button class="check-btn" onclick="checkCmb('c3','why',['he','leave'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c3','why',['he','left'],'Nobody knows why he left.')">Check ✓</button>
     <div class="fb" id="c3-fb"></div>
   </div>
 
@@ -528,9 +597,11 @@
       <span class="s-pill">"She asked me how old am I."</span>
     </div>
     <input class="cmb-input" id="c4-in" placeholder="Rewrite with correct word order…">
-    <button class="check-btn" onclick="checkCmb('c4','how',['old','i','am'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c4','how',['old','i','am'],'She asked me how old I am.')">Check ✓</button>
     <div class="fb" id="c4-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -586,20 +657,236 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr">
+    <span class="ex-badge teal">Exercise 4</span>
+    <h2 class="ex-title">Mixed Review</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — reporting facts, sentences with "it", strong advice, yes/no questions, and question words.</p>
+
+  <div class="mini-cat">That-Clauses</div>
+
+  <div class="q-card" id="r1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">The report confirmed __________ the company had made a profit.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r1','that','This clause reports a fact.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','that','This clause reports a fact.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','that','This clause reports a fact.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','that','This clause reports a fact.')">how</button>
+    </div>
+    <div class="fb" id="r1-fb"></div>
+  </div>
+
+  <div class="q-card" id="r2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">Everyone agrees __________ the plan needs more work.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r2','that','This simply reports what everyone agrees on.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','that','This simply reports what everyone agrees on.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','that','This simply reports what everyone agrees on.')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','that','This simply reports what everyone agrees on.')">where</button>
+    </div>
+    <div class="fb" id="r2-fb"></div>
+  </div>
+
+  <div class="q-card" id="r3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">She admitted __________ she had forgotten the appointment.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r3','that','This reports the fact she admitted.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','that','This reports the fact she admitted.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','that','This reports the fact she admitted.')">how</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','that','This reports the fact she admitted.')">why</button>
+    </div>
+    <div class="fb" id="r3-fb"></div>
+  </div>
+
+  <div class="mini-cat">Sentences with "It"</div>
+
+  <div class="q-card" id="r4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">__________ doesn't matter what people think of you.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r4','It','It is the placeholder subject; the real subject comes later.')">It</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','It','It is the placeholder subject; the real subject comes later.')">That</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','It','It is the placeholder subject; the real subject comes later.')">What</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','It','It is the placeholder subject; the real subject comes later.')">This</button>
+    </div>
+    <div class="fb" id="r4-fb"></div>
+  </div>
+
+  <div class="q-card" id="r5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">I found __________ strange that he didn't call.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r5','it','It holds the object position while the real idea follows.')">it</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','it','It holds the object position while the real idea follows.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','it','It holds the object position while the real idea follows.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','it','It holds the object position while the real idea follows.')">this</button>
+    </div>
+    <div class="fb" id="r5-fb"></div>
+  </div>
+
+  <div class="q-card" id="r6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">__________ is essential that everyone arrives on time.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r6','It','It starts the sentence; the noun clause is the real subject.')">It</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','It','It starts the sentence; the noun clause is the real subject.')">That</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','It','It starts the sentence; the noun clause is the real subject.')">Everyone</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','It','It starts the sentence; the noun clause is the real subject.')">This</button>
+    </div>
+    <div class="fb" id="r6-fb"></div>
+  </div>
+
+  <div class="mini-cat">Strong Advice (Base Form)</div>
+
+  <div class="q-card" id="r7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">The doctor recommended that she __________ more water.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r7','drink','After recommended that, the verb stays in its base form.')">drinks</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','drink','After recommended that, the verb stays in its base form.')">drink</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','drink','After recommended that, the verb stays in its base form.')">drank</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','drink','After recommended that, the verb stays in its base form.')">is drinking</button>
+    </div>
+    <div class="fb" id="r7-fb"></div>
+  </div>
+
+  <div class="q-card" id="r8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">It is essential that he __________ present at the meeting.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r8','be','After it is essential that, use the base form be.')">is</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','be','After it is essential that, use the base form be.')">be</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','be','After it is essential that, use the base form be.')">was</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','be','After it is essential that, use the base form be.')">being</button>
+    </div>
+    <div class="fb" id="r8-fb"></div>
+  </div>
+
+  <div class="q-card" id="r9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">I suggest that Tom __________ his manager before leaving early.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r9','tell','After suggest that, use the base form tell.')">tells</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','tell','After suggest that, use the base form tell.')">tell</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','tell','After suggest that, use the base form tell.')">told</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','tell','After suggest that, use the base form tell.')">telling</button>
+    </div>
+    <div class="fb" id="r9-fb"></div>
+  </div>
+
+  <div class="q-card" id="r10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">The teacher insists that all students __________ their homework on time.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r10','submit','After insists that, the verb stays in base form.')">submits</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','submit','After insists that, the verb stays in base form.')">submit</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','submit','After insists that, the verb stays in base form.')">submitted</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','submit','After insists that, the verb stays in base form.')">submitting</button>
+    </div>
+    <div class="fb" id="r10-fb"></div>
+  </div>
+
+  <div class="mini-cat">If / Whether Clauses</div>
+
+  <div class="q-card" id="r11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">I wonder __________ she remembers me.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r11','if','This reports a yes/no question with if.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','if','This reports a yes/no question with if.')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','if','This reports a yes/no question with if.')">how</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','if','This reports a yes/no question with if.')">why</button>
+    </div>
+    <div class="fb" id="r11-fb"></div>
+  </div>
+
+  <div class="q-card" id="r12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">He asked __________ or not the train had left.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r12','whether','Whether ... or not is a fixed pattern.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','whether','Whether ... or not is a fixed pattern.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','whether','Whether ... or not is a fixed pattern.')">why</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','whether','Whether ... or not is a fixed pattern.')">how</button>
+    </div>
+    <div class="fb" id="r12-fb"></div>
+  </div>
+
+  <div class="q-card" id="r13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">Could you tell me __________ this seat is taken?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r13','whether','Whether politely introduces a yes/no question.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','whether','Whether politely introduces a yes/no question.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','whether','Whether politely introduces a yes/no question.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','whether','Whether politely introduces a yes/no question.')">why</button>
+    </div>
+    <div class="fb" id="r13-fb"></div>
+  </div>
+
+  <div class="mini-cat">Question-Word Clauses</div>
+
+  <div class="q-card" id="r14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">I don't know __________ she lives now.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r14','where','This clause asks about a place.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','where','This clause asks about a place.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','where','This clause asks about a place.')">where</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','where','This clause asks about a place.')">if</button>
+    </div>
+    <div class="fb" id="r14-fb"></div>
+  </div>
+
+  <div class="q-card" id="r15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">Can you explain __________ this machine works?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r15','how','This clause asks about the way something works.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','how','This clause asks about the way something works.')">how</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','how','This clause asks about the way something works.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','how','This clause asks about the way something works.')">that</button>
+    </div>
+    <div class="fb" id="r15-fb"></div>
+  </div>
+
+  <div class="q-card" id="r16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">Nobody understands __________ he quit his job so suddenly.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r16','why','This clause asks about a reason.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','why','This clause asks about a reason.')">why</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','why','This clause asks about a reason.')">whether</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','why','This clause asks about a reason.')">where</button>
+    </div>
+    <div class="fb" id="r16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
 <!-- SCORE -->
 <div id="score-sec">
-  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/14</div></div>
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/30</div></div>
   <div class="s-msg" id="s-msg">Well done!</div>
-  <div class="s-sub" id="s-sub">You completed all three exercises.</div>
+  <div class="s-sub" id="s-sub">You completed all four exercises.</div>
   <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
 </div>
 
 <footer>Noun Clauses — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL = 14;
+const TOTAL = 30;
 const scores = { mc:{}, cmb:{}, id:{} };
 
 function getScore(){ return Object.values(scores.mc).filter(Boolean).length + Object.values(scores.cmb).filter(Boolean).length + Object.values(scores.id).filter(Boolean).length; }
@@ -623,17 +910,17 @@ function showScore(){
   sec.scrollIntoView({behavior:'smooth',block:'center'});
 }
 
-function checkMC(btn, qId, correct){
+function checkMC(btn, qId, correct, why){
   const card = document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb = document.getElementById(qId+'-fb');
   const ok = btn.textContent.trim()===correct;
   if(ok){ btn.classList.add('sel-ok','pop'); card.classList.add('correct'); fb.textContent='✓ Correct!'; fb.className='fb show ok'; scores.mc[qId]=true; }
-  else{ btn.classList.add('sel-bad','pop'); card.classList.add('wrong'); card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); }); fb.textContent='✗ Not quite. The answer is "'+correct+'".'; fb.className='fb show bad'; scores.mc[qId]=false; }
+  else{ btn.classList.add('sel-bad','pop'); card.classList.add('wrong'); card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); }); fb.innerHTML=`✗ Not quite. The answer is "${correct}". ${why||''}`; fb.className='fb show bad'; scores.mc[qId]=false; }
   updateProgress();
 }
 
-function checkCmb(id, connector, keywords){
+function checkCmb(id, connector, keywords, correctSentence){
   const val = document.getElementById(id+'-in').value.trim().toLowerCase();
   const card = document.getElementById(id);
   const fb = document.getElementById(id+'-fb');
@@ -643,8 +930,8 @@ function checkCmb(id, connector, keywords){
   const hasKw = keywords.every(k=>val.includes(k.toLowerCase()));
   // Check that it's NOT question order: connector should NOT be followed immediately by a verb-first pattern
   if(hasConn && hasKw && val.length>10){ card.classList.add('correct'); fb.textContent='✓ Correct word order!'; fb.className='fb show ok'; scores.cmb[id]=true; }
-  else if(!hasConn){ card.classList.add('wrong'); fb.textContent='✗ Make sure you keep the connector word "'+connector+'".'; fb.className='fb show bad'; scores.cmb[id]=false; }
-  else{ card.classList.add('wrong'); fb.textContent='✗ Almost! Check your word order — subject comes before the verb inside the clause.'; fb.className='fb show bad'; scores.cmb[id]=false; }
+  else if(!hasConn){ card.classList.add('wrong'); fb.innerHTML=`✗ Make sure you keep the connector word "${connector}". Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false; }
+  else{ card.classList.add('wrong'); fb.innerHTML=`✗ Almost! Check your word order — subject comes before the verb inside the clause. Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false; }
   updateProgress();
 }
 
@@ -707,8 +994,30 @@ function resetId(id){
   updateProgress();
 }
 
+function resetGroup(ids, type){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    if(type==='mc'){
+      card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+      delete scores.mc[id];
+    } else if(type==='cmb'){
+      const inp=document.getElementById(id+'-in'); inp.value=''; inp.disabled=false;
+      card.querySelector('.check-btn').disabled=false;
+      delete scores.cmb[id];
+    }
+    const fb=document.getElementById(id+'-fb'); if(fb){ fb.className='fb'; fb.textContent=''; fb.innerHTML=''; }
+  });
+  updateProgress();
+}
+
+function resetEx1(){ resetGroup(['q1','q2','q3','q4','q5'],'mc'); }
+function resetEx2(){ resetGroup(['c1','c2','c3','c4'],'cmb'); }
+function resetEx3(){ ['i1','i2','i3','i4','i5'].forEach(id=>resetId(id)); }
+function resetEx4(){ resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'],'mc'); }
+
 function retryAll(){
-  ['q1','q2','q3','q4','q5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'].forEach(qId=>{
     const card=document.getElementById(qId);
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
