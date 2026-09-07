@@ -212,6 +212,46 @@
   .coming-soon .cs-label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; }
   .coming-soon p { font-size:.88rem; margin-top:.4rem; }
 
+  /* ── ASSESSMENT BANNER ── */
+  .assess-banner {
+    display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+    background:#05070d; border-radius:1.1rem; padding:1.8rem 2.2rem;
+    margin-bottom:2.5rem; text-decoration:none; position:relative; overflow:hidden;
+    transition:transform .18s, box-shadow .18s;
+  }
+  .assess-banner::before {
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 85% 20%, rgba(180,83,9,.35) 0%, transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(29,78,216,.25) 0%, transparent 50%);
+  }
+  .assess-banner:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(5,7,13,.35); }
+  .ab-text { position:relative; }
+  .ab-tag {
+    display:inline-block; background:#b45309; color:white;
+    font-size:.66rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+    padding:.24rem .75rem; border-radius:2rem; margin-bottom:.7rem;
+  }
+  .ab-title {
+    font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700;
+    color:white; margin-bottom:.35rem; line-height:1.2;
+  }
+  .ab-title em { color:#fde68a; font-style:normal; }
+  .ab-desc { font-size:.88rem; color:#a8b2c4; max-width:480px; line-height:1.55; }
+  .ab-cta {
+    position:relative; flex-shrink:0; display:flex; align-items:center; gap:.5rem;
+    background:#b45309; color:white; font-weight:600; font-size:.92rem;
+    padding:.75rem 1.5rem; border-radius:2rem; white-space:nowrap;
+    transition:background .15s;
+  }
+  .assess-banner:hover .ab-cta { background:#c2670f; }
+  .ab-arrow { transition:transform .15s; }
+  .assess-banner:hover .ab-arrow { transform:translateX(4px); }
+  @media(max-width:640px){
+    .assess-banner { flex-direction:column; align-items:flex-start; text-align:left; }
+    .ab-cta { align-self:stretch; justify-content:center; }
+  }
+
   footer { text-align:center; padding:2rem; font-size:.82rem; color:var(--muted); border-top:1px solid var(--border); }
 </style>
 </head>
@@ -224,6 +264,15 @@
 </header>
 
 <main>
+  <a class="assess-banner" href="assessment.html">
+    <div class="ab-text">
+      <div class="ab-tag">36 Questions · 15 Minutes</div>
+      <div class="ab-title">Not sure where to start? Take the <em>Grammar Assessment</em></div>
+      <div class="ab-desc">A quick diagnostic across all 18 lessons. Get an instant score and a personalised report showing exactly which lessons to study first.</div>
+    </div>
+    <div class="ab-cta">Start Assessment <span class="ab-arrow">→</span></div>
+  </a>
+
   <div class="intro">
     <h2>Choose a lesson</h2>
     <p>Topics are grouped so that earlier sections lay groundwork for later ones — but every lesson is fully self-contained and can be studied on its own. Follow the order for the most logical progression, or jump straight to whatever you need.</p>
