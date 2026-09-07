@@ -171,7 +171,10 @@
   }
   .ex-badge.gold    { background: var(--gold); color: var(--ink); }
   .ex-badge.emerald { background: var(--emerald); }
+  .ex-badge.rose    { background: var(--rose); }
   .ex-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+  .mini-cat { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--rose); margin: 1.6rem 0 0.6rem; }
+  .mini-cat:first-of-type { margin-top: 0; }
 
   .q-card {
     background: var(--white); border: 1.5px solid var(--border);
@@ -197,6 +200,20 @@
   .mc-btn.sel-bad { border-color: #ef4444; background: #fff0f0; color: #ef4444; }
   .mc-btn.rev-ok  { border-color: var(--emerald); background: var(--emerald-lt); color: var(--emerald); }
   .mc-btn:disabled { cursor: not-allowed; opacity: 0.55; }
+
+  /* Longer full-sentence options */
+  .fix-opts { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.3rem; }
+  .fix-btn {
+    border: 2px solid var(--border); background: var(--bg);
+    color: var(--ink); padding: 0.6rem 1rem; border-radius: 0.6rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-align: left;
+    transition: all 0.15s; line-height: 1.45;
+  }
+  .fix-btn:hover:not(:disabled) { border-color: var(--emerald); background: var(--emerald-lt); }
+  .fix-btn.sel-ok  { border-color: var(--emerald); background: var(--emerald-lt); color: var(--emerald); font-weight: 600; }
+  .fix-btn.sel-bad { border-color: #ef4444; background: #fff0f0; color: #ef4444; }
+  .fix-btn.rev-ok  { border-color: var(--emerald); background: var(--emerald-lt); color: var(--emerald); font-weight: 600; }
+  .fix-btn:disabled { cursor: not-allowed; opacity: 0.55; }
 
   .fb { margin-top: 0.7rem; font-size: 0.88rem; font-weight: 500; display: none; }
   .fb.show { display: block; }
@@ -384,6 +401,66 @@
 </div>
 <hr class="div">
 
+<!-- SECTION 3 -->
+<div class="section">
+  <h2 class="sec-title">Joining with Conjunctive Adverbs</h2>
+  <p class="sec-sub">FANBOYS aren't the only way to join two independent clauses — but the punctuation changes with a different set of connecting words.</p>
+
+  <div class="def-box">
+    Words like <strong>however, therefore, moreover, nevertheless, consequently,</strong> and <strong>otherwise</strong> can also connect two independent clauses. But unlike FANBOYS, they need a <strong>semicolon before</strong> them and a <strong>comma after</strong>.
+  </div>
+
+  <div class="compare">
+    <div class="cmp indep">
+      <div class="lbl">With a coordinator</div>
+      <div class="sent">"It was raining, <strong>so</strong> we stayed inside."</div>
+      <div class="note">Comma before the coordinator.</div>
+    </div>
+    <div class="cmp dep" style="background:var(--navy-lt);border-color:var(--navy-mid)">
+      <div class="lbl" style="color:var(--navy)">With a conjunctive adverb</div>
+      <div class="sent">"It was raining; <strong>therefore,</strong> we stayed inside."</div>
+      <div class="note" style="color:var(--navy)">✓ Semicolon before, comma after.</div>
+    </div>
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> Independent clause + <em>;</em> + conjunctive adverb + <em>,</em> + independent clause.
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 4 -->
+<div class="section">
+  <h2 class="sec-title">Choosing the Right Coordinator (and the "Nor" Trick)</h2>
+  <p class="sec-sub">FANBOYS words don't all mean the same thing — and one of them, "nor," even flips your word order.</p>
+
+  <div class="def-box">
+    Each coordinator carries its own meaning: <strong>but</strong> shows a direct contrast, <strong>yet</strong> shows a surprising or unexpected contrast, <strong>so</strong> shows a result, and <strong>nor</strong> adds another negative idea. Because "nor" already means "and not," it needs special word order.
+  </div>
+
+  <div class="compare">
+    <div class="cmp indep">
+      <div class="lbl">Normal word order</div>
+      <div class="sent">"She does not like coffee."</div>
+      <div class="note">Subject before verb, as usual.</div>
+    </div>
+    <div class="cmp dep" style="background:var(--navy-lt);border-color:var(--navy-mid)">
+      <div class="lbl" style="color:var(--navy)">After "nor"</div>
+      <div class="sent">"She does not like coffee, <strong>nor does she like</strong> tea."</div>
+      <div class="note" style="color:var(--navy)">✓ Helping verb flips before the subject — like a question.</div>
+    </div>
+  </div>
+
+  <div class="analogy">
+    💡 Never add a second "not" after "nor" — "nor" already carries the negative for you.
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> nor + helping verb + subject + main verb. No extra "not" needed — "nor" already means "and not."
+  </div>
+</div>
+<hr class="div">
+
 <!-- ══ EXERCISE 1 ══ -->
 <div class="section" id="ex1">
   <div class="ex-hdr">
@@ -451,6 +528,8 @@
     </div>
     <div class="fb" id="q5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -471,7 +550,7 @@
     </div>
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Join with a coordinator (but / and / yet / so) and a comma.</p>
     <input class="cmb-input" id="c1-in" placeholder="Type your compound sentence here…">
-    <button class="check-btn" onclick="checkCmb('c1',['film','long','entertaining'],['but','and','yet','so','or'],null)">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c1',['film','long','entertaining'],['but','and','yet','so','or'],null,'The film was long, but it was entertaining.')">Check ✓</button>
     <div class="fb" id="c1-fb"></div>
   </div>
 
@@ -484,7 +563,7 @@
     </div>
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Use a subordinating conjunction (because / when / since / so that).</p>
     <input class="cmb-input" id="c2-in" placeholder="Type your complex sentence here…">
-    <button class="check-btn" onclick="checkCmb('c2',['umbrella','soaked'],['because','when','since','as','so that'],null)">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c2',['umbrella','soaked'],['because','when','since','as','so that'],null,'He got soaked in the rain because he forgot his umbrella.')">Check ✓</button>
     <div class="fb" id="c2-fb"></div>
   </div>
 
@@ -498,7 +577,7 @@
     </div>
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: You need both a subordinating conjunction (although / even though / because) AND a coordinator (and / but / so).</p>
     <input class="cmb-input" id="c3-in" placeholder="Type your compound-complex sentence here…">
-    <button class="check-btn" onclick="checkCmb('c3',['nervous','presentation','well'],['although','even though','because','despite'],['and','but','so','yet'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c3',['nervous','presentation','well'],['although','even though','because','despite'],['and','but','so','yet'],'Although she was nervous, she gave the presentation, and it went really well.')">Check ✓</button>
     <div class="fb" id="c3-fb"></div>
   </div>
 
@@ -511,9 +590,11 @@
     </div>
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Use a time conjunction (when / as soon as / once / after).</p>
     <input class="cmb-input" id="c4-in" placeholder="Type your complex sentence here…">
-    <button class="check-btn" onclick="checkCmb('c4',['call','hotel','arrive'],['when','as soon as','once','after'],null)">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c4',['call','hotel','arrive'],['when','as soon as','once','after'],null,'I will call you when I arrive at the hotel.')">Check ✓</button>
     <div class="fb" id="c4-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -569,20 +650,217 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr">
+    <span class="ex-badge rose">Exercise 4</span>
+    <h2 class="ex-title">Mixed Review</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — clauses, compound sentences, complex sentences, and compound-complex punctuation.</p>
+
+  <div class="mini-cat">Independent &amp; Dependent Clauses</div>
+
+  <div class="q-card" id="r1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">"Since the store had closed early"</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r1','Dependent clause','Since here is a subordinator — the clause cannot stand alone.')">Independent clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','Dependent clause','Since here is a subordinator — the clause cannot stand alone.')">Dependent clause</button>
+    </div>
+    <div class="fb" id="r1-fb"></div>
+  </div>
+
+  <div class="q-card" id="r2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">"The manager apologized for the inconvenience"</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r2','Independent clause','A complete thought with no subordinator — it can stand alone.')">Independent clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','Independent clause','A complete thought with no subordinator — it can stand alone.')">Dependent clause</button>
+    </div>
+    <div class="fb" id="r2-fb"></div>
+  </div>
+
+  <div class="q-card" id="r3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">"Before the meeting started"</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r3','Dependent clause','Before here is a subordinator — the clause leaves you waiting for more.')">Dependent clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','Dependent clause','Before here is a subordinator — the clause leaves you waiting for more.')">Independent clause</button>
+    </div>
+    <div class="fb" id="r3-fb"></div>
+  </div>
+
+  <div class="q-card" id="r4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">"Several employees arrived late that morning"</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r4','Independent clause','A complete thought with no subordinator — it can stand alone.')">Independent clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Independent clause','A complete thought with no subordinator — it can stand alone.')">Dependent clause</button>
+    </div>
+    <div class="fb" id="r4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Compound Sentences: Coordinators &amp; Conjunctive Adverbs</div>
+
+  <div class="q-card" id="r5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">Choose the coordinator that shows a <strong>result</strong>: "The road was icy, __________ we decided to drive slowly."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r5','so','So signals a result — the icy road led to the decision.')">so</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','so','So signals a result — the icy road led to the decision.')">but</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','so','So signals a result — the icy road led to the decision.')">yet</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','so','So signals a result — the icy road led to the decision.')">nor</button>
+    </div>
+    <div class="fb" id="r5-fb"></div>
+  </div>
+
+  <div class="q-card" id="r6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">Choose the coordinator that shows an <strong>unexpected</strong> contrast: "She studied all night, __________ she still failed the test."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r6','yet','Yet signals a surprising contrast — studying all night but still failing.')">so</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','yet','Yet signals a surprising contrast — studying all night but still failing.')">nor</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','yet','Yet signals a surprising contrast — studying all night but still failing.')">yet</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','yet','Yet signals a surprising contrast — studying all night but still failing.')">for</button>
+    </div>
+    <div class="fb" id="r6-fb"></div>
+  </div>
+
+  <div class="q-card" id="r7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">Which sentence correctly punctuates a conjunctive adverb?</div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r7','The store was closing soon; however, we kept shopping.','Semicolon before however, comma after — the correct pattern.')">The store was closing soon; however, we kept shopping.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r7','The store was closing soon; however, we kept shopping.','Semicolon before however, comma after — the correct pattern.')">The store was closing soon however, we kept shopping.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r7','The store was closing soon; however, we kept shopping.','Semicolon before however, comma after — the correct pattern.')">The store was closing soon, however, we kept shopping.</button>
+    </div>
+    <div class="fb" id="r7-fb"></div>
+  </div>
+
+  <div class="q-card" id="r8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">Complete this negative compound sentence with correct word order: "He does not like coffee, __________."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r8','nor does he like tea','After nor, the helping verb flips before the subject — no extra not needed.')">nor does he like tea</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','nor does he like tea','After nor, the helping verb flips before the subject — no extra not needed.')">nor he does not like tea</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','nor does he like tea','After nor, the helping verb flips before the subject — no extra not needed.')">nor he likes tea</button>
+    </div>
+    <div class="fb" id="r8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Complex Sentences: Clause Function</div>
+
+  <div class="q-card" id="r9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">In "She smiled when she saw the surprise," what type of clause is "when she saw the surprise"?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r9','Adverb clause','It tells us when she smiled — describing the verb, so it is an Adverb clause.')">Adjective clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Adverb clause','It tells us when she smiled — describing the verb, so it is an Adverb clause.')">Adverb clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Adverb clause','It tells us when she smiled — describing the verb, so it is an Adverb clause.')">Noun clause</button>
+    </div>
+    <div class="fb" id="r9-fb"></div>
+  </div>
+
+  <div class="q-card" id="r10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">In "The book that I borrowed is overdue," what type of clause is "that I borrowed"?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r10','Adjective clause','It describes which book — an Adjective clause.')">Adverb clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','Adjective clause','It describes which book — an Adjective clause.')">Adjective clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','Adjective clause','It describes which book — an Adjective clause.')">Noun clause</button>
+    </div>
+    <div class="fb" id="r10-fb"></div>
+  </div>
+
+  <div class="q-card" id="r11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">In "I don't know what he wants," what type of clause is "what he wants"?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r11','Noun clause','It acts as the object of know — a Noun clause.')">Noun clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','Noun clause','It acts as the object of know — a Noun clause.')">Adjective clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','Noun clause','It acts as the object of know — a Noun clause.')">Adverb clause</button>
+    </div>
+    <div class="fb" id="r11-fb"></div>
+  </div>
+
+  <div class="q-card" id="r12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">Identify the dependent clause: "Because the flight was delayed, we missed our connection."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r12','Because the flight was delayed','This whole clause, including because, cannot stand alone.')">Because the flight was delayed</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','Because the flight was delayed','This whole clause, including because, cannot stand alone.')">we missed our connection</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','Because the flight was delayed','This whole clause, including because, cannot stand alone.')">the flight was delayed</button>
+    </div>
+    <div class="fb" id="r12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Compound-Complex Sentences &amp; Punctuation</div>
+
+  <div class="q-card" id="r13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">What is the minimum clause requirement for a compound-complex sentence?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r13','Two independent clauses and one dependent clause','Compound-complex needs at least 2 independent + 1 dependent clause.')">Two independent clauses and one dependent clause</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Two independent clauses and one dependent clause','Compound-complex needs at least 2 independent + 1 dependent clause.')">One independent clause and two dependent clauses</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Two independent clauses and one dependent clause','Compound-complex needs at least 2 independent + 1 dependent clause.')">Two independent clauses and no dependent clauses</button>
+    </div>
+    <div class="fb" id="r13-fb"></div>
+  </div>
+
+  <div class="q-card" id="r14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">Which is a correctly punctuated compound-complex sentence?</div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r14','After the rain stopped, the sun came out, and the children went outside.','Comma after the intro dependent clause, and a comma before and joining the two independent clauses.')">After the rain stopped, the sun came out, and the children went outside.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r14','After the rain stopped, the sun came out, and the children went outside.','Comma after the intro dependent clause, and a comma before and joining the two independent clauses.')">After the rain stopped the sun came out but the children went outside.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r14','After the rain stopped, the sun came out, and the children went outside.','Comma after the intro dependent clause, and a comma before and joining the two independent clauses.')">After the rain stopped, the sun came out but, the children went outside.</button>
+    </div>
+    <div class="fb" id="r14-fb"></div>
+  </div>
+
+  <div class="q-card" id="r15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">Which sentence correctly punctuates a conjunctive adverb?</div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r15','I finished my homework early; therefore, I watched a movie.','Semicolon before therefore, comma after — the correct pattern.')">I finished my homework early; therefore, I watched a movie.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r15','I finished my homework early; therefore, I watched a movie.','Semicolon before therefore, comma after — the correct pattern.')">I finished my homework early therefore, I watched a movie.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r15','I finished my homework early; therefore, I watched a movie.','Semicolon before therefore, comma after — the correct pattern.')">I finished my homework early, therefore I watched a movie.</button>
+    </div>
+    <div class="fb" id="r15-fb"></div>
+  </div>
+
+  <div class="q-card" id="r16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">Identify the sentence type: "When the bell rang, the students packed their bags, and they left the classroom."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r16','Compound-complex sentence','One dependent clause (when the bell rang) + two independent clauses joined by and.')">Simple sentence</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','Compound-complex sentence','One dependent clause (when the bell rang) + two independent clauses joined by and.')">Complex sentence</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','Compound-complex sentence','One dependent clause (when the bell rang) + two independent clauses joined by and.')">Compound sentence</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','Compound-complex sentence','One dependent clause (when the bell rang) + two independent clauses joined by and.')">Compound-complex sentence</button>
+    </div>
+    <div class="fb" id="r16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
 <!-- SCORE -->
 <div id="score-sec">
-  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/14</div></div>
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/30</div></div>
   <div class="s-msg" id="s-msg">Well done!</div>
-  <div class="s-sub" id="s-sub">You completed all three exercises.</div>
+  <div class="s-sub" id="s-sub">You completed all four exercises.</div>
   <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
 </div>
 
 <footer>Sentence Structure — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL = 14;
+const TOTAL = 30; // 5 MC + 4 combine + 5 identify + 16 mixed review
 const scores = { mc:{}, cmb:{}, id:{} };
 
 function getScore(){ return Object.values(scores.mc).filter(Boolean).length + Object.values(scores.cmb).filter(Boolean).length + Object.values(scores.id).filter(Boolean).length; }
@@ -607,9 +885,9 @@ function showScore(){
 }
 
 // ── MC ──
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
-  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
   const ok=btn.textContent.trim()===correct;
 
@@ -620,15 +898,16 @@ function checkMC(btn,qId,correct){
     'q4': '"Because the traffic was heavy" is dependent + two independent clauses ("she missed the train" / "she took a taxi") — Compound-Complex.',
     'q5': '"The storm passed" + "the sun came out" — two independent clauses joined by "and" — Compound.',
   };
+  const explain = why || explanations[qId] || '';
 
   if(ok){
     btn.classList.add('sel-ok','pop'); card.classList.add('correct');
-    fb.textContent='✓ Correct! '+explanations[qId]; fb.className='fb show ok';
+    fb.innerHTML='✓ Correct! '+explain; fb.className='fb show ok';
     scores.mc[qId]=true;
   } else {
     btn.classList.add('sel-bad','pop'); card.classList.add('wrong');
-    card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); });
-    fb.textContent='✗ Not quite. The answer is '+correct+'. '+explanations[qId]; fb.className='fb show bad';
+    card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); });
+    fb.innerHTML='✗ Not quite. The answer is "'+correct+'". '+explain; fb.className='fb show bad';
     scores.mc[qId]=false;
   }
   updateProgress();
@@ -636,7 +915,7 @@ function checkMC(btn,qId,correct){
 
 // ── COMBINE ──
 // keywords: content words to check; subConj: required subordinating conj (or null); coord: required coordinator (or null)
-function checkCmb(id, keywords, subConj, coord){
+function checkCmb(id, keywords, subConj, coord, correctSentence){
   const val=document.getElementById(id+'-in').value.trim().toLowerCase();
   const card=document.getElementById(id);
   const fb=document.getElementById(id+'-fb');
@@ -650,11 +929,11 @@ function checkCmb(id, keywords, subConj, coord){
   if(hasKw && hasSubConj && hasCoord && val.length > 10){
     card.classList.add('correct'); fb.textContent='✓ Well done!'; fb.className='fb show ok'; scores.cmb[id]=true;
   } else if(!hasSubConj){
-    card.classList.add('wrong'); fb.textContent='✗ You need a subordinating conjunction (e.g. because, although, when, since).'; fb.className='fb show bad'; scores.cmb[id]=false;
+    card.classList.add('wrong'); fb.innerHTML=`✗ You need a subordinating conjunction (e.g. because, although, when, since). Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false;
   } else if(!hasCoord){
-    card.classList.add('wrong'); fb.textContent='✗ You also need a coordinating conjunction (and / but / so / yet) to join the two independent clauses.'; fb.className='fb show bad'; scores.cmb[id]=false;
+    card.classList.add('wrong'); fb.innerHTML=`✗ You also need a coordinating conjunction (and / but / so / yet) to join the two independent clauses. Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false;
   } else {
-    card.classList.add('wrong'); fb.textContent='✗ Make sure all three ideas are included. Check spelling too!'; fb.className='fb show bad'; scores.cmb[id]=false;
+    card.classList.add('wrong'); fb.innerHTML=`✗ Make sure all ideas are included. Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false;
   }
   updateProgress();
 }
@@ -750,10 +1029,10 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'].forEach(qId=>{
     const card=document.getElementById(qId);
     card.classList.remove('correct','wrong');
-    card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+    card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
     const fb=document.getElementById(qId+'-fb'); fb.className='fb'; fb.textContent='';
   });
   ['c1','c2','c3','c4'].forEach(id=>{
@@ -777,6 +1056,28 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+function resetGroup(ids, type){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    if(type==='mc'){
+      card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+      delete scores.mc[id];
+    } else if(type==='cmb'){
+      const inp=document.getElementById(id+'-in'); inp.value=''; inp.disabled=false;
+      card.querySelector('.check-btn').disabled=false;
+      delete scores.cmb[id];
+    }
+    const fb=document.getElementById(id+'-fb'); if(fb){ fb.className='fb'; fb.textContent=''; fb.innerHTML=''; }
+  });
+  updateProgress();
+}
+
+function resetEx1(){ resetGroup(['q1','q2','q3','q4','q5'],'mc'); }
+function resetEx2(){ resetGroup(['c1','c2','c3','c4'],'cmb'); }
+function resetEx3(){ sents.forEach(s=>resetId(s.id)); }
+function resetEx4(){ resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'],'mc'); }
 
 buildTokens();
 </script>
