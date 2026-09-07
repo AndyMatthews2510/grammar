@@ -103,7 +103,10 @@
   .ex-badge{background:var(--coral);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.violet{background:var(--violet6);}
   .ex-badge.grn{background:var(--grn9);}
+  .ex-badge.blue{background:var(--blue6);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue6);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--grn9);background:var(--grn9-lt);}
@@ -394,6 +397,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -461,6 +466,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -518,13 +525,223 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge blue">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — formation rules, irregular forms, as...as, and superlative patterns.</p>
+
+  <div class="mini-cat">Formation Rules</div>
+
+  <div class="q-card" id="e1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">This bag is <span class="blank">___</span> than that one. <span class="hint">(light)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e1','lighter','Light is one syllable — just add -er.')">more light</button>
+      <button class="mc-btn" onclick="checkMC(this,'e1','lighter','Light is one syllable — just add -er.')">lighter</button>
+      <button class="mc-btn" onclick="checkMC(this,'e1','lighter','Light is one syllable — just add -er.')">lightest</button>
+      <button class="mc-btn" onclick="checkMC(this,'e1','lighter','Light is one syllable — just add -er.')">most light</button>
+    </div>
+    <div class="fb" id="e1-fb"></div>
+  </div>
+
+  <div class="q-card" id="e2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">She's one of the <span class="blank">___</span> people I know. <span class="hint">(nice — ends in -e)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e2','nicest','Nice ends in -e, so just add -st.')">nicest</button>
+      <button class="mc-btn" onclick="checkMC(this,'e2','nicest','Nice ends in -e, so just add -st.')">niceest</button>
+      <button class="mc-btn" onclick="checkMC(this,'e2','nicest','Nice ends in -e, so just add -st.')">most nice</button>
+      <button class="mc-btn" onclick="checkMC(this,'e2','nicest','Nice ends in -e, so just add -st.')">nicer</button>
+    </div>
+    <div class="fb" id="e2-fb"></div>
+  </div>
+
+  <div class="q-card" id="e3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">It was the <span class="blank">___</span> day of the summer. <span class="hint">(hot — consonant-vowel-consonant)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e3','hottest','Hot doubles its final consonant before adding -est.')">hotest</button>
+      <button class="mc-btn" onclick="checkMC(this,'e3','hottest','Hot doubles its final consonant before adding -est.')">hottest</button>
+      <button class="mc-btn" onclick="checkMC(this,'e3','hottest','Hot doubles its final consonant before adding -est.')">most hot</button>
+      <button class="mc-btn" onclick="checkMC(this,'e3','hottest','Hot doubles its final consonant before adding -est.')">hotter</button>
+    </div>
+    <div class="fb" id="e3-fb"></div>
+  </div>
+
+  <div class="q-card" id="e4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">My schedule is <span class="blank">___</span> than yours this week. <span class="hint">(busy — two syllables ending in -y)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e4','busier','Busy ends in -y, so change y to i and add -er.')">busyer</button>
+      <button class="mc-btn" onclick="checkMC(this,'e4','busier','Busy ends in -y, so change y to i and add -er.')">busier</button>
+      <button class="mc-btn" onclick="checkMC(this,'e4','busier','Busy ends in -y, so change y to i and add -er.')">more busy</button>
+      <button class="mc-btn" onclick="checkMC(this,'e4','busier','Busy ends in -y, so change y to i and add -er.')">busiest</button>
+    </div>
+    <div class="fb" id="e4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Irregular Forms</div>
+
+  <div class="q-card" id="e5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">This is much <span class="blank">___</span> than the last version. <span class="hint">(good)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e5','better','Good is irregular — its comparative is better.')">gooder</button>
+      <button class="mc-btn" onclick="checkMC(this,'e5','better','Good is irregular — its comparative is better.')">better</button>
+      <button class="mc-btn" onclick="checkMC(this,'e5','better','Good is irregular — its comparative is better.')">more good</button>
+      <button class="mc-btn" onclick="checkMC(this,'e5','better','Good is irregular — its comparative is better.')">best</button>
+    </div>
+    <div class="fb" id="e5-fb"></div>
+  </div>
+
+  <div class="q-card" id="e6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">The weather today is <span class="blank">___</span> than yesterday. <span class="hint">(bad)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e6','worse','Bad is irregular — its comparative is worse.')">badder</button>
+      <button class="mc-btn" onclick="checkMC(this,'e6','worse','Bad is irregular — its comparative is worse.')">worse</button>
+      <button class="mc-btn" onclick="checkMC(this,'e6','worse','Bad is irregular — its comparative is worse.')">more bad</button>
+      <button class="mc-btn" onclick="checkMC(this,'e6','worse','Bad is irregular — its comparative is worse.')">worst</button>
+    </div>
+    <div class="fb" id="e6-fb"></div>
+  </div>
+
+  <div class="q-card" id="e7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">We travelled <span class="blank">___</span> than we expected. <span class="hint">(far)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e7','further','Far is irregular — its comparative is farther/further.')">farer</button>
+      <button class="mc-btn" onclick="checkMC(this,'e7','further','Far is irregular — its comparative is farther/further.')">further</button>
+      <button class="mc-btn" onclick="checkMC(this,'e7','further','Far is irregular — its comparative is farther/further.')">more far</button>
+      <button class="mc-btn" onclick="checkMC(this,'e7','further','Far is irregular — its comparative is farther/further.')">farthest</button>
+    </div>
+    <div class="fb" id="e7-fb"></div>
+  </div>
+
+  <div class="q-card" id="e8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">She has <span class="blank">___</span> patience than I do. <span class="hint">(little)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e8','less','Little is irregular — its comparative is less.')">littler</button>
+      <button class="mc-btn" onclick="checkMC(this,'e8','less','Little is irregular — its comparative is less.')">less</button>
+      <button class="mc-btn" onclick="checkMC(this,'e8','less','Little is irregular — its comparative is less.')">more little</button>
+      <button class="mc-btn" onclick="checkMC(this,'e8','less','Little is irregular — its comparative is less.')">least</button>
+    </div>
+    <div class="fb" id="e8-fb"></div>
+  </div>
+
+  <div class="mini-cat">As...As &amp; Intensifiers</div>
+
+  <div class="q-card" id="e9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">This laptop is not as expensive <span class="blank">___</span> that one.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e9','as','Not as + adjective + as expresses less than.')">than</button>
+      <button class="mc-btn" onclick="checkMC(this,'e9','as','Not as + adjective + as expresses less than.')">as</button>
+      <button class="mc-btn" onclick="checkMC(this,'e9','as','Not as + adjective + as expresses less than.')">of</button>
+      <button class="mc-btn" onclick="checkMC(this,'e9','as','Not as + adjective + as expresses less than.')">so</button>
+    </div>
+    <div class="fb" id="e9-fb"></div>
+  </div>
+
+  <div class="q-card" id="e10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">He is <span class="blank">___</span> taller than his brother. <span class="hint">(strengthening the comparison — a lot more)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e10','much','Much or far strengthens a comparative — much taller.')">much</button>
+      <button class="mc-btn" onclick="checkMC(this,'e10','much','Much or far strengthens a comparative — much taller.')">very</button>
+      <button class="mc-btn" onclick="checkMC(this,'e10','much','Much or far strengthens a comparative — much taller.')">so</button>
+      <button class="mc-btn" onclick="checkMC(this,'e10','much','Much or far strengthens a comparative — much taller.')">too</button>
+    </div>
+    <div class="fb" id="e10-fb"></div>
+  </div>
+
+  <div class="q-card" id="e11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">Which sentence correctly shows something continuously increasing?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e11','The traffic is becoming more and more congested.','Comparative + and + comparative shows continuous increase.')">The traffic is becoming more and more congested.</button>
+      <button class="mc-btn" onclick="checkMC(this,'e11','The traffic is becoming more and more congested.','Comparative + and + comparative shows continuous increase.')">The traffic is becoming congested more and more.</button>
+      <button class="mc-btn" onclick="checkMC(this,'e11','The traffic is becoming more and more congested.','Comparative + and + comparative shows continuous increase.')">The traffic is becoming more congested and more.</button>
+    </div>
+    <div class="fb" id="e11-fb"></div>
+  </div>
+
+  <div class="q-card" id="e12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text"><span class="blank">___</span> you practise, the better you get.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e12','The more','The + comparative..., the + comparative shows one thing causing another.')">More</button>
+      <button class="mc-btn" onclick="checkMC(this,'e12','The more','The + comparative..., the + comparative shows one thing causing another.')">The more</button>
+      <button class="mc-btn" onclick="checkMC(this,'e12','The more','The + comparative..., the + comparative shows one thing causing another.')">Much more</button>
+      <button class="mc-btn" onclick="checkMC(this,'e12','The more','The + comparative..., the + comparative shows one thing causing another.')">As more</button>
+    </div>
+    <div class="fb" id="e12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Superlative Patterns</div>
+
+  <div class="q-card" id="e13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">She is the tallest <span class="blank">___</span> the family. <span class="hint">(a stated group)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e13','of','Use of for a set or stated group.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'e13','of','Use of for a set or stated group.')">of</button>
+      <button class="mc-btn" onclick="checkMC(this,'e13','of','Use of for a set or stated group.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'e13','of','Use of for a set or stated group.')">from</button>
+    </div>
+    <div class="fb" id="e13-fb"></div>
+  </div>
+
+  <div class="q-card" id="e14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">It's the tallest building <span class="blank">___</span> the city. <span class="hint">(a place)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e14','in','Use in for places or groups.')">of</button>
+      <button class="mc-btn" onclick="checkMC(this,'e14','in','Use in for places or groups.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'e14','in','Use in for places or groups.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'e14','in','Use in for places or groups.')">for</button>
+    </div>
+    <div class="fb" id="e14-fb"></div>
+  </div>
+
+  <div class="q-card" id="e15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">Paris is one of the most beautiful <span class="blank">___</span> in Europe. <span class="hint">(one of the + superlative + plural noun)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e15','cities','This pattern needs a plural noun after the superlative.')">city</button>
+      <button class="mc-btn" onclick="checkMC(this,'e15','cities','This pattern needs a plural noun after the superlative.')">cities</button>
+      <button class="mc-btn" onclick="checkMC(this,'e15','cities','This pattern needs a plural noun after the superlative.')">citys</button>
+      <button class="mc-btn" onclick="checkMC(this,'e15','cities','This pattern needs a plural noun after the superlative.')">a city</button>
+    </div>
+    <div class="fb" id="e15-fb"></div>
+  </div>
+
+  <div class="q-card" id="e16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">It was the best film I've <span class="blank">___</span> seen.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'e16','ever','Present perfect + ever is natural after a superlative.')">ever</button>
+      <button class="mc-btn" onclick="checkMC(this,'e16','ever','Present perfect + ever is natural after a superlative.')">never</button>
+      <button class="mc-btn" onclick="checkMC(this,'e16','ever','Present perfect + ever is natural after a superlative.')">already</button>
+      <button class="mc-btn" onclick="checkMC(this,'e16','ever','Present perfect + ever is natural after a superlative.')">yet</button>
+    </div>
+    <div class="fb" id="e16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Comparatives &amp; Superlatives — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -544,13 +761,14 @@ const expl={
   f5:'"Bad" is irregular — its superlative is "the worst". "Most bad" and "baddest" are not correct.',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -611,7 +829,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','e1','e2','e3','e4','e5','e6','e7','e8','e9','e10','e11','e12','e13','e14','e15','e16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
@@ -628,6 +846,20 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function resetGroup(ids){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    delete scores.mc[id];
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['e1','e2','e3','e4','e5','e6','e7','e8','e9','e10','e11','e12','e13','e14','e15','e16']);}
 
 buildTokens();
 </script>

@@ -45,7 +45,9 @@
   .key-rule strong{color:var(--plum-mid);}
   .ex-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;}
   .ex-badge{background:var(--plum);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
-  .ex-badge.amber{background:var(--amber2);color:var(--ink);} .ex-badge.grn{background:var(--grn2);}
+  .ex-badge.amber{background:var(--amber2);color:var(--ink);} .ex-badge.grn{background:var(--grn2);} .ex-badge.teal{background:#0e7490;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0e7490;margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--grn2);background:var(--grn2-lt);}
@@ -241,6 +243,8 @@
       <button class="mc-btn" onclick="checkMC(this,'q5','First')">Third</button>
     </div><div class="fb" id="q5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -297,6 +301,8 @@
       <button class="mc-btn" onclick="checkMC(this,'f5','were')">would be</button>
     </div><div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -309,19 +315,193 @@
   <div class="id-card" id="i3"><div class="q-num">Sentence 3 of 5</div><div class="id-instruct">Click all the words in the if-clause.</div><div class="tokens" id="i3-tok"></div><button class="verify-btn" onclick="checkId('i3')">Check ✓</button><button class="reset-btn" onclick="resetId('i3')">Reset</button><div class="fb" id="i3-fb"></div></div>
   <div class="id-card" id="i4"><div class="q-num">Sentence 4 of 5</div><div class="id-instruct">Click all the words in the if-clause.</div><div class="tokens" id="i4-tok"></div><button class="verify-btn" onclick="checkId('i4')">Check ✓</button><button class="reset-btn" onclick="resetId('i4')">Reset</button><div class="fb" id="i4-fb"></div></div>
   <div class="id-card" id="i5"><div class="q-num">Sentence 5 of 5</div><div class="id-instruct">Click all the words in the if-clause.</div><div class="tokens" id="i5-tok"></div><button class="verify-btn" onclick="checkId('i5')">Check ✓</button><button class="reset-btn" onclick="resetId('i5')">Reset</button><div class="fb" id="i5-fb"></div></div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge teal">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — identifying the type, correct verb forms, and modal variations.</p>
+
+  <div class="mini-cat">Identify the Conditional Type</div>
+
+  <div class="q-card" id="r1"><div class="q-num">Question 1 of 16</div><span class="q-sent">"If you mix red and blue, you get purple."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r1','Zero','Both verbs are present simple — a general truth. Zero conditional.')">Zero</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','Zero','Both verbs are present simple — a general truth. Zero conditional.')">First</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','Zero','Both verbs are present simple — a general truth. Zero conditional.')">Second</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','Zero','Both verbs are present simple — a general truth. Zero conditional.')">Third</button>
+    </div><div class="fb" id="r1-fb"></div>
+  </div>
+
+  <div class="q-card" id="r2"><div class="q-num">Question 2 of 16</div><span class="q-sent">"If we hurry, we will catch the train."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r2','First','Present simple + will — a real future possibility. First conditional.')">Zero</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','First','Present simple + will — a real future possibility. First conditional.')">First</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','First','Present simple + will — a real future possibility. First conditional.')">Second</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','First','Present simple + will — a real future possibility. First conditional.')">Third</button>
+    </div><div class="fb" id="r2-fb"></div>
+  </div>
+
+  <div class="q-card" id="r3"><div class="q-num">Question 3 of 16</div><span class="q-sent">"If I had a car, I would drive to work."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r3','Second','Past simple + would — an imaginary present situation. Second conditional.')">Zero</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','Second','Past simple + would — an imaginary present situation. Second conditional.')">First</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','Second','Past simple + would — an imaginary present situation. Second conditional.')">Second</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','Second','Past simple + would — an imaginary present situation. Second conditional.')">Third</button>
+    </div><div class="fb" id="r3-fb"></div>
+  </div>
+
+  <div class="q-card" id="r4"><div class="q-num">Question 4 of 16</div><span class="q-sent">"If she had known about the meeting, she would have attended."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r4','Third','Past perfect + would have — an impossible past situation. Third conditional.')">Zero</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Third','Past perfect + would have — an impossible past situation. Third conditional.')">First</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Third','Past perfect + would have — an impossible past situation. Third conditional.')">Second</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Third','Past perfect + would have — an impossible past situation. Third conditional.')">Third</button>
+    </div><div class="fb" id="r4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Choose the Correct Verb Form</div>
+
+  <div class="q-card" id="r5"><div class="q-num">Question 5 of 16</div>
+    <div class="q-text">"If water freezes, it <span class="blank">___</span> (turn) to ice."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r5','turns','Zero conditional needs present simple in the result clause.')">turned</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','turns','Zero conditional needs present simple in the result clause.')">turns</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','turns','Zero conditional needs present simple in the result clause.')">will turn</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','turns','Zero conditional needs present simple in the result clause.')">would turn</button>
+    </div><div class="fb" id="r5-fb"></div>
+  </div>
+
+  <div class="q-card" id="r6"><div class="q-num">Question 6 of 16</div>
+    <div class="q-text">"If you <span class="blank">___</span> (study) harder, you would get better grades."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r6','studied','Second conditional needs past simple in the if-clause.')">study</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','studied','Second conditional needs past simple in the if-clause.')">studied</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','studied','Second conditional needs past simple in the if-clause.')">will study</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','studied','Second conditional needs past simple in the if-clause.')">had studied</button>
+    </div><div class="fb" id="r6-fb"></div>
+  </div>
+
+  <div class="q-card" id="r7"><div class="q-num">Question 7 of 16</div>
+    <div class="q-text">"If he had asked, I <span class="blank">___</span> (help) him."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r7','would have helped','Third conditional needs would have + past participle in the result clause.')">would help</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','would have helped','Third conditional needs would have + past participle in the result clause.')">would have helped</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','would have helped','Third conditional needs would have + past participle in the result clause.')">helped</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','would have helped','Third conditional needs would have + past participle in the result clause.')">will help</button>
+    </div><div class="fb" id="r7-fb"></div>
+  </div>
+
+  <div class="q-card" id="r8"><div class="q-num">Question 8 of 16</div>
+    <div class="q-text">"We <span class="blank">___</span> (go) to the beach if the weather is nice."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r8','will go','First conditional needs will + base verb in the result clause.')">go</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','will go','First conditional needs will + base verb in the result clause.')">went</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','will go','First conditional needs will + base verb in the result clause.')">will go</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','will go','First conditional needs will + base verb in the result clause.')">would go</button>
+    </div><div class="fb" id="r8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Modal Variations</div>
+
+  <div class="q-card" id="r9"><div class="q-num">Question 9 of 16</div>
+    <div class="q-text">"If you finish your homework, you <span class="blank">___</span> watch TV." <span style="font-size:.82rem;color:var(--muted)">(permission)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r9','can','Can expresses permission in the first conditional result clause.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','can','Can expresses permission in the first conditional result clause.')">might</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','can','Can expresses permission in the first conditional result clause.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','can','Can expresses permission in the first conditional result clause.')">could have</button>
+    </div><div class="fb" id="r9-fb"></div>
+  </div>
+
+  <div class="q-card" id="r10"><div class="q-num">Question 10 of 16</div>
+    <div class="q-text">"If it rains, we <span class="blank">___</span> cancel the picnic." <span style="font-size:.82rem;color:var(--muted)">(a possibility, not a certainty)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r10','might','Might expresses possibility, not certainty, in the result clause.')">will</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','might','Might expresses possibility, not certainty, in the result clause.')">might</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','might','Might expresses possibility, not certainty, in the result clause.')">would have</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','might','Might expresses possibility, not certainty, in the result clause.')">must</button>
+    </div><div class="fb" id="r10-fb"></div>
+  </div>
+
+  <div class="q-card" id="r11"><div class="q-num">Question 11 of 16</div>
+    <div class="q-text">"If we'd left earlier, we <span class="blank">___</span> caught the train." <span style="font-size:.82rem;color:var(--muted)">(an imagined past option)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r11','could have','Could have expresses an imagined past ability or option.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','could have','Could have expresses an imagined past ability or option.')">could have</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','could have','Could have expresses an imagined past ability or option.')">will</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','could have','Could have expresses an imagined past ability or option.')">should</button>
+    </div><div class="fb" id="r11-fb"></div>
+  </div>
+
+  <div class="q-card" id="r12"><div class="q-num">Question 12 of 16</div>
+    <div class="q-text">"If you feel unwell, you <span class="blank">___</span> see a doctor." <span style="font-size:.82rem;color:var(--muted)">(advice)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r12','should','Should gives advice or a strong recommendation in the first conditional.')">will</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','should','Should gives advice or a strong recommendation in the first conditional.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','should','Should gives advice or a strong recommendation in the first conditional.')">might have</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','should','Should gives advice or a strong recommendation in the first conditional.')">would</button>
+    </div><div class="fb" id="r12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Mixed Practice</div>
+
+  <div class="q-card" id="r13"><div class="q-num">Question 13 of 16</div>
+    <div class="q-text">"Unless you hurry, you <span class="blank">___</span> (miss) the bus."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r13','will miss','Unless means if not — a real future possibility, so use will.')">miss</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','will miss','Unless means if not — a real future possibility, so use will.')">will miss</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','will miss','Unless means if not — a real future possibility, so use will.')">would miss</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','will miss','Unless means if not — a real future possibility, so use will.')">missed</button>
+    </div><div class="fb" id="r13-fb"></div>
+  </div>
+
+  <div class="q-card" id="r14"><div class="q-num">Question 14 of 16</div>
+    <div class="q-text">"If I were you, I <span class="blank">___</span> about it." <span style="font-size:.82rem;color:var(--muted)">(not worry)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r14','would not worry','Second conditional negative result: would not + base verb.')">do not worry</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','would not worry','Second conditional negative result: would not + base verb.')">would not worry</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','would not worry','Second conditional negative result: would not + base verb.')">will not worry</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','would not worry','Second conditional negative result: would not + base verb.')">had not worried</button>
+    </div><div class="fb" id="r14-fb"></div>
+  </div>
+
+  <div class="q-card" id="r15"><div class="q-num">Question 15 of 16</div>
+    <div class="q-text">"If she hadn't missed the flight, she <span class="blank">___</span> (arrive) on time."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r15','would have arrived','Third conditional result clause: would have + past participle.')">would arrive</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','would have arrived','Third conditional result clause: would have + past participle.')">would have arrived</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','would have arrived','Third conditional result clause: would have + past participle.')">arrived</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','would have arrived','Third conditional result clause: would have + past participle.')">will arrive</button>
+    </div><div class="fb" id="r15-fb"></div>
+  </div>
+
+  <div class="q-card" id="r16"><div class="q-num">Question 16 of 16</div>
+    <div class="q-text">"Ice <span class="blank">___</span> (melt) if you heat it."</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r16','melts','Zero conditional needs present simple in both clauses.')">melted</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','melts','Zero conditional needs present simple in both clauses.')">melts</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','melts','Zero conditional needs present simple in both clauses.')">will melt</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','melts','Zero conditional needs present simple in both clauses.')">would melt</button>
+    </div><div class="fb" id="r16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/15</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/31</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Conditionals — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=15;
+const TOTAL=31;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
 function showScore(){const sc=getScore(),pct=Math.round(sc/TOTAL*100);document.getElementById('s-ring').style.setProperty('--pct',pct);document.getElementById('s-num').textContent=sc+'/'+TOTAL;const msgs=[[0,39,'Keep practising! 💪','Review the types and try again.'],[40,69,'Good effort! 👍','You\'re getting there.'],[70,84,'Well done! ✨','You have a solid grasp of conditionals.'],[85,100,'Excellent! 🎉','You\'ve mastered all four conditionals!']];const[,,msg,sub]=msgs.find(([lo,hi])=>pct>=lo&&pct<=hi);document.getElementById('s-msg').textContent=msg;document.getElementById('s-sub').textContent=sub;const sec=document.getElementById('score-sec');sec.classList.add('show');sec.scrollIntoView({behavior:'smooth',block:'center'});}
 const expl={q1:'Both verbs are present simple — a general truth. Zero conditional.',q2:'Present simple + will — a real future possibility. First conditional.',q3:'Past simple + would — an imaginary present situation. Second conditional.',q4:'Past perfect + would have — an impossible past situation. Third conditional.',q5:'"Unless" means "if not". She will call you if she needs help — real future. First conditional.',f1:'Second conditional needs past simple in the if-clause: "If I had more time, I would…"',f2:'Zero conditional uses present simple in the result clause: "…it melts."',f3:'First conditional uses will in the result clause: "She will call you…"',f4:'Third conditional needs past perfect in the if-clause: "If they had left earlier…"',f5:'In second conditional, formal English uses "were" for all subjects: "If I were you…"'};
-function checkMC(btn,qId,correct){const card=document.getElementById(qId);card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-fb');const ok=btn.textContent.trim()===correct;if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}updateProgress();}
+function checkMC(btn,qId,correct,why){const card=document.getElementById(qId);card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-fb');const explain=why||expl[qId]||'';const ok=btn.textContent.trim()===correct;if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}updateProgress();}
 const sents=[
   {id:'i1',words:['If','it','rains',',','we','will','stay','inside','.'],clause:[0,1,2],type:'First conditional',color:'#166534'},
   {id:'i2',words:['If','you','heat','water',',','it','boils','.'],clause:[0,1,2,3],type:'Zero conditional',color:'#0e7490'},
@@ -332,7 +512,12 @@ const sents=[
 function buildTokens(){sents.forEach(s=>{const container=document.getElementById(s.id+'-tok');s.words.forEach((w,i)=>{const sp=document.createElement('span');sp.className='tok'+(/^[.,!?;]$/.test(w)?' punct':'');sp.textContent=w;sp.dataset.idx=i;container.appendChild(sp);});container.addEventListener('click',function(e){const tok=e.target;if(!tok.classList.contains('tok')||tok.classList.contains('punct'))return;if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss'))return;if(document.querySelector('#'+s.id+' .verify-btn').disabled)return;tok.classList.toggle('sel');});});}
 function checkId(id){const s=sents.find(x=>x.id===id);const correct=new Set(s.clause);const fb=document.getElementById(id+'-fb');const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');let ok=true;toks.forEach(t=>{const i=parseInt(t.dataset.idx);const should=correct.has(i),did=t.classList.contains('sel');t.classList.remove('sel');if(should&&did){t.classList.add('c-ok','pop');}else if(should&&!did){t.classList.add('c-miss','pop');ok=false;}else if(!should&&did){t.classList.add('c-miss','pop');ok=false;}});const lbl=`<span class="t-lbl" style="background:${s.color}18;color:${s.color};border:1.5px solid ${s.color}35">${s.type}</span>`;if(ok){fb.innerHTML='✓ Correct! This is a '+lbl+'.';fb.className='fb show ok';scores.id[id]=true;}else{fb.innerHTML='✗ Not quite. Highlighted = the if-clause. This is a '+lbl+'.';fb.className='fb show bad';scores.id[id]=false;}document.querySelector('#'+id+' .verify-btn').disabled=true;updateProgress();}
 function resetId(id){document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));document.querySelector('#'+id+' .verify-btn').disabled=false;delete scores.id[id];const fb=document.getElementById(id+'-fb');fb.className='fb';fb.textContent='';updateProgress();}
-function retryAll(){['q1','q2','q3','q4','q5','f1','f2','f3','f4','f5'].forEach(qId=>{const card=document.getElementById(qId);if(!card)return;card.classList.remove('correct','wrong');card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}});sents.forEach(s=>{document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));document.querySelector('#'+s.id+' .verify-btn').disabled=false;const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';});Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);Object.keys(scores.id).forEach(k=>delete scores.id[k]);document.getElementById('pb').style.width='0%';document.getElementById('score-sec').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'});}
+function retryAll(){['q1','q2','q3','q4','q5','f1','f2','f3','f4','f5','r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'].forEach(qId=>{const card=document.getElementById(qId);if(!card)return;card.classList.remove('correct','wrong');card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}});sents.forEach(s=>{document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));document.querySelector('#'+s.id+' .verify-btn').disabled=false;const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';});Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);Object.keys(scores.id).forEach(k=>delete scores.id[k]);document.getElementById('pb').style.width='0%';document.getElementById('score-sec').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'});}
+function resetGroup(ids){ids.forEach(id=>{const card=document.getElementById(id);if(!card)return;card.classList.remove('correct','wrong');card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});delete scores.mc[id];const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}});updateProgress();}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16']);}
 buildTokens();
 </script>
 </body>

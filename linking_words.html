@@ -119,6 +119,9 @@
   .ex-badge{background:var(--lime);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.amber{background:#d97706;color:var(--ink);}
   .ex-badge.blue{background:var(--c-res);}
+  .ex-badge.violet{background:var(--c-exa);}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--c-exa);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
@@ -412,6 +415,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -479,6 +484,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -536,13 +543,224 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — adding, contrasting, clause vs noun, reasons, results, examples, and sequencing.</p>
+
+  <div class="mini-cat">Adding &amp; Contrasting</div>
+
+  <div class="q-card" id="l1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">She is fluent in French. <span class="blank">___</span>, she speaks Japanese quite well.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l1','Furthermore','Furthermore adds another supporting point, starting a new sentence.')">Furthermore</button>
+      <button class="mc-btn" onclick="checkMC(this,'l1','Furthermore','Furthermore adds another supporting point, starting a new sentence.')">However</button>
+      <button class="mc-btn" onclick="checkMC(this,'l1','Furthermore','Furthermore adds another supporting point, starting a new sentence.')">Therefore</button>
+      <button class="mc-btn" onclick="checkMC(this,'l1','Furthermore','Furthermore adds another supporting point, starting a new sentence.')">For example</button>
+    </div>
+    <div class="fb" id="l1-fb"></div>
+  </div>
+
+  <div class="q-card" id="l2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">He was late again. He <span class="blank">___</span> forgot the documents. <span class="hint">(mid-position, before the main verb)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l2','also','Also goes in mid-position, before the main verb.')">also</button>
+      <button class="mc-btn" onclick="checkMC(this,'l2','also','Also goes in mid-position, before the main verb.')">too</button>
+      <button class="mc-btn" onclick="checkMC(this,'l2','also','Also goes in mid-position, before the main verb.')">as well</button>
+      <button class="mc-btn" onclick="checkMC(this,'l2','also','Also goes in mid-position, before the main verb.')">moreover</button>
+    </div>
+    <div class="fb" id="l2-fb"></div>
+  </div>
+
+  <div class="q-card" id="l3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">The team played well; <span class="blank">___</span>, they lost the match. <span class="hint">(unexpected outcome)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l3','however','However signals an unexpected contrast between playing well and losing.')">however</button>
+      <button class="mc-btn" onclick="checkMC(this,'l3','however','However signals an unexpected contrast between playing well and losing.')">therefore</button>
+      <button class="mc-btn" onclick="checkMC(this,'l3','however','However signals an unexpected contrast between playing well and losing.')">furthermore</button>
+      <button class="mc-btn" onclick="checkMC(this,'l3','however','However signals an unexpected contrast between playing well and losing.')">for example</button>
+    </div>
+    <div class="fb" id="l3-fb"></div>
+  </div>
+
+  <div class="q-card" id="l4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">It was raining heavily; <span class="blank">___</span>, the match continued. <span class="hint">(concession despite the obstacle)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l4','nevertheless','Nevertheless shows the match continued despite the rain.')">nevertheless</button>
+      <button class="mc-btn" onclick="checkMC(this,'l4','nevertheless','Nevertheless shows the match continued despite the rain.')">as a result</button>
+      <button class="mc-btn" onclick="checkMC(this,'l4','nevertheless','Nevertheless shows the match continued despite the rain.')">in addition</button>
+      <button class="mc-btn" onclick="checkMC(this,'l4','nevertheless','Nevertheless shows the match continued despite the rain.')">for instance</button>
+    </div>
+    <div class="fb" id="l4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Clause or Noun?</div>
+
+  <div class="q-card" id="l5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text"><span class="blank">___</span> the heavy traffic, we arrived on time. <span class="hint">(followed by a noun phrase)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l5','Despite','Despite is followed by a noun phrase, not a full clause.')">Despite</button>
+      <button class="mc-btn" onclick="checkMC(this,'l5','Despite','Despite is followed by a noun phrase, not a full clause.')">Although</button>
+      <button class="mc-btn" onclick="checkMC(this,'l5','Despite','Despite is followed by a noun phrase, not a full clause.')">Even though</button>
+      <button class="mc-btn" onclick="checkMC(this,'l5','Despite','Despite is followed by a noun phrase, not a full clause.')">While</button>
+    </div>
+    <div class="fb" id="l5-fb"></div>
+  </div>
+
+  <div class="q-card" id="l6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text"><span class="blank">___</span> the traffic was heavy, we arrived on time. <span class="hint">(followed by a full clause)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l6','Although','Although is followed by a full clause with a subject and verb.')">Despite</button>
+      <button class="mc-btn" onclick="checkMC(this,'l6','Although','Although is followed by a full clause with a subject and verb.')">Although</button>
+      <button class="mc-btn" onclick="checkMC(this,'l6','Although','Although is followed by a full clause with a subject and verb.')">In spite of</button>
+      <button class="mc-btn" onclick="checkMC(this,'l6','Although','Although is followed by a full clause with a subject and verb.')">Because of</button>
+    </div>
+    <div class="fb" id="l6-fb"></div>
+  </div>
+
+  <div class="q-card" id="l7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">The trip was cancelled <span class="blank">___</span> the storm. <span class="hint">(followed by a noun)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l7','because of','Because of is followed by a noun phrase.')">because of</button>
+      <button class="mc-btn" onclick="checkMC(this,'l7','because of','Because of is followed by a noun phrase.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'l7','because of','Because of is followed by a noun phrase.')">since</button>
+      <button class="mc-btn" onclick="checkMC(this,'l7','because of','Because of is followed by a noun phrase.')">as</button>
+    </div>
+    <div class="fb" id="l7-fb"></div>
+  </div>
+
+  <div class="q-card" id="l8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">The match was postponed <span class="blank">___</span> it was raining. <span class="hint">(followed by a full clause)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l8','because','Because is followed by a full clause with a subject and verb.')">because of</button>
+      <button class="mc-btn" onclick="checkMC(this,'l8','because','Because is followed by a full clause with a subject and verb.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'l8','because','Because is followed by a full clause with a subject and verb.')">due to</button>
+      <button class="mc-btn" onclick="checkMC(this,'l8','because','Because is followed by a full clause with a subject and verb.')">owing to</button>
+    </div>
+    <div class="fb" id="l8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Reasons, Results &amp; Examples</div>
+
+  <div class="q-card" id="l9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">She missed the meeting <span class="blank">___</span> she was stuck in traffic.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l9','because','Because introduces the reason, followed by a full clause.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'l9','because','Because introduces the reason, followed by a full clause.')">because of</button>
+      <button class="mc-btn" onclick="checkMC(this,'l9','because','Because introduces the reason, followed by a full clause.')">so</button>
+      <button class="mc-btn" onclick="checkMC(this,'l9','because','Because introduces the reason, followed by a full clause.')">therefore</button>
+    </div>
+    <div class="fb" id="l9-fb"></div>
+  </div>
+
+  <div class="q-card" id="l10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">There was a storm. <span class="blank">___</span>, all flights were cancelled.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l10','Consequently','Consequently shows the flights were cancelled as a result of the storm.')">Consequently</button>
+      <button class="mc-btn" onclick="checkMC(this,'l10','Consequently','Consequently shows the flights were cancelled as a result of the storm.')">However</button>
+      <button class="mc-btn" onclick="checkMC(this,'l10','Consequently','Consequently shows the flights were cancelled as a result of the storm.')">For example</button>
+      <button class="mc-btn" onclick="checkMC(this,'l10','Consequently','Consequently shows the flights were cancelled as a result of the storm.')">In addition</button>
+    </div>
+    <div class="fb" id="l10-fb"></div>
+  </div>
+
+  <div class="q-card" id="l11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">Many fruits, <span class="blank">___</span> oranges and mangoes, are rich in vitamin C. <span class="hint">(example within a sentence)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l11','such as','Such as introduces examples within a sentence.')">such as</button>
+      <button class="mc-btn" onclick="checkMC(this,'l11','such as','Such as introduces examples within a sentence.')">for example</button>
+      <button class="mc-btn" onclick="checkMC(this,'l11','such as','Such as introduces examples within a sentence.')">for instance</button>
+      <button class="mc-btn" onclick="checkMC(this,'l11','such as','Such as introduces examples within a sentence.')">as a result</button>
+    </div>
+    <div class="fb" id="l11-fb"></div>
+  </div>
+
+  <div class="q-card" id="l12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">He speaks several languages, <span class="blank">___</span> French and German.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l12','including','Including introduces examples within a sentence.')">including</button>
+      <button class="mc-btn" onclick="checkMC(this,'l12','including','Including introduces examples within a sentence.')">as a result</button>
+      <button class="mc-btn" onclick="checkMC(this,'l12','including','Including introduces examples within a sentence.')">therefore</button>
+      <button class="mc-btn" onclick="checkMC(this,'l12','including','Including introduces examples within a sentence.')">nevertheless</button>
+    </div>
+    <div class="fb" id="l12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Sequencing &amp; Summary</div>
+
+  <div class="q-card" id="l13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text"><span class="blank">___</span>, preheat the oven to 200 degrees. <span class="hint">(the first step)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l13','First','First signals the very first step in a sequence.')">First</button>
+      <button class="mc-btn" onclick="checkMC(this,'l13','First','First signals the very first step in a sequence.')">Finally</button>
+      <button class="mc-btn" onclick="checkMC(this,'l13','First','First signals the very first step in a sequence.')">Subsequently</button>
+      <button class="mc-btn" onclick="checkMC(this,'l13','First','First signals the very first step in a sequence.')">In the end</button>
+    </div>
+    <div class="fb" id="l13-fb"></div>
+  </div>
+
+  <div class="q-card" id="l14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text"><span class="blank">___</span>, add the flour and mix well. <span class="hint">(the following step)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l14','Then','Then signals the next step in a sequence.')">Then</button>
+      <button class="mc-btn" onclick="checkMC(this,'l14','Then','Then signals the next step in a sequence.')">In conclusion</button>
+      <button class="mc-btn" onclick="checkMC(this,'l14','Then','Then signals the next step in a sequence.')">However</button>
+      <button class="mc-btn" onclick="checkMC(this,'l14','Then','Then signals the next step in a sequence.')">Despite</button>
+    </div>
+    <div class="fb" id="l14-fb"></div>
+  </div>
+
+  <div class="q-card" id="l15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text"><span class="blank">___</span>, we can say that both approaches have merit. <span class="hint">(a final, summarising statement)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l15','In conclusion','In conclusion signals the final, summarising statement.')">In conclusion</button>
+      <button class="mc-btn" onclick="checkMC(this,'l15','In conclusion','In conclusion signals the final, summarising statement.')">For example</button>
+      <button class="mc-btn" onclick="checkMC(this,'l15','In conclusion','In conclusion signals the final, summarising statement.')">First</button>
+      <button class="mc-btn" onclick="checkMC(this,'l15','In conclusion','In conclusion signals the final, summarising statement.')">Furthermore</button>
+    </div>
+    <div class="fb" id="l15-fb"></div>
+  </div>
+
+  <div class="q-card" id="l16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">She sings well. She dances well, <span class="blank">___</span>. <span class="hint">(end-position addition)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'l16','too','Too goes at the end of the sentence.')">too</button>
+      <button class="mc-btn" onclick="checkMC(this,'l16','too','Too goes at the end of the sentence.')">also</button>
+      <button class="mc-btn" onclick="checkMC(this,'l16','too','Too goes at the end of the sentence.')">furthermore</button>
+      <button class="mc-btn" onclick="checkMC(this,'l16','too','Too goes at the end of the sentence.')">moreover</button>
+    </div>
+    <div class="fb" id="l16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Linking Words &amp; Discourse Markers — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -562,13 +780,14 @@ const expl={
   f5:'"However" signals a surprising contrast — the film did well despite bad reviews. "Therefore" and "as a result" would suggest it failed, which is the opposite meaning.',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -629,7 +848,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','l1','l2','l3','l4','l5','l6','l7','l8','l9','l10','l11','l12','l13','l14','l15','l16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
@@ -646,6 +865,20 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function resetGroup(ids){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    delete scores.mc[id];
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['l1','l2','l3','l4','l5','l6','l7','l8','l9','l10','l11','l12','l13','l14','l15','l16']);}
 
 buildTokens();
 </script>

@@ -108,7 +108,10 @@
   .ex-badge{background:var(--ind);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.teal{background:var(--teal6);}
   .ex-badge.grn{background:var(--grn4);}
+  .ex-badge.rose{background:var(--rose6);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--rose6);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--grn4);background:var(--grn4-lt);}
@@ -396,6 +399,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -458,6 +463,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -510,13 +517,216 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge rose">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — quantifiers, nouns that can be both, common uncountables, and partitive expressions.</p>
+
+  <div class="mini-cat">Quantifiers</div>
+
+  <div class="q-card" id="c1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">There are too <span class="blank">___</span> mistakes in this report.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c1','many','Mistakes is countable and plural, so use many.')">much</button>
+      <button class="mc-btn" onclick="checkMC(this,'c1','many','Mistakes is countable and plural, so use many.')">many</button>
+      <button class="mc-btn" onclick="checkMC(this,'c1','many','Mistakes is countable and plural, so use many.')">a little</button>
+      <button class="mc-btn" onclick="checkMC(this,'c1','many','Mistakes is countable and plural, so use many.')">little</button>
+    </div>
+    <div class="fb" id="c1-fb"></div>
+  </div>
+
+  <div class="q-card" id="c2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">We don't have <span class="blank">___</span> evidence to prove it.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c2','much','Evidence is uncountable, so use much.')">many</button>
+      <button class="mc-btn" onclick="checkMC(this,'c2','much','Evidence is uncountable, so use much.')">much</button>
+      <button class="mc-btn" onclick="checkMC(this,'c2','much','Evidence is uncountable, so use much.')">a few</button>
+      <button class="mc-btn" onclick="checkMC(this,'c2','much','Evidence is uncountable, so use much.')">few</button>
+    </div>
+    <div class="fb" id="c2-fb"></div>
+  </div>
+
+  <div class="q-card" id="c3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">I have <span class="blank">___</span> friends here, so I feel a bit lonely. <span style="font-size:.82rem;color:var(--muted)">(negative — not enough)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c3','few','Few (no article) signals a negative sense — not enough friends.')">a few</button>
+      <button class="mc-btn" onclick="checkMC(this,'c3','few','Few (no article) signals a negative sense — not enough friends.')">few</button>
+      <button class="mc-btn" onclick="checkMC(this,'c3','few','Few (no article) signals a negative sense — not enough friends.')">a little</button>
+      <button class="mc-btn" onclick="checkMC(this,'c3','few','Few (no article) signals a negative sense — not enough friends.')">little</button>
+    </div>
+    <div class="fb" id="c3-fb"></div>
+  </div>
+
+  <div class="q-card" id="c4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">Could I have <span class="blank">___</span> water, please? <span style="font-size:.82rem;color:var(--muted)">(some, but not much — positive)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c4','a little','A little (positive) means some — enough for now.')">a little</button>
+      <button class="mc-btn" onclick="checkMC(this,'c4','a little','A little (positive) means some — enough for now.')">little</button>
+      <button class="mc-btn" onclick="checkMC(this,'c4','a little','A little (positive) means some — enough for now.')">a few</button>
+      <button class="mc-btn" onclick="checkMC(this,'c4','a little','A little (positive) means some — enough for now.')">many</button>
+    </div>
+    <div class="fb" id="c4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Nouns That Can Be Both</div>
+
+  <div class="q-card" id="c5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">She's had a lot of <span class="blank">___</span> working abroad. <span style="font-size:.82rem;color:var(--muted)">(knowledge/skill)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c5','experience','Experience meaning knowledge/skill is uncountable.')">experience</button>
+      <button class="mc-btn" onclick="checkMC(this,'c5','experience','Experience meaning knowledge/skill is uncountable.')">an experience</button>
+      <button class="mc-btn" onclick="checkMC(this,'c5','experience','Experience meaning knowledge/skill is uncountable.')">experiences</button>
+    </div>
+    <div class="fb" id="c5-fb"></div>
+  </div>
+
+  <div class="q-card" id="c6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">It was such <span class="blank">___</span> visiting the pyramids. <span style="font-size:.82rem;color:var(--muted)">(a specific event)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c6','an experience','A single memorable event is countable — an experience.')">experience</button>
+      <button class="mc-btn" onclick="checkMC(this,'c6','an experience','A single memorable event is countable — an experience.')">an experience</button>
+      <button class="mc-btn" onclick="checkMC(this,'c6','an experience','A single memorable event is countable — an experience.')">experiences</button>
+    </div>
+    <div class="fb" id="c6-fb"></div>
+  </div>
+
+  <div class="q-card" id="c7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">He has no <span class="blank">___</span> to finish the report today. <span style="font-size:.82rem;color:var(--muted)">(the concept)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c7','time','Time meaning the concept in general is uncountable.')">time</button>
+      <button class="mc-btn" onclick="checkMC(this,'c7','time','Time meaning the concept in general is uncountable.')">a time</button>
+      <button class="mc-btn" onclick="checkMC(this,'c7','time','Time meaning the concept in general is uncountable.')">times</button>
+    </div>
+    <div class="fb" id="c7-fb"></div>
+  </div>
+
+  <div class="q-card" id="c8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">How many <span class="blank">___</span> have you tried to call her? <span style="font-size:.82rem;color:var(--muted)">(occasions)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c8','times','Time meaning an occasion is countable — times.')">time</button>
+      <button class="mc-btn" onclick="checkMC(this,'c8','times','Time meaning an occasion is countable — times.')">times</button>
+      <button class="mc-btn" onclick="checkMC(this,'c8','times','Time meaning an occasion is countable — times.')">a time</button>
+    </div>
+    <div class="fb" id="c8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Common Uncountables</div>
+
+  <div class="q-card" id="c9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">Can you give me some <span class="blank">___</span> about which course to choose?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c9','advice','Advice is uncountable — no plural, no a/an.')">advice</button>
+      <button class="mc-btn" onclick="checkMC(this,'c9','advice','Advice is uncountable — no plural, no a/an.')">an advice</button>
+      <button class="mc-btn" onclick="checkMC(this,'c9','advice','Advice is uncountable — no plural, no a/an.')">advices</button>
+    </div>
+    <div class="fb" id="c9-fb"></div>
+  </div>
+
+  <div class="q-card" id="c10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">We need to buy some new <span class="blank">___</span> for the living room.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c10','furniture','Furniture is uncountable — no plural.')">furniture</button>
+      <button class="mc-btn" onclick="checkMC(this,'c10','furniture','Furniture is uncountable — no plural.')">furnitures</button>
+      <button class="mc-btn" onclick="checkMC(this,'c10','furniture','Furniture is uncountable — no plural.')">a furniture</button>
+    </div>
+    <div class="fb" id="c10-fb"></div>
+  </div>
+
+  <div class="q-card" id="c11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">I heard some good <span class="blank">___</span> today!</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c11','news','News looks plural but is grammatically uncountable.')">news</button>
+      <button class="mc-btn" onclick="checkMC(this,'c11','news','News looks plural but is grammatically uncountable.')">a news</button>
+      <button class="mc-btn" onclick="checkMC(this,'c11','news','News looks plural but is grammatically uncountable.')">new</button>
+    </div>
+    <div class="fb" id="c11-fb"></div>
+  </div>
+
+  <div class="q-card" id="c12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">She's making great <span class="blank">___</span> with her English.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c12','progress','Progress is uncountable — no a/an, no plural.')">progress</button>
+      <button class="mc-btn" onclick="checkMC(this,'c12','progress','Progress is uncountable — no a/an, no plural.')">a progress</button>
+      <button class="mc-btn" onclick="checkMC(this,'c12','progress','Progress is uncountable — no a/an, no plural.')">progresses</button>
+    </div>
+    <div class="fb" id="c12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Partitive Expressions</div>
+
+  <div class="q-card" id="c13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">Could I have a <span class="blank">___</span> of bread with my soup?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c13','slice','Bread is counted with a loaf or a slice of.')">slice</button>
+      <button class="mc-btn" onclick="checkMC(this,'c13','slice','Bread is counted with a loaf or a slice of.')">piece</button>
+      <button class="mc-btn" onclick="checkMC(this,'c13','slice','Bread is counted with a loaf or a slice of.')">bar</button>
+      <button class="mc-btn" onclick="checkMC(this,'c13','slice','Bread is counted with a loaf or a slice of.')">cup</button>
+    </div>
+    <div class="fb" id="c13-fb"></div>
+  </div>
+
+  <div class="q-card" id="c14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">He gave me a <span class="blank">___</span> of advice I'll never forget.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c14','piece','Advice is counted with a piece of.')">piece</button>
+      <button class="mc-btn" onclick="checkMC(this,'c14','piece','Advice is counted with a piece of.')">slice</button>
+      <button class="mc-btn" onclick="checkMC(this,'c14','piece','Advice is counted with a piece of.')">bar</button>
+      <button class="mc-btn" onclick="checkMC(this,'c14','piece','Advice is counted with a piece of.')">loaf</button>
+    </div>
+    <div class="fb" id="c14-fb"></div>
+  </div>
+
+  <div class="q-card" id="c15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">Would you like a <span class="blank">___</span> of tea?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c15','cup','Drinks like tea are counted with a cup or glass of.')">cup</button>
+      <button class="mc-btn" onclick="checkMC(this,'c15','cup','Drinks like tea are counted with a cup or glass of.')">piece</button>
+      <button class="mc-btn" onclick="checkMC(this,'c15','cup','Drinks like tea are counted with a cup or glass of.')">bar</button>
+      <button class="mc-btn" onclick="checkMC(this,'c15','cup','Drinks like tea are counted with a cup or glass of.')">sheet</button>
+    </div>
+    <div class="fb" id="c15-fb"></div>
+  </div>
+
+  <div class="q-card" id="c16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">I need a <span class="blank">___</span> of paper to write this down.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'c16','sheet','Paper is counted with a sheet or piece of.')">sheet</button>
+      <button class="mc-btn" onclick="checkMC(this,'c16','sheet','Paper is counted with a sheet or piece of.')">slice</button>
+      <button class="mc-btn" onclick="checkMC(this,'c16','sheet','Paper is counted with a sheet or piece of.')">cup</button>
+      <button class="mc-btn" onclick="checkMC(this,'c16','sheet','Paper is counted with a sheet or piece of.')">bar</button>
+    </div>
+    <div class="fb" id="c16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Countable &amp; Uncountable Nouns — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -536,13 +746,14 @@ const expl={
   f5:'"Equipment" is uncountable — no article, no plural. Say "a piece of equipment" or "some equipment".',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -603,7 +814,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12','c13','c14','c15','c16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
@@ -620,6 +831,20 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function resetGroup(ids){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    delete scores.mc[id];
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12','c13','c14','c15','c16']);}
 
 buildTokens();
 </script>

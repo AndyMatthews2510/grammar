@@ -126,7 +126,17 @@
   .ex-badge{background:var(--sky);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.amber{background:var(--amber7);color:var(--ink);}
   .ex-badge.grn{background:var(--grn7);}
+  .ex-badge.violet{background:var(--violet4);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--violet4);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
+  .fix-opts{display:flex;flex-direction:column;gap:.5rem;margin-top:.3rem;}
+  .fix-btn{border:2px solid var(--border);background:var(--bg);color:var(--ink);padding:.6rem 1rem;border-radius:.6rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem;text-align:left;transition:all .15s;line-height:1.45;}
+  .fix-btn:hover:not(:disabled){border-color:var(--grn7);background:var(--grn7-lt);}
+  .fix-btn.sel-ok{border-color:var(--grn7);background:var(--grn7-lt);color:var(--grn7);font-weight:600;}
+  .fix-btn.sel-bad{border-color:#ef4444;background:#fff0f0;color:#ef4444;}
+  .fix-btn.rev-ok{border-color:var(--grn7);background:var(--grn7-lt);color:var(--grn7);font-weight:600;}
+  .fix-btn:disabled{cursor:not-allowed;opacity:.55;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--grn7);background:var(--grn7-lt);}
@@ -509,6 +519,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -581,6 +593,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -653,13 +667,232 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — tense shifts, word changes, say vs tell, and reported questions and commands.</p>
+
+  <div class="mini-cat">Tense Shifts</div>
+
+  <div class="q-card" id="r1">
+    <div class="q-num">Question 1 of 16</div>
+    <span class="q-dir">"I am hungry," he said.</span>
+    <span class="q-rep">He said he <span class="blank">___</span> hungry.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r1','was','Present simple moves back to past simple: am → was.')">is</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','was','Present simple moves back to past simple: am → was.')">was</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','was','Present simple moves back to past simple: am → was.')">had been</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','was','Present simple moves back to past simple: am → was.')">would be</button>
+    </div>
+    <div class="fb" id="r1-fb"></div>
+  </div>
+
+  <div class="q-card" id="r2">
+    <div class="q-num">Question 2 of 16</div>
+    <span class="q-dir">"I will call you," she said.</span>
+    <span class="q-rep">She said she <span class="blank">___</span> call me.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r2','would','Will moves back to would in reported speech.')">will</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','would','Will moves back to would in reported speech.')">would</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','would','Will moves back to would in reported speech.')">was going to</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','would','Will moves back to would in reported speech.')">had</button>
+    </div>
+    <div class="fb" id="r2-fb"></div>
+  </div>
+
+  <div class="q-card" id="r3">
+    <div class="q-num">Question 3 of 16</div>
+    <span class="q-dir">"I have finished my homework," he said.</span>
+    <span class="q-rep">He said he <span class="blank">___</span> his homework.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r3','had finished','Present perfect moves back to past perfect: have finished → had finished.')">has finished</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','had finished','Present perfect moves back to past perfect: have finished → had finished.')">had finished</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','had finished','Present perfect moves back to past perfect: have finished → had finished.')">finished</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','had finished','Present perfect moves back to past perfect: have finished → had finished.')">would finish</button>
+    </div>
+    <div class="fb" id="r3-fb"></div>
+  </div>
+
+  <div class="q-card" id="r4">
+    <div class="q-num">Question 4 of 16</div>
+    <span class="q-dir">"I was there," she said.</span>
+    <span class="q-rep">She said she <span class="blank">___</span> there.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r4','had been','Past simple moves back to past perfect: was → had been.')">was</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','had been','Past simple moves back to past perfect: was → had been.')">had been</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','had been','Past simple moves back to past perfect: was → had been.')">has been</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','had been','Past simple moves back to past perfect: was → had been.')">would be</button>
+    </div>
+    <div class="fb" id="r4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Word Changes</div>
+
+  <div class="q-card" id="r5">
+    <div class="q-num">Question 5 of 16</div>
+    <span class="q-dir">"I'll see you tomorrow," she said.</span>
+    <span class="q-rep">She said she'd see me <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r5','the next day','Tomorrow changes to the next day when reporting from a later point.')">tomorrow</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','the next day','Tomorrow changes to the next day when reporting from a later point.')">the next day</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','the next day','Tomorrow changes to the next day when reporting from a later point.')">yesterday</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','the next day','Tomorrow changes to the next day when reporting from a later point.')">today</button>
+    </div>
+    <div class="fb" id="r5-fb"></div>
+  </div>
+
+  <div class="q-card" id="r6">
+    <div class="q-num">Question 6 of 16</div>
+    <span class="q-dir">"We are leaving today," they said.</span>
+    <span class="q-rep">They said they were leaving <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r6','that day','Today changes to that day in reported speech.')">today</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','that day','Today changes to that day in reported speech.')">that day</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','that day','Today changes to that day in reported speech.')">the next day</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','that day','Today changes to that day in reported speech.')">this day</button>
+    </div>
+    <div class="fb" id="r6-fb"></div>
+  </div>
+
+  <div class="q-card" id="r7">
+    <div class="q-num">Question 7 of 16</div>
+    <span class="q-dir">"I lost my keys yesterday," he said.</span>
+    <span class="q-rep">He said he had lost his keys <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r7','the day before','Yesterday changes to the day before in reported speech.')">yesterday</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','the day before','Yesterday changes to the day before in reported speech.')">the day before</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','the day before','Yesterday changes to the day before in reported speech.')">the next day</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','the day before','Yesterday changes to the day before in reported speech.')">that day</button>
+    </div>
+    <div class="fb" id="r7-fb"></div>
+  </div>
+
+  <div class="q-card" id="r8">
+    <div class="q-num">Question 8 of 16</div>
+    <span class="q-dir">"We are tired," they said.</span>
+    <span class="q-rep">They said <span class="blank">___</span> were tired.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r8','they','We changes to they when reporting someone else\'s words.')">we</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','they','We changes to they when reporting someone else\'s words.')">they</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','they','We changes to they when reporting someone else\'s words.')">them</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','they','We changes to they when reporting someone else\'s words.')">us</button>
+    </div>
+    <div class="fb" id="r8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Say or Tell?</div>
+
+  <div class="q-card" id="r9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">She <span class="blank">___</span> me she was busy. <span style="font-size:.82rem;color:var(--muted)">(a person comes directly after)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r9','told','Tell always has a person directly after it — no to needed.')">said</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','told','Tell always has a person directly after it — no to needed.')">told</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','told','Tell always has a person directly after it — no to needed.')">said to</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','told','Tell always has a person directly after it — no to needed.')">talked</button>
+    </div>
+    <div class="fb" id="r9-fb"></div>
+  </div>
+
+  <div class="q-card" id="r10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">He <span class="blank">___</span> that he would be late. <span style="font-size:.82rem;color:var(--muted)">(no person mentioned)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r10','said','Say does not take a person directly after it.')">told</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','said','Say does not take a person directly after it.')">said</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','said','Say does not take a person directly after it.')">told to</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','said','Say does not take a person directly after it.')">says</button>
+    </div>
+    <div class="fb" id="r10-fb"></div>
+  </div>
+
+  <div class="q-card" id="r11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">Which sentence is correctly formed?</div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r11','She told him the truth.','Tell takes a person directly after it, like a direct object.')">She told him the truth.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r11','She told him the truth.','Tell takes a person directly after it, like a direct object.')">She told to him the truth.</button>
+    </div>
+    <div class="fb" id="r11-fb"></div>
+  </div>
+
+  <div class="q-card" id="r12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">Which sentence is correctly formed?</div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r12','He said to us that dinner was ready.','Say needs to before the person it was said to.')">He said to us that dinner was ready.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r12','He said to us that dinner was ready.','Say needs to before the person it was said to.')">He said us that dinner was ready.</button>
+    </div>
+    <div class="fb" id="r12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Reported Questions &amp; Commands</div>
+
+  <div class="q-card" id="r13">
+    <div class="q-num">Question 13 of 16</div>
+    <span class="q-dir">"Are you ready?" she asked.</span>
+    <span class="q-rep">She asked <span class="blank">___</span> I was ready.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r13','if','Yes/no questions use if or whether in reported speech.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','if','Yes/no questions use if or whether in reported speech.')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','if','Yes/no questions use if or whether in reported speech.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','if','Yes/no questions use if or whether in reported speech.')">so</button>
+    </div>
+    <div class="fb" id="r13-fb"></div>
+  </div>
+
+  <div class="q-card" id="r14">
+    <div class="q-num">Question 14 of 16</div>
+    <span class="q-dir">"Where do you live?" he asked.</span>
+    <span class="q-rep">He asked where I <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r14','lived','Reported questions use normal word order and the tense moves back — no do/did.')">did live</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','lived','Reported questions use normal word order and the tense moves back — no do/did.')">lived</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','lived','Reported questions use normal word order and the tense moves back — no do/did.')">live</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','lived','Reported questions use normal word order and the tense moves back — no do/did.')">do live</button>
+    </div>
+    <div class="fb" id="r14-fb"></div>
+  </div>
+
+  <div class="q-card" id="r15">
+    <div class="q-num">Question 15 of 16</div>
+    <span class="q-dir">"Sit down!" he said to her.</span>
+    <span class="q-rep">He told her <span class="blank">___</span> down.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r15','to sit','Commands become tell/ask + person + to + verb.')">sitting</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','to sit','Commands become tell/ask + person + to + verb.')">to sit</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','to sit','Commands become tell/ask + person + to + verb.')">sit</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','to sit','Commands become tell/ask + person + to + verb.')">that she sit</button>
+    </div>
+    <div class="fb" id="r15-fb"></div>
+  </div>
+
+  <div class="q-card" id="r16">
+    <div class="q-num">Question 16 of 16</div>
+    <span class="q-dir">"Don't touch that!" she said to us.</span>
+    <span class="q-rep">She told us <span class="blank">___</span> touch that.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r16','not to','Negative commands use not to + verb.')">to not</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','not to','Negative commands use not to + verb.')">not to</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','not to','Negative commands use not to + verb.')">don't</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','not to','Negative commands use not to + verb.')">didn't</button>
+    </div>
+    <div class="fb" id="r16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Reported Speech — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -679,13 +912,14 @@ const expl={
   f5:'Requests use "ask + person + to + verb": "Please help me" → "asked him to help her".',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
-  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -746,10 +980,10 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
-    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
     const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}
   });
   sents.forEach(s=>{
@@ -763,6 +997,20 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function resetGroup(ids){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    delete scores.mc[id];
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16']);}
 
 buildTokens();
 </script>

@@ -102,7 +102,10 @@
   .ex-badge{background:var(--dk);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.acc  {background:var(--acc);color:var(--ink);}
   .ex-badge.grn  {background:var(--grn);}
+  .ex-badge.fut  {background:var(--fut);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--fut);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--grn);background:var(--grn-lt);}
@@ -411,6 +414,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -478,6 +483,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -535,13 +542,224 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge fut">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — present, past, and future functions, plus choosing the right form.</p>
+
+  <div class="mini-cat">Present Tenses</div>
+
+  <div class="q-card" id="g1">
+    <div class="q-num">Question 1 of 16</div>
+    <span class="q-sent">"I've lived in this city for ten years."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g1','Since / for (unfinished state)','For ten years and counting — an unfinished state from a past point.')">Recent news</button>
+      <button class="mc-btn" onclick="checkMC(this,'g1','Since / for (unfinished state)','For ten years and counting — an unfinished state from a past point.')">Life experience</button>
+      <button class="mc-btn" onclick="checkMC(this,'g1','Since / for (unfinished state)','For ten years and counting — an unfinished state from a past point.')">Since / for (unfinished state)</button>
+      <button class="mc-btn" onclick="checkMC(this,'g1','Since / for (unfinished state)','For ten years and counting — an unfinished state from a past point.')">Unfinished time period</button>
+    </div>
+    <div class="fb" id="g1-fb"></div>
+  </div>
+
+  <div class="q-card" id="g2">
+    <div class="q-num">Question 2 of 16</div>
+    <span class="q-sent">"Prices are rising every month."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g2','Changing trend','Present continuous here shows something gradually developing over time.')">Action happening now</button>
+      <button class="mc-btn" onclick="checkMC(this,'g2','Changing trend','Present continuous here shows something gradually developing over time.')">Temporary situation</button>
+      <button class="mc-btn" onclick="checkMC(this,'g2','Changing trend','Present continuous here shows something gradually developing over time.')">Changing trend</button>
+      <button class="mc-btn" onclick="checkMC(this,'g2','Changing trend','Present continuous here shows something gradually developing over time.')">Future plan</button>
+    </div>
+    <div class="fb" id="g2-fb"></div>
+  </div>
+
+  <div class="q-card" id="g3">
+    <div class="q-num">Question 3 of 16</div>
+    <span class="q-sent">"Have you ever eaten sushi?"</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g3','Life experience','Ever + present perfect asks about experience at any point up to now.')">Recent news</button>
+      <button class="mc-btn" onclick="checkMC(this,'g3','Life experience','Ever + present perfect asks about experience at any point up to now.')">Life experience</button>
+      <button class="mc-btn" onclick="checkMC(this,'g3','Life experience','Ever + present perfect asks about experience at any point up to now.')">Unfinished time period</button>
+      <button class="mc-btn" onclick="checkMC(this,'g3','Life experience','Ever + present perfect asks about experience at any point up to now.')">Ongoing duration</button>
+    </div>
+    <div class="fb" id="g3-fb"></div>
+  </div>
+
+  <div class="q-card" id="g4">
+    <div class="q-num">Question 4 of 16</div>
+    <span class="q-sent">"You're out of breath — have you been running?"</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g4','Recent activity','The evidence (being out of breath) points to an activity that just stopped.')">Ongoing duration</button>
+      <button class="mc-btn" onclick="checkMC(this,'g4','Recent activity','The evidence (being out of breath) points to an activity that just stopped.')">Recent activity</button>
+      <button class="mc-btn" onclick="checkMC(this,'g4','Recent activity','The evidence (being out of breath) points to an activity that just stopped.')">Life experience</button>
+      <button class="mc-btn" onclick="checkMC(this,'g4','Recent activity','The evidence (being out of breath) points to an activity that just stopped.')">Habit / routine</button>
+    </div>
+    <div class="fb" id="g4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Past Tenses</div>
+
+  <div class="q-card" id="g5">
+    <div class="q-num">Question 5 of 16</div>
+    <span class="q-sent">"He arrived, sat down, and opened his laptop."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g5','Sequence of events','Three past-simple actions, one after another — a sequence.')">Completed action</button>
+      <button class="mc-btn" onclick="checkMC(this,'g5','Sequence of events','Three past-simple actions, one after another — a sequence.')">Sequence of events</button>
+      <button class="mc-btn" onclick="checkMC(this,'g5','Sequence of events','Three past-simple actions, one after another — a sequence.')">Finished period</button>
+      <button class="mc-btn" onclick="checkMC(this,'g5','Sequence of events','Three past-simple actions, one after another — a sequence.')">Background action</button>
+    </div>
+    <div class="fb" id="g5-fb"></div>
+  </div>
+
+  <div class="q-card" id="g6">
+    <div class="q-num">Question 6 of 16</div>
+    <span class="q-sent">"While she was studying, he was playing guitar."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g6','Parallel actions','Two past continuous actions happening at the same time.')">In progress at a time</button>
+      <button class="mc-btn" onclick="checkMC(this,'g6','Parallel actions','Two past continuous actions happening at the same time.')">Background action</button>
+      <button class="mc-btn" onclick="checkMC(this,'g6','Parallel actions','Two past continuous actions happening at the same time.')">Parallel actions</button>
+      <button class="mc-btn" onclick="checkMC(this,'g6','Parallel actions','Two past continuous actions happening at the same time.')">Earlier past</button>
+    </div>
+    <div class="fb" id="g6-fb"></div>
+  </div>
+
+  <div class="q-card" id="g7">
+    <div class="q-num">Question 7 of 16</div>
+    <span class="q-sent">"She was exhausted because she had been working all night."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g7','Cause of past situation','Past perfect continuous explains the past result — exhaustion.')">Earlier past</button>
+      <button class="mc-btn" onclick="checkMC(this,'g7','Cause of past situation','Past perfect continuous explains the past result — exhaustion.')">Cause of past situation</button>
+      <button class="mc-btn" onclick="checkMC(this,'g7','Cause of past situation','Past perfect continuous explains the past result — exhaustion.')">Third conditional</button>
+      <button class="mc-btn" onclick="checkMC(this,'g7','Cause of past situation','Past perfect continuous explains the past result — exhaustion.')">Sequence of events</button>
+    </div>
+    <div class="fb" id="g7-fb"></div>
+  </div>
+
+  <div class="q-card" id="g8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">I <span style="border-bottom:2px solid var(--md);min-width:100px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> in London for three years before I moved to Paris. <span class="q-func">(a state true for a period now over)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g8','lived','Finished period — past simple shows the whole stretch is over.')">have lived</button>
+      <button class="mc-btn" onclick="checkMC(this,'g8','lived','Finished period — past simple shows the whole stretch is over.')">was living</button>
+      <button class="mc-btn" onclick="checkMC(this,'g8','lived','Finished period — past simple shows the whole stretch is over.')">lived</button>
+      <button class="mc-btn" onclick="checkMC(this,'g8','lived','Finished period — past simple shows the whole stretch is over.')">had lived</button>
+    </div>
+    <div class="fb" id="g8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Future Forms</div>
+
+  <div class="q-card" id="g9">
+    <div class="q-num">Question 9 of 16</div>
+    <span class="q-sent">"I promise I'll help you move house."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g9','Promise / offer','Committing to do something for someone — a promise.')">Prediction</button>
+      <button class="mc-btn" onclick="checkMC(this,'g9','Promise / offer','Committing to do something for someone — a promise.')">Spontaneous decision</button>
+      <button class="mc-btn" onclick="checkMC(this,'g9','Promise / offer','Committing to do something for someone — a promise.')">Promise / offer</button>
+      <button class="mc-btn" onclick="checkMC(this,'g9','Promise / offer','Committing to do something for someone — a promise.')">Refusal</button>
+    </div>
+    <div class="fb" id="g9-fb"></div>
+  </div>
+
+  <div class="q-card" id="g10">
+    <div class="q-num">Question 10 of 16</div>
+    <span class="q-sent">"She won't listen to anyone."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g10','Refusal','Won\'t shows a strong refusal or unwillingness.')">Prediction</button>
+      <button class="mc-btn" onclick="checkMC(this,'g10','Refusal','Won\'t shows a strong refusal or unwillingness.')">Refusal</button>
+      <button class="mc-btn" onclick="checkMC(this,'g10','Refusal','Won\'t shows a strong refusal or unwillingness.')">Intention</button>
+      <button class="mc-btn" onclick="checkMC(this,'g10','Refusal','Won\'t shows a strong refusal or unwillingness.')">Polite enquiry</button>
+    </div>
+    <div class="fb" id="g10-fb"></div>
+  </div>
+
+  <div class="q-card" id="g11">
+    <div class="q-num">Question 11 of 16</div>
+    <span class="q-sent">"This time next week, I'll be sitting on a beach."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g11','In progress at future time','Future continuous shows an action ongoing at a specific future moment.')">Prediction</button>
+      <button class="mc-btn" onclick="checkMC(this,'g11','In progress at future time','Future continuous shows an action ongoing at a specific future moment.')">In progress at future time</button>
+      <button class="mc-btn" onclick="checkMC(this,'g11','In progress at future time','Future continuous shows an action ongoing at a specific future moment.')">Completed before future point</button>
+      <button class="mc-btn" onclick="checkMC(this,'g11','In progress at future time','Future continuous shows an action ongoing at a specific future moment.')">Intention / plan</button>
+    </div>
+    <div class="fb" id="g11-fb"></div>
+  </div>
+
+  <div class="q-card" id="g12">
+    <div class="q-num">Question 12 of 16</div>
+    <span class="q-sent">"By next year, I will have finished my degree."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g12','Completed before future point','Future perfect shows this will be finished before a set future point.')">In progress at future time</button>
+      <button class="mc-btn" onclick="checkMC(this,'g12','Completed before future point','Future perfect shows this will be finished before a set future point.')">Prediction</button>
+      <button class="mc-btn" onclick="checkMC(this,'g12','Completed before future point','Future perfect shows this will be finished before a set future point.')">Completed before future point</button>
+      <button class="mc-btn" onclick="checkMC(this,'g12','Completed before future point','Future perfect shows this will be finished before a set future point.')">Intention / plan</button>
+    </div>
+    <div class="fb" id="g12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Choosing the Right Form</div>
+
+  <div class="q-card" id="g13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">Look at those dark clouds — it <span style="border-bottom:2px solid var(--md);min-width:100px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> rain. <span class="q-func">(evidence-based prediction)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g13','is going to','You can see the evidence right now — going to is used for evidence-based predictions.')">will</button>
+      <button class="mc-btn" onclick="checkMC(this,'g13','is going to','You can see the evidence right now — going to is used for evidence-based predictions.')">is going to</button>
+      <button class="mc-btn" onclick="checkMC(this,'g13','is going to','You can see the evidence right now — going to is used for evidence-based predictions.')">is raining</button>
+      <button class="mc-btn" onclick="checkMC(this,'g13','is going to','You can see the evidence right now — going to is used for evidence-based predictions.')">would</button>
+    </div>
+    <div class="fb" id="g13-fb"></div>
+  </div>
+
+  <div class="q-card" id="g14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">I think it <span style="border-bottom:2px solid var(--md);min-width:100px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> rain tomorrow. <span class="q-func">(a prediction based on opinion, no evidence)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g14','will','No visible evidence — just an opinion, so will is used.')">is going to</button>
+      <button class="mc-btn" onclick="checkMC(this,'g14','will','No visible evidence — just an opinion, so will is used.')">will</button>
+      <button class="mc-btn" onclick="checkMC(this,'g14','will','No visible evidence — just an opinion, so will is used.')">is</button>
+      <button class="mc-btn" onclick="checkMC(this,'g14','will','No visible evidence — just an opinion, so will is used.')">was</button>
+    </div>
+    <div class="fb" id="g14-fb"></div>
+  </div>
+
+  <div class="q-card" id="g15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">A: "The phone's ringing!" B: I <span style="border-bottom:2px solid var(--md);min-width:100px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> it. <span class="q-func">(decided at the moment of speaking)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g15','will get','A decision made right now, on the spot — will, not going to.')">am going to get</button>
+      <button class="mc-btn" onclick="checkMC(this,'g15','will get','A decision made right now, on the spot — will, not going to.')">will get</button>
+      <button class="mc-btn" onclick="checkMC(this,'g15','will get','A decision made right now, on the spot — will, not going to.')">get</button>
+      <button class="mc-btn" onclick="checkMC(this,'g15','will get','A decision made right now, on the spot — will, not going to.')">am getting</button>
+    </div>
+    <div class="fb" id="g15-fb"></div>
+  </div>
+
+  <div class="q-card" id="g16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">We <span style="border-bottom:2px solid var(--md);min-width:100px;display:inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> the Johnsons for dinner on Saturday — it's already arranged. <span class="q-func">(a confirmed future arrangement)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g16','are meeting','A confirmed, arranged plan — present continuous for future arrangements.')">will meet</button>
+      <button class="mc-btn" onclick="checkMC(this,'g16','are meeting','A confirmed, arranged plan — present continuous for future arrangements.')">are meeting</button>
+      <button class="mc-btn" onclick="checkMC(this,'g16','are meeting','A confirmed, arranged plan — present continuous for future arrangements.')">are going to meet</button>
+      <button class="mc-btn" onclick="checkMC(this,'g16','are meeting','A confirmed, arranged plan — present continuous for future arrangements.')">meet</button>
+    </div>
+    <div class="fb" id="g16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Verb Tenses &amp; Their Functions — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -561,13 +779,14 @@ const expl={
   f5:'Future continuous (will be + ing) = in progress at a specific future moment (at 3pm tomorrow).',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -628,7 +847,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
@@ -645,6 +864,21 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+function resetGroup(ids){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    delete scores.mc[id];
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){ resetGroup(['q1','q2','q3','q4','q5','q6']); }
+function resetEx2(){ resetGroup(['f1','f2','f3','f4','f5']); }
+function resetEx3(){ sents.forEach(s=>resetId(s.id)); }
+function resetEx4(){ resetGroup(['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16']); }
 
 buildTokens();
 </script>

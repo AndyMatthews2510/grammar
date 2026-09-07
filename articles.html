@@ -6,7 +6,7 @@
 <title>Articles — Interactive Lesson</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--honey:#92400e;--honey-dk:#78350f;--honey-lt:#fffbeb;--honey-mid:#fde68a;--teal2:#0d7680;--teal2-lt:#e6f7f8;--sage2:#14532d;--sage2-lt:#dcfce7;--rose2:#9f1239;--rose2-lt:#fff1f2;--ink:#0f1f2e;--muted:#6b7a8d;--border:#dde4ed;--bg:#f7f8fb;--white:#ffffff;}
+  :root{--honey:#92400e;--honey-dk:#78350f;--honey-lt:#fffbeb;--honey-mid:#fde68a;--teal2:#0d7680;--teal2-lt:#e6f7f8;--sage2:#14532d;--sage2-lt:#dcfce7;--rose2:#9f1239;--rose2-lt:#fff1f2;--plum:#6d28d9;--ink:#0f1f2e;--muted:#6b7a8d;--border:#dde4ed;--bg:#f7f8fb;--white:#ffffff;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
   #pb-wrap{position:fixed;top:0;left:0;right:0;z-index:100;height:4px;background:var(--border);}
@@ -46,8 +46,10 @@
   .key-rule strong{color:var(--honey-mid);}
   .ex-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;}
   .ex-badge{background:var(--honey);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
-  .ex-badge.teal{background:var(--teal2);} .ex-badge.sage{background:var(--sage2);}
+  .ex-badge.teal{background:var(--teal2);} .ex-badge.sage{background:var(--sage2);} .ex-badge.plum{background:var(--plum);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--plum);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--sage2);background:var(--sage2-lt);}
   .q-card.wrong{border-color:#ef4444;background:#fff0f0;}
@@ -299,6 +301,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -365,6 +369,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -377,7 +383,10 @@
   <div class="id-card" id="i3"><div class="q-num">Sentence 3 of 5</div><div class="id-instruct">Click the word that is the wrong article.</div><div class="tokens" id="i3-tok"></div><button class="verify-btn" onclick="checkId('i3')">Check ✓</button><button class="reset-btn" onclick="resetId('i3')">Reset</button><div class="fb" id="i3-fb"></div></div>
   <div class="id-card" id="i4"><div class="q-num">Sentence 4 of 5</div><div class="id-instruct">Click the word that is the wrong article.</div><div class="tokens" id="i4-tok"></div><button class="verify-btn" onclick="checkId('i4')">Check ✓</button><button class="reset-btn" onclick="resetId('i4')">Reset</button><div class="fb" id="i4-fb"></div></div>
   <div class="id-card" id="i5"><div class="q-num">Sentence 5 of 5</div><div class="id-instruct">Click the word that is the wrong article.</div><div class="tokens" id="i5-tok"></div><button class="verify-btn" onclick="checkId('i5')">Check ✓</button><button class="reset-btn" onclick="resetId('i5')">Reset</button><div class="fb" id="i5-fb"></div></div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
 </div>
+<hr class="div">
 
 <div class="section" id="ex4">
   <div class="ex-hdr"><span class="ex-badge" style="background:var(--rose2)">Exercise 4</span><h2 class="ex-title">Apply the Rules</h2></div>
@@ -442,13 +451,213 @@
     </div>
     <div class="fb" id="g5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<div class="section" id="ex5">
+  <div class="ex-hdr"><span class="ex-badge plum">Exercise 5</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — sounds, geography, institutions, and general vs specific.</p>
+
+  <div class="mini-cat">A or An: It's the Sound, Not the Letter</div>
+
+  <div class="q-card" id="h1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">"She is <span class="blank">___</span> honest person." <span style="font-size:.82rem;color:var(--muted)">(silent h)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h1','an','The h is silent — the word starts with the vowel sound /ɒ/.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h1','an','The h is silent — the word starts with the vowel sound /ɒ/.')">an</button>
+      <button class="mc-btn" onclick="checkMC(this,'h1','an','The h is silent — the word starts with the vowel sound /ɒ/.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h1','an','The h is silent — the word starts with the vowel sound /ɒ/.')">∅</button>
+    </div>
+    <div class="fb" id="h1-fb"></div>
+  </div>
+
+  <div class="q-card" id="h2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">"He bought <span class="blank">___</span> used car." <span style="font-size:.82rem;color:var(--muted)">(the u here sounds like "you")</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h2','a','Used starts with the consonant sound /j/, so a is correct.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h2','a','Used starts with the consonant sound /j/, so a is correct.')">an</button>
+      <button class="mc-btn" onclick="checkMC(this,'h2','a','Used starts with the consonant sound /j/, so a is correct.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h2','a','Used starts with the consonant sound /j/, so a is correct.')">∅</button>
+    </div>
+    <div class="fb" id="h2-fb"></div>
+  </div>
+
+  <div class="q-card" id="h3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">"It was <span class="blank">___</span> one-hour delay." <span style="font-size:.82rem;color:var(--muted)">(what sound does "one" start with?)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h3','a','One starts with the consonant sound /w/, so a is correct.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h3','a','One starts with the consonant sound /w/, so a is correct.')">an</button>
+      <button class="mc-btn" onclick="checkMC(this,'h3','a','One starts with the consonant sound /w/, so a is correct.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h3','a','One starts with the consonant sound /w/, so a is correct.')">∅</button>
+    </div>
+    <div class="fb" id="h3-fb"></div>
+  </div>
+
+  <div class="q-card" id="h4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">"She's applying for <span class="blank">___</span> MBA program." <span style="font-size:.82rem;color:var(--muted)">(how do you say the letter M?)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h4','an','MBA is said em-bee-ay — it starts with a vowel sound.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h4','an','MBA is said em-bee-ay — it starts with a vowel sound.')">an</button>
+      <button class="mc-btn" onclick="checkMC(this,'h4','an','MBA is said em-bee-ay — it starts with a vowel sound.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h4','an','MBA is said em-bee-ay — it starts with a vowel sound.')">∅</button>
+    </div>
+    <div class="fb" id="h4-fb"></div>
+  </div>
+
+  <div class="mini-cat">The or Zero: Geography &amp; Institutions</div>
+
+  <div class="q-card" id="h5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">"They spent their honeymoon in <span class="blank">___</span> Maldives." <span style="font-size:.82rem;color:var(--muted)">(a group of islands)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h5','the','Groups of islands take the: the Maldives, the Philippines.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h5','the','Groups of islands take the: the Maldives, the Philippines.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h5','the','Groups of islands take the: the Maldives, the Philippines.')">∅</button>
+    </div>
+    <div class="fb" id="h5-fb"></div>
+  </div>
+
+  <div class="q-card" id="h6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">"<span class="blank">___</span> Everest is the tallest mountain in the world." <span style="font-size:.82rem;color:var(--muted)">(an individual mountain)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h6','∅','Individual mountains take no article: Everest, Ben Nevis.')">A</button>
+      <button class="mc-btn" onclick="checkMC(this,'h6','∅','Individual mountains take no article: Everest, Ben Nevis.')">The</button>
+      <button class="mc-btn" onclick="checkMC(this,'h6','∅','Individual mountains take no article: Everest, Ben Nevis.')">∅</button>
+    </div>
+    <div class="fb" id="h6-fb"></div>
+  </div>
+
+  <div class="q-card" id="h7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">"She is at <span class="blank">___</span> school right now." <span style="font-size:.82rem;color:var(--muted)">(she is studying — its purpose)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h7','∅','No article means using the place for its purpose — she is a student there.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h7','∅','No article means using the place for its purpose — she is a student there.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h7','∅','No article means using the place for its purpose — she is a student there.')">∅</button>
+    </div>
+    <div class="fb" id="h7-fb"></div>
+  </div>
+
+  <div class="q-card" id="h8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">"I need to drop something off at <span class="blank">___</span> school before the meeting." <span style="font-size:.82rem;color:var(--muted)">(the building itself)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h8','the','The refers to the physical building, not its purpose.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h8','the','The refers to the physical building, not its purpose.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h8','the','The refers to the physical building, not its purpose.')">∅</button>
+    </div>
+    <div class="fb" id="h8-fb"></div>
+  </div>
+
+  <div class="mini-cat">The or Zero: General vs Specific</div>
+
+  <div class="q-card" id="h9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">"<span class="blank">___</span> Coffee helps me wake up in the morning." <span style="font-size:.82rem;color:var(--muted)">(coffee in general)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h9','∅','General statements about an uncountable noun take no article.')">A</button>
+      <button class="mc-btn" onclick="checkMC(this,'h9','∅','General statements about an uncountable noun take no article.')">The</button>
+      <button class="mc-btn" onclick="checkMC(this,'h9','∅','General statements about an uncountable noun take no article.')">∅</button>
+    </div>
+    <div class="fb" id="h9-fb"></div>
+  </div>
+
+  <div class="q-card" id="h10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">"<span class="blank">___</span> coffee you made this morning was delicious." <span style="font-size:.82rem;color:var(--muted)">(a specific cup)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h10','The','Both speaker and listener know exactly which coffee — specific, so the.')">A</button>
+      <button class="mc-btn" onclick="checkMC(this,'h10','The','Both speaker and listener know exactly which coffee — specific, so the.')">The</button>
+      <button class="mc-btn" onclick="checkMC(this,'h10','The','Both speaker and listener know exactly which coffee — specific, so the.')">∅</button>
+    </div>
+    <div class="fb" id="h10-fb"></div>
+  </div>
+
+  <div class="q-card" id="h11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">"He plays <span class="blank">___</span> chess every evening." <span style="font-size:.82rem;color:var(--muted)">(a game in general)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h11','∅','Games, like sports, take no article.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h11','∅','Games, like sports, take no article.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h11','∅','Games, like sports, take no article.')">∅</button>
+    </div>
+    <div class="fb" id="h11-fb"></div>
+  </div>
+
+  <div class="q-card" id="h12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">"<span class="blank">___</span> police are investigating the robbery." <span style="font-size:.82rem;color:var(--muted)">(a shared institution in society)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h12','The','Shared institutions in society take the: the police, the government.')">A</button>
+      <button class="mc-btn" onclick="checkMC(this,'h12','The','Shared institutions in society take the: the police, the government.')">The</button>
+      <button class="mc-btn" onclick="checkMC(this,'h12','The','Shared institutions in society take the: the police, the government.')">∅</button>
+    </div>
+    <div class="fb" id="h12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Mixed Practice</div>
+
+  <div class="q-card" id="h13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">"She has <span class="blank">___</span> MA in Linguistics." <span style="font-size:.82rem;color:var(--muted)">(how do you say the letter M?)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h13','an','MA is said em-ay — it starts with a vowel sound.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h13','an','MA is said em-ay — it starts with a vowel sound.')">an</button>
+      <button class="mc-btn" onclick="checkMC(this,'h13','an','MA is said em-ay — it starts with a vowel sound.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h13','an','MA is said em-ay — it starts with a vowel sound.')">∅</button>
+    </div>
+    <div class="fb" id="h13-fb"></div>
+  </div>
+
+  <div class="q-card" id="h14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">"I'll see you at <span class="blank">___</span> dinner tonight." <span style="font-size:.82rem;color:var(--muted)">(a meal)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h14','∅','Meals take no article: for breakfast, at dinner.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h14','∅','Meals take no article: for breakfast, at dinner.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h14','∅','Meals take no article: for breakfast, at dinner.')">∅</button>
+    </div>
+    <div class="fb" id="h14-fb"></div>
+  </div>
+
+  <div class="q-card" id="h15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">"<span class="blank">___</span> Pacific is the largest ocean on Earth." <span style="font-size:.82rem;color:var(--muted)">(oceans and seas)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h15','The','Oceans and seas take the: the Pacific, the Red Sea.')">A</button>
+      <button class="mc-btn" onclick="checkMC(this,'h15','The','Oceans and seas take the: the Pacific, the Red Sea.')">The</button>
+      <button class="mc-btn" onclick="checkMC(this,'h15','The','Oceans and seas take the: the Pacific, the Red Sea.')">∅</button>
+    </div>
+    <div class="fb" id="h15-fb"></div>
+  </div>
+
+  <div class="q-card" id="h16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">"My brother has <span class="blank">___</span> unique talent for languages." <span style="font-size:.82rem;color:var(--muted)">(mind the vowel sound)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'h16','a','Unique starts with the consonant sound /j/, so a is correct.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'h16','a','Unique starts with the consonant sound /j/, so a is correct.')">an</button>
+      <button class="mc-btn" onclick="checkMC(this,'h16','a','Unique starts with the consonant sound /j/, so a is correct.')">the</button>
+      <button class="mc-btn" onclick="checkMC(this,'h16','a','Unique starts with the consonant sound /j/, so a is correct.')">∅</button>
+    </div>
+    <div class="fb" id="h16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx5()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/21</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/37</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all five exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Articles — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=21;
+const TOTAL=37;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -471,7 +680,7 @@ const expl={
   g4:'Shared media and institutions take "the": the radio, the internet, the cinema, the police.',
   g5:'General statements about a species take no article: "Dolphins are intelligent" means all dolphins in general.',
 };
-function checkMC(btn,qId,correct){const card=document.getElementById(qId);card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-fb');const ok=btn.textContent.trim()===correct;if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}updateProgress();}
+function checkMC(btn,qId,correct,why){const card=document.getElementById(qId);card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);const fb=document.getElementById(qId+'-fb');const explain=why||expl[qId]||'';const ok=btn.textContent.trim()===correct;if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}updateProgress();}
 const sents=[
   {id:'i1',words:['She','wants','to','be','a','engineer','.'],clause:[4],fix:'"a engineer" → should be "an engineer" — vowel sound /e/.',color:'#92400e'},
   {id:'i2',words:['He','plays','the','football','every','weekend','.'],clause:[2],fix:'"the football" → sports take no article: "plays football".',color:'#92400e'},
@@ -482,7 +691,13 @@ const sents=[
 function buildTokens(){sents.forEach(s=>{const container=document.getElementById(s.id+'-tok');s.words.forEach((w,i)=>{const sp=document.createElement('span');sp.className='tok'+(/^[.,!?;]$/.test(w)?' punct':'');sp.textContent=w;sp.dataset.idx=i;container.appendChild(sp);});container.addEventListener('click',function(e){const tok=e.target;if(!tok.classList.contains('tok')||tok.classList.contains('punct'))return;if(tok.classList.contains('c-ok')||tok.classList.contains('c-miss'))return;if(document.querySelector('#'+s.id+' .verify-btn').disabled)return;tok.classList.toggle('sel');});});}
 function checkId(id){const s=sents.find(x=>x.id===id);const correct=new Set(s.clause);const fb=document.getElementById(id+'-fb');const toks=document.getElementById(id+'-tok').querySelectorAll('.tok:not(.punct)');let ok=true;toks.forEach(t=>{const i=parseInt(t.dataset.idx);const should=correct.has(i),did=t.classList.contains('sel');t.classList.remove('sel');if(should&&did){t.classList.add('c-ok','pop');}else if(should&&!did){t.classList.add('c-miss','pop');ok=false;}else if(!should&&did){t.classList.add('c-miss','pop');ok=false;}});if(ok){fb.textContent='✓ Correct! '+s.fix;fb.className='fb show ok';scores.id[id]=true;}else{fb.textContent='✗ Not quite. The highlighted word is the wrong article. '+s.fix;fb.className='fb show bad';scores.id[id]=false;}document.querySelector('#'+id+' .verify-btn').disabled=true;updateProgress();}
 function resetId(id){document.getElementById(id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));document.querySelector('#'+id+' .verify-btn').disabled=false;delete scores.id[id];const fb=document.getElementById(id+'-fb');fb.className='fb';fb.textContent='';updateProgress();}
-function retryAll(){['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','g1','g2','g3','g4','g5'].forEach(qId=>{const card=document.getElementById(qId);if(!card)return;card.classList.remove('correct','wrong');card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}});sents.forEach(s=>{document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));document.querySelector('#'+s.id+' .verify-btn').disabled=false;const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';});Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);Object.keys(scores.id).forEach(k=>delete scores.id[k]);document.getElementById('pb').style.width='0%';document.getElementById('score-sec').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'});}
+function retryAll(){['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','g1','g2','g3','g4','g5','h1','h2','h3','h4','h5','h6','h7','h8','h9','h10','h11','h12','h13','h14','h15','h16'].forEach(qId=>{const card=document.getElementById(qId);if(!card)return;card.classList.remove('correct','wrong');card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});const fb=document.getElementById(qId+'-fb');if(fb){fb.className='fb';fb.textContent='';}});sents.forEach(s=>{document.getElementById(s.id+'-tok').querySelectorAll('.tok').forEach(t=>t.classList.remove('sel','c-ok','c-miss','pop'));document.querySelector('#'+s.id+' .verify-btn').disabled=false;const fb=document.getElementById(s.id+'-fb');fb.className='fb';fb.textContent='';});Object.keys(scores.mc).forEach(k=>delete scores.mc[k]);Object.keys(scores.id).forEach(k=>delete scores.id[k]);document.getElementById('pb').style.width='0%';document.getElementById('score-sec').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'});}
+function resetGroup(ids){ids.forEach(id=>{const card=document.getElementById(id);if(!card)return;card.classList.remove('correct','wrong');card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});delete scores.mc[id];const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}});updateProgress();}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['g1','g2','g3','g4','g5']);}
+function resetEx5(){resetGroup(['h1','h2','h3','h4','h5','h6','h7','h8','h9','h10','h11','h12','h13','h14','h15','h16']);}
 buildTokens();
 </script>
 </body>

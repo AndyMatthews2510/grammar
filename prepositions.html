@@ -111,7 +111,10 @@
   .ex-badge{background:var(--rose);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.teal{background:var(--teal4);}
   .ex-badge.sage{background:var(--sage3);}
+  .ex-badge.blue{background:var(--blue3);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue3);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--sage3);background:var(--sage3-lt);}
@@ -490,6 +493,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -557,6 +562,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -614,13 +621,224 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge blue">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — time, place, movement, and fixed phrases.</p>
+
+  <div class="mini-cat">Time Prepositions</div>
+
+  <div class="q-card" id="p1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">We usually visit our grandparents <span class="blank">___</span> Christmas. <span style="font-size:.82rem;color:var(--muted)">(holiday period)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p1','at','Holiday periods like Christmas use at in British English.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'p1','at','Holiday periods like Christmas use at in British English.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'p1','at','Holiday periods like Christmas use at in British English.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'p1','at','Holiday periods like Christmas use at in British English.')">during</button>
+    </div>
+    <div class="fb" id="p1-fb"></div>
+  </div>
+
+  <div class="q-card" id="p2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">She hasn't called me <span class="blank">___</span> last week.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p2','since','Since marks the starting point of an unfinished period.')">for</button>
+      <button class="mc-btn" onclick="checkMC(this,'p2','since','Since marks the starting point of an unfinished period.')">since</button>
+      <button class="mc-btn" onclick="checkMC(this,'p2','since','Since marks the starting point of an unfinished period.')">during</button>
+      <button class="mc-btn" onclick="checkMC(this,'p2','since','Since marks the starting point of an unfinished period.')">by</button>
+    </div>
+    <div class="fb" id="p2-fb"></div>
+  </div>
+
+  <div class="q-card" id="p3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">He'll finish the project <span class="blank">___</span> the end of the month. <span style="font-size:.82rem;color:var(--muted)">(deadline)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p3','by','By means no later than a deadline.')">until</button>
+      <button class="mc-btn" onclick="checkMC(this,'p3','by','By means no later than a deadline.')">by</button>
+      <button class="mc-btn" onclick="checkMC(this,'p3','by','By means no later than a deadline.')">since</button>
+      <button class="mc-btn" onclick="checkMC(this,'p3','by','By means no later than a deadline.')">for</button>
+    </div>
+    <div class="fb" id="p3-fb"></div>
+  </div>
+
+  <div class="q-card" id="p4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">I'll wait here <span class="blank">___</span> you come back. <span style="font-size:.82rem;color:var(--muted)">(continues, then stops)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p4','until','Until shows an action continuing up to a point, then stopping.')">by</button>
+      <button class="mc-btn" onclick="checkMC(this,'p4','until','Until shows an action continuing up to a point, then stopping.')">until</button>
+      <button class="mc-btn" onclick="checkMC(this,'p4','until','Until shows an action continuing up to a point, then stopping.')">during</button>
+      <button class="mc-btn" onclick="checkMC(this,'p4','until','Until shows an action continuing up to a point, then stopping.')">for</button>
+    </div>
+    <div class="fb" id="p4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Place Prepositions</div>
+
+  <div class="q-card" id="p5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">The keys are <span class="blank">___</span> the drawer.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p5','in','A drawer is an enclosed space, so use in.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'p5','in','A drawer is an enclosed space, so use in.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'p5','in','A drawer is an enclosed space, so use in.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'p5','in','A drawer is an enclosed space, so use in.')">into</button>
+    </div>
+    <div class="fb" id="p5-fb"></div>
+  </div>
+
+  <div class="q-card" id="p6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">There's a poster <span class="blank">___</span> the wall.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p6','on','A wall is a surface, so use on.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'p6','on','A wall is a surface, so use on.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'p6','on','A wall is a surface, so use on.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'p6','on','A wall is a surface, so use on.')">above</button>
+    </div>
+    <div class="fb" id="p6-fb"></div>
+  </div>
+
+  <div class="q-card" id="p7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">Let's meet <span class="blank">___</span> the entrance.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p7','at','A specific point or spot uses at.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'p7','at','A specific point or spot uses at.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'p7','at','A specific point or spot uses at.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'p7','at','A specific point or spot uses at.')">to</button>
+    </div>
+    <div class="fb" id="p7-fb"></div>
+  </div>
+
+  <div class="q-card" id="p8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">She sat <span class="blank">___</span> her two best friends. <span style="font-size:.82rem;color:var(--muted)">(exactly two people)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p8','between','Between is used for exactly two things or people.')">between</button>
+      <button class="mc-btn" onclick="checkMC(this,'p8','between','Between is used for exactly two things or people.')">among</button>
+      <button class="mc-btn" onclick="checkMC(this,'p8','between','Between is used for exactly two things or people.')">next to</button>
+      <button class="mc-btn" onclick="checkMC(this,'p8','between','Between is used for exactly two things or people.')">behind</button>
+    </div>
+    <div class="fb" id="p8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Movement Prepositions</div>
+
+  <div class="q-card" id="p9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">He walked <span class="blank">___</span> the room without saying a word. <span style="font-size:.82rem;color:var(--muted)">(leaving)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p9','out of','Out of shows movement leaving an enclosed space.')">into</button>
+      <button class="mc-btn" onclick="checkMC(this,'p9','out of','Out of shows movement leaving an enclosed space.')">out of</button>
+      <button class="mc-btn" onclick="checkMC(this,'p9','out of','Out of shows movement leaving an enclosed space.')">through</button>
+      <button class="mc-btn" onclick="checkMC(this,'p9','out of','Out of shows movement leaving an enclosed space.')">past</button>
+    </div>
+    <div class="fb" id="p9-fb"></div>
+  </div>
+
+  <div class="q-card" id="p10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">They swam <span class="blank">___</span> the lake to reach the other side.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p10','across','Across shows movement over a flat open area to the other side.')">through</button>
+      <button class="mc-btn" onclick="checkMC(this,'p10','across','Across shows movement over a flat open area to the other side.')">across</button>
+      <button class="mc-btn" onclick="checkMC(this,'p10','across','Across shows movement over a flat open area to the other side.')">along</button>
+      <button class="mc-btn" onclick="checkMC(this,'p10','across','Across shows movement over a flat open area to the other side.')">towards</button>
+    </div>
+    <div class="fb" id="p10-fb"></div>
+  </div>
+
+  <div class="q-card" id="p11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">She drove <span class="blank">___</span> the shop but didn't stop. <span style="font-size:.82rem;color:var(--muted)">(going by, not stopping)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p11','past','Past shows movement going by something without stopping.')">through</button>
+      <button class="mc-btn" onclick="checkMC(this,'p11','past','Past shows movement going by something without stopping.')">past</button>
+      <button class="mc-btn" onclick="checkMC(this,'p11','past','Past shows movement going by something without stopping.')">into</button>
+      <button class="mc-btn" onclick="checkMC(this,'p11','past','Past shows movement going by something without stopping.')">along</button>
+    </div>
+    <div class="fb" id="p11-fb"></div>
+  </div>
+
+  <div class="q-card" id="p12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">We walked <span class="blank">___</span> the beach for hours, enjoying the sunset. <span style="font-size:.82rem;color:var(--muted)">(following its length)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p12','along','Along shows movement following the length of something.')">across</button>
+      <button class="mc-btn" onclick="checkMC(this,'p12','along','Along shows movement following the length of something.')">through</button>
+      <button class="mc-btn" onclick="checkMC(this,'p12','along','Along shows movement following the length of something.')">along</button>
+      <button class="mc-btn" onclick="checkMC(this,'p12','along','Along shows movement following the length of something.')">past</button>
+    </div>
+    <div class="fb" id="p12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Fixed Phrases</div>
+
+  <div class="q-card" id="p13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">He is afraid <span class="blank">___</span> spiders.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p13','of','Afraid always takes of.')">of</button>
+      <button class="mc-btn" onclick="checkMC(this,'p13','of','Afraid always takes of.')">from</button>
+      <button class="mc-btn" onclick="checkMC(this,'p13','of','Afraid always takes of.')">with</button>
+      <button class="mc-btn" onclick="checkMC(this,'p13','of','Afraid always takes of.')">for</button>
+    </div>
+    <div class="fb" id="p13-fb"></div>
+  </div>
+
+  <div class="q-card" id="p14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">This result depends <span class="blank">___</span> the weather.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p14','on','Depend always takes on.')">of</button>
+      <button class="mc-btn" onclick="checkMC(this,'p14','on','Depend always takes on.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'p14','on','Depend always takes on.')">for</button>
+      <button class="mc-btn" onclick="checkMC(this,'p14','on','Depend always takes on.')">with</button>
+    </div>
+    <div class="fb" id="p14-fb"></div>
+  </div>
+
+  <div class="q-card" id="p15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">Her style is similar <span class="blank">___</span> her sister's.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p15','to','Similar always takes to.')">to</button>
+      <button class="mc-btn" onclick="checkMC(this,'p15','to','Similar always takes to.')">with</button>
+      <button class="mc-btn" onclick="checkMC(this,'p15','to','Similar always takes to.')">from</button>
+      <button class="mc-btn" onclick="checkMC(this,'p15','to','Similar always takes to.')">as</button>
+    </div>
+    <div class="fb" id="p15-fb"></div>
+  </div>
+
+  <div class="q-card" id="p16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">They apologised <span class="blank">___</span> the delay.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'p16','for','Apologise always takes for.')">for</button>
+      <button class="mc-btn" onclick="checkMC(this,'p16','for','Apologise always takes for.')">of</button>
+      <button class="mc-btn" onclick="checkMC(this,'p16','for','Apologise always takes for.')">about</button>
+      <button class="mc-btn" onclick="checkMC(this,'p16','for','Apologise always takes for.')">to</button>
+    </div>
+    <div class="fb" id="p16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Prepositions — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -640,13 +858,14 @@ const expl={
   f5:'"Good at" is a fixed phrase. The adjective "good" always takes the preposition "at" when followed by a skill or activity.',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -707,7 +926,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12','p13','p14','p15','p16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
@@ -724,6 +943,20 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function resetGroup(ids){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    delete scores.mc[id];
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12','p13','p14','p15','p16']);}
 
 buildTokens();
 </script>

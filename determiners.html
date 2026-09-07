@@ -140,7 +140,10 @@
   .ex-badge{background:var(--pink);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.teal{background:var(--teal7);}
   .ex-badge.grn{background:var(--grn8);}
+  .ex-badge.violet{background:var(--violet5);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--violet5);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--grn8);background:var(--grn8-lt);}
@@ -454,6 +457,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -521,6 +526,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -578,13 +585,224 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — each/every/all/both, either/neither, some/any, and this/that/these/those.</p>
+
+  <div class="mini-cat">Each, Every, All, Both</div>
+
+  <div class="q-card" id="d1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text"><span class="blank">___</span> answer on the test was carefully checked. <span class="hint">(one by one)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d1','Each','Each focuses on individual items, one by one.')">Each</button>
+      <button class="mc-btn" onclick="checkMC(this,'d1','Each','Each focuses on individual items, one by one.')">Every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d1','Each','Each focuses on individual items, one by one.')">All</button>
+      <button class="mc-btn" onclick="checkMC(this,'d1','Each','Each focuses on individual items, one by one.')">Both</button>
+    </div>
+    <div class="fb" id="d1-fb"></div>
+  </div>
+
+  <div class="q-card" id="d2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text"><span class="blank">___</span> passenger must show a valid ticket. <span class="hint">(a generalisation about the whole group)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d2','Every','Every treats the group as a whole — used for generalisations.')">Each</button>
+      <button class="mc-btn" onclick="checkMC(this,'d2','Every','Every treats the group as a whole — used for generalisations.')">Every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d2','Every','Every treats the group as a whole — used for generalisations.')">Both</button>
+      <button class="mc-btn" onclick="checkMC(this,'d2','Every','Every treats the group as a whole — used for generalisations.')">Neither</button>
+    </div>
+    <div class="fb" id="d2-fb"></div>
+  </div>
+
+  <div class="q-card" id="d3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text"><span class="blank">___</span> the members of staff attended the meeting. <span class="hint">(the complete group, three or more)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d3','All','All refers to the complete group — three or more.')">All</button>
+      <button class="mc-btn" onclick="checkMC(this,'d3','All','All refers to the complete group — three or more.')">Every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d3','All','All refers to the complete group — three or more.')">Both</button>
+      <button class="mc-btn" onclick="checkMC(this,'d3','All','All refers to the complete group — three or more.')">Each</button>
+    </div>
+    <div class="fb" id="d3-fb"></div>
+  </div>
+
+  <div class="q-card" id="d4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text"><span class="blank">___</span> shoes in this pair are the same size. <span class="hint">(exactly two, together)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d4','Both','Both refers to exactly two things together.')">Both</button>
+      <button class="mc-btn" onclick="checkMC(this,'d4','Both','Both refers to exactly two things together.')">All</button>
+      <button class="mc-btn" onclick="checkMC(this,'d4','Both','Both refers to exactly two things together.')">Every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d4','Both','Both refers to exactly two things together.')">Each</button>
+    </div>
+    <div class="fb" id="d4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Either &amp; Neither</div>
+
+  <div class="q-card" id="d5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">You can park on <span class="blank">___</span> side of the street. <span class="hint">(one or the other, two options)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d5','either','Either means one or the other of two options.')">either</button>
+      <button class="mc-btn" onclick="checkMC(this,'d5','either','Either means one or the other of two options.')">neither</button>
+      <button class="mc-btn" onclick="checkMC(this,'d5','either','Either means one or the other of two options.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'d5','either','Either means one or the other of two options.')">every</button>
+    </div>
+    <div class="fb" id="d5-fb"></div>
+  </div>
+
+  <div class="q-card" id="d6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text"><span class="blank">___</span> of the two answers is correct.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d6','Neither','Neither means not one and not the other of two.')">Either</button>
+      <button class="mc-btn" onclick="checkMC(this,'d6','Neither','Neither means not one and not the other of two.')">Neither</button>
+      <button class="mc-btn" onclick="checkMC(this,'d6','Neither','Neither means not one and not the other of two.')">None</button>
+      <button class="mc-btn" onclick="checkMC(this,'d6','Neither','Neither means not one and not the other of two.')">Both</button>
+    </div>
+    <div class="fb" id="d6-fb"></div>
+  </div>
+
+  <div class="q-card" id="d7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">I don't like <span class="blank">___</span> of those two colours. <span class="hint">(not this one and not that one)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d7','either','After a negative verb, either means not this one and not that one.')">either</button>
+      <button class="mc-btn" onclick="checkMC(this,'d7','either','After a negative verb, either means not this one and not that one.')">neither</button>
+      <button class="mc-btn" onclick="checkMC(this,'d7','either','After a negative verb, either means not this one and not that one.')">every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d7','either','After a negative verb, either means not this one and not that one.')">both</button>
+    </div>
+    <div class="fb" id="d7-fb"></div>
+  </div>
+
+  <div class="q-card" id="d8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text"><span class="blank">___</span> restaurant was any good — we were disappointed both times.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d8','Neither','Neither expresses not one and not the other of two restaurants.')">Neither</button>
+      <button class="mc-btn" onclick="checkMC(this,'d8','Neither','Neither expresses not one and not the other of two restaurants.')">Either</button>
+      <button class="mc-btn" onclick="checkMC(this,'d8','Neither','Neither expresses not one and not the other of two restaurants.')">None</button>
+      <button class="mc-btn" onclick="checkMC(this,'d8','Neither','Neither expresses not one and not the other of two restaurants.')">Both</button>
+    </div>
+    <div class="fb" id="d8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Some &amp; Any</div>
+
+  <div class="q-card" id="d9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">Would you like <span class="blank">___</span> cake? <span class="hint">(an offer — expecting yes)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d9','some','Offers use some, even though they are questions.')">some</button>
+      <button class="mc-btn" onclick="checkMC(this,'d9','some','Offers use some, even though they are questions.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'d9','some','Offers use some, even though they are questions.')">every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d9','some','Offers use some, even though they are questions.')">no</button>
+    </div>
+    <div class="fb" id="d9-fb"></div>
+  </div>
+
+  <div class="q-card" id="d10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">I haven't got <span class="blank">___</span> time today.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d10','any','Negative sentences use any.')">some</button>
+      <button class="mc-btn" onclick="checkMC(this,'d10','any','Negative sentences use any.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'d10','any','Negative sentences use any.')">every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d10','any','Negative sentences use any.')">each</button>
+    </div>
+    <div class="fb" id="d10-fb"></div>
+  </div>
+
+  <div class="q-card" id="d11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">If you need <span class="blank">___</span> help, just ask.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d11','any','Conditional (if) sentences use any.')">some</button>
+      <button class="mc-btn" onclick="checkMC(this,'d11','any','Conditional (if) sentences use any.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'d11','any','Conditional (if) sentences use any.')">every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d11','any','Conditional (if) sentences use any.')">no</button>
+    </div>
+    <div class="fb" id="d11-fb"></div>
+  </div>
+
+  <div class="q-card" id="d12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">Could I have <span class="blank">___</span> sugar in my coffee, please? <span class="hint">(a request — expecting yes)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d12','some','Polite requests use some, even though they are questions.')">some</button>
+      <button class="mc-btn" onclick="checkMC(this,'d12','some','Polite requests use some, even though they are questions.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'d12','some','Polite requests use some, even though they are questions.')">every</button>
+      <button class="mc-btn" onclick="checkMC(this,'d12','some','Polite requests use some, even though they are questions.')">all</button>
+    </div>
+    <div class="fb" id="d12-fb"></div>
+  </div>
+
+  <div class="mini-cat">This, That, These, Those</div>
+
+  <div class="q-card" id="d13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text"><span class="blank">___</span> jacket I'm wearing is new. <span class="hint">(near, singular)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d13','This','This is used for something near and singular.')">This</button>
+      <button class="mc-btn" onclick="checkMC(this,'d13','This','This is used for something near and singular.')">That</button>
+      <button class="mc-btn" onclick="checkMC(this,'d13','This','This is used for something near and singular.')">These</button>
+      <button class="mc-btn" onclick="checkMC(this,'d13','This','This is used for something near and singular.')">Those</button>
+    </div>
+    <div class="fb" id="d13-fb"></div>
+  </div>
+
+  <div class="q-card" id="d14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text"><span class="blank">___</span> shoes over there by the door are mine. <span class="hint">(far, plural)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d14','Those','Those is used for something far away and plural.')">This</button>
+      <button class="mc-btn" onclick="checkMC(this,'d14','Those','Those is used for something far away and plural.')">That</button>
+      <button class="mc-btn" onclick="checkMC(this,'d14','Those','Those is used for something far away and plural.')">These</button>
+      <button class="mc-btn" onclick="checkMC(this,'d14','Those','Those is used for something far away and plural.')">Those</button>
+    </div>
+    <div class="fb" id="d14-fb"></div>
+  </div>
+
+  <div class="q-card" id="d15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">I lived in Paris for a year. <span class="blank">___</span> was a wonderful time. <span class="hint">(referring back to something already mentioned)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d15','That','That often refers back to something already mentioned.')">This</button>
+      <button class="mc-btn" onclick="checkMC(this,'d15','That','That often refers back to something already mentioned.')">That</button>
+      <button class="mc-btn" onclick="checkMC(this,'d15','That','That often refers back to something already mentioned.')">These</button>
+      <button class="mc-btn" onclick="checkMC(this,'d15','That','That often refers back to something already mentioned.')">Those</button>
+    </div>
+    <div class="fb" id="d15-fb"></div>
+  </div>
+
+  <div class="q-card" id="d16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text"><span class="blank">___</span> cookies here on the plate smell amazing. <span class="hint">(near, plural)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'d16','These','These is used for something near and plural.')">This</button>
+      <button class="mc-btn" onclick="checkMC(this,'d16','These','These is used for something near and plural.')">That</button>
+      <button class="mc-btn" onclick="checkMC(this,'d16','These','These is used for something near and plural.')">These</button>
+      <button class="mc-btn" onclick="checkMC(this,'d16','These','These is used for something near and plural.')">Those</button>
+    </div>
+    <div class="fb" id="d16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Determiners — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -604,13 +822,14 @@ const expl={
   f5:'Conditional sentences use "any": "If you have any questions". "Some" would be used in a positive statement.',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -671,7 +890,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','d1','d2','d3','d4','d5','d6','d7','d8','d9','d10','d11','d12','d13','d14','d15','d16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
@@ -688,6 +907,20 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function resetGroup(ids){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    delete scores.mc[id];
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['d1','d2','d3','d4','d5','d6','d7','d8','d9','d10','d11','d12','d13','d14','d15','d16']);}
 
 buildTokens();
 </script>

@@ -111,7 +111,10 @@
   .ex-badge{background:var(--grn5);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.violet{background:var(--violet3);}
   .ex-badge.blue{background:var(--blue4);}
+  .ex-badge.amber{background:var(--amber6);color:var(--ink);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--amber6);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--grn5);background:var(--grn5-lt);}
@@ -481,6 +484,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -543,6 +548,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -600,13 +607,224 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge amber">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — gerund-only and infinitive-only verbs, verbs taking either, verbs that change meaning, and prepositions.</p>
+
+  <div class="mini-cat">Gerund-Only vs Infinitive-Only Verbs</div>
+
+  <div class="q-card" id="g1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">She enjoys <span class="blank">___</span> in her free time. <span style="font-size:.82rem;color:var(--muted)">(paint)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g1','painting','Enjoy is always followed by a gerund.')">paint</button>
+      <button class="mc-btn" onclick="checkMC(this,'g1','painting','Enjoy is always followed by a gerund.')">to paint</button>
+      <button class="mc-btn" onclick="checkMC(this,'g1','painting','Enjoy is always followed by a gerund.')">painting</button>
+      <button class="mc-btn" onclick="checkMC(this,'g1','painting','Enjoy is always followed by a gerund.')">painted</button>
+    </div>
+    <div class="fb" id="g1-fb"></div>
+  </div>
+
+  <div class="q-card" id="g2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">He decided <span class="blank">___</span> the company. <span style="font-size:.82rem;color:var(--muted)">(leave)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g2','to leave','Decide is always followed by an infinitive.')">leaving</button>
+      <button class="mc-btn" onclick="checkMC(this,'g2','to leave','Decide is always followed by an infinitive.')">to leave</button>
+      <button class="mc-btn" onclick="checkMC(this,'g2','to leave','Decide is always followed by an infinitive.')">leave</button>
+      <button class="mc-btn" onclick="checkMC(this,'g2','to leave','Decide is always followed by an infinitive.')">left</button>
+    </div>
+    <div class="fb" id="g2-fb"></div>
+  </div>
+
+  <div class="q-card" id="g3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">They suggested <span class="blank">___</span> earlier next time. <span style="font-size:.82rem;color:var(--muted)">(meet)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g3','meeting','Suggest is always followed by a gerund.')">meet</button>
+      <button class="mc-btn" onclick="checkMC(this,'g3','meeting','Suggest is always followed by a gerund.')">to meet</button>
+      <button class="mc-btn" onclick="checkMC(this,'g3','meeting','Suggest is always followed by a gerund.')">meeting</button>
+      <button class="mc-btn" onclick="checkMC(this,'g3','meeting','Suggest is always followed by a gerund.')">met</button>
+    </div>
+    <div class="fb" id="g3-fb"></div>
+  </div>
+
+  <div class="q-card" id="g4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">We agreed <span class="blank">___</span> the meeting. <span style="font-size:.82rem;color:var(--muted)">(postpone)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g4','to postpone','Agree is always followed by an infinitive.')">postponing</button>
+      <button class="mc-btn" onclick="checkMC(this,'g4','to postpone','Agree is always followed by an infinitive.')">to postpone</button>
+      <button class="mc-btn" onclick="checkMC(this,'g4','to postpone','Agree is always followed by an infinitive.')">postpone</button>
+      <button class="mc-btn" onclick="checkMC(this,'g4','to postpone','Agree is always followed by an infinitive.')">postponed</button>
+    </div>
+    <div class="fb" id="g4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Verbs Taking Either Form &amp; Gerund as Subject</div>
+
+  <div class="q-card" id="g5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">She started <span class="blank">___</span> when she heard the news. <span style="font-size:.82rem;color:var(--muted)">(cry)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g5','crying','Start can take either a gerund or infinitive with the same meaning.')">crying</button>
+      <button class="mc-btn" onclick="checkMC(this,'g5','crying','Start can take either a gerund or infinitive with the same meaning.')">cried</button>
+      <button class="mc-btn" onclick="checkMC(this,'g5','crying','Start can take either a gerund or infinitive with the same meaning.')">cries</button>
+      <button class="mc-btn" onclick="checkMC(this,'g5','crying','Start can take either a gerund or infinitive with the same meaning.')">for crying</button>
+    </div>
+    <div class="fb" id="g5-fb"></div>
+  </div>
+
+  <div class="q-card" id="g6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text"><span class="blank">___</span> a new language takes time and patience. <span style="font-size:.82rem;color:var(--muted)">(learn — as the subject)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g6','Learning','A gerund at the start of a sentence acts as the subject.')">Learn</button>
+      <button class="mc-btn" onclick="checkMC(this,'g6','Learning','A gerund at the start of a sentence acts as the subject.')">Learning</button>
+      <button class="mc-btn" onclick="checkMC(this,'g6','Learning','A gerund at the start of a sentence acts as the subject.')">Learns</button>
+      <button class="mc-btn" onclick="checkMC(this,'g6','Learning','A gerund at the start of a sentence acts as the subject.')">Learned</button>
+    </div>
+    <div class="fb" id="g6-fb"></div>
+  </div>
+
+  <div class="q-card" id="g7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">He continued <span class="blank">___</span> even after everyone left. <span style="font-size:.82rem;color:var(--muted)">(work)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g7','working','Continue can take either a gerund or infinitive with the same meaning.')">working</button>
+      <button class="mc-btn" onclick="checkMC(this,'g7','working','Continue can take either a gerund or infinitive with the same meaning.')">worked</button>
+      <button class="mc-btn" onclick="checkMC(this,'g7','working','Continue can take either a gerund or infinitive with the same meaning.')">works</button>
+      <button class="mc-btn" onclick="checkMC(this,'g7','working','Continue can take either a gerund or infinitive with the same meaning.')">for working</button>
+    </div>
+    <div class="fb" id="g7-fb"></div>
+  </div>
+
+  <div class="q-card" id="g8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text"><span class="blank">___</span> regularly improves your mood. <span style="font-size:.82rem;color:var(--muted)">(exercise — as the subject)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g8','Exercising','A gerund at the start of a sentence acts as the subject.')">Exercise</button>
+      <button class="mc-btn" onclick="checkMC(this,'g8','Exercising','A gerund at the start of a sentence acts as the subject.')">Exercising</button>
+      <button class="mc-btn" onclick="checkMC(this,'g8','Exercising','A gerund at the start of a sentence acts as the subject.')">To exercising</button>
+      <button class="mc-btn" onclick="checkMC(this,'g8','Exercising','A gerund at the start of a sentence acts as the subject.')">Exercises</button>
+    </div>
+    <div class="fb" id="g8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Same Verb, Different Meaning</div>
+
+  <div class="q-card" id="g9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">He stopped <span class="blank">___</span> five years ago. <span style="font-size:.82rem;color:var(--muted)">(smoke — quit the habit)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g9','smoking','Stop + gerund means quitting the activity permanently.')">smoking</button>
+      <button class="mc-btn" onclick="checkMC(this,'g9','smoking','Stop + gerund means quitting the activity permanently.')">to smoke</button>
+      <button class="mc-btn" onclick="checkMC(this,'g9','smoking','Stop + gerund means quitting the activity permanently.')">smoke</button>
+      <button class="mc-btn" onclick="checkMC(this,'g9','smoking','Stop + gerund means quitting the activity permanently.')">smoked</button>
+    </div>
+    <div class="fb" id="g9-fb"></div>
+  </div>
+
+  <div class="q-card" id="g10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">She stopped <span class="blank">___</span> some milk on her way home. <span style="font-size:.82rem;color:var(--muted)">(buy — paused in order to)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g10','to buy','Stop + infinitive means pausing in order to do something.')">buying</button>
+      <button class="mc-btn" onclick="checkMC(this,'g10','to buy','Stop + infinitive means pausing in order to do something.')">to buy</button>
+      <button class="mc-btn" onclick="checkMC(this,'g10','to buy','Stop + infinitive means pausing in order to do something.')">buy</button>
+      <button class="mc-btn" onclick="checkMC(this,'g10','to buy','Stop + infinitive means pausing in order to do something.')">bought</button>
+    </div>
+    <div class="fb" id="g10-fb"></div>
+  </div>
+
+  <div class="q-card" id="g11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">I remember <span class="blank">___</span> the door — I clearly recall doing it. <span style="font-size:.82rem;color:var(--muted)">(lock — a past memory)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g11','locking','Remember + gerund refers to a memory of a past action.')">locking</button>
+      <button class="mc-btn" onclick="checkMC(this,'g11','locking','Remember + gerund refers to a memory of a past action.')">to lock</button>
+      <button class="mc-btn" onclick="checkMC(this,'g11','locking','Remember + gerund refers to a memory of a past action.')">lock</button>
+      <button class="mc-btn" onclick="checkMC(this,'g11','locking','Remember + gerund refers to a memory of a past action.')">locked</button>
+    </div>
+    <div class="fb" id="g11-fb"></div>
+  </div>
+
+  <div class="q-card" id="g12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">Please remember <span class="blank">___</span> me when you arrive. <span style="font-size:.82rem;color:var(--muted)">(call — a future reminder)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g12','to call','Remember + infinitive is a reminder to do something in the future.')">calling</button>
+      <button class="mc-btn" onclick="checkMC(this,'g12','to call','Remember + infinitive is a reminder to do something in the future.')">to call</button>
+      <button class="mc-btn" onclick="checkMC(this,'g12','to call','Remember + infinitive is a reminder to do something in the future.')">call</button>
+      <button class="mc-btn" onclick="checkMC(this,'g12','to call','Remember + infinitive is a reminder to do something in the future.')">called</button>
+    </div>
+    <div class="fb" id="g12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Prepositions &amp; Mixed Practice</div>
+
+  <div class="q-card" id="g13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">She's good at <span class="blank">___</span> puzzles. <span style="font-size:.82rem;color:var(--muted)">(solve — after a preposition)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g13','solving','After a preposition (at), always use a gerund.')">solve</button>
+      <button class="mc-btn" onclick="checkMC(this,'g13','solving','After a preposition (at), always use a gerund.')">to solve</button>
+      <button class="mc-btn" onclick="checkMC(this,'g13','solving','After a preposition (at), always use a gerund.')">solving</button>
+      <button class="mc-btn" onclick="checkMC(this,'g13','solving','After a preposition (at), always use a gerund.')">solved</button>
+    </div>
+    <div class="fb" id="g13-fb"></div>
+  </div>
+
+  <div class="q-card" id="g14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">She's interested in <span class="blank">___</span> French. <span style="font-size:.82rem;color:var(--muted)">(learn — after a preposition)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g14','learning','After a preposition (in), always use a gerund.')">learn</button>
+      <button class="mc-btn" onclick="checkMC(this,'g14','learning','After a preposition (in), always use a gerund.')">to learn</button>
+      <button class="mc-btn" onclick="checkMC(this,'g14','learning','After a preposition (in), always use a gerund.')">learning</button>
+      <button class="mc-btn" onclick="checkMC(this,'g14','learning','After a preposition (in), always use a gerund.')">learned</button>
+    </div>
+    <div class="fb" id="g14-fb"></div>
+  </div>
+
+  <div class="q-card" id="g15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">He apologised for <span class="blank">___</span> late. <span style="font-size:.82rem;color:var(--muted)">(be — after a preposition)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g15','being','After a preposition (for), always use a gerund.')">be</button>
+      <button class="mc-btn" onclick="checkMC(this,'g15','being','After a preposition (for), always use a gerund.')">to be</button>
+      <button class="mc-btn" onclick="checkMC(this,'g15','being','After a preposition (for), always use a gerund.')">being</button>
+      <button class="mc-btn" onclick="checkMC(this,'g15','being','After a preposition (for), always use a gerund.')">been</button>
+    </div>
+    <div class="fb" id="g15-fb"></div>
+  </div>
+
+  <div class="q-card" id="g16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">They regret <span class="blank">___</span> you that the flight has been cancelled. <span style="font-size:.82rem;color:var(--muted)">(inform — formal bad news)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'g16','to inform','Regret + infinitive is a formal phrase used when delivering bad news.')">informing</button>
+      <button class="mc-btn" onclick="checkMC(this,'g16','to inform','Regret + infinitive is a formal phrase used when delivering bad news.')">to inform</button>
+      <button class="mc-btn" onclick="checkMC(this,'g16','to inform','Regret + infinitive is a formal phrase used when delivering bad news.')">inform</button>
+      <button class="mc-btn" onclick="checkMC(this,'g16','to inform','Regret + infinitive is a formal phrase used when delivering bad news.')">informed</button>
+    </div>
+    <div class="fb" id="g16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Gerunds &amp; Infinitives — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},fix:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.fix).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.fix).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -626,13 +844,14 @@ const expl={
   f5:'"Went on to + infinitive" means she moved on to a new achievement — her next stage. "Went on + gerund" would mean she kept doing the same thing.',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -712,7 +931,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
@@ -736,6 +955,25 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function resetGroup(ids,type){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    if(type==='mc'){
+      card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+      delete scores.mc[id];
+    } else if(type==='fix'){
+      card.querySelectorAll('.fix-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+      delete scores.fix[id];
+    }
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6'],'mc');}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5'],'fix');}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16'],'mc');}
 
 buildTokens();
 </script>

@@ -111,7 +111,10 @@
   .ex-badge{background:var(--slate);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .85rem;border-radius:2rem;white-space:nowrap;}
   .ex-badge.teal{background:var(--teal5);}
   .ex-badge.grn{background:var(--grn3);}
+  .ex-badge.violet{background:var(--violet2);}
   .ex-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;}
+  .mini-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--violet2);margin:1.6rem 0 .6rem;}
+  .mini-cat:first-of-type{margin-top:0;}
 
   .q-card{background:var(--white);border:1.5px solid var(--border);border-radius:.85rem;padding:1.15rem 1.4rem;margin-bottom:.85rem;transition:border-color .2s;}
   .q-card.correct{border-color:var(--grn3);background:var(--grn3-lt);}
@@ -491,6 +494,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -558,6 +563,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -615,13 +622,224 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — ability, permission, obligation, deduction, possibility, and advice.</p>
+
+  <div class="mini-cat">Ability &amp; Permission</div>
+
+  <div class="q-card" id="m1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">She <span class="blank">___</span> speak four languages fluently. <span style="font-size:.82rem;color:var(--muted)">(present ability)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m1','can','Can expresses present ability.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'m1','can','Can expresses present ability.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m1','can','Can expresses present ability.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'m1','can','Can expresses present ability.')">may</button>
+    </div>
+    <div class="fb" id="m1-fb"></div>
+  </div>
+
+  <div class="q-card" id="m2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">When he was a child, he <span class="blank">___</span> climb trees easily. <span style="font-size:.82rem;color:var(--muted)">(past ability)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m2','could','Could expresses past ability.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'m2','could','Could expresses past ability.')">could</button>
+      <button class="mc-btn" onclick="checkMC(this,'m2','could','Could expresses past ability.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m2','could','Could expresses past ability.')">should</button>
+    </div>
+    <div class="fb" id="m2-fb"></div>
+  </div>
+
+  <div class="q-card" id="m3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text"><span class="blank">___</span> I use your phone for a minute? <span style="font-size:.82rem;color:var(--muted)">(formal permission)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m3','May','May is a formal way to ask for permission.')">Must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m3','May','May is a formal way to ask for permission.')">May</button>
+      <button class="mc-btn" onclick="checkMC(this,'m3','May','May is a formal way to ask for permission.')">Should</button>
+      <button class="mc-btn" onclick="checkMC(this,'m3','May','May is a formal way to ask for permission.')">Would</button>
+    </div>
+    <div class="fb" id="m3-fb"></div>
+  </div>
+
+  <div class="q-card" id="m4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">You <span class="blank">___</span> park here — it's a private driveway. <span style="font-size:.82rem;color:var(--muted)">(refusing permission)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m4','can\'t','Can\'t refuses permission — it is not allowed.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'m4','can\'t','Can\'t refuses permission — it is not allowed.')">can't</button>
+      <button class="mc-btn" onclick="checkMC(this,'m4','can\'t','Can\'t refuses permission — it is not allowed.')">could</button>
+      <button class="mc-btn" onclick="checkMC(this,'m4','can\'t','Can\'t refuses permission — it is not allowed.')">may</button>
+    </div>
+    <div class="fb" id="m4-fb"></div>
+  </div>
+
+  <div class="mini-cat">Obligation &amp; Prohibition</div>
+
+  <div class="q-card" id="m5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">All passengers <span class="blank">___</span> fasten their seatbelts. <span style="font-size:.82rem;color:var(--muted)">(a rule)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m5','must','Must expresses a strong obligation, like a rule.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m5','must','Must expresses a strong obligation, like a rule.')">might</button>
+      <button class="mc-btn" onclick="checkMC(this,'m5','must','Must expresses a strong obligation, like a rule.')">could</button>
+      <button class="mc-btn" onclick="checkMC(this,'m5','must','Must expresses a strong obligation, like a rule.')">may</button>
+    </div>
+    <div class="fb" id="m5-fb"></div>
+  </div>
+
+  <div class="q-card" id="m6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">You <span class="blank">___</span> smoke inside the building. <span style="font-size:.82rem;color:var(--muted)">(forbidden)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m6','mustn\'t','Mustn\'t means it is forbidden.')">don't have to</button>
+      <button class="mc-btn" onclick="checkMC(this,'m6','mustn\'t','Mustn\'t means it is forbidden.')">mustn't</button>
+      <button class="mc-btn" onclick="checkMC(this,'m6','mustn\'t','Mustn\'t means it is forbidden.')">needn't</button>
+      <button class="mc-btn" onclick="checkMC(this,'m6','mustn\'t','Mustn\'t means it is forbidden.')">shouldn't</button>
+    </div>
+    <div class="fb" id="m6-fb"></div>
+  </div>
+
+  <div class="q-card" id="m7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">You <span class="blank">___</span> come to the party if you don't want to. <span style="font-size:.82rem;color:var(--muted)">(not necessary, your choice)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m7','don\'t have to','Don\'t have to means it is not necessary — you have a choice.')">mustn't</button>
+      <button class="mc-btn" onclick="checkMC(this,'m7','don\'t have to','Don\'t have to means it is not necessary — you have a choice.')">don't have to</button>
+      <button class="mc-btn" onclick="checkMC(this,'m7','don\'t have to','Don\'t have to means it is not necessary — you have a choice.')">can't</button>
+      <button class="mc-btn" onclick="checkMC(this,'m7','don\'t have to','Don\'t have to means it is not necessary — you have a choice.')">shouldn't</button>
+    </div>
+    <div class="fb" id="m7-fb"></div>
+  </div>
+
+  <div class="q-card" id="m8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">I <span class="blank">___</span> wear a uniform at my job. <span style="font-size:.82rem;color:var(--muted)">(an external rule)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m8','have to','Have to expresses an obligation coming from an external rule.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m8','have to','Have to expresses an obligation coming from an external rule.')">have to</button>
+      <button class="mc-btn" onclick="checkMC(this,'m8','have to','Have to expresses an obligation coming from an external rule.')">might</button>
+      <button class="mc-btn" onclick="checkMC(this,'m8','have to','Have to expresses an obligation coming from an external rule.')">could</button>
+    </div>
+    <div class="fb" id="m8-fb"></div>
+  </div>
+
+  <div class="mini-cat">Deduction &amp; Possibility</div>
+
+  <div class="q-card" id="m9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">She's not answering her phone. She <span class="blank">___</span> be busy. <span style="font-size:.82rem;color:var(--muted)">(a logical conclusion)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m9','must','Must expresses a confident deduction based on evidence.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m9','must','Must expresses a confident deduction based on evidence.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'m9','must','Must expresses a confident deduction based on evidence.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'m9','must','Must expresses a confident deduction based on evidence.')">may not</button>
+    </div>
+    <div class="fb" id="m9-fb"></div>
+  </div>
+
+  <div class="q-card" id="m10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">It <span class="blank">___</span> rain later, but I'm not sure. <span style="font-size:.82rem;color:var(--muted)">(possibility, not certain)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m10','might','Might expresses possibility, not certainty.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m10','might','Might expresses possibility, not certainty.')">might</button>
+      <button class="mc-btn" onclick="checkMC(this,'m10','might','Might expresses possibility, not certainty.')">have to</button>
+      <button class="mc-btn" onclick="checkMC(this,'m10','might','Might expresses possibility, not certainty.')">should</button>
+    </div>
+    <div class="fb" id="m10-fb"></div>
+  </div>
+
+  <div class="q-card" id="m11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">He <span class="blank">___</span> be at work — I just saw him at the beach. <span style="font-size:.82rem;color:var(--muted)">(certain negative deduction)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m11','can\'t','Can\'t expresses a confident negative deduction — it\'s logically impossible.')">mustn't</button>
+      <button class="mc-btn" onclick="checkMC(this,'m11','can\'t','Can\'t expresses a confident negative deduction — it\'s logically impossible.')">can't</button>
+      <button class="mc-btn" onclick="checkMC(this,'m11','can\'t','Can\'t expresses a confident negative deduction — it\'s logically impossible.')">shouldn't</button>
+      <button class="mc-btn" onclick="checkMC(this,'m11','can\'t','Can\'t expresses a confident negative deduction — it\'s logically impossible.')">may not</button>
+    </div>
+    <div class="fb" id="m11-fb"></div>
+  </div>
+
+  <div class="q-card" id="m12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">There's a light on. Someone <span class="blank">___</span> be home. <span style="font-size:.82rem;color:var(--muted)">(a logical conclusion from evidence)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m12','must','Must expresses a confident deduction based on evidence.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m12','must','Must expresses a confident deduction based on evidence.')">could</button>
+      <button class="mc-btn" onclick="checkMC(this,'m12','must','Must expresses a confident deduction based on evidence.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'m12','must','Must expresses a confident deduction based on evidence.')">may</button>
+    </div>
+    <div class="fb" id="m12-fb"></div>
+  </div>
+
+  <div class="mini-cat">Advice &amp; Past Modals</div>
+
+  <div class="q-card" id="m13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">You <span class="blank">___</span> see a doctor about that cough. <span style="font-size:.82rem;color:var(--muted)">(advice)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m13','should','Should gives advice.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'m13','should','Should gives advice.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m13','should','Should gives advice.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'m13','should','Should gives advice.')">may</button>
+    </div>
+    <div class="fb" id="m13-fb"></div>
+  </div>
+
+  <div class="q-card" id="m14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">I <span class="blank">___</span> have studied harder for that exam. <span style="font-size:.82rem;color:var(--muted)">(past regret)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m14','should','Should have + past participle expresses past regret.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'m14','should','Should have + past participle expresses past regret.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m14','should','Should have + past participle expresses past regret.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'m14','should','Should have + past participle expresses past regret.')">might</button>
+    </div>
+    <div class="fb" id="m14-fb"></div>
+  </div>
+
+  <div class="q-card" id="m15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">She <span class="blank">___</span> have taken the earlier train — she missed her connection. <span style="font-size:.82rem;color:var(--muted)">(criticism of a past mistake)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m15','should','Should have + past participle criticises a past decision.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'m15','should','Should have + past participle criticises a past decision.')">could</button>
+      <button class="mc-btn" onclick="checkMC(this,'m15','should','Should have + past participle criticises a past decision.')">must</button>
+      <button class="mc-btn" onclick="checkMC(this,'m15','should','Should have + past participle criticises a past decision.')">may</button>
+    </div>
+    <div class="fb" id="m15-fb"></div>
+  </div>
+
+  <div class="q-card" id="m16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">When I was younger, I <span class="blank">___</span> swim across the lake. <span style="font-size:.82rem;color:var(--muted)">(past ability)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'m16','could','Could expresses past ability.')">can</button>
+      <button class="mc-btn" onclick="checkMC(this,'m16','could','Could expresses past ability.')">could</button>
+      <button class="mc-btn" onclick="checkMC(this,'m16','could','Could expresses past ability.')">should</button>
+      <button class="mc-btn" onclick="checkMC(this,'m16','could','Could expresses past ability.')">must</button>
+    </div>
+    <div class="fb" id="m16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/16</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all three exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Modal Verbs — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=16;
+const TOTAL=32;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -641,13 +859,14 @@ const expl={
   f5:'"Could" is the past form of "can" for ability: "When I was young, I could swim across the lake."',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain=why||expl[qId]||'';
   const ok=btn.textContent.trim()===correct;
-  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+expl[qId];fb.className='fb show ok';scores.mc[qId]=true;}
-  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+expl[qId];fb.className='fb show bad';scores.mc[qId]=false;}
+  if(ok){btn.classList.add('sel-ok','pop');card.classList.add('correct');fb.textContent='✓ Correct! '+explain;fb.className='fb show ok';scores.mc[qId]=true;}
+  else{btn.classList.add('sel-bad','pop');card.classList.add('wrong');card.querySelectorAll('.mc-btn').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('rev-ok');});fb.textContent='✗ The answer is "'+correct+'". '+explain;fb.className='fb show bad';scores.mc[qId]=false;}
   updateProgress();
 }
 
@@ -708,7 +927,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','f1','f2','f3','f4','f5','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12','m13','m14','m15','m16'].forEach(qId=>{
     const card=document.getElementById(qId);if(!card)return;
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
@@ -725,6 +944,20 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function resetGroup(ids){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);if(!card)return;
+    card.classList.remove('correct','wrong');
+    card.querySelectorAll('.mc-btn').forEach(b=>{b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+    delete scores.mc[id];
+    const fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+  });
+  updateProgress();
+}
+function resetEx1(){resetGroup(['q1','q2','q3','q4','q5','q6']);}
+function resetEx2(){resetGroup(['f1','f2','f3','f4','f5']);}
+function resetEx3(){sents.forEach(s=>resetId(s.id));}
+function resetEx4(){resetGroup(['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12','m13','m14','m15','m16']);}
 
 buildTokens();
 </script>
