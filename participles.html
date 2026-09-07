@@ -179,7 +179,10 @@
   }
   .ex-badge.sky  { background: var(--sky); }
   .ex-badge.sage { background: var(--sage); }
+  .ex-badge.gold { background: var(--gold); }
   .ex-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+  .mini-cat { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 1.6rem 0 0.6rem; }
+  .mini-cat:first-of-type { margin-top: 0; }
 
   .word-bank {
     background: var(--terra-lt); border: 1.5px solid var(--terra-mid);
@@ -416,6 +419,79 @@
 </div>
 <hr class="div">
 
+<!-- SECTION 4 -->
+<div class="section">
+  <h2 class="sec-title">The Perfect Participle: Having + Done</h2>
+  <p class="sec-sub">When one action finished completely before another one started, there's a special form that makes the order crystal clear.</p>
+
+  <div class="def-box">
+    Use <strong>having</strong> + the past participle when you want to show that one action was <strong>fully finished</strong> before a second action began. It works like a time-stamp on the first action.
+  </div>
+
+  <div class="compare">
+    <div class="cmp before">
+      <div class="lbl">Sounds like both at once</div>
+      <div class="sent">"<span class="hi-s">Finishing</span> his homework, he watched TV."</div>
+      <div class="note">Unclear — did he finish first, or was he finishing while watching?</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">Clearly one, then the other</div>
+      <div class="sent">"<span class="hi-t">Having finished</span> his homework, he watched TV."</div>
+      <div class="note">✓ The homework was completely done first.</div>
+    </div>
+  </div>
+
+  <div class="analogy">
+    💡 Think of "having" as a little flag that says "this part is already in the past — done and dusted — before the next thing happens."
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> Having + past participle = the first action was completely finished before the second one started.
+  </div>
+</div>
+<hr class="div">
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2 class="sec-title">Shrinking a Whole Clause into a Phrase</h2>
+  <p class="sec-sub">Many participial phrases start life as a full clause with its own connector word and subject — and can be shrunk down.</p>
+
+  <div class="def-box">
+    You can often turn a full clause into a shorter participial phrase by <strong>dropping the connector word and the subject</strong>, and changing the verb into a participle — but only when the clause's subject is the <strong>same person or thing</strong> as the main sentence's subject.
+  </div>
+
+  <div class="compare">
+    <div class="cmp before">
+      <div class="lbl">Full clause (describes a noun)</div>
+      <div class="sent">"The man <em>who is standing</em> by the door is my uncle."</div>
+      <div class="note">A complete clause with its own connector and verb.</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">Reduced to a phrase</div>
+      <div class="sent">"The man <span class="hi-t">standing</span> by the door is my uncle."</div>
+      <div class="note">✓ Shorter — connector and "is" dropped, same meaning.</div>
+    </div>
+  </div>
+
+  <div class="compare" style="margin-top:1rem">
+    <div class="cmp before">
+      <div class="lbl">Full clause (gives a reason)</div>
+      <div class="sent">"<em>Because she was tired</em>, she went to bed early."</div>
+      <div class="note">A complete clause with its own connector and subject.</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">Reduced to a phrase</div>
+      <div class="sent">"<span class="hi-t">Being tired</span>, she went to bed early."</div>
+      <div class="note">✓ Shorter — connector and subject dropped, same meaning.</div>
+    </div>
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> Same subject in both parts? You can usually reduce the clause: drop the connector + subject, and turn the verb into <em>-ing</em> (active) or <em>-ed</em> (passive). Different subjects? Leave the clause as it is.
+  </div>
+</div>
+<hr class="div">
+
 <!-- ══ EXERCISE 1 ══ -->
 <div class="section" id="ex1">
   <div class="ex-hdr">
@@ -430,10 +506,10 @@
     <div class="q-num">Question 1 of 5</div>
     <div class="q-text">The woman __________ at the front desk will help you. <span class="hint">(she is actively sitting there right now)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q1','sitting')">sat</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','sitting')">sitting</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','sitting')">to sit</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','sitting')">seated down</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','sitting','The woman is actively doing the sitting right now — an ongoing action.')">sat</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','sitting','The woman is actively doing the sitting right now — an ongoing action.')">sitting</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','sitting','The woman is actively doing the sitting right now — an ongoing action.')">to sit</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','sitting','The woman is actively doing the sitting right now — an ongoing action.')">seated down</button>
     </div>
     <div class="fb" id="q1-fb"></div>
   </div>
@@ -442,10 +518,10 @@
     <div class="q-num">Question 2 of 5</div>
     <div class="q-text">The __________ vase cannot be repaired. <span class="hint">(something was done to it — it was broken)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q2','broken')">breaking</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','broken')">broke</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','broken')">broken</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','broken')">to break</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','broken','Something was done to the vase — it was broken, so use the passive past participle.')">breaking</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','broken','Something was done to the vase — it was broken, so use the passive past participle.')">broke</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','broken','Something was done to the vase — it was broken, so use the passive past participle.')">broken</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','broken','Something was done to the vase — it was broken, so use the passive past participle.')">to break</button>
     </div>
     <div class="fb" id="q2-fb"></div>
   </div>
@@ -454,10 +530,10 @@
     <div class="q-num">Question 3 of 5</div>
     <div class="q-text">__________ from exhaustion, he fell asleep as soon as he sat down. <span class="hint">(he had been exhausted — passive)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted')">Exhausting</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted')">Exhausted</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted')">Having exhaust</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted')">He exhausted</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted','He had exhaustion done to him — passive, so use the past participle.')">Exhausting</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted','He had exhaustion done to him — passive, so use the past participle.')">Exhausted</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted','He had exhaustion done to him — passive, so use the past participle.')">Having exhaust</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','Exhausted','He had exhaustion done to him — passive, so use the past participle.')">He exhausted</button>
     </div>
     <div class="fb" id="q3-fb"></div>
   </div>
@@ -466,10 +542,10 @@
     <div class="q-num">Question 4 of 5</div>
     <div class="q-text">I could hear someone __________ outside my window late at night. <span class="hint">(ongoing action — it was happening)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q4','singing')">sung</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','singing')">to sing</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','singing')">singing</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','singing')">had sung</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','singing','The singing was actively happening — an ongoing action.')">sung</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','singing','The singing was actively happening — an ongoing action.')">to sing</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','singing','The singing was actively happening — an ongoing action.')">singing</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','singing','The singing was actively happening — an ongoing action.')">had sung</button>
     </div>
     <div class="fb" id="q4-fb"></div>
   </div>
@@ -478,13 +554,15 @@
     <div class="q-num">Question 5 of 5</div>
     <div class="q-text">She picked up the __________ letter and read it slowly. <span class="hint">(someone had folded it — it was done to the letter)</span></div>
     <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q5','folded')">folding</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','folded')">fold</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','folded')">to fold</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','folded')">folded</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','folded','Someone folded the letter — passive, so use the past participle.')">folding</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','folded','Someone folded the letter — passive, so use the past participle.')">fold</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','folded','Someone folded the letter — passive, so use the past participle.')">to fold</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','folded','Someone folded the letter — passive, so use the past participle.')">folded</button>
     </div>
     <div class="fb" id="q5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -504,7 +582,7 @@
     </div>
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Start with <em>Tired after the long flight, …</em></p>
     <input class="cmb-input" id="c1-in" placeholder="Type your combined sentence here…">
-    <button class="check-btn" onclick="checkCmb('c1',['tired','flight','bed'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c1',['tired','flight','bed'],'Tired after the long flight, she went straight to bed.')">Check ✓</button>
     <div class="fb" id="c1-fb"></div>
   </div>
 
@@ -516,7 +594,7 @@
     </div>
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Start with <em>Wagging its tail, …</em></p>
     <input class="cmb-input" id="c2-in" placeholder="Type your combined sentence here…">
-    <button class="check-btn" onclick="checkCmb('c2',['wagging','tail','owner'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c2',['wagging','tail','owner'],'Wagging its tail, the dog ran to greet its owner.')">Check ✓</button>
     <div class="fb" id="c2-fb"></div>
   </div>
 
@@ -528,7 +606,7 @@
     </div>
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Start with <em>Broken by the storm, …</em></p>
     <input class="cmb-input" id="c3-in" placeholder="Type your combined sentence here…">
-    <button class="check-btn" onclick="checkCmb('c3',['broken','storm','cold','air'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c3',['broken','storm','cold','air'],'Broken by the storm, the window let in the cold air.')">Check ✓</button>
     <div class="fb" id="c3-fb"></div>
   </div>
 
@@ -540,9 +618,11 @@
     </div>
     <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.7rem">Hint: Start with <em>Having finished his work, …</em></p>
     <input class="cmb-input" id="c4-in" placeholder="Type your combined sentence here…">
-    <button class="check-btn" onclick="checkCmb('c4',['finished','work','office','early'])">Check ✓</button>
+    <button class="check-btn" onclick="checkCmb('c4',['finished','work','office','early'],'Having finished his work, he left the office early.')">Check ✓</button>
     <div class="fb" id="c4-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -598,20 +678,226 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="ex4">
+  <div class="ex-hdr">
+    <span class="ex-badge gold">Exercise 4</span>
+    <h2 class="ex-title">Mixed Review</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — present, past, and perfect participial phrases, reduced clauses, and dangling modifiers.</p>
+
+  <div class="mini-cat">Present Participial Phrases</div>
+
+  <div class="q-card" id="r1">
+    <div class="q-num">Question 1 of 16</div>
+    <div class="q-text">__________ his hands in the sink, he greeted his guests.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r1','Washing','He is actively washing his hands — an ongoing action.')">Washed</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','Washing','He is actively washing his hands — an ongoing action.')">Washing</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','Washing','He is actively washing his hands — an ongoing action.')">To wash</button>
+      <button class="mc-btn" onclick="checkMC(this,'r1','Washing','He is actively washing his hands — an ongoing action.')">Wash</button>
+    </div>
+    <div class="fb" id="r1-fb"></div>
+  </div>
+
+  <div class="q-card" id="r2">
+    <div class="q-num">Question 2 of 16</div>
+    <div class="q-text">The children __________ in the pool are having a great time.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r2','playing','The children are actively playing right now — an ongoing action.')">played</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','playing','The children are actively playing right now — an ongoing action.')">playing</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','playing','The children are actively playing right now — an ongoing action.')">to play</button>
+      <button class="mc-btn" onclick="checkMC(this,'r2','playing','The children are actively playing right now — an ongoing action.')">play</button>
+    </div>
+    <div class="fb" id="r2-fb"></div>
+  </div>
+
+  <div class="q-card" id="r3">
+    <div class="q-num">Question 3 of 16</div>
+    <div class="q-text">__________ loudly, the toddler refused to eat his vegetables.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r3','Crying','The toddler is actively crying — an ongoing action.')">Cried</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','Crying','The toddler is actively crying — an ongoing action.')">To cry</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','Crying','The toddler is actively crying — an ongoing action.')">Crying</button>
+      <button class="mc-btn" onclick="checkMC(this,'r3','Crying','The toddler is actively crying — an ongoing action.')">Cry</button>
+    </div>
+    <div class="fb" id="r3-fb"></div>
+  </div>
+
+  <div class="mini-cat">Past Participial Phrases</div>
+
+  <div class="q-card" id="r4">
+    <div class="q-num">Question 4 of 16</div>
+    <div class="q-text">__________ by the noise, the baby began to cry.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r4','Startled','The noise did something to the baby — passive, so use the past participle.')">Startling</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Startled','The noise did something to the baby — passive, so use the past participle.')">Startled</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Startled','The noise did something to the baby — passive, so use the past participle.')">To startle</button>
+      <button class="mc-btn" onclick="checkMC(this,'r4','Startled','The noise did something to the baby — passive, so use the past participle.')">Startle</button>
+    </div>
+    <div class="fb" id="r4-fb"></div>
+  </div>
+
+  <div class="q-card" id="r5">
+    <div class="q-num">Question 5 of 16</div>
+    <div class="q-text">The bridge __________ last year is already showing cracks.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r5','built','Someone built the bridge — passive, so use the past participle.')">building</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','built','Someone built the bridge — passive, so use the past participle.')">builds</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','built','Someone built the bridge — passive, so use the past participle.')">built</button>
+      <button class="mc-btn" onclick="checkMC(this,'r5','built','Someone built the bridge — passive, so use the past participle.')">to build</button>
+    </div>
+    <div class="fb" id="r5-fb"></div>
+  </div>
+
+  <div class="q-card" id="r6">
+    <div class="q-num">Question 6 of 16</div>
+    <div class="q-text">__________ with excitement, the fans rushed onto the field.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r6','Filled','Excitement filled the fans — passive, so use the past participle.')">Filling</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Filled','Excitement filled the fans — passive, so use the past participle.')">Fill</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Filled','Excitement filled the fans — passive, so use the past participle.')">Filled</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Filled','Excitement filled the fans — passive, so use the past participle.')">To fill</button>
+    </div>
+    <div class="fb" id="r6-fb"></div>
+  </div>
+
+  <div class="mini-cat">Perfect Participial Phrases</div>
+
+  <div class="q-card" id="r7">
+    <div class="q-num">Question 7 of 16</div>
+    <div class="q-text">__________ his homework, he finally relaxed.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r7','Having finished','The homework was completely done before he relaxed — use having + past participle.')">Finishing</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Having finished','The homework was completely done before he relaxed — use having + past participle.')">Finished</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Having finished','The homework was completely done before he relaxed — use having + past participle.')">Having finished</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Having finished','The homework was completely done before he relaxed — use having + past participle.')">To finish</button>
+    </div>
+    <div class="fb" id="r7-fb"></div>
+  </div>
+
+  <div class="q-card" id="r8">
+    <div class="q-num">Question 8 of 16</div>
+    <div class="q-text">__________ all her savings, she had to borrow money from a friend.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r8','Having spent','The savings were completely gone before she borrowed money — use having + past participle.')">Spending</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','Having spent','The savings were completely gone before she borrowed money — use having + past participle.')">Spent</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','Having spent','The savings were completely gone before she borrowed money — use having + past participle.')">Having spent</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','Having spent','The savings were completely gone before she borrowed money — use having + past participle.')">To spend</button>
+    </div>
+    <div class="fb" id="r8-fb"></div>
+  </div>
+
+  <div class="q-card" id="r9">
+    <div class="q-num">Question 9 of 16</div>
+    <div class="q-text">__________ the same movie three times, she could recite every line.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r9','Having watched','The watching happened repeatedly before she could recite it — use having + past participle.')">Watching</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Having watched','The watching happened repeatedly before she could recite it — use having + past participle.')">Watched</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Having watched','The watching happened repeatedly before she could recite it — use having + past participle.')">Having watched</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Having watched','The watching happened repeatedly before she could recite it — use having + past participle.')">To watch</button>
+    </div>
+    <div class="fb" id="r9-fb"></div>
+  </div>
+
+  <div class="mini-cat">Reduced Adjective &amp; Adverb Clauses</div>
+
+  <div class="q-card" id="r10">
+    <div class="q-num">Question 10 of 16</div>
+    <div class="q-text">Full clause: "The man who is standing by the door is my uncle." Which is the correctly reduced version?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r10','The man standing by the door is my uncle.','Drop who is, and standing alone does the describing.')">The man standing by the door is my uncle.</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','The man standing by the door is my uncle.','Drop who is, and standing alone does the describing.')">The man stood by the door is my uncle.</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','The man standing by the door is my uncle.','Drop who is, and standing alone does the describing.')">The man to stand by the door is my uncle.</button>
+    </div>
+    <div class="fb" id="r10-fb"></div>
+  </div>
+
+  <div class="q-card" id="r11">
+    <div class="q-num">Question 11 of 16</div>
+    <div class="q-text">Full clause: "Because she was tired, she went to bed early." Which is the correctly reduced version?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r11','Being tired, she went to bed early.','Drop because and she was, and being tired takes over the describing.')">Tiring, she went to bed early.</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','Being tired, she went to bed early.','Drop because and she was, and being tired takes over the describing.')">Being tired, she went to bed early.</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','Being tired, she went to bed early.','Drop because and she was, and being tired takes over the describing.')">Tired she went to bed early.</button>
+    </div>
+    <div class="fb" id="r11-fb"></div>
+  </div>
+
+  <div class="q-card" id="r12">
+    <div class="q-num">Question 12 of 16</div>
+    <div class="q-text">Full clause: "The letters that were written by my grandmother are very precious." Which is the correctly reduced version?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r12','The letters written by my grandmother are very precious.','Drop that were, and the passive past participle written takes over.')">The letters writing by my grandmother are very precious.</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','The letters written by my grandmother are very precious.','Drop that were, and the passive past participle written takes over.')">The letters written by my grandmother are very precious.</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','The letters written by my grandmother are very precious.','Drop that were, and the passive past participle written takes over.')">The letters to write by my grandmother are very precious.</button>
+    </div>
+    <div class="fb" id="r12-fb"></div>
+  </div>
+
+  <div class="q-card" id="r13">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">Full clause: "While she was waiting for the bus, she read a book." Which is the correctly reduced version?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r13','Waiting for the bus, she read a book.','Drop while and she was, and waiting takes over the describing.')">Waiting for the bus, she read a book.</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Waiting for the bus, she read a book.','Drop while and she was, and waiting takes over the describing.')">Waited for the bus, she read a book.</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Waiting for the bus, she read a book.','Drop while and she was, and waiting takes over the describing.')">To wait for the bus, she read a book.</button>
+    </div>
+    <div class="fb" id="r13-fb"></div>
+  </div>
+
+  <div class="mini-cat">Dangling Modifiers</div>
+
+  <div class="q-card" id="r14">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">"Walking through the park, the flowers looked beautiful." — Is this correct, or does it have a dangling modifier?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r14','Dangling modifier','Flowers cannot walk — the phrase needs a person as the subject instead.')">Correct</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','Dangling modifier','Flowers cannot walk — the phrase needs a person as the subject instead.')">Dangling modifier</button>
+    </div>
+    <div class="fb" id="r14-fb"></div>
+  </div>
+
+  <div class="q-card" id="r15">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">"Having finished the race, John collapsed on the grass." — Is this correct, or does it have a dangling modifier?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r15','Correct','John finished the race, and John is also the one who collapsed — the subjects match.')">Correct</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','Correct','John finished the race, and John is also the one who collapsed — the subjects match.')">Dangling modifier</button>
+    </div>
+    <div class="fb" id="r15-fb"></div>
+  </div>
+
+  <div class="q-card" id="r16">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">"Excited about the trip, the suitcases were packed the night before." — Is this correct, or does it have a dangling modifier?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r16','Dangling modifier','Suitcases cannot feel excited — the phrase needs a person as the subject instead.')">Correct</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','Dangling modifier','Suitcases cannot feel excited — the phrase needs a person as the subject instead.')">Dangling modifier</button>
+    </div>
+    <div class="fb" id="r16-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
 <!-- SCORE -->
 <div id="score-sec">
-  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/14</div></div>
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/30</div></div>
   <div class="s-msg" id="s-msg">Well done!</div>
-  <div class="s-sub" id="s-sub">You completed all three exercises.</div>
+  <div class="s-sub" id="s-sub">You completed all four exercises.</div>
   <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
 </div>
 
 <footer>Participles &amp; Participial Phrases — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL = 14;
+const TOTAL = 30; // 5 MC + 4 combine + 5 identify + 16 mixed review
 const scores = { mc:{}, cmb:{}, id:{} };
 
 function getScore(){ return Object.values(scores.mc).filter(Boolean).length + Object.values(scores.cmb).filter(Boolean).length + Object.values(scores.id).filter(Boolean).length; }
@@ -635,17 +921,17 @@ function showScore(){
   sec.scrollIntoView({behavior:'smooth',block:'center'});
 }
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
   card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
   const ok=btn.textContent.trim()===correct;
   if(ok){ btn.classList.add('sel-ok','pop'); card.classList.add('correct'); fb.textContent='✓ Correct!'; fb.className='fb show ok'; scores.mc[qId]=true; }
-  else{ btn.classList.add('sel-bad','pop'); card.classList.add('wrong'); card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); }); fb.textContent='✗ Not quite. The answer is "'+correct+'".'; fb.className='fb show bad'; scores.mc[qId]=false; }
+  else{ btn.classList.add('sel-bad','pop'); card.classList.add('wrong'); card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); }); fb.innerHTML=`✗ Not quite. The answer is "${correct}". ${why||''}`; fb.className='fb show bad'; scores.mc[qId]=false; }
   updateProgress();
 }
 
-function checkCmb(id, keywords){
+function checkCmb(id, keywords, correctSentence){
   const val=document.getElementById(id+'-in').value.trim().toLowerCase();
   const card=document.getElementById(id);
   const fb=document.getElementById(id+'-fb');
@@ -654,8 +940,8 @@ function checkCmb(id, keywords){
   const hasKw=keywords.every(k=>val.includes(k.toLowerCase()));
   const hasComma=val.includes(',');
   if(hasKw && hasComma && val.length>10){ card.classList.add('correct'); fb.textContent='✓ Great job! Participial phrase used correctly.'; fb.className='fb show ok'; scores.cmb[id]=true; }
-  else if(hasKw && !hasComma){ card.classList.add('wrong'); fb.textContent='✗ Almost there! Don\'t forget the comma after the participial phrase.'; fb.className='fb show bad'; scores.cmb[id]=false; }
-  else{ card.classList.add('wrong'); fb.textContent='✗ Check that you\'ve included the key ideas from both sentences.'; fb.className='fb show bad'; scores.cmb[id]=false; }
+  else if(hasKw && !hasComma){ card.classList.add('wrong'); fb.innerHTML=`✗ Almost there! Don't forget the comma after the participial phrase. Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false; }
+  else{ card.classList.add('wrong'); fb.innerHTML=`✗ Check that you've included the key ideas from both sentences. Correct: ${correctSentence}`; fb.className='fb show bad'; scores.cmb[id]=false; }
   updateProgress();
 }
 
@@ -720,7 +1006,7 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'].forEach(qId=>{
     const card=document.getElementById(qId);
     card.classList.remove('correct','wrong');
     card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
@@ -748,6 +1034,28 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+function resetGroup(ids, type){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    if(type==='mc'){
+      card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+      delete scores.mc[id];
+    } else if(type==='cmb'){
+      const inp=document.getElementById(id+'-in'); inp.value=''; inp.disabled=false;
+      card.querySelector('.check-btn').disabled=false;
+      delete scores.cmb[id];
+    }
+    const fb=document.getElementById(id+'-fb'); if(fb){ fb.className='fb'; fb.textContent=''; fb.innerHTML=''; }
+  });
+  updateProgress();
+}
+
+function resetEx1(){ resetGroup(['q1','q2','q3','q4','q5'],'mc'); }
+function resetEx2(){ resetGroup(['c1','c2','c3','c4'],'cmb'); }
+function resetEx3(){ sents.forEach(s=>resetId(s.id)); }
+function resetEx4(){ resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'],'mc'); }
 
 buildTokens();
 </script>
