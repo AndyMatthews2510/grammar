@@ -146,7 +146,10 @@
   .ex-badge.amber   { background: var(--amber); color: var(--ink); }
   .ex-badge.correct { background: var(--correct); }
   .ex-badge.violet  { background: var(--violet); }
+  .ex-badge.slate   { background: var(--slate); }
   .ex-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; }
+  .mini-cat { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--slate); margin: 1.6rem 0 0.6rem; }
+  .mini-cat:first-of-type { margin-top: 0; }
 
   .q-card {
     background: var(--white); border: 1.5px solid var(--border);
@@ -471,6 +474,8 @@
     </div>
     <div class="fb" id="q6-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -541,6 +546,8 @@
     </div>
     <div class="fb" id="f5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -557,7 +564,7 @@
     <span class="q-sent">"The manager is efficient, organised, and shows great patience."</span>
     <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: Make the third item an adjective like the first two.</p>
     <input class="rw-input" id="r1-in" placeholder="Rewrite the sentence with parallel structure…">
-    <button class="check-btn" onclick="checkRewrite('r1',['efficient','organised','patient'],['patient'])">Check ✓</button>
+    <button class="check-btn" onclick="checkRewrite('r1',['efficient','organised','patient'],['patient'],'The manager is efficient, organised, and patient.')">Check ✓</button>
     <div class="fb" id="r1-fb"></div>
   </div>
 
@@ -566,7 +573,7 @@
     <span class="q-sent">"She enjoys reading novels, to watch films, and going for walks."</span>
     <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: Make all three items gerunds (-ing forms).</p>
     <input class="rw-input" id="r2-in" placeholder="Rewrite the sentence with parallel structure…">
-    <button class="check-btn" onclick="checkRewrite('r2',['reading','watching','going'],['watching'])">Check ✓</button>
+    <button class="check-btn" onclick="checkRewrite('r2',['reading','watching','going'],['watching'],'She enjoys reading novels, watching films, and going for walks.')">Check ✓</button>
     <div class="fb" id="r2-fb"></div>
   </div>
 
@@ -575,7 +582,7 @@
     <span class="q-sent">"The course will teach you to write clearly, think critically, and how to solve problems."</span>
     <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: All three items follow "to" — keep that pattern.</p>
     <input class="rw-input" id="r3-in" placeholder="Rewrite the sentence with parallel structure…">
-    <button class="check-btn" onclick="checkRewrite('r3',['write','think','solve'],['solve'])">Check ✓</button>
+    <button class="check-btn" onclick="checkRewrite('r3',['write','think','solve'],['solve'],'The course will teach you to write clearly, to think critically, and to solve problems.')">Check ✓</button>
     <div class="fb" id="r3-fb"></div>
   </div>
 
@@ -584,7 +591,7 @@
     <span class="q-sent">"He said that he was tired, that he needed food, and he wanted to go home."</span>
     <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: All three items should start with "that".</p>
     <input class="rw-input" id="r4-in" placeholder="Rewrite the sentence with parallel structure…">
-    <button class="check-btn" onclick="checkRewrite('r4',['tired','food','that he wanted'],['that he wanted'])">Check ✓</button>
+    <button class="check-btn" onclick="checkRewrite('r4',['tired','food','that he wanted'],['that he wanted'],'He said that he was tired, that he needed food, and that he wanted to go home.')">Check ✓</button>
     <div class="fb" id="r4-fb"></div>
   </div>
 
@@ -593,9 +600,11 @@
     <span class="q-sent">"Her speech was inspiring, thought-provoking, and it moved the audience to tears."</span>
     <p style="font-size:0.85rem;color:var(--muted);margin:0.4rem 0 0.7rem">Hint: The third item should be a single adjective like the first two.</p>
     <input class="rw-input" id="r5-in" placeholder="Rewrite the sentence with parallel structure…">
-    <button class="check-btn" onclick="checkRewrite('r5',['inspiring','thought-provoking','moving'],['moving'])">Check ✓</button>
+    <button class="check-btn" onclick="checkRewrite('r5',['inspiring','thought-provoking','moving'],['moving'],'Her speech was inspiring, thought-provoking, and moving.')">Check ✓</button>
     <div class="fb" id="r5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -651,20 +660,230 @@
     <button class="reset-btn" onclick="resetId('i5')">Reset</button>
     <div class="fb" id="i5-fb"></div>
   </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 5: MIXED REVIEW ══ -->
+<div class="section" id="ex5">
+  <div class="ex-hdr">
+    <span class="ex-badge slate">Exercise 5</span>
+    <h2 class="ex-title">Mixed Review</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — fragments, run-ons, comma splices, choppy and stringy sentences, and parallelism.</p>
+
+  <div class="mini-cat">Fragments &amp; Run-ons</div>
+
+  <div class="q-card" id="r6">
+    <div class="q-num">Question 1 of 16</div>
+    <span class="q-sent">"While she was waiting for the bus."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r6','Fragment','A dependent clause (While…) left alone, with no main clause — a Fragment.')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Fragment','A dependent clause (While…) left alone, with no main clause — a Fragment.')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Fragment','A dependent clause (While…) left alone, with no main clause — a Fragment.')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'r6','Fragment','A dependent clause (While…) left alone, with no main clause — a Fragment.')">Choppy</button>
+    </div>
+    <div class="fb" id="r6-fb"></div>
+  </div>
+
+  <div class="q-card" id="r7">
+    <div class="q-num">Question 2 of 16</div>
+    <span class="q-sent">"He forgot his umbrella he got soaked."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r7','Run-on','Two independent clauses joined with no punctuation or connector — a Run-on.')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Run-on','Two independent clauses joined with no punctuation or connector — a Run-on.')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Run-on','Two independent clauses joined with no punctuation or connector — a Run-on.')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'r7','Run-on','Two independent clauses joined with no punctuation or connector — a Run-on.')">Stringy sentence</button>
+    </div>
+    <div class="fb" id="r7-fb"></div>
+  </div>
+
+  <div class="q-card" id="r8">
+    <div class="q-num">Question 3 of 16</div>
+    <span class="q-sent">"Studying for the exam every night."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r8','Fragment','No subject or main verb doing the action — a Fragment.')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','Fragment','No subject or main verb doing the action — a Fragment.')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','Fragment','No subject or main verb doing the action — a Fragment.')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'r8','Fragment','No subject or main verb doing the action — a Fragment.')">Choppy</button>
+    </div>
+    <div class="fb" id="r8-fb"></div>
+  </div>
+
+  <div class="q-card" id="r9">
+    <div class="q-num">Question 4 of 16</div>
+    <span class="q-sent">"The train arrived late everyone missed their connections."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r9','Run-on','Two independent clauses joined with no punctuation at all — a Run-on.')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Run-on','Two independent clauses joined with no punctuation at all — a Run-on.')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Run-on','Two independent clauses joined with no punctuation at all — a Run-on.')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'r9','Run-on','Two independent clauses joined with no punctuation at all — a Run-on.')">Choppy</button>
+    </div>
+    <div class="fb" id="r9-fb"></div>
+  </div>
+
+  <div class="mini-cat">Comma Splices, Choppy &amp; Stringy</div>
+
+  <div class="q-card" id="r10">
+    <div class="q-num">Question 5 of 16</div>
+    <span class="q-sent">"She loves music, she plays the piano every day."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r10','Comma splice','Two independent clauses joined by only a comma — a Comma splice.')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','Comma splice','Two independent clauses joined by only a comma — a Comma splice.')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','Comma splice','Two independent clauses joined by only a comma — a Comma splice.')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'r10','Comma splice','Two independent clauses joined by only a comma — a Comma splice.')">Stringy sentence</button>
+    </div>
+    <div class="fb" id="r10-fb"></div>
+  </div>
+
+  <div class="q-card" id="r11">
+    <div class="q-num">Question 6 of 16</div>
+    <span class="q-sent">"He opened the door. He walked in. He sat down. He sighed."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r11','Choppy','Four very short sentences in a row — Choppy.')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','Choppy','Four very short sentences in a row — Choppy.')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','Choppy','Four very short sentences in a row — Choppy.')">Choppy</button>
+      <button class="mc-btn" onclick="checkMC(this,'r11','Choppy','Four very short sentences in a row — Choppy.')">Stringy sentence</button>
+    </div>
+    <div class="fb" id="r11-fb"></div>
+  </div>
+
+  <div class="q-card" id="r12">
+    <div class="q-num">Question 7 of 16</div>
+    <span class="q-sent">"We packed the car and we drove for hours and we stopped for food and we finally arrived."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r12','Stringy sentence','Too many clauses chained together with and — Stringy sentence.')">Choppy</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','Stringy sentence','Too many clauses chained together with and — Stringy sentence.')">Stringy sentence</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','Stringy sentence','Too many clauses chained together with and — Stringy sentence.')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'r12','Stringy sentence','Too many clauses chained together with and — Stringy sentence.')">Fragment</button>
+    </div>
+    <div class="fb" id="r12-fb"></div>
+  </div>
+
+  <div class="q-card" id="r13">
+    <div class="q-num">Question 8 of 16</div>
+    <span class="q-sent">"The lights went out, the whole street went dark."</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r13','Comma splice','Two independent clauses joined by only a comma — a Comma splice.')">Fragment</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Comma splice','Two independent clauses joined by only a comma — a Comma splice.')">Run-on</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Comma splice','Two independent clauses joined by only a comma — a Comma splice.')">Comma splice</button>
+      <button class="mc-btn" onclick="checkMC(this,'r13','Comma splice','Two independent clauses joined by only a comma — a Comma splice.')">Choppy</button>
+    </div>
+    <div class="fb" id="r13-fb"></div>
+  </div>
+
+  <div class="mini-cat">Parallelism in Lists &amp; Pairs</div>
+
+  <div class="q-card" id="r14">
+    <div class="q-num">Question 9 of 16</div>
+    <span class="q-sent">"My hobbies are painting, gardening, and to bake."</span>
+    <div class="q-text">Which item breaks the parallel pattern?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r14','to bake','\"to bake\" should be \"baking\" to match the -ing pattern.')">painting</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','to bake','\"to bake\" should be \"baking\" to match the -ing pattern.')">gardening</button>
+      <button class="mc-btn" onclick="checkMC(this,'r14','to bake','\"to bake\" should be \"baking\" to match the -ing pattern.')">to bake</button>
+    </div>
+    <div class="fb" id="r14-fb"></div>
+  </div>
+
+  <div class="q-card" id="r15">
+    <div class="q-num">Question 10 of 16</div>
+    <span class="q-sent">"The job requires patience, flexibility, and being organized."</span>
+    <div class="q-text">Which item breaks the parallel pattern?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r15','being organized','\"being organized\" should be \"organization\" to match the noun pattern.')">patience</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','being organized','\"being organized\" should be \"organization\" to match the noun pattern.')">flexibility</button>
+      <button class="mc-btn" onclick="checkMC(this,'r15','being organized','\"being organized\" should be \"organization\" to match the noun pattern.')">being organized</button>
+    </div>
+    <div class="fb" id="r15-fb"></div>
+  </div>
+
+  <div class="q-card" id="r16">
+    <div class="q-num">Question 11 of 16</div>
+    <span class="q-sent">"She is smart, kind, and has humor."</span>
+    <div class="q-text">Which item breaks the parallel pattern?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r16','has humor','\"has humor\" should be the adjective \"humorous\" to match smart and kind.')">smart</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','has humor','\"has humor\" should be the adjective \"humorous\" to match smart and kind.')">kind</button>
+      <button class="mc-btn" onclick="checkMC(this,'r16','has humor','\"has humor\" should be the adjective \"humorous\" to match smart and kind.')">has humor</button>
+    </div>
+    <div class="fb" id="r16-fb"></div>
+  </div>
+
+  <div class="q-card" id="r17">
+    <div class="q-num">Question 12 of 16</div>
+    <span class="q-sent">"The plan is simple, affordable, and it works well."</span>
+    <div class="q-text">Which item breaks the parallel pattern?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'r17','it works well','\"it works well\" should be an adjective like \"effective\" to match simple and affordable.')">simple</button>
+      <button class="mc-btn" onclick="checkMC(this,'r17','it works well','\"it works well\" should be an adjective like \"effective\" to match simple and affordable.')">affordable</button>
+      <button class="mc-btn" onclick="checkMC(this,'r17','it works well','\"it works well\" should be an adjective like \"effective\" to match simple and affordable.')">it works well</button>
+    </div>
+    <div class="fb" id="r17-fb"></div>
+  </div>
+
+  <div class="mini-cat">Parallelism in Comparisons &amp; Fixes</div>
+
+  <div class="q-card" id="r18">
+    <div class="q-num">Question 13 of 16</div>
+    <div class="q-text">Which is the correctly parallel version of: <span class="q-sent">"I would rather read a book than watching TV."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r18','A) I would rather read a book than watch TV.','Both items now follow the same base-verb pattern: read / watch.')">A) I would rather read a book than watch TV.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r18','A) I would rather read a book than watch TV.','Both items now follow the same base-verb pattern: read / watch.')">B) I would rather reading a book than watching TV.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r18','A) I would rather read a book than watch TV.','Both items now follow the same base-verb pattern: read / watch.')">C) I would rather to read a book than to watch TV.</button>
+    </div>
+    <div class="fb" id="r18-fb"></div>
+  </div>
+
+  <div class="q-card" id="r19">
+    <div class="q-num">Question 14 of 16</div>
+    <div class="q-text">Which is the correctly parallel version of: <span class="q-sent">"Swimming is more relaxing than to run."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r19','A) Swimming is more relaxing than running.','Both items now follow the same -ing pattern: swimming / running.')">A) Swimming is more relaxing than running.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r19','A) Swimming is more relaxing than running.','Both items now follow the same -ing pattern: swimming / running.')">B) To swim is more relaxing than to running.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r19','A) Swimming is more relaxing than running.','Both items now follow the same -ing pattern: swimming / running.')">C) Swim is more relaxing than run.</button>
+    </div>
+    <div class="fb" id="r19-fb"></div>
+  </div>
+
+  <div class="q-card" id="r20">
+    <div class="q-num">Question 15 of 16</div>
+    <div class="q-text">Which is the correctly parallel version of: <span class="q-sent">"The teacher asked us to be quiet, to sit down, and finishing our work."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r20','A) …and to finish our work.','All three items now follow the same to + verb pattern.')">A) …and to finish our work.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r20','A) …and to finish our work.','All three items now follow the same to + verb pattern.')">B) …and finish our work is what we do.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r20','A) …and to finish our work.','All three items now follow the same to + verb pattern.')">C) …and finishing was what we did.</button>
+    </div>
+    <div class="fb" id="r20-fb"></div>
+  </div>
+
+  <div class="q-card" id="r21">
+    <div class="q-num">Question 16 of 16</div>
+    <div class="q-text">Which is the correctly parallel version of: <span class="q-sent">"He likes neither cooking nor to clean."</span></div>
+    <div class="fix-opts">
+      <button class="fix-btn" onclick="checkMC(this,'r21','A) He likes neither cooking nor cleaning.','Both items now follow the same -ing pattern: cooking / cleaning.')">A) He likes neither cooking nor cleaning.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r21','A) He likes neither cooking nor cleaning.','Both items now follow the same -ing pattern: cooking / cleaning.')">B) He likes neither to cook nor cleaning.</button>
+      <button class="fix-btn" onclick="checkMC(this,'r21','A) He likes neither cooking nor cleaning.','Both items now follow the same -ing pattern: cooking / cleaning.')">C) He likes neither cook nor clean.</button>
+    </div>
+    <div class="fb" id="r21-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx5()">Reset Exercise ↺</button>
 </div>
 
 <!-- SCORE -->
 <div id="score-sec">
-  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/21</div></div>
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/37</div></div>
   <div class="s-msg" id="s-msg">Well done!</div>
-  <div class="s-sub" id="s-sub">You completed all four exercises.</div>
+  <div class="s-sub" id="s-sub">You completed all five exercises.</div>
   <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
 </div>
 
 <footer>Sentence Problems &amp; Parallelism — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL = 21; // 6 MC + 5 fix MC + 5 rewrite + 5 click
+const TOTAL = 37; // 6 MC + 5 fix MC + 5 rewrite + 5 click + 16 mixed review
 const scores = { mc:{}, fix:{}, rw:{}, id:{} };
 
 function getScore(){
@@ -704,18 +923,19 @@ const explanations = {
   q6: '"creativity", "communication skills", and "to work well" don\'t match — Parallelism error. Try "working well under pressure".',
 };
 
-function checkMC(btn,qId,correct){
+function checkMC(btn,qId,correct,why){
   const card=document.getElementById(qId);
-  card.querySelectorAll('.mc-btn').forEach(b=>b.disabled=true);
+  card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>b.disabled=true);
   const fb=document.getElementById(qId+'-fb');
+  const explain = why || explanations[qId] || '';
   const ok=btn.textContent.trim()===correct;
   if(ok){
     btn.classList.add('sel-ok','pop'); card.classList.add('correct');
-    fb.textContent='✓ Correct! '+explanations[qId]; fb.className='fb show ok'; scores.mc[qId]=true;
+    fb.innerHTML=`✓ Correct! ${explain}`; fb.className='fb show ok'; scores.mc[qId]=true;
   } else {
     btn.classList.add('sel-bad','pop'); card.classList.add('wrong');
-    card.querySelectorAll('.mc-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); });
-    fb.textContent='✗ Not quite. The answer is "'+correct+'". '+explanations[qId]; fb.className='fb show bad'; scores.mc[qId]=false;
+    card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{ if(b.textContent.trim()===correct) b.classList.add('rev-ok'); });
+    fb.innerHTML=`✗ Not quite. The answer is "${correct}". ${explain}`; fb.className='fb show bad'; scores.mc[qId]=false;
   }
   updateProgress();
 }
@@ -747,7 +967,7 @@ function checkFix(btn,fId,correct){
 }
 
 // ── EXERCISE 3: REWRITE ──
-function checkRewrite(id, mustHave, keyFix){
+function checkRewrite(id, mustHave, keyFix, correctSentence){
   const val=document.getElementById(id+'-in').value.trim().toLowerCase();
   const card=document.getElementById(id);
   const fb=document.getElementById(id+'-fb');
@@ -760,9 +980,9 @@ function checkRewrite(id, mustHave, keyFix){
   if(hasAll && hasKey && val.length>15){
     card.classList.add('correct'); fb.textContent='✓ Well done! The items are now parallel.'; fb.className='fb show ok'; scores.rw[id]=true;
   } else if(!hasKey){
-    card.classList.add('wrong'); fb.textContent='✗ Not quite — check that the corrected item has the right form. Make sure all items match grammatically.'; fb.className='fb show bad'; scores.rw[id]=false;
+    card.classList.add('wrong'); fb.innerHTML=`✗ Not quite — check that the corrected item has the right form. Correct: ${correctSentence}`; fb.className='fb show bad'; scores.rw[id]=false;
   } else {
-    card.classList.add('wrong'); fb.textContent='✗ Make sure all items from the original sentence are included.'; fb.className='fb show bad'; scores.rw[id]=false;
+    card.classList.add('wrong'); fb.innerHTML=`✗ Make sure all items from the original sentence are included. Correct: ${correctSentence}`; fb.className='fb show bad'; scores.rw[id]=false;
   }
   updateProgress();
 }
@@ -858,10 +1078,10 @@ function resetId(id){
 }
 
 function retryAll(){
-  ['q1','q2','q3','q4','q5','q6'].forEach(qId=>{
+  ['q1','q2','q3','q4','q5','q6','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16','r17','r18','r19','r20','r21'].forEach(qId=>{
     const card=document.getElementById(qId);
     card.classList.remove('correct','wrong');
-    card.querySelectorAll('.mc-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+    card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
     const fb=document.getElementById(qId+'-fb'); fb.className='fb'; fb.textContent='';
   });
   ['f1','f2','f3','f4','f5'].forEach(id=>{
@@ -892,6 +1112,32 @@ function retryAll(){
   document.getElementById('score-sec').classList.remove('show');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+function resetGroup(ids, type){
+  ids.forEach(id=>{
+    const card=document.getElementById(id);
+    card.classList.remove('correct','wrong');
+    if(type==='mc'){
+      card.querySelectorAll('.mc-btn, .fix-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+      delete scores.mc[id];
+    } else if(type==='fix'){
+      card.querySelectorAll('.fix-btn').forEach(b=>{ b.disabled=false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
+      delete scores.fix[id];
+    } else if(type==='rw'){
+      const inp=document.getElementById(id+'-in'); inp.value=''; inp.disabled=false;
+      card.querySelector('.check-btn').disabled=false;
+      delete scores.rw[id];
+    }
+    const fb=document.getElementById(id+'-fb'); if(fb){ fb.className='fb'; fb.textContent=''; fb.innerHTML=''; }
+  });
+  updateProgress();
+}
+
+function resetEx1(){ resetGroup(['q1','q2','q3','q4','q5','q6'],'mc'); }
+function resetEx2(){ resetGroup(['f1','f2','f3','f4','f5'],'fix'); }
+function resetEx3(){ resetGroup(['r1','r2','r3','r4','r5'],'rw'); }
+function resetEx4(){ sents.forEach(s=>resetId(s.id)); }
+function resetEx5(){ resetGroup(['r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16','r17','r18','r19','r20','r21'],'mc'); }
 
 buildTokens();
 </script>
