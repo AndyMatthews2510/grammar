@@ -3,800 +3,439 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grammar Assessment — Interactive Diagnostic</title>
+<title>Grammar Level Check — Find Your Level</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-
   :root {
-    --ink:      #0f1219;
-    --ink2:     #1a2035;
-    --muted:    #6b7a8d;
-    --border:   #dde4ed;
-    --bg:       #f7f8fb;
-    --white:    #ffffff;
-    --gold:     #b45309;
-    --gold-lt:  #fffbeb;
-    --gold-mid: #fde68a;
-    --grn:      #166534;
-    --grn-lt:   #dcfce7;
-    --amber:    #b45309;
-    --amber-lt: #fffbeb;
-    --rose:     #9f1239;
-    --rose-lt:  #fff1f2;
-    --blue:     #1d4ed8;
-    --blue-lt:  #eff6ff;
+    --ink:#0f1219; --ink2:#1a2035; --muted:#6b7a8d; --border:#dde4ed; --bg:#f7f8fb; --white:#ffffff;
+    --gold:#b45309; --gold-lt:#fffbeb; --gold-mid:#fde68a;
+    --grn:#166534; --grn-lt:#dcfce7; --rose:#9f1239; --rose-lt:#fff1f2; --blue:#1d4ed8; --blue-lt:#eff6ff;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; }
 
-  #pb-wrap { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 4px; background: var(--border); }
-  #pb { height: 100%; background: linear-gradient(90deg, var(--ink2), var(--gold)); width: 0%; transition: width 0.5s ease; }
+  #pb-wrap { position:fixed; top:0; left:0; right:0; z-index:100; height:4px; background:var(--border); }
+  #pb { height:100%; background:linear-gradient(90deg,var(--ink2),var(--gold)); width:0%; transition:width .4s ease; }
 
-  header { background: #05070d; padding: 3.5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
-  header::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 80% 20%, rgba(180,83,9,0.35) 0%, transparent 55%),
-      radial-gradient(ellipse at 10% 80%, rgba(29,78,216,0.25) 0%, transparent 50%);
-  }
-  header::after { content: '✓'; position: absolute; right: 6%; bottom: 5%; font-size: 9rem; color: rgba(180,83,9,0.14); line-height: 1; font-weight: 700; }
-  .h-tag { display: inline-block; background: var(--gold); color: white; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.28rem 0.9rem; border-radius: 2rem; margin-bottom: 1.2rem; position: relative; }
-  header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5.5vw, 4.2rem); font-weight: 700; color: white; line-height: 1.08; position: relative; }
-  header h1 em { color: var(--gold-mid); font-style: normal; }
-  header p { color: #8a94a8; font-size: 1.05rem; margin-top: 0.9rem; font-style: italic; position: relative; }
+  header { background:#05070d; padding:3.5rem 2rem 4rem; text-align:center; position:relative; overflow:hidden; }
+  header::before { content:''; position:absolute; inset:0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(180,83,9,.35) 0%, transparent 55%),
+                radial-gradient(ellipse at 10% 80%, rgba(29,78,216,.25) 0%, transparent 50%); }
+  header::after { content:'B2'; position:absolute; right:5%; bottom:4%; font-size:8rem; color:rgba(180,83,9,.14); line-height:1; font-weight:700; font-family:'Playfair Display',serif; }
+  .h-tag { display:inline-block; background:var(--gold); color:#fff; font-size:.68rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.28rem .9rem; border-radius:2rem; margin-bottom:1.2rem; position:relative; }
+  header h1 { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,5.5vw,4rem); font-weight:700; color:#fff; line-height:1.08; position:relative; }
+  header h1 em { color:var(--gold-mid); font-style:normal; }
+  header p { color:#8a94a8; font-size:1.05rem; margin-top:.9rem; font-style:italic; position:relative; }
 
-  .section { padding: 3rem 1.5rem; max-width: 880px; margin: 0 auto; }
-  .sec-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
-  .sec-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
-  hr.div { border: none; border-top: 2px solid var(--border); max-width: 880px; margin: 0 auto; }
+  .section { padding:3rem 1.5rem; max-width:880px; margin:0 auto; }
+  .sec-title { font-family:'Playfair Display',serif; font-size:1.75rem; font-weight:600; margin-bottom:.35rem; }
+  .sec-sub { color:var(--muted); font-size:.95rem; margin-bottom:1.6rem; }
+  hr.div { border:none; border-top:2px solid var(--border); max-width:880px; margin:0 auto; }
 
-  .def-box { background: var(--gold-lt); border: 2px solid var(--gold); border-radius: 1rem; padding: 1.4rem 1.75rem; font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.2rem; }
-  .def-box strong { color: var(--gold); }
-  .rules-list { background: var(--white); border: 1.5px solid var(--border); border-radius: 0.85rem; padding: 1.1rem 1.4rem; margin-bottom: 1rem; }
-  .rules-list li { font-size: 0.9rem; color: var(--ink); line-height: 1.75; margin-left: 1.1rem; }
-  .rules-list li strong { color: var(--ink2); }
+  .def-box { background:var(--gold-lt); border:2px solid var(--gold); border-radius:1rem; padding:1.4rem 1.75rem; font-size:1.02rem; line-height:1.75; margin-bottom:1.2rem; }
+  .def-box strong { color:var(--gold); }
+  .rules-list { background:var(--white); border:1.5px solid var(--border); border-radius:.85rem; padding:1.1rem 1.4rem; }
+  .rules-list li { font-size:.92rem; line-height:1.75; margin-left:1.1rem; }
+  .rules-list li strong { color:var(--ink2); }
 
-  .big-section-header { display: flex; align-items: center; gap: 0.9rem; padding: 2.5rem 1.5rem 0.5rem; max-width: 880px; margin: 0 auto; }
-  .bsh-num { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--gold); flex-shrink: 0; }
-  .bsh-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); }
+  .q-card { background:var(--white); border:1.5px solid var(--border); border-radius:.85rem; padding:1.15rem 1.4rem; margin-bottom:.85rem; transition:border-color .2s, background .2s; }
+  .q-card.answered { border-color:#c9d3e3; }
+  .q-card.flag { border-color:#ef4444; background:#fff7f7; }
+  .q-num { font-size:.76rem; font-weight:700; color:var(--muted); margin-bottom:.5rem; }
+  .q-text { font-size:1rem; line-height:1.65; margin-bottom:.85rem; }
+  .blank { display:inline-block; border-bottom:2px solid var(--gold); min-width:55px; text-align:center; color:var(--gold); font-weight:700; }
 
-  .mini-cat { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--blue); margin: 1.8rem 0 0.7rem; padding-bottom: 0.4rem; border-bottom: 1.5px solid var(--border); }
-  .mini-cat:first-of-type { margin-top: 0.5rem; }
+  .mc-opts { display:flex; flex-wrap:wrap; gap:.5rem; }
+  .mc-opts.stack { flex-direction:column; }
+  .mc-btn { border:2px solid var(--border); background:var(--bg); color:var(--ink); padding:.4rem 1.1rem; border-radius:2rem; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:.92rem; font-weight:600; transition:all .15s; }
+  .mc-btn.long { text-align:left; border-radius:.7rem; font-weight:500; line-height:1.45; padding:.55rem 1rem; }
+  .mc-btn:hover:not(:disabled) { border-color:var(--gold); color:var(--gold); background:var(--gold-lt); }
+  .mc-btn.sel { border-color:var(--gold); background:var(--gold-lt); color:var(--gold); }
+  .mc-btn.unsure { border-style:dashed; color:var(--muted); font-weight:500; background:transparent; }
+  .mc-btn.unsure.sel { border-style:solid; color:var(--ink2); border-color:var(--ink2); background:#eef1f6; }
+  .mc-btn:disabled { cursor:not-allowed; opacity:.6; }
 
-  .q-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 0.85rem; padding: 1.15rem 1.4rem; margin-bottom: 0.85rem; transition: border-color 0.2s; }
-  .q-card.correct { border-color: var(--grn); background: var(--grn-lt); }
-  .q-card.wrong { border-color: #ef4444; background: #fff0f0; }
-  .q-num { font-size: 0.76rem; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; }
-  .q-text { font-size: 1rem; color: var(--ink); line-height: 1.65; margin-bottom: 0.85rem; }
-  .blank { display: inline-block; border-bottom: 2px solid var(--gold); min-width: 55px; text-align: center; color: var(--gold); font-weight: 700; }
+  .submit-wrap { text-align:center; padding:2rem 1.5rem 3rem; max-width:880px; margin:0 auto; }
+  #count { font-size:.95rem; color:var(--muted); margin-bottom:.9rem; font-weight:500; }
+  #submit-msg { min-height:1.4rem; color:var(--rose); font-size:.9rem; font-weight:600; margin-bottom:.8rem; }
+  .big-btn { background:#05070d; color:#fff; border:none; border-radius:2rem; padding:.9rem 2.4rem; font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:600; cursor:pointer; transition:background .15s; }
+  .big-btn:hover { background:var(--ink2); }
+  .big-btn.gold { background:var(--gold); }
+  .big-btn.gold:hover { background:#c2670f; }
 
-  .mc-opts { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .mc-btn { border: 2px solid var(--border); background: var(--bg); color: var(--ink); padding: 0.4rem 1.1rem; border-radius: 2rem; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 600; transition: all 0.15s; }
-  .mc-btn:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); background: var(--gold-lt); }
-  .mc-btn.sel-ok { border-color: var(--grn); background: var(--grn-lt); color: var(--grn); }
-  .mc-btn.sel-bad { border-color: #ef4444; background: #fff0f0; color: #ef4444; }
-  .mc-btn.rev-ok { border-color: var(--grn); background: var(--grn-lt); color: var(--grn); }
-  .mc-btn:disabled { cursor: not-allowed; opacity: 0.55; }
-  .fb { margin-top: 0.7rem; font-size: 0.88rem; font-weight: 500; display: none; }
-  .fb.show { display: block; }
-  .fb.ok { color: var(--grn); }
-  .fb.bad { color: #dc2626; }
+  /* RESULTS */
+  #results { display:none; max-width:880px; margin:0 auto; padding:2.5rem 1.5rem 2rem; }
+  #results.show { display:block; }
+  .res-hero { text-align:center; margin-bottom:2rem; }
+  .lvl-badge { width:150px; height:150px; border-radius:50%; background:#05070d; color:var(--gold-mid); display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700; box-shadow:0 0 0 6px var(--gold-mid); text-align:center; line-height:1.1; padding:.5rem; }
+  .res-title { font-family:'Playfair Display',serif; font-size:1.7rem; font-weight:600; margin-bottom:.4rem; }
+  .res-close { font-size:.95rem; color:var(--gold); font-weight:600; margin-bottom:.8rem; }
+  .res-desc { color:var(--ink); font-size:1rem; line-height:1.7; max-width:620px; margin:0 auto 1rem; }
+  .res-chips { display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin-bottom:.8rem; }
+  .chip { background:var(--white); border:1.5px solid var(--border); border-radius:2rem; padding:.4rem 1rem; font-size:.88rem; font-weight:600; }
+  .chip strong { color:var(--gold); }
+  .caveat { background:var(--blue-lt); border:1.5px solid #bfdbfe; color:#1e3a8a; border-radius:.8rem; padding:.9rem 1.2rem; font-size:.86rem; line-height:1.6; max-width:640px; margin:1rem auto 0; text-align:left; }
 
-  .key-rule { background: #05070d; color: white; border-radius: 0.75rem; padding: 1rem 1.4rem; font-size: 0.95rem; line-height: 1.65; margin-top: 1rem; }
-  .key-rule strong { color: var(--gold-mid); }
+  .box-title { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:600; margin:2.2rem 0 .3rem; }
+  .box-sub { font-size:.88rem; color:var(--muted); margin-bottom:1rem; }
+  .lvl-row { display:grid; grid-template-columns:44px 1fr 70px; gap:.8rem; align-items:center; margin-bottom:.55rem; }
+  .lvl-name { font-weight:700; font-size:.95rem; }
+  .lvl-bar-wrap { height:12px; background:var(--border); border-radius:1rem; overflow:hidden; }
+  .lvl-bar { height:100%; border-radius:1rem; }
+  .lvl-score { font-size:.85rem; font-weight:700; text-align:right; }
 
-  /* ── RESULTS ── */
-  #results-sec { text-align: center; padding: 3rem 1.5rem 2rem; max-width: 880px; margin: 0 auto; display: none; }
-  #results-sec.show { display: block; }
-  .s-ring { width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(var(--gold) calc(var(--pct)*1%), var(--border) 0); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; position: relative; }
-  .s-ring::after { content: ''; width: 115px; height: 115px; background: var(--bg); border-radius: 50%; position: absolute; }
-  .s-num { position: relative; z-index: 1; font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 700; color: var(--ink2); }
-  .s-msg { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
-  .s-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+  .plan-box { background:var(--rose-lt); border:2px solid #fca5a5; border-radius:1rem; padding:1.2rem 1.5rem; }
+  .plan-row { display:flex; align-items:center; justify-content:space-between; gap:.8rem; background:var(--white); border:1px solid #fca5a5; border-radius:.6rem; padding:.7rem 1rem; margin-bottom:.55rem; }
+  .plan-row:last-child { margin-bottom:0; }
+  .plan-num { font-family:'Playfair Display',serif; font-weight:700; color:var(--rose); font-size:1.2rem; width:1.5rem; flex-shrink:0; }
+  .plan-main { flex:1; }
+  .plan-name { font-weight:600; font-size:.95rem; }
+  .plan-why { font-size:.8rem; color:var(--muted); margin-top:.1rem; }
+  .plan-link { background:var(--rose); color:#fff; border-radius:2rem; padding:.35rem 1rem; font-size:.82rem; font-weight:600; text-decoration:none; white-space:nowrap; }
+  .plan-link:hover { background:#7f0f2e; }
+  .plan-empty { color:var(--grn); font-weight:600; font-size:.95rem; line-height:1.6; }
 
-  .priority-box { text-align: left; background: var(--rose-lt); border: 2px solid #fca5a5; border-radius: 1rem; padding: 1.3rem 1.6rem; margin-bottom: 1.5rem; }
-  .priority-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--rose); margin-bottom: 0.7rem; }
-  .priority-list { display: flex; flex-direction: column; gap: 0.6rem; }
-  .priority-row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; background: var(--white); border: 1px solid #fca5a5; border-radius: 0.6rem; padding: 0.7rem 1rem; }
-  .priority-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
-  .priority-score { font-size: 0.8rem; color: var(--rose); font-weight: 700; margin-left: 0.5rem; }
-  .priority-link { background: var(--rose); color: white; border: none; border-radius: 2rem; padding: 0.35rem 1rem; font-size: 0.82rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
-  .priority-link:hover { background: #7f0f2e; }
-  .priority-empty { font-size: 0.92rem; color: var(--grn); font-weight: 600; }
+  .map-row { display:grid; grid-template-columns:1fr auto auto; gap:.8rem; align-items:center; background:var(--white); border:1.5px solid var(--border); border-radius:.65rem; padding:.6rem 1rem; margin-bottom:.5rem; }
+  .map-name { font-size:.9rem; font-weight:600; }
+  .map-sec { display:block; font-size:.72rem; color:var(--muted); font-weight:500; }
+  .map-score { font-size:.82rem; font-weight:700; }
+  .map-link { font-size:.8rem; font-weight:600; text-decoration:none; padding:.25rem .8rem; border-radius:1.5rem; }
 
-  .grid-title { text-align: left; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
-  .grid-sub { text-align: left; font-size: 0.88rem; color: var(--muted); margin-bottom: 1.1rem; }
-  .topic-grid { display: flex; flex-direction: column; gap: 0.55rem; text-align: left; margin-bottom: 2rem; }
-  .topic-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 0.75rem; background: var(--white); border: 1.5px solid var(--border); border-radius: 0.65rem; padding: 0.65rem 1rem; }
-  .topic-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
-  .topic-section-lbl { font-size: 0.72rem; color: var(--muted); font-weight: 500; display: block; margin-top: 0.1rem; }
-  .topic-bar-wrap { width: 90px; height: 8px; background: var(--border); border-radius: 1rem; overflow: hidden; }
-  .topic-bar { height: 100%; border-radius: 1rem; }
-  .topic-score { font-size: 0.82rem; font-weight: 700; min-width: 34px; text-align: right; }
-  .topic-link { font-size: 0.8rem; font-weight: 600; text-decoration: none; padding: 0.25rem 0.7rem; border-radius: 1.5rem; white-space: nowrap; }
+  details.rev { background:var(--white); border:1.5px solid var(--border); border-radius:.7rem; margin-bottom:.55rem; }
+  details.rev summary { cursor:pointer; padding:.7rem 1rem; font-size:.9rem; font-weight:600; list-style:none; }
+  details.rev summary::-webkit-details-marker { display:none; }
+  details.rev summary::before { content:'▸ '; color:var(--gold); }
+  details.rev[open] summary::before { content:'▾ '; }
+  .rev-body { padding:0 1rem 1rem; font-size:.9rem; line-height:1.65; }
+  .rev-q { margin-bottom:.5rem; }
+  .rev-yours { color:#b91c1c; font-weight:600; }
+  .rev-right { color:var(--grn); font-weight:600; }
+  .rev-lvl { display:inline-block; font-size:.7rem; font-weight:700; background:var(--gold-lt); color:var(--gold); border-radius:1rem; padding:.05rem .55rem; margin-left:.4rem; }
 
-  .retry-btn { background: #05070d; color: white; border: none; border-radius: 2rem; padding: 0.85rem 2.2rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s; }
-  .retry-btn:hover { background: var(--ink2); }
-
-  @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-  .pop { animation: popIn 0.25s cubic-bezier(0.34,1.56,0.64,1); }
-
-  footer { text-align: center; padding: 2rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--border); }
-
+  .res-actions { text-align:center; margin-top:2.4rem; }
+  footer { text-align:center; padding:2rem; font-size:.82rem; color:var(--muted); border-top:1px solid var(--border); }
+  @media(max-width:560px){ .map-row{grid-template-columns:1fr auto;} .map-link{grid-column:1 / -1; text-align:center;} .plan-row{flex-wrap:wrap;} }
 </style>
 </head>
 <body>
+
 <div id="pb-wrap"><div id="pb"></div></div>
 
 <header>
   <div class="h-tag">Grammar Made Simple</div>
-  <h1>Grammar <em>Assessment</em></h1>
-  <p>Find out what to study next — one check across all 18 lessons.</p>
+  <h1>Find Your <em>Grammar Level</em></h1>
+  <p>48 questions. An approximate CEFR level, and the lessons to study first.</p>
 </header>
 
 <div class="section">
   <h2 class="sec-title">How This Works</h2>
-  <p class="sec-sub">A quick diagnostic, not an exam — there's no time limit and no penalty for guessing.</p>
+  <p class="sec-sub">A general grammar check, not an official exam. No time limit.</p>
   <div class="def-box">
-    This assessment has <strong>36 questions</strong> — two from each of the 18 lessons on this site, covering every major grammar area. Answer each one to get <strong>instant feedback</strong>. When you've answered all 36, you'll get an overall score and a <strong>personalised report</strong> showing exactly which lessons to study first, based on where you scored lowest.
+    You'll answer <strong>48 multiple-choice questions</strong> that start easy and gradually get harder. Many questions test more than one grammar point at once, just like real English does. At the end you'll see an <strong>approximate CEFR level</strong> (A1 to C1), a <strong>rough IELTS guide</strong>, and a <strong>personalised list of lessons</strong> to work on first.
   </div>
   <div class="rules-list">
     <ul>
-      <li><strong>No repeats:</strong> these questions are new — they don't copy any exercise from the lessons themselves.</li>
-      <li><strong>Take it at any time:</strong> your progress isn't saved between visits, so find a quiet 15 minutes.</li>
-      <li><strong>Retake whenever you like:</strong> a Reset button at the end lets you try again after studying.</li>
+      <li><strong>No feedback until the end.</strong> That keeps the result accurate. You can change an answer any time before you finish.</li>
+      <li><strong>Choose "Not sure" instead of guessing.</strong> It counts as a wrong answer, but it gives a more honest level and a better study plan.</li>
+      <li><strong>It's an estimate.</strong> Grammar is only one part of English, so treat the level as a guide, not a certificate.</li>
+      <li><strong>Retake it any time.</strong> The options are shuffled each attempt, so try again after you've studied.</li>
     </ul>
   </div>
 </div>
 <hr class="div">
 
-
-<div class="big-section-header">
-  <div class="bsh-num">1</div>
-  <div class="bsh-title">Foundations</div>
-</div>
-<div class="section" style="padding-top:1rem">
-  <div class="mini-cat">Verb Tenses & Their Functions</div>
-
-  <div class="q-card" id="vt1">
-    <div class="q-num">Question 1 of 36</div>
-    <div class="q-text">By the time we arrived, the film <span class="blank">___</span> (already/start).</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'vt1','had already started','Past perfect shows an action completed before another past event.')">already started</button>
-      <button class="mc-btn" onclick="checkMC(this,'vt1','had already started','Past perfect shows an action completed before another past event.')">had already started</button>
-      <button class="mc-btn" onclick="checkMC(this,'vt1','had already started','Past perfect shows an action completed before another past event.')">has already started</button>
-      <button class="mc-btn" onclick="checkMC(this,'vt1','had already started','Past perfect shows an action completed before another past event.')">was already starting</button>
-    </div>
-    <div class="fb" id="vt1-fb"></div>
-  </div>
-
-  <div class="q-card" id="vt2">
-    <div class="q-num">Question 2 of 36</div>
-    <div class="q-text">She <span class="blank">___</span> (live) in Rome since 2015.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'vt2','has lived','Present perfect with since shows an unfinished state continuing to now.')">lives</button>
-      <button class="mc-btn" onclick="checkMC(this,'vt2','has lived','Present perfect with since shows an unfinished state continuing to now.')">lived</button>
-      <button class="mc-btn" onclick="checkMC(this,'vt2','has lived','Present perfect with since shows an unfinished state continuing to now.')">has lived</button>
-      <button class="mc-btn" onclick="checkMC(this,'vt2','has lived','Present perfect with since shows an unfinished state continuing to now.')">is living</button>
-    </div>
-    <div class="fb" id="vt2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Articles</div>
-
-  <div class="q-card" id="art1">
-    <div class="q-num">Question 3 of 36</div>
-    <div class="q-text"><span class="blank">___</span> Moon orbits the Earth.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'art1','The','Unique objects like the Moon always take the.')">A</button>
-      <button class="mc-btn" onclick="checkMC(this,'art1','The','Unique objects like the Moon always take the.')">An</button>
-      <button class="mc-btn" onclick="checkMC(this,'art1','The','Unique objects like the Moon always take the.')">The</button>
-      <button class="mc-btn" onclick="checkMC(this,'art1','The','Unique objects like the Moon always take the.')">∅</button>
-    </div>
-    <div class="fb" id="art1-fb"></div>
-  </div>
-
-  <div class="q-card" id="art2">
-    <div class="q-num">Question 4 of 36</div>
-    <div class="q-text">He&rsquo;s <span class="blank">___</span> honest man, so I trust him completely.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'art2','an','Honest starts with a silent h — the vowel sound needs an.')">a</button>
-      <button class="mc-btn" onclick="checkMC(this,'art2','an','Honest starts with a silent h — the vowel sound needs an.')">an</button>
-      <button class="mc-btn" onclick="checkMC(this,'art2','an','Honest starts with a silent h — the vowel sound needs an.')">the</button>
-      <button class="mc-btn" onclick="checkMC(this,'art2','an','Honest starts with a silent h — the vowel sound needs an.')">∅</button>
-    </div>
-    <div class="fb" id="art2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Prepositions</div>
-
-  <div class="q-card" id="prep1">
-    <div class="q-num">Question 5 of 36</div>
-    <div class="q-text">The train departs <span class="blank">___</span> 8 o&rsquo;clock <span class="blank">___</span> Monday morning.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'prep1','at / on','Precise clock times use at; specific days use on.')">at / on</button>
-      <button class="mc-btn" onclick="checkMC(this,'prep1','at / on','Precise clock times use at; specific days use on.')">on / at</button>
-      <button class="mc-btn" onclick="checkMC(this,'prep1','at / on','Precise clock times use at; specific days use on.')">in / at</button>
-      <button class="mc-btn" onclick="checkMC(this,'prep1','at / on','Precise clock times use at; specific days use on.')">at / in</button>
-    </div>
-    <div class="fb" id="prep1-fb"></div>
-  </div>
-
-  <div class="q-card" id="prep2">
-    <div class="q-num">Question 6 of 36</div>
-    <div class="q-text">She&rsquo;s been studying English <span class="blank">___</span> three years.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'prep2','for','For shows a duration — how long something has lasted.')">since</button>
-      <button class="mc-btn" onclick="checkMC(this,'prep2','for','For shows a duration — how long something has lasted.')">for</button>
-      <button class="mc-btn" onclick="checkMC(this,'prep2','for','For shows a duration — how long something has lasted.')">during</button>
-      <button class="mc-btn" onclick="checkMC(this,'prep2','for','For shows a duration — how long something has lasted.')">by</button>
-    </div>
-    <div class="fb" id="prep2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Countable & Uncountable Nouns</div>
-
-  <div class="q-card" id="cnoun1">
-    <div class="q-num">Question 7 of 36</div>
-    <div class="q-text">Could you give me <span class="blank">___</span> information about the course?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'cnoun1','some','Information is uncountable — you can&rsquo;t say &ldquo;an information&rdquo;.')">an</button>
-      <button class="mc-btn" onclick="checkMC(this,'cnoun1','some','Information is uncountable — you can&rsquo;t say &ldquo;an information&rdquo;.')">some</button>
-      <button class="mc-btn" onclick="checkMC(this,'cnoun1','some','Information is uncountable — you can&rsquo;t say &ldquo;an information&rdquo;.')">many</button>
-      <button class="mc-btn" onclick="checkMC(this,'cnoun1','some','Information is uncountable — you can&rsquo;t say &ldquo;an information&rdquo;.')">a few</button>
-    </div>
-    <div class="fb" id="cnoun1-fb"></div>
-  </div>
-
-  <div class="q-card" id="cnoun2">
-    <div class="q-num">Question 8 of 36</div>
-    <div class="q-text">There are too <span class="blank">___</span> chairs for this small room.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'cnoun2','many','Chairs is countable and plural, so use many.')">much</button>
-      <button class="mc-btn" onclick="checkMC(this,'cnoun2','many','Chairs is countable and plural, so use many.')">many</button>
-      <button class="mc-btn" onclick="checkMC(this,'cnoun2','many','Chairs is countable and plural, so use many.')">a little</button>
-      <button class="mc-btn" onclick="checkMC(this,'cnoun2','many','Chairs is countable and plural, so use many.')">a bit of</button>
-    </div>
-    <div class="fb" id="cnoun2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Determiners</div>
-
-  <div class="q-card" id="det1">
-    <div class="q-num">Question 9 of 36</div>
-    <div class="q-text"><span class="blank">___</span> parents attended the school meeting last night.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'det1','Both','Parents is plural. Both takes a plural noun, but each, every, and neither all need the singular parent instead.')">Each</button>
-      <button class="mc-btn" onclick="checkMC(this,'det1','Both','Parents is plural. Both takes a plural noun, but each, every, and neither all need the singular parent instead.')">Every</button>
-      <button class="mc-btn" onclick="checkMC(this,'det1','Both','Parents is plural. Both takes a plural noun, but each, every, and neither all need the singular parent instead.')">Both</button>
-      <button class="mc-btn" onclick="checkMC(this,'det1','Both','Parents is plural. Both takes a plural noun, but each, every, and neither all need the singular parent instead.')">Neither</button>
-    </div>
-    <div class="fb" id="det1-fb"></div>
-  </div>
-
-  <div class="q-card" id="det2">
-    <div class="q-num">Question 10 of 36</div>
-    <div class="q-text">Would you like <span class="blank">___</span> more coffee?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'det2','some','Offers use some, even though they&rsquo;re phrased as questions.')">some</button>
-      <button class="mc-btn" onclick="checkMC(this,'det2','some','Offers use some, even though they&rsquo;re phrased as questions.')">any</button>
-      <button class="mc-btn" onclick="checkMC(this,'det2','some','Offers use some, even though they&rsquo;re phrased as questions.')">every</button>
-      <button class="mc-btn" onclick="checkMC(this,'det2','some','Offers use some, even though they&rsquo;re phrased as questions.')">no</button>
-    </div>
-    <div class="fb" id="det2-fb"></div>
-  </div>
-</div>
-<hr class="div">
-
-<div class="big-section-header">
-  <div class="bsh-num">2</div>
-  <div class="bsh-title">Sentence Building</div>
-</div>
-<div class="section" style="padding-top:1rem">
-  <div class="mini-cat">Sentence Structure</div>
-
-  <div class="q-card" id="sstruct1">
-    <div class="q-num">Question 11 of 36</div>
-    <div class="q-text">&ldquo;Because the storm was approaching, the captain changed course, and the crew secured the deck.&rdquo; What sentence type is this?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'sstruct1','Compound-complex','One dependent clause (because...) plus two independent clauses joined by and.')">Simple</button>
-      <button class="mc-btn" onclick="checkMC(this,'sstruct1','Compound-complex','One dependent clause (because...) plus two independent clauses joined by and.')">Compound</button>
-      <button class="mc-btn" onclick="checkMC(this,'sstruct1','Compound-complex','One dependent clause (because...) plus two independent clauses joined by and.')">Complex</button>
-      <button class="mc-btn" onclick="checkMC(this,'sstruct1','Compound-complex','One dependent clause (because...) plus two independent clauses joined by and.')">Compound-complex</button>
-    </div>
-    <div class="fb" id="sstruct1-fb"></div>
-  </div>
-
-  <div class="q-card" id="sstruct2">
-    <div class="q-num">Question 12 of 36</div>
-    <div class="q-text">&ldquo;He locked the door before he left the house.&rdquo; What sentence type is this?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'sstruct2','Complex','One independent clause plus one dependent clause (before he left the house).')">Simple</button>
-      <button class="mc-btn" onclick="checkMC(this,'sstruct2','Complex','One independent clause plus one dependent clause (before he left the house).')">Compound</button>
-      <button class="mc-btn" onclick="checkMC(this,'sstruct2','Complex','One independent clause plus one dependent clause (before he left the house).')">Complex</button>
-      <button class="mc-btn" onclick="checkMC(this,'sstruct2','Complex','One independent clause plus one dependent clause (before he left the house).')">Compound-complex</button>
-    </div>
-    <div class="fb" id="sstruct2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Sentence Problems & Parallelism</div>
-
-  <div class="q-card" id="sprob1">
-    <div class="q-num">Question 13 of 36</div>
-    <div class="q-text">&ldquo;She loves reading, writing, and to paint.&rdquo; What is the problem?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'sprob1','Parallelism error','&ldquo;To paint&rdquo; breaks the -ing pattern set by reading and writing.')">Fragment</button>
-      <button class="mc-btn" onclick="checkMC(this,'sprob1','Parallelism error','&ldquo;To paint&rdquo; breaks the -ing pattern set by reading and writing.')">Run-on</button>
-      <button class="mc-btn" onclick="checkMC(this,'sprob1','Parallelism error','&ldquo;To paint&rdquo; breaks the -ing pattern set by reading and writing.')">Comma splice</button>
-      <button class="mc-btn" onclick="checkMC(this,'sprob1','Parallelism error','&ldquo;To paint&rdquo; breaks the -ing pattern set by reading and writing.')">Parallelism error</button>
-    </div>
-    <div class="fb" id="sprob1-fb"></div>
-  </div>
-
-  <div class="q-card" id="sprob2">
-    <div class="q-num">Question 14 of 36</div>
-    <div class="q-text">&ldquo;The rain stopped, we went outside to play.&rdquo; What is the problem?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'sprob2','Comma splice','Two independent clauses joined by only a comma.')">Fragment</button>
-      <button class="mc-btn" onclick="checkMC(this,'sprob2','Comma splice','Two independent clauses joined by only a comma.')">Run-on</button>
-      <button class="mc-btn" onclick="checkMC(this,'sprob2','Comma splice','Two independent clauses joined by only a comma.')">Comma splice</button>
-      <button class="mc-btn" onclick="checkMC(this,'sprob2','Comma splice','Two independent clauses joined by only a comma.')">Choppy</button>
-    </div>
-    <div class="fb" id="sprob2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Comparatives & Superlatives</div>
-
-  <div class="q-card" id="comp1">
-    <div class="q-num">Question 15 of 36</div>
-    <div class="q-text">This restaurant is <span class="blank">___</span> than the one we went to last week. <span style="font-size:.82rem;color:var(--muted)">(good)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'comp1','better','Good is irregular — its comparative is better.')">gooder</button>
-      <button class="mc-btn" onclick="checkMC(this,'comp1','better','Good is irregular — its comparative is better.')">more good</button>
-      <button class="mc-btn" onclick="checkMC(this,'comp1','better','Good is irregular — its comparative is better.')">better</button>
-      <button class="mc-btn" onclick="checkMC(this,'comp1','better','Good is irregular — its comparative is better.')">best</button>
-    </div>
-    <div class="fb" id="comp1-fb"></div>
-  </div>
-
-  <div class="q-card" id="comp2">
-    <div class="q-num">Question 16 of 36</div>
-    <div class="q-text">She is one of the <span class="blank">___</span> athletes in the country. <span style="font-size:.82rem;color:var(--muted)">(talented)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'comp2','most talented','One of the + superlative + plural noun.')">most talented</button>
-      <button class="mc-btn" onclick="checkMC(this,'comp2','most talented','One of the + superlative + plural noun.')">more talented</button>
-      <button class="mc-btn" onclick="checkMC(this,'comp2','most talented','One of the + superlative + plural noun.')">talentedest</button>
-      <button class="mc-btn" onclick="checkMC(this,'comp2','most talented','One of the + superlative + plural noun.')">talenteder</button>
-    </div>
-    <div class="fb" id="comp2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Linking Words & Discourse Markers</div>
-
-  <div class="q-card" id="link1">
-    <div class="q-num">Question 17 of 36</div>
-    <div class="q-text"><span class="blank">___</span> the heavy rain, the outdoor concert went ahead as planned.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'link1','Despite','Despite is followed by a noun phrase, not a full clause.')">Although</button>
-      <button class="mc-btn" onclick="checkMC(this,'link1','Despite','Despite is followed by a noun phrase, not a full clause.')">Despite</button>
-      <button class="mc-btn" onclick="checkMC(this,'link1','Despite','Despite is followed by a noun phrase, not a full clause.')">Because</button>
-      <button class="mc-btn" onclick="checkMC(this,'link1','Despite','Despite is followed by a noun phrase, not a full clause.')">Since</button>
-    </div>
-    <div class="fb" id="link1-fb"></div>
-  </div>
-
-  <div class="q-card" id="link2">
-    <div class="q-num">Question 18 of 36</div>
-    <div class="q-text">He forgot his wallet; <span class="blank">___</span>, he couldn&rsquo;t pay for lunch.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'link2','as a result','As a result shows the consequence of forgetting his wallet.')">however</button>
-      <button class="mc-btn" onclick="checkMC(this,'link2','as a result','As a result shows the consequence of forgetting his wallet.')">as a result</button>
-      <button class="mc-btn" onclick="checkMC(this,'link2','as a result','As a result shows the consequence of forgetting his wallet.')">for example</button>
-      <button class="mc-btn" onclick="checkMC(this,'link2','as a result','As a result shows the consequence of forgetting his wallet.')">in addition</button>
-    </div>
-    <div class="fb" id="link2-fb"></div>
-  </div>
-</div>
-<hr class="div">
-
-<div class="big-section-header">
-  <div class="bsh-num">3</div>
-  <div class="bsh-title">Subordinate Clauses</div>
-</div>
-<div class="section" style="padding-top:1rem">
-  <div class="mini-cat">Adverb Clauses</div>
-
-  <div class="q-card" id="advc1">
-    <div class="q-num">Question 19 of 36</div>
-    <div class="q-text"><span class="blank">___</span> she practises every day, she has become an excellent violinist.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'advc1','Since','Since here means because, giving the reason for her skill.')">Since</button>
-      <button class="mc-btn" onclick="checkMC(this,'advc1','Since','Since here means because, giving the reason for her skill.')">Unless</button>
-      <button class="mc-btn" onclick="checkMC(this,'advc1','Since','Since here means because, giving the reason for her skill.')">Although</button>
-      <button class="mc-btn" onclick="checkMC(this,'advc1','Since','Since here means because, giving the reason for her skill.')">While</button>
-    </div>
-    <div class="fb" id="advc1-fb"></div>
-  </div>
-
-  <div class="q-card" id="advc2">
-    <div class="q-num">Question 20 of 36</div>
-    <div class="q-text">He&rsquo;ll pass the exam <span class="blank">___</span> he studies hard.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'advc2','if','If introduces a real condition for a future result.')">because</button>
-      <button class="mc-btn" onclick="checkMC(this,'advc2','if','If introduces a real condition for a future result.')">if</button>
-      <button class="mc-btn" onclick="checkMC(this,'advc2','if','If introduces a real condition for a future result.')">although</button>
-      <button class="mc-btn" onclick="checkMC(this,'advc2','if','If introduces a real condition for a future result.')">when</button>
-    </div>
-    <div class="fb" id="advc2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Adjective Clauses</div>
-
-  <div class="q-card" id="adjc1">
-    <div class="q-num">Question 21 of 36</div>
-    <div class="q-text">The museum, <span class="blank">___</span> opened last year, has become very popular.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'adjc1','which','Which describes a thing — the museum.')">who</button>
-      <button class="mc-btn" onclick="checkMC(this,'adjc1','which','Which describes a thing — the museum.')">which</button>
-      <button class="mc-btn" onclick="checkMC(this,'adjc1','which','Which describes a thing — the museum.')">where</button>
-      <button class="mc-btn" onclick="checkMC(this,'adjc1','which','Which describes a thing — the museum.')">whose</button>
-    </div>
-    <div class="fb" id="adjc1-fb"></div>
-  </div>
-
-  <div class="q-card" id="adjc2">
-    <div class="q-num">Question 22 of 36</div>
-    <div class="q-text">&ldquo;The gift that I bought her was expensive.&rdquo; Is &ldquo;that&rdquo; the doer or the receiver?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'adjc2','receiver','The subject I comes between that and the verb bought, so that is the receiver.')">doer</button>
-      <button class="mc-btn" onclick="checkMC(this,'adjc2','receiver','The subject I comes between that and the verb bought, so that is the receiver.')">receiver</button>
-    </div>
-    <div class="fb" id="adjc2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Noun Clauses</div>
-
-  <div class="q-card" id="nounc1">
-    <div class="q-num">Question 23 of 36</div>
-    <div class="q-text"><span class="blank">___</span> she will arrive on time is uncertain.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'nounc1','Whether','Whether introduces a yes/no uncertainty acting as the subject.')">That</button>
-      <button class="mc-btn" onclick="checkMC(this,'nounc1','Whether','Whether introduces a yes/no uncertainty acting as the subject.')">Whether</button>
-      <button class="mc-btn" onclick="checkMC(this,'nounc1','Whether','Whether introduces a yes/no uncertainty acting as the subject.')">What</button>
-      <button class="mc-btn" onclick="checkMC(this,'nounc1','Whether','Whether introduces a yes/no uncertainty acting as the subject.')">Because</button>
-    </div>
-    <div class="fb" id="nounc1-fb"></div>
-  </div>
-
-  <div class="q-card" id="nounc2">
-    <div class="q-num">Question 24 of 36</div>
-    <div class="q-text">It is essential <span class="blank">___</span> everyone attend the meeting.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'nounc2','that','Strong-advice patterns like &ldquo;it is essential that&rdquo; are followed by that + base form.')">what</button>
-      <button class="mc-btn" onclick="checkMC(this,'nounc2','that','Strong-advice patterns like &ldquo;it is essential that&rdquo; are followed by that + base form.')">that</button>
-      <button class="mc-btn" onclick="checkMC(this,'nounc2','that','Strong-advice patterns like &ldquo;it is essential that&rdquo; are followed by that + base form.')">whether</button>
-      <button class="mc-btn" onclick="checkMC(this,'nounc2','that','Strong-advice patterns like &ldquo;it is essential that&rdquo; are followed by that + base form.')">how</button>
-    </div>
-    <div class="fb" id="nounc2-fb"></div>
-  </div>
-</div>
-<hr class="div">
-
-<div class="big-section-header">
-  <div class="bsh-num">4</div>
-  <div class="bsh-title">Advanced Structures</div>
-</div>
-<div class="section" style="padding-top:1rem">
-  <div class="mini-cat">Participles & Participial Phrases</div>
-
-  <div class="q-card" id="part1">
-    <div class="q-num">Question 25 of 36</div>
-    <div class="q-text"><span class="blank">___</span> from the long journey, they went straight to bed. <span style="font-size:.82rem;color:var(--muted)">(exhaust)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'part1','Exhausted','They had exhaustion done to them — passive, so use the past participle.')">Exhausting</button>
-      <button class="mc-btn" onclick="checkMC(this,'part1','Exhausted','They had exhaustion done to them — passive, so use the past participle.')">Exhausted</button>
-      <button class="mc-btn" onclick="checkMC(this,'part1','Exhausted','They had exhaustion done to them — passive, so use the past participle.')">Exhaust</button>
-      <button class="mc-btn" onclick="checkMC(this,'part1','Exhausted','They had exhaustion done to them — passive, so use the past participle.')">To exhaust</button>
-    </div>
-    <div class="fb" id="part1-fb"></div>
-  </div>
-
-  <div class="q-card" id="part2">
-    <div class="q-num">Question 26 of 36</div>
-    <div class="q-text">&ldquo;Rushing to catch the bus, my coffee spilled everywhere.&rdquo; Is this correct, or a dangling modifier?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'part2','Dangling modifier','Coffee cannot rush — the phrase needs a person as the subject instead.')">Correct</button>
-      <button class="mc-btn" onclick="checkMC(this,'part2','Dangling modifier','Coffee cannot rush — the phrase needs a person as the subject instead.')">Dangling modifier</button>
-    </div>
-    <div class="fb" id="part2-fb"></div>
-  </div>
-
-  <div class="mini-cat">The Passive Voice</div>
-
-  <div class="q-card" id="pass1">
-    <div class="q-num">Question 27 of 36</div>
-    <div class="q-text">The new bridge <span class="blank">___</span> (open) next month.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'pass1','will be opened','Future simple passive: will be + past participle.')">will open</button>
-      <button class="mc-btn" onclick="checkMC(this,'pass1','will be opened','Future simple passive: will be + past participle.')">will be opened</button>
-      <button class="mc-btn" onclick="checkMC(this,'pass1','will be opened','Future simple passive: will be + past participle.')">opens</button>
-      <button class="mc-btn" onclick="checkMC(this,'pass1','will be opened','Future simple passive: will be + past participle.')">is opened</button>
-    </div>
-    <div class="fb" id="pass1-fb"></div>
-  </div>
-
-  <div class="q-card" id="pass2">
-    <div class="q-num">Question 28 of 36</div>
-    <div class="q-text">&ldquo;The report was reviewed by three experts.&rdquo; Is this active or passive?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'pass2','Passive','Was + reviewed = be + past participle, the passive voice.')">Active</button>
-      <button class="mc-btn" onclick="checkMC(this,'pass2','Passive','Was + reviewed = be + past participle, the passive voice.')">Passive</button>
-    </div>
-    <div class="fb" id="pass2-fb"></div>
-  </div>
-
-  <div class="mini-cat">The Conditionals</div>
-
-  <div class="q-card" id="cond1">
-    <div class="q-num">Question 29 of 36</div>
-    <div class="q-text">If she <span class="blank">___</span> (know) about the meeting, she would have come.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'cond1','had known','Third conditional needs past perfect in the if-clause.')">knew</button>
-      <button class="mc-btn" onclick="checkMC(this,'cond1','had known','Third conditional needs past perfect in the if-clause.')">had known</button>
-      <button class="mc-btn" onclick="checkMC(this,'cond1','had known','Third conditional needs past perfect in the if-clause.')">knows</button>
-      <button class="mc-btn" onclick="checkMC(this,'cond1','had known','Third conditional needs past perfect in the if-clause.')">would know</button>
-    </div>
-    <div class="fb" id="cond1-fb"></div>
-  </div>
-
-  <div class="q-card" id="cond2">
-    <div class="q-num">Question 30 of 36</div>
-    <div class="q-text">&ldquo;If you don&rsquo;t water the plant, it dies.&rdquo; What type of conditional is this?</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'cond2','Zero','Both verbs are present simple — a general truth.')">Zero</button>
-      <button class="mc-btn" onclick="checkMC(this,'cond2','Zero','Both verbs are present simple — a general truth.')">First</button>
-      <button class="mc-btn" onclick="checkMC(this,'cond2','Zero','Both verbs are present simple — a general truth.')">Second</button>
-      <button class="mc-btn" onclick="checkMC(this,'cond2','Zero','Both verbs are present simple — a general truth.')">Third</button>
-    </div>
-    <div class="fb" id="cond2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Modal Verbs</div>
-
-  <div class="q-card" id="modal1">
-    <div class="q-num">Question 31 of 36</div>
-    <div class="q-text">You <span class="blank">___</span> be joking — that&rsquo;s impossible!</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'modal1','must','Must expresses a confident deduction.')">might</button>
-      <button class="mc-btn" onclick="checkMC(this,'modal1','must','Must expresses a confident deduction.')">must</button>
-      <button class="mc-btn" onclick="checkMC(this,'modal1','must','Must expresses a confident deduction.')">should</button>
-      <button class="mc-btn" onclick="checkMC(this,'modal1','must','Must expresses a confident deduction.')">can</button>
-    </div>
-    <div class="fb" id="modal1-fb"></div>
-  </div>
-
-  <div class="q-card" id="modal2">
-    <div class="q-num">Question 32 of 36</div>
-    <div class="q-text"><span class="blank">___</span> I borrow your pen for a moment? <span style="font-size:.82rem;color:var(--muted)">(formal)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'modal2','May','May is a formal way to ask for permission.')">Can</button>
-      <button class="mc-btn" onclick="checkMC(this,'modal2','May','May is a formal way to ask for permission.')">May</button>
-      <button class="mc-btn" onclick="checkMC(this,'modal2','May','May is a formal way to ask for permission.')">Must</button>
-      <button class="mc-btn" onclick="checkMC(this,'modal2','May','May is a formal way to ask for permission.')">Should</button>
-    </div>
-    <div class="fb" id="modal2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Gerunds & Infinitives</div>
-
-  <div class="q-card" id="gerinf1">
-    <div class="q-num">Question 33 of 36</div>
-    <div class="q-text">They avoided <span class="blank">___</span> (discuss) the issue directly.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'gerinf1','discussing','Avoid is always followed by a gerund.')">discuss</button>
-      <button class="mc-btn" onclick="checkMC(this,'gerinf1','discussing','Avoid is always followed by a gerund.')">to discuss</button>
-      <button class="mc-btn" onclick="checkMC(this,'gerinf1','discussing','Avoid is always followed by a gerund.')">discussing</button>
-      <button class="mc-btn" onclick="checkMC(this,'gerinf1','discussing','Avoid is always followed by a gerund.')">discussed</button>
-    </div>
-    <div class="fb" id="gerinf1-fb"></div>
-  </div>
-
-  <div class="q-card" id="gerinf2">
-    <div class="q-num">Question 34 of 36</div>
-    <div class="q-text">I&rsquo;ll never forget <span class="blank">___</span> (see) the northern lights for the first time.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'gerinf2','seeing','Forget + gerund refers to a memory of a past event.')">to see</button>
-      <button class="mc-btn" onclick="checkMC(this,'gerinf2','seeing','Forget + gerund refers to a memory of a past event.')">seeing</button>
-      <button class="mc-btn" onclick="checkMC(this,'gerinf2','seeing','Forget + gerund refers to a memory of a past event.')">see</button>
-      <button class="mc-btn" onclick="checkMC(this,'gerinf2','seeing','Forget + gerund refers to a memory of a past event.')">seen</button>
-    </div>
-    <div class="fb" id="gerinf2-fb"></div>
-  </div>
-
-  <div class="mini-cat">Reported Speech</div>
-
-  <div class="q-card" id="rep1">
-    <div class="q-num">Question 35 of 36</div>
-    <div class="q-text">&ldquo;I can&rsquo;t come to the party,&rdquo; she said. &rarr; She said <span class="blank">___</span> couldn&rsquo;t come to the party.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'rep1','she','I changes to she when reporting someone else&rsquo;s words.')">I</button>
-      <button class="mc-btn" onclick="checkMC(this,'rep1','she','I changes to she when reporting someone else&rsquo;s words.')">she</button>
-      <button class="mc-btn" onclick="checkMC(this,'rep1','she','I changes to she when reporting someone else&rsquo;s words.')">they</button>
-      <button class="mc-btn" onclick="checkMC(this,'rep1','she','I changes to she when reporting someone else&rsquo;s words.')">we</button>
-    </div>
-    <div class="fb" id="rep1-fb"></div>
-  </div>
-
-  <div class="q-card" id="rep2">
-    <div class="q-num">Question 36 of 36</div>
-    <div class="q-text">&ldquo;What time does the shop close?&rdquo; he asked. &rarr; He asked what time the shop <span class="blank">___</span>.</div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'rep2','closed','Reported questions use normal word order and the tense moves back.')">does close</button>
-      <button class="mc-btn" onclick="checkMC(this,'rep2','closed','Reported questions use normal word order and the tense moves back.')">closed</button>
-      <button class="mc-btn" onclick="checkMC(this,'rep2','closed','Reported questions use normal word order and the tense moves back.')">close</button>
-      <button class="mc-btn" onclick="checkMC(this,'rep2','closed','Reported questions use normal word order and the tense moves back.')">did close</button>
-    </div>
-    <div class="fb" id="rep2-fb"></div>
-  </div>
-</div>
-<hr class="div">
-
-
-<div id="results-sec">
-  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/36</div></div>
-  <div class="s-msg" id="s-msg">Assessment complete!</div>
-  <div class="s-sub" id="s-sub">Here's your personalised report.</div>
-
-  <div class="priority-box">
-    <div class="priority-title">🎯 Start Here — Your Priority Lessons</div>
-    <div class="priority-list" id="priority-list"></div>
-  </div>
-
-  <div class="grid-title">Full Breakdown by Topic</div>
-  <div class="grid-sub">Every lesson, in curriculum order, with your score on its two questions.</div>
-  <div class="topic-grid" id="topic-grid"></div>
-
-  <button class="retry-btn" onclick="retryAll()">Retake Assessment 🔄</button>
+<div class="section" style="padding-top:2rem">
+  <div id="questions"></div>
 </div>
 
-<footer>Grammar Assessment — Interactive Diagnostic &nbsp;|&nbsp; All questions check instantly in your browser</footer>
+<div class="submit-wrap" id="submit-wrap">
+  <div id="count">0 of 48 answered</div>
+  <div id="submit-msg"></div>
+  <button class="big-btn gold" id="submit-btn">See My Results</button>
+</div>
 
+<div id="results"></div>
+
+<footer>Grammar Level Check — an approximate guide, not an official test &nbsp;|&nbsp; Everything runs in your browser</footer>
 
 <script>
-
-const TOPICS = [
-  {id:'vt', name:'Verb Tenses & Their Functions', file:'verb_tenses.html', section:'Foundations', qids:['vt1','vt2']},
-  {id:'art', name:'Articles', file:'articles.html', section:'Foundations', qids:['art1','art2']},
-  {id:'prep', name:'Prepositions', file:'prepositions.html', section:'Foundations', qids:['prep1','prep2']},
-  {id:'cnoun', name:'Countable & Uncountable Nouns', file:'countable_nouns.html', section:'Foundations', qids:['cnoun1','cnoun2']},
-  {id:'det', name:'Determiners', file:'determiners.html', section:'Foundations', qids:['det1','det2']},
-  {id:'sstruct', name:'Sentence Structure', file:'sentence_structure.html', section:'Sentence Building', qids:['sstruct1','sstruct2']},
-  {id:'sprob', name:'Sentence Problems & Parallelism', file:'sentence_problems.html', section:'Sentence Building', qids:['sprob1','sprob2']},
-  {id:'comp', name:'Comparatives & Superlatives', file:'comparatives.html', section:'Sentence Building', qids:['comp1','comp2']},
-  {id:'link', name:'Linking Words & Discourse Markers', file:'linking_words.html', section:'Sentence Building', qids:['link1','link2']},
-  {id:'advc', name:'Adverb Clauses', file:'adverb_clauses.html', section:'Subordinate Clauses', qids:['advc1','advc2']},
-  {id:'adjc', name:'Adjective Clauses', file:'adjective_clauses.html', section:'Subordinate Clauses', qids:['adjc1','adjc2']},
-  {id:'nounc', name:'Noun Clauses', file:'noun_clauses.html', section:'Subordinate Clauses', qids:['nounc1','nounc2']},
-  {id:'part', name:'Participles & Participial Phrases', file:'participles.html', section:'Advanced Structures', qids:['part1','part2']},
-  {id:'pass', name:'The Passive Voice', file:'passive_voice.html', section:'Advanced Structures', qids:['pass1','pass2']},
-  {id:'cond', name:'The Conditionals', file:'conditionals.html', section:'Advanced Structures', qids:['cond1','cond2']},
-  {id:'modal', name:'Modal Verbs', file:'modal_verbs.html', section:'Advanced Structures', qids:['modal1','modal2']},
-  {id:'gerinf', name:'Gerunds & Infinitives', file:'gerunds_infinitives.html', section:'Advanced Structures', qids:['gerinf1','gerinf2']},
-  {id:'rep', name:'Reported Speech', file:'reported_speech.html', section:'Advanced Structures', qids:['rep1','rep2']}
+// ===== DATA =====
+const LEVELS = ['A1','A2','B1','B2','C1'];
+const LESSONS = [
+  {id:'vt',   name:'Verb Tenses',                         file:'verb_tenses.html',        sec:'Foundations'},
+  {id:'art',  name:'Articles',                            file:'articles.html',           sec:'Foundations'},
+  {id:'prep', name:'Prepositions',                        file:'prepositions.html',       sec:'Foundations'},
+  {id:'cn',   name:'Countable &amp; Uncountable Nouns',   file:'countable_nouns.html',    sec:'Foundations'},
+  {id:'det',  name:'Determiners',                         file:'determiners.html',        sec:'Foundations'},
+  {id:'ss',   name:'Sentence Structure',                  file:'sentence_structure.html', sec:'Sentence Building'},
+  {id:'sp',   name:'Sentence Problems &amp; Parallelism', file:'sentence_problems.html',  sec:'Sentence Building'},
+  {id:'comp', name:'Comparatives &amp; Superlatives',     file:'comparatives.html',       sec:'Sentence Building'},
+  {id:'lw',   name:'Linking Words &amp; Discourse Markers',file:'linking_words.html',     sec:'Sentence Building'},
+  {id:'adv',  name:'Adverb Clauses',                      file:'adverb_clauses.html',     sec:'Subordinate Clauses'},
+  {id:'adj',  name:'Adjective Clauses',                   file:'adjective_clauses.html',  sec:'Subordinate Clauses'},
+  {id:'nc',   name:'Noun Clauses',                        file:'noun_clauses.html',       sec:'Subordinate Clauses'},
+  {id:'part', name:'Participles &amp; Participial Phrases',file:'participles.html',       sec:'Advanced Structures'},
+  {id:'pass', name:'The Passive Voice',                   file:'passive_voice.html',      sec:'Advanced Structures'},
+  {id:'cond', name:'The Conditionals',                    file:'conditionals.html',       sec:'Advanced Structures'},
+  {id:'modal',name:'Modal Verbs',                         file:'modal_verbs.html',        sec:'Advanced Structures'},
+  {id:'gi',   name:'Gerunds &amp; Infinitives',           file:'gerunds_infinitives.html',sec:'Advanced Structures'},
+  {id:'rs',   name:'Reported Speech',                     file:'reported_speech.html',    sec:'Advanced Structures'}
 ];
-const ALL_QIDS = ['vt1','vt2','art1','art2','prep1','prep2','cnoun1','cnoun2','det1','det2','sstruct1','sstruct2','sprob1','sprob2','comp1','comp2','link1','link2','advc1','advc2','adjc1','adjc2','nounc1','nounc2','part1','part2','pass1','pass2','cond1','cond2','modal1','modal2','gerinf1','gerinf2','rep1','rep2'];
-const TOTAL = 36;
-const scores = { mc: {} };
+const B = '<span class="blank">___</span>';
 
-function updateProgress() {
-  const done = Object.keys(scores.mc).length;
-  document.getElementById('pb').style.width = Math.round(done/TOTAL*100)+'%';
-  if (done === TOTAL) showResults();
+// lv: 0=A1 1=A2 2=B1 3=B2 4=C1 ; ls = lessons tested ; o = options ; a = correct ; w = why
+const QUESTIONS = [
+ // ---- A1 ----
+ {id:'q1', lv:0,ls:['vt'],       q:'My brother '+B+' a teacher.', o:['am','is','are','be'], a:'is', w:'With he, she, it or one person, use <strong>is</strong>.'},
+ {id:'q2', lv:0,ls:['vt','cn'],  q:'There '+B+' two books on the table.', o:['is','are','am','be'], a:'are', w:'Two books is more than one, so use <strong>are</strong>.'},
+ {id:'q3', lv:0,ls:['vt'],       q:'She '+B+' to school every day.', o:['go','goes','going','is go'], a:'goes', w:'With he, she or it in the present simple, the verb adds -s or -es: <strong>goes</strong>.'},
+ {id:'q4', lv:0,ls:['art'],      q:'My sister is '+B+' engineer.', o:['a','an','any','many'], a:'an', w:'Engineer begins with a vowel sound, so use <strong>an</strong>.'},
+ {id:'q5', lv:0,ls:['prep'],     q:'The shop opens '+B+' half past eight.', o:['in','on','at','to'], a:'at', w:'Use <strong>at</strong> for exact clock times.'},
+ {id:'q6', lv:0,ls:['cn','det'], q:'How '+B+' water do you drink each day?', o:['many','much','few','lot'], a:'much', w:'Water can’t be counted, so use <strong>much</strong>.'},
+ // ---- A2 ----
+ {id:'q7', lv:1,ls:['vt'],       q:'Yesterday I '+B+' a really good film.', o:['see','saw','seen','am seeing'], a:'saw', w:'Yesterday is a finished time in the past, so use the past form <strong>saw</strong>.'},
+ {id:'q8', lv:1,ls:['comp'],     q:'My bag is '+B+' than yours.', o:['heavy','heavier','heaviest','more heavy'], a:'heavier', w:'Short adjectives add -er to compare two things. Heavy changes y to i: <strong>heavier</strong>.'},
+ {id:'q9', lv:1,ls:['det','cn'], q:'We haven’t got '+B+' milk left.', o:['any','a','many','few'], a:'any', w:'Milk can’t be counted, and negative sentences usually use <strong>any</strong>.'},
+ {id:'q10',lv:1,ls:['vt'],       q:'They '+B+' football in the park when it started to rain.', o:['play','were playing','are playing','will play'], a:'were playing', w:'The playing was already in progress when the rain started, so use was/were + -ing: <strong>were playing</strong>.'},
+ {id:'q11',lv:1,ls:['modal'],    q:'You '+B+' have a passport to travel abroad.', o:['must','might','would','could'], a:'must', w:'It is a strict rule, so use <strong>must</strong>.'},
+ {id:'q12',lv:1,ls:['cond'],     q:'If the bus is late, I '+B+' a taxi.', o:['will take','would take','took','have taken'], a:'will take', w:'A real possibility in the future uses if + present, then <strong>will</strong> + verb.'},
+ {id:'q13',lv:1,ls:['prep'],     q:'I’m worried '+B+' my exam.', o:['about','for','on','of'], a:'about', w:'Worried is followed by <strong>about</strong>.'},
+ {id:'q14',lv:1,ls:['gi'],       q:'I enjoy '+B+' to music in the evening.', o:['listen','to listen','listening','listened'], a:'listening', w:'After enjoy, use the -ing form: <strong>listening</strong>.'},
+ // ---- B1 ----
+ {id:'q15',lv:2,ls:['vt'],       q:'I '+B+' in this city since 2018.', o:['live','have lived','am living','lived'], a:'have lived', w:'Since 2018 links the past to now, so use have + past participle: <strong>have lived</strong>.'},
+ {id:'q16',lv:2,ls:['pass'],     q:'These cars '+B+' in Japan.', o:['make','are made','are making','made'], a:'are made', w:'The cars receive the action, so use are + past participle: <strong>are made</strong>.'},
+ {id:'q17',lv:2,ls:['cond'],     q:'If I '+B+' more free time, I would learn another language.', o:['have','had','will have','would have'], a:'had', w:'An unlikely or imaginary situation uses if + past form (<strong>had</strong>), then would + verb.'},
+ {id:'q18',lv:2,ls:['rs','nc'],  q:'She asked me '+B+'.', o:['how old was I','how old I was','how old did I be','how was I old'], a:'how old I was', w:'In a reported question the word order goes back to normal (subject, then verb) and the tense moves back: <strong>how old I was</strong>.'},
+ {id:'q19',lv:2,ls:['gi','prep'],q:'I’m not used to '+B+' up so early.', o:['get','getting','got','to get'], a:'getting', w:'In <em>be used to</em>, the word <em>to</em> is a preposition, so the -ing form follows: <strong>getting</strong>.'},
+ {id:'q20',lv:2,ls:['adj'],      q:'I met a boy '+B+' father is a famous actor.', o:['who','which','whose','that'], a:'whose', w:'<strong>Whose</strong> shows that the father belongs to the boy.'},
+ {id:'q21',lv:2,ls:['modal'],    q:'Students '+B+' use phones during the exam. It is against the rules.', o:['mustn’t','don’t have to','needn’t','might not'], a:'mustn’t', w:'<strong>Mustn’t</strong> means it is not allowed. Don’t have to only means it isn’t necessary.'},
+ {id:'q22',lv:2,ls:['lw','adv'], q:B+' his injury, he finished the race.', o:['Although','Despite','Because','However'], a:'Despite', w:'<strong>Despite</strong> goes before a noun (his injury). Although needs a full clause.'},
+ {id:'q23',lv:2,ls:['art'],      q:'Look at '+B+' sky tonight! There are so many stars.', o:['a','an','the','any'], a:'the', w:'There is only one sky that we all share, so use <strong>the</strong>.'},
+ {id:'q24',lv:2,ls:['cond','modal'], q:'I wish I '+B+' speak French.', o:['can','could','would','should'], a:'could', w:'After wish, the verb moves back one step: can becomes <strong>could</strong>.'},
+ // ---- B2 ----
+ {id:'q25',lv:3,ls:['art','comp'], q:'He’s one of '+B+' best chefs in the country.', o:['a','an','the','any'], a:'the', w:'<em>One of the best</em> is a fixed pattern, so use <strong>the</strong>.'},
+ {id:'q26',lv:3,ls:['nc'],       q:B+' surprised me most was how quiet the city was.', o:['That','What','Which','It'], a:'What', w:'<strong>What</strong> means “the thing that”: the thing that surprised me most.'},
+ {id:'q27',lv:3,ls:['pass','modal'], q:'The documents '+B+' to the manager by 5 pm.', o:['must send','must be sent','must been sent','must be send'], a:'must be sent', w:'The documents receive the action, so use must be + past participle: <strong>must be sent</strong>.'},
+ {id:'q28',lv:3,ls:['sp'],       q:'Which sentence is punctuated correctly?', o:['She was tired, she went to bed early.','She was tired she went to bed early.','She was tired; she went to bed early.','She was tired, and, she went to bed early.'], a:'She was tired; she went to bed early.', w:'Two complete sentences can’t be joined by only a comma, or by nothing. Use a semicolon, a full stop, or a joining word such as <em>so</em>.'},
+ {id:'q29',lv:3,ls:['comp'],     q:'The earlier you start, '+B+' you will finish.', o:['the sooner','sooner','the soonest','more soon'], a:'the sooner', w:'<em>The</em> + comparative, <em>the</em> + comparative shows one thing depending on another: <strong>the sooner</strong>.'},
+ {id:'q30',lv:3,ls:['part'],     q:B+' all the tickets, the organisers closed the box office.', o:['Having sold','Sold','To sell','Sell'], a:'Having sold', w:'Having + past participle shows one action was completely finished before the next began: <strong>Having sold</strong>.'},
+ {id:'q31',lv:3,ls:['adj'],      q:'She is the only one of my friends '+B+' lives abroad.', o:['who','whose','whom','which'], a:'who', w:'<strong>Who</strong> refers to a person and does the action of <em>lives</em>.'},
+ {id:'q32',lv:3,ls:['prep','gi'],q:'I’m looking forward '+B+' you at the wedding.', o:['to see','to seeing','seeing','for seeing'], a:'to seeing', w:'<em>Look forward to</em> is followed by the -ing form, because <em>to</em> is a preposition here.'},
+ {id:'q33',lv:3,ls:['sp','gi'], q:'She loves swimming, hiking, and '+B+'.', o:['to cycle','cycling','cycle','cycled'], a:'cycling', w:'Items in a list should have the same form: swimming, hiking, <strong>cycling</strong>.'},
+ {id:'q34',lv:3,ls:['cn','det'], q:'She gave me '+B+' useful advice.', o:['a','an','some','many'], a:'some', w:'Advice can’t be counted, so you can’t use a, an or many. Use <strong>some</strong>.'},
+ {id:'q35',lv:3,ls:['rs','vt'],  q:'She told me she '+B+' the film the week before.', o:['had seen','has seen','sees','will see'], a:'had seen', w:'<em>The week before</em> is earlier than the moment she spoke, so the tense moves back to <strong>had seen</strong>.'},
+ {id:'q36',lv:3,ls:['adv','lw'], q:B+' she had studied for weeks, she still felt unprepared.', o:['Despite','Although','Because','Unless'], a:'Although', w:'<strong>Although</strong> shows a surprising contrast and is followed by a full clause. Despite needs a noun.'},
+ // ---- C1 ----
+ {id:'q37',lv:4,ls:['cond','ss'],q:'Had I known about the delay, I '+B+' earlier.', o:['would leave','would have left','left','had left'], a:'would have left', w:'<em>Had I known</em> means “If I had known”: an imagined past situation, so the result needs would have + past participle.'},
+ {id:'q38',lv:4,ls:['adj','prep'],q:'The film, '+B+' I had heard so much, turned out to be disappointing.', o:['about which','which','that','whom'], a:'about which', w:'You hear <em>about</em> a film, so the word <em>about</em> must stay in front of <strong>which</strong>.'},
+ {id:'q39',lv:4,ls:['ss'],       q:'Rarely '+B+' such a beautiful view.', o:['I have seen','have I seen','I saw','did I have seen'], a:'have I seen', w:'After <em>rarely</em> at the start of a sentence, the helping verb comes before the subject, like in a question: <strong>have I seen</strong>.'},
+ {id:'q40',lv:4,ls:['cond','vt'],q:'She wishes she '+B+' more careful last night.', o:['was','had been','would be','were'], a:'had been', w:'<em>Last night</em> is in the past, so wish is followed by had + past participle: <strong>had been</strong>.'},
+ {id:'q41',lv:4,ls:['pass','gi'],q:'He is said '+B+' over a million dollars to charity last year.', o:['to donate','to have donated','donating','to donating'], a:'to have donated', w:'The donating happened before now, so use <strong>to have</strong> + past participle.'},
+ {id:'q42',lv:4,ls:['ss'],       q:'Not until the results were published '+B+' the error.', o:['the team noticed','did the team notice','noticed the team','the team did notice'], a:'did the team notice', w:'After <em>not until</em> at the start, the helping verb comes before the subject, like in a question: <strong>did the team notice</strong>.'},
+ {id:'q43',lv:4,ls:['sp','gi'], q:'The new policy aims to reduce costs, improve efficiency, and '+B+' staff morale.', o:['boost','boosting','boosted','boosts'], a:'boost', w:'Items in a list need the same form: reduce, improve, <strong>boost</strong>.'},
+ {id:'q44',lv:4,ls:['nc'],       q:'I would appreciate '+B+' if you could reply by Friday.', o:['it','that','this','them'], a:'it', w:'<em>Appreciate</em> needs <strong>it</strong> before an if-clause.'},
+ {id:'q45',lv:4,ls:['part'],     q:'The study, '+B+' over three years, involved more than 2,000 people.', o:['conducting','conducted','which conducted','was conducted'], a:'conducted', w:'The study didn’t do the conducting; it was conducted. <strong>Conducted</strong> is a short way of saying <em>which was conducted</em>.'},
+ {id:'q46',lv:4,ls:['comp','prep'],q:'She is '+B+' far the most qualified candidate.', o:['by','from','for','of'], a:'by', w:'<em>By far the most</em> is a fixed phrase meaning “much more than the others”.'},
+ {id:'q47',lv:4,ls:['adv','lw'], q:'It was such a boring lecture '+B+' half the audience left.', o:['that','as','than','which'], a:'that', w:'<em>Such + a + adjective + noun + <strong>that</strong></em> shows a result.'},
+ {id:'q48',lv:4,ls:['pass','gi'],q:'We were made '+B+' our shoes at the door.', o:['to take off','take off','taking off','to taking off'], a:'to take off', w:'Make is followed by the plain verb in active sentences (<em>they made us take off</em>), but after <em>were made</em> we add <strong>to</strong>.'}
+];
+const TOTAL = QUESTIONS.length;
+const UNSURE = '__unsure__';
+const PASS = 0.6;   // share correct needed at a level to count as "secure"
+const NEAR = 0.4;   // share correct that counts as "close to" the next level
+
+const LEVEL_INFO = {
+  pre:{label:'Just starting out', ielts:'Below IELTS 4.0',
+       desc:'Your answers suggest you are at the very start of your grammar journey. That is a perfectly good place to begin. The Foundations lessons will give you the building blocks everything else sits on.'},
+  A1:{label:'Beginner', ielts:'Below IELTS 4.0',
+       desc:'You can handle very simple sentences and everyday patterns. Next, strengthen the basics: tenses, articles, prepositions and how to count things.'},
+  A2:{label:'Elementary', ielts:'Below IELTS 4.0',
+       desc:'You can use simple everyday grammar with reasonable accuracy. The next step is joining ideas together and using a wider range of tenses and structures.'},
+  B1:{label:'Intermediate', ielts:'About IELTS 4.0–5.0',
+       desc:'You handle many common structures. To move up, work on patterns that add detail and variety: conditionals, passives, clauses and reported speech.'},
+  B2:{label:'Upper-intermediate', ielts:'About IELTS 5.5–6.5',
+       desc:'You use a wide range of structures with good control. Polishing accuracy and the more complex patterns will take you further.'},
+  C1:{label:'Advanced', ielts:'About IELTS 7.0 or higher',
+       desc:'You use complex grammar accurately and flexibly. This check stops at C1, so your level may be even higher. Focus on the fine detail: formal patterns and unusual word orders.'}
+};
+
+// ==PURE-START==
+function computeResults(answers){
+  const per = LEVELS.map(()=>({correct:0,total:0}));
+  let score = 0;
+  QUESTIONS.forEach(q=>{
+    per[q.lv].total++;
+    if(answers[q.id]===q.a){ per[q.lv].correct++; score++; }
+  });
+  let placed = -1;
+  for(let i=0;i<LEVELS.length;i++){
+    if(per[i].correct/per[i].total >= PASS) placed = i; else break;
+  }
+  let near = false;
+  if(placed < LEVELS.length-1){
+    const n = per[placed+1];
+    near = (n.correct/n.total >= NEAR);
+  }
+  const lessonW={}, lessonMiss={}, lessonTotal={};
+  LESSONS.forEach(l=>{ lessonW[l.id]=0; lessonMiss[l.id]=0; lessonTotal[l.id]=0; });
+  QUESTIONS.forEach(q=>{
+    const wrong = answers[q.id]!==q.a;
+    const w = q.lv<=placed ? 2 : (q.lv===placed+1 ? 1 : (q.lv===placed+2 ? 0.5 : 0));
+    q.ls.forEach(id=>{
+      lessonTotal[id]++;
+      if(wrong){ lessonMiss[id]++; lessonW[id]+=w; }
+    });
+  });
+  const plan = LESSONS.map((l,i)=>({l,i,w:lessonW[l.id]}))
+    .filter(x=>x.w>0)
+    .sort((a,b)=> b.w-a.w || a.i-b.i)
+    .slice(0,5)
+    .map(x=>x.l.id);
+  return {per,score,placed,near,lessonMiss,lessonTotal,plan};
+}
+// ==PURE-END==
+
+// ===== STATE =====
+let answers = {};
+let order = {};
+let submitted = false;
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function shuffle(a){ const b=a.slice(); for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+function lessonById(id){ return LESSONS.find(l=>l.id===id); }
+
+function render(){
+  order = {};
+  QUESTIONS.forEach(q=>{ order[q.id] = shuffle(q.o); });
+  document.getElementById('questions').innerHTML = QUESTIONS.map((q,n)=>{
+    const opts = order[q.id];
+    const long = opts.some(o=>o.length>30);
+    const btns = opts.map((o,i)=>'<button class="mc-btn'+(long?' long':'')+'" data-q="'+q.id+'" data-i="'+i+'">'+esc(o)+'</button>').join('');
+    return '<div class="q-card" id="card-'+q.id+'"><div class="q-num">Question '+(n+1)+' of '+TOTAL+'</div>'+
+           '<div class="q-text">'+q.q+'</div>'+
+           '<div class="mc-opts'+(long?' stack':'')+'">'+btns+'<button class="mc-btn unsure" data-q="'+q.id+'" data-i="u">Not sure</button></div></div>';
+  }).join('');
 }
 
-function checkMC(btn, qId, correct, why) {
-  const card = document.getElementById(qId);
-  card.querySelectorAll('.mc-btn').forEach(b => b.disabled = true);
-  const fb = document.getElementById(qId+'-fb');
-  const ok = btn.textContent.trim() === correct;
-  if (ok) {
-    btn.classList.add('sel-ok','pop'); card.classList.add('correct');
-    fb.innerHTML = '✓ Correct! ' + why; fb.className = 'fb show ok';
-    scores.mc[qId] = true;
-  } else {
-    btn.classList.add('sel-bad','pop'); card.classList.add('wrong');
-    card.querySelectorAll('.mc-btn').forEach(b => { if (b.textContent.trim() === correct) b.classList.add('rev-ok'); });
-    fb.innerHTML = '✗ Not quite. The answer is "' + correct + '". ' + why; fb.className = 'fb show bad';
-    scores.mc[qId] = false;
-  }
+function updateProgress(){
+  const n = Object.keys(answers).length;
+  document.getElementById('pb').style.width = Math.round(n/TOTAL*100)+'%';
+  document.getElementById('count').textContent = n+' of '+TOTAL+' answered';
+}
+
+function choose(qid, i){
+  if(submitted) return;
+  const card = document.getElementById('card-'+qid);
+  card.querySelectorAll('.mc-btn').forEach(b=>b.classList.toggle('sel', b.dataset.i===i));
+  card.classList.remove('flag'); card.classList.add('answered');
+  answers[qid] = (i==='u') ? UNSURE : order[qid][Number(i)];
+  document.getElementById('submit-msg').textContent = '';
   updateProgress();
 }
 
-function getScore() { return Object.values(scores.mc).filter(Boolean).length; }
+document.getElementById('questions').addEventListener('click', e=>{
+  const btn = e.target.closest('.mc-btn');
+  if(!btn || btn.disabled) return;
+  choose(btn.dataset.q, btn.dataset.i);
+});
+document.getElementById('submit-btn').addEventListener('click', submit);
 
-function showResults() {
-  const sc = getScore();
-  const pct = Math.round(sc/TOTAL*100);
-  document.getElementById('s-ring').style.setProperty('--pct', pct);
-  document.getElementById('s-num').textContent = sc+'/'+TOTAL;
-
-  const msgs = [
-    [0,39,'Lots to work on — that\'s exactly what this is for! 💪','Focus on the priority lessons below, then retake this assessment.'],
-    [40,64,'A solid start! 👍','You have a good base, with some clear gaps to close.'],
-    [65,84,'Well done! ✨','Your grammar is strong, with just a few areas to polish.'],
-    [85,100,'Excellent! 🎉','Outstanding — your grammar is in great shape across the board!'],
-  ];
-  const [,,msg,sub] = msgs.find(([lo,hi]) => pct >= lo && pct <= hi);
-  document.getElementById('s-msg').textContent = msg;
-  document.getElementById('s-sub').textContent = sub;
-
-  // Compute per-topic scores
-  const topicScores = TOPICS.map(t => {
-    const correct = t.qids.filter(q => scores.mc[q]).length;
-    return { ...t, correct, total: t.qids.length };
-  });
-
-  // Sort weakest first (score ascending), ties keep curriculum order (stable sort)
-  const sorted = [...topicScores].sort((a,b) => a.correct - b.correct);
-  const weakest = sorted.filter(t => t.correct < t.total).slice(0, 5);
-
-  const priorityList = document.getElementById('priority-list');
-  if (weakest.length === 0) {
-    priorityList.innerHTML = '<div class="priority-empty">🎉 You scored perfectly on every topic — no priority lessons needed! Consider skimming any lesson for a refresher.</div>';
-  } else {
-    priorityList.innerHTML = weakest.map(t => `
-      <div class="priority-row">
-        <div>
-          <span class="priority-name">${t.name}</span>
-          <span class="priority-score">${t.correct}/${t.total}</span>
-        </div>
-        <a class="priority-link" href="${t.file}">Study this →</a>
-      </div>
-    `).join('');
+function submit(){
+  const missing = QUESTIONS.filter(q=>!(q.id in answers));
+  if(missing.length){
+    missing.forEach(q=>document.getElementById('card-'+q.id).classList.add('flag'));
+    document.getElementById('submit-msg').textContent = missing.length+' question'+(missing.length>1?'s are':' is')+' still unanswered. Please answer them, or choose “Not sure”.';
+    document.getElementById('card-'+missing[0].id).scrollIntoView({behavior:'smooth',block:'center'});
+    return;
   }
+  submitted = true;
+  document.querySelectorAll('#questions .mc-btn').forEach(b=>b.disabled=true);
+  document.getElementById('submit-wrap').style.display='none';
+  showResults(computeResults(answers));
+}
 
-  // Full grid, curriculum order
-  const grid = document.getElementById('topic-grid');
-  grid.innerHTML = TOPICS.map(t => {
-    const correct = t.qids.filter(q => scores.mc[q]).length;
-    const total = t.qids.length;
-    const pct2 = Math.round(correct/total*100);
-    let color = '#166534', bg = '#dcfce7';
-    if (correct === 0) { color = '#9f1239'; bg = '#fff1f2'; }
-    else if (correct < total) { color = '#b45309'; bg = '#fffbeb'; }
-    return `
-      <div class="topic-row">
-        <div>
-          <span class="topic-name">${t.name}</span>
-          <span class="topic-section-lbl">${t.section}</span>
-        </div>
-        <div class="topic-bar-wrap"><div class="topic-bar" style="width:${pct2}%;background:${color}"></div></div>
-        <div style="display:flex;align-items:center;gap:.6rem">
-          <span class="topic-score" style="color:${color}">${correct}/${total}</span>
-          <a class="topic-link" style="background:${bg};color:${color}" href="${t.file}">Review</a>
-        </div>
-      </div>
-    `;
+function showResults(r){
+  const key = r.placed<0 ? 'pre' : LEVELS[r.placed];
+  const info = LEVEL_INFO[key];
+  const badge = r.placed<0 ? 'Early A1' : (r.placed===4 ? 'C1+' : LEVELS[r.placed]);
+  let close = '';
+  if(r.placed<4 && r.near){ close = 'You are close to '+LEVELS[r.placed+1]+'.'; }
+  else if(r.placed===4){ close = 'You answered the top level well. Your level may be higher than C1.'; }
+
+  // level bars
+  const bars = LEVELS.map((L,i)=>{
+    const p = r.per[i]; const pct = Math.round(p.correct/p.total*100);
+    const ok = p.correct/p.total>=PASS;
+    const col = ok ? '#166534' : (p.correct/p.total>=NEAR ? '#b45309' : '#9f1239');
+    return '<div class="lvl-row"><div class="lvl-name">'+L+'</div><div class="lvl-bar-wrap"><div class="lvl-bar" style="width:'+pct+'%;background:'+col+'"></div></div><div class="lvl-score" style="color:'+col+'">'+p.correct+'/'+p.total+'</div></div>';
   }).join('');
 
-  const sec = document.getElementById('results-sec');
-  sec.classList.add('show');
-  sec.scrollIntoView({behavior:'smooth', block:'center'});
+  // study plan
+  let plan;
+  if(r.plan.length===0){
+    plan = '<div class="plan-empty">🎉 No gaps showed up. Your answers were strong across every area, so no lesson is a priority. Skim any lesson if you want a refresher.</div>';
+  } else {
+    plan = r.plan.map((id,n)=>{
+      const l = lessonById(id);
+      return '<div class="plan-row"><div class="plan-num">'+(n+1)+'</div><div class="plan-main"><div class="plan-name">'+l.name+'</div><div class="plan-why">You missed '+r.lessonMiss[id]+' of '+r.lessonTotal[id]+' questions that involve this topic</div></div><a class="plan-link" href="'+l.file+'">Start lesson →</a></div>';
+    }).join('');
+  }
+
+  // lesson map
+  const map = LESSONS.map(l=>{
+    const miss = r.lessonMiss[l.id], tot = r.lessonTotal[l.id];
+    let col='#166534', bg='#dcfce7';
+    if(miss>0 && miss/tot<0.5){ col='#b45309'; bg='#fffbeb'; }
+    else if(miss>0){ col='#9f1239'; bg='#fff1f2'; }
+    return '<div class="map-row"><div><span class="map-name">'+l.name+'</span><span class="map-sec">'+l.sec+'</span></div><div class="map-score" style="color:'+col+'">'+(tot-miss)+'/'+tot+' right</div><a class="map-link" style="background:'+bg+';color:'+col+'" href="'+l.file+'">Open</a></div>';
+  }).join('');
+
+  // review of missed questions
+  const missed = QUESTIONS.map((q,n)=>({q,n})).filter(x=>answers[x.q.id]!==x.q.a);
+  const review = missed.length===0
+    ? '<div class="plan-empty">You got every question right. Nothing to review!</div>'
+    : missed.map(x=>{
+        const yours = answers[x.q.id]===UNSURE ? '<em>Not sure</em>' : esc(answers[x.q.id]);
+        return '<details class="rev"><summary>Question '+(x.n+1)+'<span class="rev-lvl">'+LEVELS[x.q.lv]+'</span></summary><div class="rev-body"><div class="rev-q">'+x.q.q+'</div><div>Your answer: <span class="rev-yours">'+yours+'</span></div><div>Correct answer: <span class="rev-right">'+esc(x.q.a)+'</span></div><div style="margin-top:.4rem">'+x.q.w+'</div></div></details>';
+      }).join('');
+
+  document.getElementById('results').innerHTML =
+    '<div class="res-hero">'+
+      '<div class="lvl-badge">'+badge+'</div>'+
+      '<div class="res-title">'+(r.placed<0 ? info.label : 'Approximate level: '+(r.placed===4?'C1 or above':LEVELS[r.placed])+' · '+info.label)+'</div>'+
+      (close?'<div class="res-close">'+close+'</div>':'')+
+      '<div class="res-desc">'+info.desc+'</div>'+
+      '<div class="res-chips"><div class="chip">Score: <strong>'+r.score+'/'+TOTAL+'</strong></div><div class="chip">Rough IELTS guide: <strong>'+info.ielts+'</strong></div></div>'+
+      '<div class="caveat"><strong>Please note:</strong> this is an estimate of your <em>grammar</em> only. IELTS also tests listening, reading, writing and speaking, and CEFR levels cover all skills. Use this as a starting point for studying, not as an official result.</div>'+
+    '</div>'+
+    '<div class="box-title">Your Score at Each Level</div>'+
+    '<div class="box-sub">A level counts as secure when you answered about 60% or more of its questions correctly.</div>'+bars+
+    '<div class="box-title">Start Here: Your Study Plan</div>'+
+    '<div class="box-sub">Based on the questions you missed, in order of priority. Do the first one first.</div>'+
+    '<div class="plan-box">'+plan+'</div>'+
+    '<div class="box-title">All Lessons at a Glance</div>'+
+    '<div class="box-sub">How you did on the questions that involve each lesson. Many questions test more than one topic.</div>'+map+
+    '<div class="box-title">Review Your Mistakes</div>'+
+    '<div class="box-sub">Tap a question to see the correct answer and why.</div>'+review+
+    '<div class="res-actions"><button class="big-btn" id="retake-btn">Retake the Check 🔄</button></div>';
+
+  const res = document.getElementById('results');
+  res.classList.add('show');
+  document.getElementById('retake-btn').addEventListener('click', retake);
+  res.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function retryAll() {
-  ALL_QIDS.forEach(qId => {
-    const card = document.getElementById(qId);
-    card.classList.remove('correct','wrong');
-    card.querySelectorAll('.mc-btn').forEach(b => { b.disabled = false; b.classList.remove('sel-ok','sel-bad','rev-ok','pop'); });
-    const fb = document.getElementById(qId+'-fb'); fb.className = 'fb'; fb.textContent = '';
-  });
-  Object.keys(scores.mc).forEach(k => delete scores.mc[k]);
-  document.getElementById('pb').style.width = '0%';
-  document.getElementById('results-sec').classList.remove('show');
-  window.scrollTo({top:0, behavior:'smooth'});
+function retake(){
+  answers = {}; submitted = false;
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('results').innerHTML = '';
+  document.getElementById('submit-wrap').style.display='';
+  document.getElementById('submit-msg').textContent='';
+  render(); updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
+render(); updateProgress();
 </script>
 </body>
 </html>
