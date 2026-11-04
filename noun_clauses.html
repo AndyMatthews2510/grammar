@@ -347,6 +347,63 @@
 </div>
 <hr class="div">
 
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr">
+    <span class="ex-badge amber">Exercise 1</span>
+    <h2 class="ex-title">Find the Noun Clause</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Click every word that belongs to the noun clause, then press <strong>Check</strong>.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 <!-- SECTION 2 -->
 <div class="section">
   <h2 class="sec-title">What Can a Noun Clause Do?</h2>
@@ -376,6 +433,63 @@
   </div>
 </div>
 <hr class="div">
+<!-- ══ EXERCISE 2 ══ -->
+<div class="section" id="nq1">
+  <div class="ex-hdr"><span class="ex-badge rose">Exercise 2</span><h2 class="ex-title">What Job Does the Clause Do?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">The underlined part is a noun clause. What role does it play in the sentence?</p>
+
+  <div class="q-card" id="nq1_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text"><u>What she said</u> surprised everyone.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','Subject','The clause does the action of surprised, and it comes first. It is the subject.')">Object</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','Subject','The clause does the action of surprised, and it comes first. It is the subject.')">Subject</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','Subject','The clause does the action of surprised, and it comes first. It is the subject.')">Complement</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','Subject','The clause does the action of surprised, and it comes first. It is the subject.')">After a preposition</button>
+    </div>
+    <div class="fb" id="nq1_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">She told me <u>that she was leaving</u>.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','Object','The clause receives the action of told. It is the object.')">Object</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','Object','The clause receives the action of told. It is the object.')">Subject</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','Object','The clause receives the action of told. It is the object.')">Complement</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','Object','The clause receives the action of told. It is the object.')">After a preposition</button>
+    </div>
+    <div class="fb" id="nq1_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">The problem is <u>that nobody listened</u>.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','Complement','The clause comes after be and completes its meaning. It is a complement.')">Subject</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','Complement','The clause comes after be and completes its meaning. It is a complement.')">Object</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','Complement','The clause comes after be and completes its meaning. It is a complement.')">Complement</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','Complement','The clause comes after be and completes its meaning. It is a complement.')">After a preposition</button>
+    </div>
+    <div class="fb" id="nq1_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">I'm not sure about <u>what you mean</u>.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','After a preposition','The clause follows the preposition about.')">After a preposition</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','After a preposition','The clause follows the preposition about.')">Subject</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','After a preposition','The clause follows the preposition about.')">Object</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','After a preposition','The clause follows the preposition about.')">Complement</button>
+    </div>
+    <div class="fb" id="nq1_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq1()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 
 <!-- SECTION 3 -->
 <div class="section">
@@ -411,74 +525,10 @@
 </div>
 <hr class="div">
 
-<!-- SECTION 4 -->
-<div class="section">
-  <h2 class="sec-title">Starting a Sentence with "It"</h2>
-  <p class="sec-sub">Sometimes a noun clause is really the subject of the sentence — but starting with a long clause sounds heavy. English often moves it to the end and puts a small placeholder word, <strong>it</strong>, at the front instead.</p>
-
-  <div class="def-box">
-    When a noun clause would make an awkward subject, move it to the <strong>end</strong> of the sentence and start with <strong>it</strong> instead. The meaning doesn't change — only the order.
-  </div>
-
-  <div class="compare">
-    <div class="cmp before">
-      <div class="lbl">Clause first (heavy)</div>
-      <div class="sent">"<em>That she passed the exam</em> surprised nobody."</div>
-      <div class="note">Correct, but sounds stiff.</div>
-    </div>
-    <div class="cmp after">
-      <div class="lbl">With "it" (natural)</div>
-      <div class="sent">"<span class="hi-v">It</span> surprised nobody <span class="hi-v">that she passed the exam</span>."</div>
-      <div class="note">✓ Much more natural!</div>
-    </div>
-  </div>
-
-  <div class="analogy">
-    💡 Think of "it" as holding the subject's place at the front of the queue while the real subject — the noun clause — waits at the back.
-  </div>
-
-  <div class="key-rule">
-    🔑 <strong>Key rule:</strong> <em>It + be/verb + (adjective) + that-clause.</em> "That" can often be dropped in speech: "It's clear (that) he's tired."
-  </div>
-</div>
-<hr class="div">
-
-<!-- SECTION 5 -->
-<div class="section">
-  <h2 class="sec-title">Giving Strong Advice: the Base-Form Rule</h2>
-  <p class="sec-sub">After certain verbs and phrases that give strong advice, orders, or urgent opinions, the verb inside the clause behaves in a special way.</p>
-
-  <div class="def-box">
-    After words like <strong>suggest, recommend, insist, demand, propose</strong> — or phrases like <strong>it's important / essential / vital that</strong> — the verb inside the clause stays in its <strong>plain base form</strong> (no <em>-s</em>, no past tense, no "to"), no matter who or what the subject is.
-  </div>
-
-  <div class="compare">
-    <div class="cmp before">
-      <div class="lbl">A normal fact</div>
-      <div class="sent">"I know that he <em>arrives</em> on time."</div>
-      <div class="note">Regular verb form — matches the subject.</div>
-    </div>
-    <div class="cmp after">
-      <div class="lbl">Strong advice</div>
-      <div class="sent">"I suggest that he <span class="hi-v">arrive</span> on time."</div>
-      <div class="note">✓ Base form — never "arrives" or "arrived".</div>
-    </div>
-  </div>
-
-  <div class="analogy">
-    💡 It doesn't matter if the subject is "he", "she" or "it" — the verb never changes. Even "be" stays in its plain form: "It's essential that she <strong>be</strong> on time," not "is".
-  </div>
-
-  <div class="key-rule">
-    🔑 <strong>Key rule:</strong> Strong-advice word/phrase + subject + <em>base-form verb</em>. For negatives, put "not" before the base form: "It's essential that she <strong>not be</strong> late."
-  </div>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 1 ══ -->
+<!-- ══ EXERCISE 3 ══ -->
 <div class="section" id="ex1">
   <div class="ex-hdr">
-    <span class="ex-badge">Exercise 1</span>
+    <span class="ex-badge">Exercise 3</span>
     <h2 class="ex-title">Choose the Right Connector</h2>
   </div>
   <div class="word-bank">
@@ -549,10 +599,10 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 2 ══ -->
+<!-- ══ EXERCISE 4 ══ -->
 <div class="section" id="ex2">
   <div class="ex-hdr">
-    <span class="ex-badge rose">Exercise 2</span>
+    <span class="ex-badge rose">Exercise 4</span>
     <h2 class="ex-title">Fix the Word Order</h2>
   </div>
   <p class="sec-sub" style="margin-bottom:1.5rem">These sentences have question word order inside the noun clause — which is wrong! Rewrite each one correctly.</p>
@@ -605,67 +655,188 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 3 ══ -->
-<div class="section" id="ex3">
-  <div class="ex-hdr">
-    <span class="ex-badge amber">Exercise 3</span>
-    <h2 class="ex-title">Find the Noun Clause</h2>
-  </div>
-  <p class="sec-sub" style="margin-bottom:1.5rem">Click every word that belongs to the noun clause, then press <strong>Check</strong>.</p>
+<!-- SECTION 4 -->
+<div class="section">
+  <h2 class="sec-title">Starting a Sentence with "It"</h2>
+  <p class="sec-sub">Sometimes a noun clause is really the subject of the sentence — but starting with a long clause sounds heavy. English often moves it to the end and puts a small placeholder word, <strong>it</strong>, at the front instead.</p>
 
-  <div class="id-card" id="i1">
-    <div class="q-num">Sentence 1 of 5</div>
-    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
-    <div class="tokens" id="i1-tok"></div>
-    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
-    <div class="fb" id="i1-fb"></div>
+  <div class="def-box">
+    When a noun clause would make an awkward subject, move it to the <strong>end</strong> of the sentence and start with <strong>it</strong> instead. The meaning doesn't change — only the order.
   </div>
 
-  <div class="id-card" id="i2">
-    <div class="q-num">Sentence 2 of 5</div>
-    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
-    <div class="tokens" id="i2-tok"></div>
-    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
-    <div class="fb" id="i2-fb"></div>
+  <div class="compare">
+    <div class="cmp before">
+      <div class="lbl">Clause first (heavy)</div>
+      <div class="sent">"<em>That she passed the exam</em> surprised nobody."</div>
+      <div class="note">Correct, but sounds stiff.</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">With "it" (natural)</div>
+      <div class="sent">"<span class="hi-v">It</span> surprised nobody <span class="hi-v">that she passed the exam</span>."</div>
+      <div class="note">✓ Much more natural!</div>
+    </div>
   </div>
 
-  <div class="id-card" id="i3">
-    <div class="q-num">Sentence 3 of 5</div>
-    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
-    <div class="tokens" id="i3-tok"></div>
-    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
-    <div class="fb" id="i3-fb"></div>
+  <div class="analogy">
+    💡 Think of "it" as holding the subject's place at the front of the queue while the real subject — the noun clause — waits at the back.
   </div>
 
-  <div class="id-card" id="i4">
-    <div class="q-num">Sentence 4 of 5</div>
-    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
-    <div class="tokens" id="i4-tok"></div>
-    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
-    <div class="fb" id="i4-fb"></div>
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> <em>It + be/verb + (adjective) + that-clause.</em> "That" can often be dropped in speech: "It's clear (that) he's tired."
+  </div>
+</div>
+<hr class="div">
+<!-- ══ EXERCISE 5 ══ -->
+<div class="section" id="nq2">
+  <div class="ex-hdr"><span class="ex-badge amber">Exercise 5</span><h2 class="ex-title">Move the Clause: Starting with "It"</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Choose the option that uses the placeholder "it" correctly.</p>
+
+  <div class="q-card" id="nq2_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">__________ surprised nobody that she passed the exam.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','It','It holds the subject\'s place while the real subject (that she passed the exam) moves to the end.')">It</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','It','It holds the subject\'s place while the real subject (that she passed the exam) moves to the end.')">That</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','It','It holds the subject\'s place while the real subject (that she passed the exam) moves to the end.')">What</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','It','It holds the subject\'s place while the real subject (that she passed the exam) moves to the end.')">There</button>
+    </div>
+    <div class="fb" id="nq2_1-fb"></div>
   </div>
 
-  <div class="id-card" id="i5">
-    <div class="q-num">Sentence 5 of 5</div>
-    <div class="id-instruct">Click all the words in the noun clause (including the connector word).</div>
-    <div class="tokens" id="i5-tok"></div>
-    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
-    <div class="fb" id="i5-fb"></div>
+  <div class="q-card" id="nq2_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">Which is the natural way to say: "That he is tired is clear"?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','It is clear that he is tired.','Start with it, then be + adjective, then the that-clause.')">Is clear that he is tired.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','It is clear that he is tired.','Start with it, then be + adjective, then the that-clause.')">It that he is tired is clear.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','It is clear that he is tired.','Start with it, then be + adjective, then the that-clause.')">It is clear that he is tired.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','It is clear that he is tired.','Start with it, then be + adjective, then the that-clause.')">That is clear he is tired.</button>
+    </div>
+    <div class="fb" id="nq2_2-fb"></div>
   </div>
 
-  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+  <div class="q-card" id="nq2_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">__________ is a pity that the shop is closed.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','It','The pattern is It + be + adjective/noun + that-clause.')">It</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','It','The pattern is It + be + adjective/noun + that-clause.')">There</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','It','The pattern is It + be + adjective/noun + that-clause.')">This</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','It','The pattern is It + be + adjective/noun + that-clause.')">What</button>
+    </div>
+    <div class="fb" id="nq2_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">It is obvious __________ she is angry.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','that','After it is obvious, the real subject is a that-clause.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','that','After it is obvious, the real subject is a that-clause.')">it</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','that','After it is obvious, the real subject is a that-clause.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','that','After it is obvious, the real subject is a that-clause.')">who</button>
+    </div>
+    <div class="fb" id="nq2_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 4 ══ -->
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2 class="sec-title">Giving Strong Advice: the Base-Form Rule</h2>
+  <p class="sec-sub">After certain verbs and phrases that give strong advice, orders, or urgent opinions, the verb inside the clause behaves in a special way.</p>
+
+  <div class="def-box">
+    After words like <strong>suggest, recommend, insist, demand, propose</strong> — or phrases like <strong>it's important / essential / vital that</strong> — the verb inside the clause stays in its <strong>plain base form</strong> (no <em>-s</em>, no past tense, no "to"), no matter who or what the subject is.
+  </div>
+
+  <div class="compare">
+    <div class="cmp before">
+      <div class="lbl">A normal fact</div>
+      <div class="sent">"I know that he <em>arrives</em> on time."</div>
+      <div class="note">Regular verb form — matches the subject.</div>
+    </div>
+    <div class="cmp after">
+      <div class="lbl">Strong advice</div>
+      <div class="sent">"I suggest that he <span class="hi-v">arrive</span> on time."</div>
+      <div class="note">✓ Base form — never "arrives" or "arrived".</div>
+    </div>
+  </div>
+
+  <div class="analogy">
+    💡 It doesn't matter if the subject is "he", "she" or "it" — the verb never changes. Even "be" stays in its plain form: "It's essential that she <strong>be</strong> on time," not "is".
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> Strong-advice word/phrase + subject + <em>base-form verb</em>. For negatives, put "not" before the base form: "It's essential that she <strong>not be</strong> late."
+  </div>
+</div>
+<hr class="div">
+<!-- ══ EXERCISE 6 ══ -->
+<div class="section" id="nq3">
+  <div class="ex-hdr"><span class="ex-badge teal">Exercise 6</span><h2 class="ex-title">Strong Advice: Base Form</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">After words like suggest, insist, and phrases like "it is essential that", the verb stays in its base form.</p>
+
+  <div class="q-card" id="nq3_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">I suggest that he __________ on time.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq3_1','arrive','After suggest, the verb stays in the plain base form: he arrive.')">arrive</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_1','arrive','After suggest, the verb stays in the plain base form: he arrive.')">arrives</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_1','arrive','After suggest, the verb stays in the plain base form: he arrive.')">arrived</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_1','arrive','After suggest, the verb stays in the plain base form: he arrive.')">arriving</button>
+    </div>
+    <div class="fb" id="nq3_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq3_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">It is essential that she __________ late.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq3_2','not be','Put not before the base form: not be late.')">not be</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_2','not be','Put not before the base form: not be late.')">is not</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_2','not be','Put not before the base form: not be late.')">not being</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_2','not be','Put not before the base form: not be late.')">does not be</button>
+    </div>
+    <div class="fb" id="nq3_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq3_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">The manager insisted that every employee __________ the form.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq3_3','sign','After insist (a demand), the verb is the base form: sign, even with a singular subject.')">signs</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_3','sign','After insist (a demand), the verb is the base form: sign, even with a singular subject.')">is signing</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_3','sign','After insist (a demand), the verb is the base form: sign, even with a singular subject.')">sign</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_3','sign','After insist (a demand), the verb is the base form: sign, even with a singular subject.')">to sign</button>
+    </div>
+    <div class="fb" id="nq3_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq3_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">I know that he usually __________ on time. (a normal fact)</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq3_4','arrives','This is a normal fact, not advice, so the verb matches the subject: he arrives.')">arrive</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_4','arrives','This is a normal fact, not advice, so the verb matches the subject: he arrives.')">arrives</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_4','arrives','This is a normal fact, not advice, so the verb matches the subject: he arrives.')">arriving</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_4','arrives','This is a normal fact, not advice, so the verb matches the subject: he arrives.')">to arrive</button>
+    </div>
+    <div class="fb" id="nq3_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+
+<!-- ══ EXERCISE 7 ══ -->
 <div class="section" id="ex4">
   <div class="ex-hdr">
-    <span class="ex-badge teal">Exercise 4</span>
+    <span class="ex-badge teal">Exercise 7</span>
     <h2 class="ex-title">Mixed Review</h2>
   </div>
   <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — reporting facts, sentences with "it", strong advice, yes/no questions, and question words.</p>
@@ -877,16 +1048,16 @@
 
 <!-- SCORE -->
 <div id="score-sec">
-  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/30</div></div>
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/42</div></div>
   <div class="s-msg" id="s-msg">Well done!</div>
-  <div class="s-sub" id="s-sub">You completed all four exercises.</div>
+  <div class="s-sub" id="s-sub">You completed all the exercises.</div>
   <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
 </div>
 
 <footer>Noun Clauses — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL = 30;
+const TOTAL = (30) + 12;
 const scores = { mc:{}, cmb:{}, id:{} };
 
 function getScore(){ return Object.values(scores.mc).filter(Boolean).length + Object.values(scores.cmb).filter(Boolean).length + Object.values(scores.id).filter(Boolean).length; }
@@ -1047,6 +1218,25 @@ function retryAll(){
 }
 
 buildTokens();
+</script>
+<script>
+(function(){
+  function resetMini(ids){
+    ids.forEach(function(id){
+      var card=document.getElementById(id);if(!card)return;
+      card.classList.remove('correct','wrong');
+      card.querySelectorAll('.mc-btn').forEach(function(b){b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+      if(scores&&scores.mc)delete scores.mc[id];
+      var fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+    });
+    updateProgress();
+  }
+  window.resetNq1=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4']);};
+  window.resetNq2=function(){resetMini(['nq2_1', 'nq2_2', 'nq2_3', 'nq2_4']);};
+  window.resetNq3=function(){resetMini(['nq3_1', 'nq3_2', 'nq3_3', 'nq3_4']);};
+  var _retry=retryAll;
+  retryAll=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4', 'nq2_1', 'nq2_2', 'nq2_3', 'nq2_4', 'nq3_1', 'nq3_2', 'nq3_3', 'nq3_4']);_retry();};
+})();
 </script>
 </body>
 </html>

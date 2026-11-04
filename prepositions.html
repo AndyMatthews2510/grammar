@@ -186,6 +186,65 @@
 </div>
 <hr class="div">
 
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge sage">Exercise 1</span><h2 class="ex-title">Click the Prepositional Phrase</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence has a specific prepositional phrase to find. Read the task, click the words, then press Check.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-task">🎯 Click the <strong>place</strong> prepositional phrase.</div>
+    <div class="id-instruct">Click all the words that form the place prepositional phrase.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-task">🎯 Click the <strong>time</strong> prepositional phrase.</div>
+    <div class="id-instruct">Click all the words that form the time prepositional phrase.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-task">🎯 Click the <strong>direction</strong> prepositional phrase (the one showing movement towards somewhere).</div>
+    <div class="id-instruct">Click all the words that form the direction prepositional phrase.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-task">🎯 Click the <strong>duration</strong> prepositional phrase (how long the action lasted).</div>
+    <div class="id-instruct">Click all the words that form the duration prepositional phrase.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-task">🎯 Click the <strong>fixed phrase preposition</strong> — the preposition that follows the adjective.</div>
+    <div class="id-instruct">Click just the preposition word.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 <!-- SECTION 2: TIME -->
 <div class="section">
   <h2 class="sec-title">Prepositions of Time</h2>
@@ -266,160 +325,9 @@
 </div>
 <hr class="div">
 
-<!-- SECTION 3: PLACE -->
-<div class="section">
-  <h2 class="sec-title">Prepositions of Place</h2>
-  <p class="sec-sub">Again, in, on and at are the core — but each has a distinct logic.</p>
-
-  <div class="trio">
-    <div class="trio-card t-in">
-      <div class="trio-word">in</div>
-      <div class="trio-rule">
-        <strong>Inside an enclosed space</strong><br>
-        Rooms · Buildings · Containers<br>
-        Cities · Countries · Areas
-      </div>
-      <div class="trio-ex">
-        in the box · in the room · in a car<br>
-        in the kitchen · in the park<br>
-        in Bangkok · in Thailand
-      </div>
-    </div>
-    <div class="trio-card t-on">
-      <div class="trio-word">on</div>
-      <div class="trio-rule">
-        <strong>On a surface or line</strong><br>
-        Flat surfaces · Transport (public)<br>
-        Streets · Floors
-      </div>
-      <div class="trio-ex">
-        on the table · on the floor · on the wall<br>
-        on the bus · on a plane · on a ship<br>
-        on Oxford Street · on the left
-      </div>
-    </div>
-    <div class="trio-card t-at">
-      <div class="trio-word">at</div>
-      <div class="trio-rule">
-        <strong>A specific point or location</strong><br>
-        Addresses · Events / venues<br>
-        Precise spots
-      </div>
-      <div class="trio-ex">
-        at the door · at the bus stop<br>
-        at school · at work · at a party<br>
-        at the top · at 5 Park Street
-      </div>
-    </div>
-  </div>
-
-  <div class="rule-grid">
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--blue3);font-size:1rem">above/<br>below</div>
-      <div class="rule-body">Higher or lower than something, without touching.<br><em>"The painting is above the fireplace." &nbsp; "The temperature fell below zero."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--blue3);font-size:1rem">between/<br>among</div>
-      <div class="rule-body"><strong>Between</strong> = two things. <strong>Among</strong> = three or more / a group.<br><em>"She sat between Tom and Sarah." &nbsp; "He was popular among his students."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--blue3);font-size:1rem">next to /<br>beside</div>
-      <div class="rule-body">Immediately to the side of something.<br><em>"The café is next to the bank." &nbsp; "Sit beside me."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--blue3);font-size:1rem">in front of /<br>behind</div>
-      <div class="rule-body">Position relative to the front or back of something.<br><em>"The car parked in front of the house." &nbsp; "The garden is behind the building."</em></div>
-    </div>
-  </div>
-
-  <div class="vs-strip">
-    <div class="vs-label">⚠️ in / on / at — the transport trap</div>
-    <div class="vs-row">
-      <strong>in</strong> a car / taxi / lift &nbsp;·&nbsp; <strong>on</strong> a bus / train / plane / bike / ship &nbsp;·&nbsp; <strong>at</strong> the station / airport (the location)<br>
-      ❌ <em>"She is on the car."</em> &nbsp;·&nbsp; ✓ <em>"She is <strong>in</strong> the car."</em> &nbsp; (private vehicles = <em>in</em>; public transport = <em>on</em>)
-    </div>
-  </div>
-</div>
-<hr class="div">
-
-<!-- SECTION 4: MOVEMENT -->
-<div class="section">
-  <h2 class="sec-title">Prepositions of Movement &amp; Direction</h2>
-  <p class="sec-sub">These show where something is going, not where it is.</p>
-
-  <div class="rule-grid">
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--rose)">to</div>
-      <div class="rule-body">Movement towards a <strong>destination</strong>. (Compare: <em>at/in</em> = already there)<br><em>"She walked to the station." &nbsp; "We're flying to Japan next month."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--rose)">into /<br>out of</div>
-      <div class="rule-body">Movement <strong>entering</strong> or <strong>leaving</strong> an enclosed space.<br><em>"He walked into the room." &nbsp; "She climbed out of the car."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--rose)">through</div>
-      <div class="rule-body">Movement passing <strong>from one side to the other</strong> of something.<br><em>"The train went through the tunnel." &nbsp; "She walked through the forest."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--rose)">across</div>
-      <div class="rule-body">Movement from <strong>one side to the other</strong> of a flat surface or open area.<br><em>"They swam across the river." &nbsp; "She ran across the road."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--rose)">along</div>
-      <div class="rule-body">Movement <strong>following the length</strong> of something.<br><em>"We walked along the beach." &nbsp; "Drive along this road for two miles."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--rose)">towards /<br>away from</div>
-      <div class="rule-body">Direction of movement — <strong>not necessarily reaching</strong> the destination.<br><em>"She moved towards the exit." &nbsp; "He walked away from the crowd."</em></div>
-    </div>
-    <div class="rule-row">
-      <div class="rule-prep" style="color:var(--rose)">past</div>
-      <div class="rule-body">Movement going <strong>by</strong> something without stopping.<br><em>"Drive past the church and turn left." &nbsp; "He ran past me without stopping."</em></div>
-    </div>
-  </div>
-</div>
-<hr class="div">
-
-<!-- SECTION 5: FIXED PHRASES -->
-<div class="section">
-  <h2 class="sec-title">Fixed Preposition Phrases</h2>
-  <p class="sec-sub">Many verbs and adjectives always take the same preposition. These must be learned as fixed combinations.</p>
-
-  <div class="phrase-grid">
-    <div class="phrase-card vp">
-      <div class="phrase-label">Verb + Preposition</div>
-      <div class="phrase-list">
-        wait <span class="phrase-prep">for</span> · listen <span class="phrase-prep">to</span><br>
-        depend <span class="phrase-prep">on</span> · rely <span class="phrase-prep">on</span><br>
-        apologise <span class="phrase-prep">for</span> · pay <span class="phrase-prep">for</span><br>
-        agree <span class="phrase-prep">with</span> · deal <span class="phrase-prep">with</span><br>
-        believe <span class="phrase-prep">in</span> · result <span class="phrase-prep">in</span><br>
-        belong <span class="phrase-prep">to</span> · refer <span class="phrase-prep">to</span><br>
-        consist <span class="phrase-prep">of</span> · dream <span class="phrase-prep">of/about</span>
-      </div>
-    </div>
-    <div class="phrase-card ap">
-      <div class="phrase-label">Adjective + Preposition</div>
-      <div class="phrase-list">
-        good / bad <span class="phrase-prep">at</span><br>
-        afraid / proud / capable <span class="phrase-prep">of</span><br>
-        interested / involved <span class="phrase-prep">in</span><br>
-        responsible / famous <span class="phrase-prep">for</span><br>
-        similar <span class="phrase-prep">to</span> · different <span class="phrase-prep">from</span><br>
-        full / aware / fond <span class="phrase-prep">of</span><br>
-        keen / dependent <span class="phrase-prep">on</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="key-rule">🔑 <strong>Key principle:</strong> With fixed phrases, you simply have to learn the combination — there is no logical rule. When you learn a new verb or adjective, learn its preposition at the same time: not just <em>interested</em> but <em>interested <strong>in</strong></em>.
-  </div>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 1 ══ -->
+<!-- ══ EXERCISE 2 ══ -->
 <div class="section" id="ex1">
-  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Prepositions of Time</h2></div>
+  <div class="ex-hdr"><span class="ex-badge">Exercise 2</span><h2 class="ex-title">Prepositions of Time</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Choose the correct preposition of time.</p>
 
   <div class="q-card" id="q1">
@@ -498,9 +406,180 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 2 ══ -->
+<!-- SECTION 3: PLACE -->
+<div class="section">
+  <h2 class="sec-title">Prepositions of Place</h2>
+  <p class="sec-sub">Again, in, on and at are the core — but each has a distinct logic.</p>
+
+  <div class="trio">
+    <div class="trio-card t-in">
+      <div class="trio-word">in</div>
+      <div class="trio-rule">
+        <strong>Inside an enclosed space</strong><br>
+        Rooms · Buildings · Containers<br>
+        Cities · Countries · Areas
+      </div>
+      <div class="trio-ex">
+        in the box · in the room · in a car<br>
+        in the kitchen · in the park<br>
+        in Bangkok · in Thailand
+      </div>
+    </div>
+    <div class="trio-card t-on">
+      <div class="trio-word">on</div>
+      <div class="trio-rule">
+        <strong>On a surface or line</strong><br>
+        Flat surfaces · Transport (public)<br>
+        Streets · Floors
+      </div>
+      <div class="trio-ex">
+        on the table · on the floor · on the wall<br>
+        on the bus · on a plane · on a ship<br>
+        on Oxford Street · on the left
+      </div>
+    </div>
+    <div class="trio-card t-at">
+      <div class="trio-word">at</div>
+      <div class="trio-rule">
+        <strong>A specific point or location</strong><br>
+        Addresses · Events / venues<br>
+        Precise spots
+      </div>
+      <div class="trio-ex">
+        at the door · at the bus stop<br>
+        at school · at work · at a party<br>
+        at the top · at 5 Park Street
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-grid">
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--blue3);font-size:1rem">above/<br>below</div>
+      <div class="rule-body">Higher or lower than something, without touching.<br><em>"The painting is above the fireplace." &nbsp; "The temperature fell below zero."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--blue3);font-size:1rem">between/<br>among</div>
+      <div class="rule-body"><strong>Between</strong> = two things. <strong>Among</strong> = three or more / a group.<br><em>"She sat between Tom and Sarah." &nbsp; "He was popular among his students."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--blue3);font-size:1rem">next to /<br>beside</div>
+      <div class="rule-body">Immediately to the side of something.<br><em>"The café is next to the bank." &nbsp; "Sit beside me."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--blue3);font-size:1rem">in front of /<br>behind</div>
+      <div class="rule-body">Position relative to the front or back of something.<br><em>"The car parked in front of the house." &nbsp; "The garden is behind the building."</em></div>
+    </div>
+  </div>
+
+  <div class="vs-strip">
+    <div class="vs-label">⚠️ in / on / at — the transport trap</div>
+    <div class="vs-row">
+      <strong>in</strong> a car / taxi / lift &nbsp;·&nbsp; <strong>on</strong> a bus / train / plane / bike / ship &nbsp;·&nbsp; <strong>at</strong> the station / airport (the location)<br>
+      ❌ <em>"She is on the car."</em> &nbsp;·&nbsp; ✓ <em>"She is <strong>in</strong> the car."</em> &nbsp; (private vehicles = <em>in</em>; public transport = <em>on</em>)
+    </div>
+  </div>
+</div>
+<hr class="div">
+<!-- ══ EXERCISE 3 ══ -->
+<div class="section" id="nq1">
+  <div class="ex-hdr"><span class="ex-badge teal">Exercise 3</span><h2 class="ex-title">Prepositions of Place</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Choose the correct preposition of place.</p>
+
+  <div class="q-card" id="nq1_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">She lives __________ Bangkok.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','in','Use in for cities and countries.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','in','Use in for cities and countries.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','in','Use in for cities and countries.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','in','Use in for cities and countries.')">to</button>
+    </div>
+    <div class="fb" id="nq1_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">I fell asleep __________ the bus.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','on','Use on for public transport (bus, train, plane).')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','on','Use on for public transport (bus, train, plane).')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','on','Use on for public transport (bus, train, plane).')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','on','Use on for public transport (bus, train, plane).')">by</button>
+    </div>
+    <div class="fb" id="nq1_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">The temperature fell __________ zero last night.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','below','Below means lower than something.')">above</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','below','Below means lower than something.')">behind</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','below','Below means lower than something.')">below</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','below','Below means lower than something.')">between</button>
+    </div>
+    <div class="fb" id="nq1_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">She was waiting __________ the bus stop.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','at','Use at for a specific point or location.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','at','Use at for a specific point or location.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','at','Use at for a specific point or location.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','at','Use at for a specific point or location.')">between</button>
+    </div>
+    <div class="fb" id="nq1_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq1()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+
+<!-- SECTION 4: MOVEMENT -->
+<div class="section">
+  <h2 class="sec-title">Prepositions of Movement &amp; Direction</h2>
+  <p class="sec-sub">These show where something is going, not where it is.</p>
+
+  <div class="rule-grid">
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--rose)">to</div>
+      <div class="rule-body">Movement towards a <strong>destination</strong>. (Compare: <em>at/in</em> = already there)<br><em>"She walked to the station." &nbsp; "We're flying to Japan next month."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--rose)">into /<br>out of</div>
+      <div class="rule-body">Movement <strong>entering</strong> or <strong>leaving</strong> an enclosed space.<br><em>"He walked into the room." &nbsp; "She climbed out of the car."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--rose)">through</div>
+      <div class="rule-body">Movement passing <strong>from one side to the other</strong> of something.<br><em>"The train went through the tunnel." &nbsp; "She walked through the forest."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--rose)">across</div>
+      <div class="rule-body">Movement from <strong>one side to the other</strong> of a flat surface or open area.<br><em>"They swam across the river." &nbsp; "She ran across the road."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--rose)">along</div>
+      <div class="rule-body">Movement <strong>following the length</strong> of something.<br><em>"We walked along the beach." &nbsp; "Drive along this road for two miles."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--rose)">towards /<br>away from</div>
+      <div class="rule-body">Direction of movement — <strong>not necessarily reaching</strong> the destination.<br><em>"She moved towards the exit." &nbsp; "He walked away from the crowd."</em></div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-prep" style="color:var(--rose)">past</div>
+      <div class="rule-body">Movement going <strong>by</strong> something without stopping.<br><em>"Drive past the church and turn left." &nbsp; "He ran past me without stopping."</em></div>
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 4 ══ -->
 <div class="section" id="ex2">
-  <div class="ex-hdr"><span class="ex-badge teal">Exercise 2</span><h2 class="ex-title">Prepositions of Place &amp; Movement</h2></div>
+  <div class="ex-hdr"><span class="ex-badge teal">Exercise 4</span><h2 class="ex-title">Prepositions of Place &amp; Movement</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Choose the correct preposition of place, direction or fixed phrase.</p>
 
   <div class="q-card" id="f1">
@@ -567,68 +646,103 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 3 ══ -->
-<div class="section" id="ex3">
-  <div class="ex-hdr"><span class="ex-badge sage">Exercise 3</span><h2 class="ex-title">Click the Prepositional Phrase</h2></div>
-  <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence has a specific prepositional phrase to find. Read the task, click the words, then press Check.</p>
+<!-- SECTION 5: FIXED PHRASES -->
+<div class="section">
+  <h2 class="sec-title">Fixed Preposition Phrases</h2>
+  <p class="sec-sub">Many verbs and adjectives always take the same preposition. These must be learned as fixed combinations.</p>
 
-  <div class="id-card" id="i1">
-    <div class="q-num">Sentence 1 of 5</div>
-    <div class="id-task">🎯 Click the <strong>place</strong> prepositional phrase.</div>
-    <div class="id-instruct">Click all the words that form the place prepositional phrase.</div>
-    <div class="tokens" id="i1-tok"></div>
-    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
-    <div class="fb" id="i1-fb"></div>
+  <div class="phrase-grid">
+    <div class="phrase-card vp">
+      <div class="phrase-label">Verb + Preposition</div>
+      <div class="phrase-list">
+        wait <span class="phrase-prep">for</span> · listen <span class="phrase-prep">to</span><br>
+        depend <span class="phrase-prep">on</span> · rely <span class="phrase-prep">on</span><br>
+        apologise <span class="phrase-prep">for</span> · pay <span class="phrase-prep">for</span><br>
+        agree <span class="phrase-prep">with</span> · deal <span class="phrase-prep">with</span><br>
+        believe <span class="phrase-prep">in</span> · result <span class="phrase-prep">in</span><br>
+        belong <span class="phrase-prep">to</span> · refer <span class="phrase-prep">to</span><br>
+        consist <span class="phrase-prep">of</span> · dream <span class="phrase-prep">of/about</span>
+      </div>
+    </div>
+    <div class="phrase-card ap">
+      <div class="phrase-label">Adjective + Preposition</div>
+      <div class="phrase-list">
+        good / bad <span class="phrase-prep">at</span><br>
+        afraid / proud / capable <span class="phrase-prep">of</span><br>
+        interested / involved <span class="phrase-prep">in</span><br>
+        responsible / famous <span class="phrase-prep">for</span><br>
+        similar <span class="phrase-prep">to</span> · different <span class="phrase-prep">from</span><br>
+        full / aware / fond <span class="phrase-prep">of</span><br>
+        keen / dependent <span class="phrase-prep">on</span>
+      </div>
+    </div>
   </div>
 
-  <div class="id-card" id="i2">
-    <div class="q-num">Sentence 2 of 5</div>
-    <div class="id-task">🎯 Click the <strong>time</strong> prepositional phrase.</div>
-    <div class="id-instruct">Click all the words that form the time prepositional phrase.</div>
-    <div class="tokens" id="i2-tok"></div>
-    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
-    <div class="fb" id="i2-fb"></div>
+  <div class="key-rule">🔑 <strong>Key principle:</strong> With fixed phrases, you simply have to learn the combination — there is no logical rule. When you learn a new verb or adjective, learn its preposition at the same time: not just <em>interested</em> but <em>interested <strong>in</strong></em>.
+  </div>
+</div>
+<hr class="div">
+<!-- ══ EXERCISE 5 ══ -->
+<div class="section" id="nq2">
+  <div class="ex-hdr"><span class="ex-badge sage">Exercise 5</span><h2 class="ex-title">Which Preposition?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">These verbs and adjectives always take the same preposition. Choose the correct one.</p>
+
+  <div class="q-card" id="nq2_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">I'm waiting __________ my friend.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','for','Wait for is a fixed combination.')">for</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','for','Wait for is a fixed combination.')">to</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','for','Wait for is a fixed combination.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','for','Wait for is a fixed combination.')">on</button>
+    </div>
+    <div class="fb" id="nq2_1-fb"></div>
   </div>
 
-  <div class="id-card" id="i3">
-    <div class="q-num">Sentence 3 of 5</div>
-    <div class="id-task">🎯 Click the <strong>direction</strong> prepositional phrase (the one showing movement towards somewhere).</div>
-    <div class="id-instruct">Click all the words that form the direction prepositional phrase.</div>
-    <div class="tokens" id="i3-tok"></div>
-    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
-    <div class="fb" id="i3-fb"></div>
+  <div class="q-card" id="nq2_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">She is very good __________ maths.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','at','Good at is a fixed combination.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','at','Good at is a fixed combination.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','at','Good at is a fixed combination.')">at</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','at','Good at is a fixed combination.')">of</button>
+    </div>
+    <div class="fb" id="nq2_2-fb"></div>
   </div>
 
-  <div class="id-card" id="i4">
-    <div class="q-num">Sentence 4 of 5</div>
-    <div class="id-task">🎯 Click the <strong>duration</strong> prepositional phrase (how long the action lasted).</div>
-    <div class="id-instruct">Click all the words that form the duration prepositional phrase.</div>
-    <div class="tokens" id="i4-tok"></div>
-    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
-    <div class="fb" id="i4-fb"></div>
+  <div class="q-card" id="nq2_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">Thailand is famous __________ its food.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','for','Famous for is a fixed combination.')">for</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','for','Famous for is a fixed combination.')">of</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','for','Famous for is a fixed combination.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','for','Famous for is a fixed combination.')">at</button>
+    </div>
+    <div class="fb" id="nq2_3-fb"></div>
   </div>
 
-  <div class="id-card" id="i5">
-    <div class="q-num">Sentence 5 of 5</div>
-    <div class="id-task">🎯 Click the <strong>fixed phrase preposition</strong> — the preposition that follows the adjective.</div>
-    <div class="id-instruct">Click just the preposition word.</div>
-    <div class="tokens" id="i5-tok"></div>
-    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
-    <div class="fb" id="i5-fb"></div>
+  <div class="q-card" id="nq2_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">You can rely __________ me.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','on','Rely on is a fixed combination.')">in</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','on','Rely on is a fixed combination.')">to</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','on','Rely on is a fixed combination.')">on</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','on','Rely on is a fixed combination.')">at</button>
+    </div>
+    <div class="fb" id="nq2_4-fb"></div>
   </div>
 
-  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 4 ══ -->
+
+<!-- ══ EXERCISE 6 ══ -->
 <div class="section" id="ex4">
-  <div class="ex-hdr"><span class="ex-badge blue">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <div class="ex-hdr"><span class="ex-badge blue">Exercise 6</span><h2 class="ex-title">Mixed Review</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — time, place, movement, and fixed phrases.</p>
 
   <div class="mini-cat">Time Prepositions</div>
@@ -834,11 +948,11 @@
   <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/40</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all the exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Prepositions — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=32;
+const TOTAL=(32) + 8;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -959,6 +1073,24 @@ function resetEx3(){sents.forEach(s=>resetId(s.id));}
 function resetEx4(){resetGroup(['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12','p13','p14','p15','p16']);}
 
 buildTokens();
+</script>
+<script>
+(function(){
+  function resetMini(ids){
+    ids.forEach(function(id){
+      var card=document.getElementById(id);if(!card)return;
+      card.classList.remove('correct','wrong');
+      card.querySelectorAll('.mc-btn').forEach(function(b){b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+      if(scores&&scores.mc)delete scores.mc[id];
+      var fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+    });
+    updateProgress();
+  }
+  window.resetNq1=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4']);};
+  window.resetNq2=function(){resetMini(['nq2_1', 'nq2_2', 'nq2_3', 'nq2_4']);};
+  var _retry=retryAll;
+  retryAll=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4', 'nq2_1', 'nq2_2', 'nq2_3', 'nq2_4']);_retry();};
+})();
 </script>
 </body>
 </html>

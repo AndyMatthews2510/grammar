@@ -199,6 +199,65 @@
 </div>
 <hr class="div">
 
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge blue">Exercise 1</span><h2 class="ex-title">Click the Linking Word or Phrase</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Read the task, then click all the words that make up the linking word or phrase.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-task">🎯 Click the linking word that shows <strong>contrast</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-task">🎯 Click the linking word that introduces the <strong>reason</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-task">🎯 Click the linking phrase that introduces an <strong>example</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-task">🎯 Click the linking phrase that shows a <strong>result</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-task">🎯 Click the linking phrase used to <strong>sum up</strong>.</div>
+    <div class="id-instruct">Click all the words in the linking phrase.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 <!-- SECTION 2: THE SEVEN CATEGORIES -->
 <div class="section">
   <h2 class="sec-title">Seven Types of Linking Word</h2>
@@ -299,49 +358,9 @@
 </div>
 <hr class="div">
 
-<!-- SECTION 3: KEY CONFUSIONS -->
-<div class="section">
-  <h2 class="sec-title">The Most Common Mistakes</h2>
-  <p class="sec-sub">These pairs are frequently confused. The key is what comes after each one.</p>
-
-  <div class="conf-card">
-    <div class="conf-head"><span class="conf-words">although / even though &nbsp;vs&nbsp; despite / in spite of</span></div>
-    <div class="conf-body">
-      <div class="conf-row"><span class="conf-tag ct-clause">+ full clause</span><span><strong>although / even though:</strong> always followed by a subject and verb.<br>"<em>Although <u>she was tired</u>, she kept going.</em>" ✓</span></div>
-      <div class="conf-row"><span class="conf-tag ct-noun">+ noun / -ing</span><span><strong>despite / in spite of:</strong> followed by a noun or -ing form — never a clause on its own.<br>"<em>Despite <u>her tiredness</u>, she kept going.</em>" ✓ &nbsp; "<em>Despite <u>being tired</u>, she kept going.</em>" ✓<br><span class="conf-sent-bad">"Despite she was tired, she kept going."</span> ✗</span></div>
-    </div>
-  </div>
-
-  <div class="conf-card">
-    <div class="conf-head"><span class="conf-words">because &nbsp;vs&nbsp; because of / due to</span></div>
-    <div class="conf-body">
-      <div class="conf-row"><span class="conf-tag ct-clause">+ full clause</span><span><strong>because / since / as:</strong> followed by a subject and verb.<br>"<em>She left <u>because she was ill</u>.</em>" ✓</span></div>
-      <div class="conf-row"><span class="conf-tag ct-noun">+ noun / -ing</span><span><strong>because of / due to / owing to:</strong> followed by a noun phrase.<br>"<em>She left <u>because of her illness</u>.</em>" ✓<br><span class="conf-sent-bad">"She left due to she was ill."</span> ✗</span></div>
-    </div>
-  </div>
-
-  <div class="conf-card">
-    <div class="conf-head"><span class="conf-words">however &nbsp;vs&nbsp; but</span></div>
-    <div class="conf-body">
-      <div class="conf-row"><span class="conf-tag ct-clause">joins two clauses</span><span><strong>but:</strong> sits between two clauses in one sentence.<br>"<em>It was cold, <u>but</u> we went out.</em>" ✓ &nbsp; (no comma before <em>but</em> is also acceptable)</span></div>
-      <div class="conf-row"><span class="conf-tag ct-new">new sentence</span><span><strong>however:</strong> usually starts a new sentence, followed by a comma. It can also sit in the middle of a sentence between commas, but it cannot join two clauses the way <em>but</em> does.<br>"<em>It was cold. <u>However</u>, we went out.</em>" ✓<br><span class="conf-sent-bad">"It was cold however we went out."</span> ✗</span></div>
-    </div>
-  </div>
-
-  <div class="pos-box">
-    <div class="pos-title">📍 Position of also · too · as well</div>
-    <div class="pos-row"><strong>also</strong> = goes <em>before</em> the main verb, or directly <em>after</em> be: "She <u>also</u> plays tennis." / "She is <u>also</u> a teacher."</div>
-    <div class="pos-row"><strong>too / as well</strong> = go at the <em>end</em> of a sentence: "She plays tennis, <u>too</u>." / "She plays tennis <u>as well</u>."</div>
-    <div class="pos-row"><strong>in addition / furthermore / moreover</strong> = start a new sentence, followed by a comma.</div>
-  </div>
-
-  <div class="key-rule">🔑 <strong>The quick test:</strong> Look at what comes after the linking word. A subject and verb? → use <em>although, because, however, but</em>. A noun or -ing? → use <em>despite, because of, due to</em>.</div>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 1 ══ -->
+<!-- ══ EXERCISE 2 ══ -->
 <div class="section" id="ex1">
-  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Choose the Right Linking Word</h2></div>
+  <div class="ex-hdr"><span class="ex-badge">Exercise 2</span><h2 class="ex-title">Choose the Right Linking Word</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Select the linking word that best fits the meaning of each sentence.</p>
 
   <div class="q-card" id="q1">
@@ -420,9 +439,49 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 2 ══ -->
+<!-- SECTION 3: KEY CONFUSIONS -->
+<div class="section">
+  <h2 class="sec-title">The Most Common Mistakes</h2>
+  <p class="sec-sub">These pairs are frequently confused. The key is what comes after each one.</p>
+
+  <div class="conf-card">
+    <div class="conf-head"><span class="conf-words">although / even though &nbsp;vs&nbsp; despite / in spite of</span></div>
+    <div class="conf-body">
+      <div class="conf-row"><span class="conf-tag ct-clause">+ full clause</span><span><strong>although / even though:</strong> always followed by a subject and verb.<br>"<em>Although <u>she was tired</u>, she kept going.</em>" ✓</span></div>
+      <div class="conf-row"><span class="conf-tag ct-noun">+ noun / -ing</span><span><strong>despite / in spite of:</strong> followed by a noun or -ing form — never a clause on its own.<br>"<em>Despite <u>her tiredness</u>, she kept going.</em>" ✓ &nbsp; "<em>Despite <u>being tired</u>, she kept going.</em>" ✓<br><span class="conf-sent-bad">"Despite she was tired, she kept going."</span> ✗</span></div>
+    </div>
+  </div>
+
+  <div class="conf-card">
+    <div class="conf-head"><span class="conf-words">because &nbsp;vs&nbsp; because of / due to</span></div>
+    <div class="conf-body">
+      <div class="conf-row"><span class="conf-tag ct-clause">+ full clause</span><span><strong>because / since / as:</strong> followed by a subject and verb.<br>"<em>She left <u>because she was ill</u>.</em>" ✓</span></div>
+      <div class="conf-row"><span class="conf-tag ct-noun">+ noun / -ing</span><span><strong>because of / due to / owing to:</strong> followed by a noun phrase.<br>"<em>She left <u>because of her illness</u>.</em>" ✓<br><span class="conf-sent-bad">"She left due to she was ill."</span> ✗</span></div>
+    </div>
+  </div>
+
+  <div class="conf-card">
+    <div class="conf-head"><span class="conf-words">however &nbsp;vs&nbsp; but</span></div>
+    <div class="conf-body">
+      <div class="conf-row"><span class="conf-tag ct-clause">joins two clauses</span><span><strong>but:</strong> sits between two clauses in one sentence.<br>"<em>It was cold, <u>but</u> we went out.</em>" ✓ &nbsp; (no comma before <em>but</em> is also acceptable)</span></div>
+      <div class="conf-row"><span class="conf-tag ct-new">new sentence</span><span><strong>however:</strong> usually starts a new sentence, followed by a comma. It can also sit in the middle of a sentence between commas, but it cannot join two clauses the way <em>but</em> does.<br>"<em>It was cold. <u>However</u>, we went out.</em>" ✓<br><span class="conf-sent-bad">"It was cold however we went out."</span> ✗</span></div>
+    </div>
+  </div>
+
+  <div class="pos-box">
+    <div class="pos-title">📍 Position of also · too · as well</div>
+    <div class="pos-row"><strong>also</strong> = goes <em>before</em> the main verb, or directly <em>after</em> be: "She <u>also</u> plays tennis." / "She is <u>also</u> a teacher."</div>
+    <div class="pos-row"><strong>too / as well</strong> = go at the <em>end</em> of a sentence: "She plays tennis, <u>too</u>." / "She plays tennis <u>as well</u>."</div>
+    <div class="pos-row"><strong>in addition / furthermore / moreover</strong> = start a new sentence, followed by a comma.</div>
+  </div>
+
+  <div class="key-rule">🔑 <strong>The quick test:</strong> Look at what comes after the linking word. A subject and verb? → use <em>although, because, however, but</em>. A noun or -ing? → use <em>despite, because of, due to</em>.</div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 3 ══ -->
 <div class="section" id="ex2">
-  <div class="ex-hdr"><span class="ex-badge amber">Exercise 2</span><h2 class="ex-title">Clause or Noun? Choose the Correct Form</h2></div>
+  <div class="ex-hdr"><span class="ex-badge amber">Exercise 3</span><h2 class="ex-title">Clause or Noun? Choose the Correct Form</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Some linking words need a full clause after them; others need a noun. Choose carefully.</p>
 
   <div class="q-card" id="f1">
@@ -486,65 +545,6 @@
   </div>
 
   <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 3 ══ -->
-<div class="section" id="ex3">
-  <div class="ex-hdr"><span class="ex-badge blue">Exercise 3</span><h2 class="ex-title">Click the Linking Word or Phrase</h2></div>
-  <p class="sec-sub" style="margin-bottom:1.5rem">Read the task, then click all the words that make up the linking word or phrase.</p>
-
-  <div class="id-card" id="i1">
-    <div class="q-num">Sentence 1 of 5</div>
-    <div class="id-task">🎯 Click the linking word that shows <strong>contrast</strong>.</div>
-    <div class="id-instruct">Click all the words in the linking phrase.</div>
-    <div class="tokens" id="i1-tok"></div>
-    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
-    <div class="fb" id="i1-fb"></div>
-  </div>
-
-  <div class="id-card" id="i2">
-    <div class="q-num">Sentence 2 of 5</div>
-    <div class="id-task">🎯 Click the linking word that introduces the <strong>reason</strong>.</div>
-    <div class="id-instruct">Click all the words in the linking phrase.</div>
-    <div class="tokens" id="i2-tok"></div>
-    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
-    <div class="fb" id="i2-fb"></div>
-  </div>
-
-  <div class="id-card" id="i3">
-    <div class="q-num">Sentence 3 of 5</div>
-    <div class="id-task">🎯 Click the linking phrase that introduces an <strong>example</strong>.</div>
-    <div class="id-instruct">Click all the words in the linking phrase.</div>
-    <div class="tokens" id="i3-tok"></div>
-    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
-    <div class="fb" id="i3-fb"></div>
-  </div>
-
-  <div class="id-card" id="i4">
-    <div class="q-num">Sentence 4 of 5</div>
-    <div class="id-task">🎯 Click the linking phrase that shows a <strong>result</strong>.</div>
-    <div class="id-instruct">Click all the words in the linking phrase.</div>
-    <div class="tokens" id="i4-tok"></div>
-    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
-    <div class="fb" id="i4-fb"></div>
-  </div>
-
-  <div class="id-card" id="i5">
-    <div class="q-num">Sentence 5 of 5</div>
-    <div class="id-task">🎯 Click the linking phrase used to <strong>sum up</strong>.</div>
-    <div class="id-instruct">Click all the words in the linking phrase.</div>
-    <div class="tokens" id="i5-tok"></div>
-    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
-    <div class="fb" id="i5-fb"></div>
-  </div>
-
-  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -756,7 +756,7 @@
   <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all the exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Linking Words &amp; Discourse Markers — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>

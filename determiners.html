@@ -218,6 +218,65 @@
 </div>
 <hr class="div">
 
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge grn">Exercise 1</span><h2 class="ex-title">Click the Determiner</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Read the task, then click the determiner in each sentence.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-task">🎯 Click the determiner that refers to members of a group <strong>one by one</strong>.</div>
+    <div class="id-instruct">Click the determiner word.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-task">🎯 Click the determiner that means <strong>not one and not the other</strong>.</div>
+    <div class="id-instruct">Click the determiner word.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-task">🎯 Click the determiner used in a <strong>positive statement</strong> about quantity.</div>
+    <div class="id-instruct">Click the determiner word.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-task">🎯 Click the determiner that refers to <strong>exactly two</strong> things together.</div>
+    <div class="id-instruct">Click the determiner word.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-task">🎯 Click the determiner that treats all members as a <strong>whole group</strong> (not one by one).</div>
+    <div class="id-instruct">Click the determiner word.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 <!-- SECTION 2: EACH / EVERY / ALL / BOTH -->
 <div class="section">
   <h2 class="sec-title">each · every · all · both</h2>
@@ -276,6 +335,63 @@
   </div>
 </div>
 <hr class="div">
+<!-- ══ EXERCISE 2 ══ -->
+<div class="section" id="nq1">
+  <div class="ex-hdr"><span class="ex-badge teal">Exercise 2</span><h2 class="ex-title">Each, Every, All or Both?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Choose the determiner that fits the noun and the meaning.</p>
+
+  <div class="q-card" id="nq1_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">She has two brothers. __________ brother works in London. (thinking about them one by one)</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','Each','Each works with a singular noun and can be used for just two. Every is not used for two, and both/all need a plural noun.')">Every</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','Each','Each works with a singular noun and can be used for just two. Every is not used for two, and both/all need a plural noun.')">Each</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','Each','Each works with a singular noun and can be used for just two. Every is not used for two, and both/all need a plural noun.')">All</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','Each','Each works with a singular noun and can be used for just two. Every is not used for two, and both/all need a plural noun.')">Both</button>
+    </div>
+    <div class="fb" id="nq1_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">The bus comes __________ ten minutes.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','every','Every is used for frequency: every ten minutes.')">every</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','every','Every is used for frequency: every ten minutes.')">each</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','every','Every is used for frequency: every ten minutes.')">all</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','every','Every is used for frequency: every ten minutes.')">both</button>
+    </div>
+    <div class="fb" id="nq1_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">__________ my parents came to the ceremony.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','Both','Both is used for exactly two people, with a plural noun.')">Every</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','Both','Both is used for exactly two people, with a plural noun.')">Each</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','Both','Both is used for exactly two people, with a plural noun.')">Both</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','Both','Both is used for exactly two people, with a plural noun.')">Neither</button>
+    </div>
+    <div class="fb" id="nq1_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">__________ the 300 seats in the hall were taken. (the complete group)</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','All','All + the + plural noun refers to the whole group. Both means exactly two.')">All</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','All','All + the + plural noun refers to the whole group. Both means exactly two.')">Every</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','All','All + the + plural noun refers to the whole group. Both means exactly two.')">Each</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','All','All + the + plural noun refers to the whole group. Both means exactly two.')">Both</button>
+    </div>
+    <div class="fb" id="nq1_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq1()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 
 <!-- SECTION 3: SOME / ANY -->
 <div class="section">
@@ -303,6 +419,63 @@
   </div>
 </div>
 <hr class="div">
+<!-- ══ EXERCISE 3 ══ -->
+<div class="section" id="nq2">
+  <div class="ex-hdr"><span class="ex-badge grn">Exercise 3</span><h2 class="ex-title">Some or Any?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Choose some or any (or the correct alternative) for each sentence.</p>
+
+  <div class="q-card" id="nq2_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">Would you like __________ tea?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','some','An offer expects the answer yes, so we use some.')">some</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','some','An offer expects the answer yes, so we use some.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','some','An offer expects the answer yes, so we use some.')">many</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','some','An offer expects the answer yes, so we use some.')">a few</button>
+    </div>
+    <div class="fb" id="nq2_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">I don't have __________ money with me.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','any','Negative sentences use any.')">some</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','any','Negative sentences use any.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','any','Negative sentences use any.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','any','Negative sentences use any.')">each</button>
+    </div>
+    <div class="fb" id="nq2_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">Could I have __________ water, please?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','some','A request expects the answer yes, so we use some.')">some</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','some','A request expects the answer yes, so we use some.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','some','A request expects the answer yes, so we use some.')">many</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','some','A request expects the answer yes, so we use some.')">every</button>
+    </div>
+    <div class="fb" id="nq2_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">Do you have __________ brothers or sisters? (a genuine question)</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','any','A neutral, genuine question uses any.')">some</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','any','A neutral, genuine question uses any.')">a</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','any','A neutral, genuine question uses any.')">any</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','any','A neutral, genuine question uses any.')">much</button>
+    </div>
+    <div class="fb" id="nq2_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq2()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 
 <!-- SECTION 4: EITHER / NEITHER -->
 <div class="section">
@@ -342,48 +515,9 @@
 </div>
 <hr class="div">
 
-<!-- SECTION 5: THIS / THAT / THESE / THOSE -->
-<div class="section">
-  <h2 class="sec-title">this · that · these · those</h2>
-  <p class="sec-sub">These four point to a specific noun — either near or far in space or time.</p>
-
-  <div class="demo-grid">
-    <div class="demo-card near">
-      <div class="demo-label">Near — in space or time</div>
-      <div class="demo-words">this · these</div>
-      <div class="demo-rule"><strong>this</strong> + singular &nbsp;·&nbsp; <strong>these</strong> + plural<br>Close to the speaker, or happening now / recently.</div>
-      <div class="demo-ex">
-        "<em>This</em> book is excellent." (I'm holding it)<br>
-        "<em>These</em> biscuits are delicious." (on the table here)<br>
-        "<em>This</em> year has been very busy." (the current year)
-      </div>
-    </div>
-    <div class="demo-card far">
-      <div class="demo-label">Far — in space or time</div>
-      <div class="demo-words">that · those</div>
-      <div class="demo-rule"><strong>that</strong> + singular &nbsp;·&nbsp; <strong>those</strong> + plural<br>Further away, or in the past / already mentioned.</div>
-      <div class="demo-ex">
-        "<em>That</em> building over there is the museum." <br>
-        "<em>Those</em> were the best years of my life." (past)<br>
-        "<em>That</em> is a great idea." (just mentioned)
-      </div>
-    </div>
-  </div>
-
-  <div class="warn-box">
-    <div class="warn-title">⚠️ that for previously mentioned ideas</div>
-    <div class="warn-row">
-      <em>That</em> (singular) is often used to refer back to something just said — even if it is not physically distant:<br>
-      "She said she was leaving. <em>That</em> surprised everyone." ✓<br>
-      "He offered to help. <em>This</em> was very kind of him." ✓ (also possible — referring to what just happened)
-    </div>
-  </div>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 1 ══ -->
+<!-- ══ EXERCISE 4 ══ -->
 <div class="section" id="ex1">
-  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">each, every, all, both, either, neither</h2></div>
+  <div class="ex-hdr"><span class="ex-badge">Exercise 4</span><h2 class="ex-title">each, every, all, both, either, neither</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Choose the correct determiner for each sentence.</p>
 
   <div class="q-card" id="q1">
@@ -462,9 +596,48 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 2 ══ -->
+<!-- SECTION 5: THIS / THAT / THESE / THOSE -->
+<div class="section">
+  <h2 class="sec-title">this · that · these · those</h2>
+  <p class="sec-sub">These four point to a specific noun — either near or far in space or time.</p>
+
+  <div class="demo-grid">
+    <div class="demo-card near">
+      <div class="demo-label">Near — in space or time</div>
+      <div class="demo-words">this · these</div>
+      <div class="demo-rule"><strong>this</strong> + singular &nbsp;·&nbsp; <strong>these</strong> + plural<br>Close to the speaker, or happening now / recently.</div>
+      <div class="demo-ex">
+        "<em>This</em> book is excellent." (I'm holding it)<br>
+        "<em>These</em> biscuits are delicious." (on the table here)<br>
+        "<em>This</em> year has been very busy." (the current year)
+      </div>
+    </div>
+    <div class="demo-card far">
+      <div class="demo-label">Far — in space or time</div>
+      <div class="demo-words">that · those</div>
+      <div class="demo-rule"><strong>that</strong> + singular &nbsp;·&nbsp; <strong>those</strong> + plural<br>Further away, or in the past / already mentioned.</div>
+      <div class="demo-ex">
+        "<em>That</em> building over there is the museum." <br>
+        "<em>Those</em> were the best years of my life." (past)<br>
+        "<em>That</em> is a great idea." (just mentioned)
+      </div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">⚠️ that for previously mentioned ideas</div>
+    <div class="warn-row">
+      <em>That</em> (singular) is often used to refer back to something just said — even if it is not physically distant:<br>
+      "She said she was leaving. <em>That</em> surprised everyone." ✓<br>
+      "He offered to help. <em>This</em> was very kind of him." ✓ (also possible — referring to what just happened)
+    </div>
+  </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 5 ══ -->
 <div class="section" id="ex2">
-  <div class="ex-hdr"><span class="ex-badge teal">Exercise 2</span><h2 class="ex-title">some, any, this, that, these, those</h2></div>
+  <div class="ex-hdr"><span class="ex-badge teal">Exercise 5</span><h2 class="ex-title">some, any, this, that, these, those</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Choose the correct determiner for each situation.</p>
 
   <div class="q-card" id="f1">
@@ -531,68 +704,9 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 3 ══ -->
-<div class="section" id="ex3">
-  <div class="ex-hdr"><span class="ex-badge grn">Exercise 3</span><h2 class="ex-title">Click the Determiner</h2></div>
-  <p class="sec-sub" style="margin-bottom:1.5rem">Read the task, then click the determiner in each sentence.</p>
-
-  <div class="id-card" id="i1">
-    <div class="q-num">Sentence 1 of 5</div>
-    <div class="id-task">🎯 Click the determiner that refers to members of a group <strong>one by one</strong>.</div>
-    <div class="id-instruct">Click the determiner word.</div>
-    <div class="tokens" id="i1-tok"></div>
-    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
-    <div class="fb" id="i1-fb"></div>
-  </div>
-
-  <div class="id-card" id="i2">
-    <div class="q-num">Sentence 2 of 5</div>
-    <div class="id-task">🎯 Click the determiner that means <strong>not one and not the other</strong>.</div>
-    <div class="id-instruct">Click the determiner word.</div>
-    <div class="tokens" id="i2-tok"></div>
-    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
-    <div class="fb" id="i2-fb"></div>
-  </div>
-
-  <div class="id-card" id="i3">
-    <div class="q-num">Sentence 3 of 5</div>
-    <div class="id-task">🎯 Click the determiner used in a <strong>positive statement</strong> about quantity.</div>
-    <div class="id-instruct">Click the determiner word.</div>
-    <div class="tokens" id="i3-tok"></div>
-    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
-    <div class="fb" id="i3-fb"></div>
-  </div>
-
-  <div class="id-card" id="i4">
-    <div class="q-num">Sentence 4 of 5</div>
-    <div class="id-task">🎯 Click the determiner that refers to <strong>exactly two</strong> things together.</div>
-    <div class="id-instruct">Click the determiner word.</div>
-    <div class="tokens" id="i4-tok"></div>
-    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
-    <div class="fb" id="i4-fb"></div>
-  </div>
-
-  <div class="id-card" id="i5">
-    <div class="q-num">Sentence 5 of 5</div>
-    <div class="id-task">🎯 Click the determiner that treats all members as a <strong>whole group</strong> (not one by one).</div>
-    <div class="id-instruct">Click the determiner word.</div>
-    <div class="tokens" id="i5-tok"></div>
-    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
-    <div class="fb" id="i5-fb"></div>
-  </div>
-
-  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 4 ══ -->
+<!-- ══ EXERCISE 6 ══ -->
 <div class="section" id="ex4">
-  <div class="ex-hdr"><span class="ex-badge violet">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 6</span><h2 class="ex-title">Mixed Review</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — each/every/all/both, either/neither, some/any, and this/that/these/those.</p>
 
   <div class="mini-cat">Each, Every, All, Both</div>
@@ -798,11 +912,11 @@
   <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/40</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all the exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Determiners — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=32;
+const TOTAL=(32) + 8;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -923,6 +1037,24 @@ function resetEx3(){sents.forEach(s=>resetId(s.id));}
 function resetEx4(){resetGroup(['d1','d2','d3','d4','d5','d6','d7','d8','d9','d10','d11','d12','d13','d14','d15','d16']);}
 
 buildTokens();
+</script>
+<script>
+(function(){
+  function resetMini(ids){
+    ids.forEach(function(id){
+      var card=document.getElementById(id);if(!card)return;
+      card.classList.remove('correct','wrong');
+      card.querySelectorAll('.mc-btn').forEach(function(b){b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+      if(scores&&scores.mc)delete scores.mc[id];
+      var fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+    });
+    updateProgress();
+  }
+  window.resetNq1=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4']);};
+  window.resetNq2=function(){resetMini(['nq2_1', 'nq2_2', 'nq2_3', 'nq2_4']);};
+  var _retry=retryAll;
+  retryAll=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4', 'nq2_1', 'nq2_2', 'nq2_3', 'nq2_4']);_retry();};
+})();
 </script>
 </body>
 </html>

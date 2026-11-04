@@ -200,6 +200,65 @@
 </div>
 <hr class="div">
 
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr"><span class="ex-badge blue">Exercise 1</span><h2 class="ex-title">Click the Gerund or Infinitive</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Read the task, then click all the words that make up the gerund or infinitive phrase.</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5</div>
+    <div class="id-task">🎯 Click the <strong>gerund used as the subject</strong> of the sentence.</div>
+    <div class="id-instruct">Click all the words in the gerund phrase.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5</div>
+    <div class="id-task">🎯 Click the <strong>infinitive</strong> that follows the verb <em>offered</em>.</div>
+    <div class="id-instruct">Click all the words in the infinitive phrase.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5</div>
+    <div class="id-task">🎯 Click the <strong>gerund after a preposition</strong>.</div>
+    <div class="id-instruct">Click all the words in the gerund phrase.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5</div>
+    <div class="id-task">🎯 Click the <strong>gerund</strong> that is the object of the verb <em>admitted</em>.</div>
+    <div class="id-instruct">Click all the words in the gerund phrase.</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5</div>
+    <div class="id-task">🎯 Click the <strong>infinitive</strong> that follows the verb <em>managed</em>.</div>
+    <div class="id-instruct">Click all the words in the infinitive phrase.</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 <!-- SECTION 2: THE VERB LISTS -->
 <div class="section">
   <h2 class="sec-title">Which Verbs Take Which Form?</h2>
@@ -270,6 +329,87 @@
       </div>
     </div>
   </div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 2 ══ -->
+<div class="section" id="ex1">
+  <div class="ex-hdr"><span class="ex-badge">Exercise 2</span><h2 class="ex-title">Gerund or Infinitive?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Choose the correct form of the verb in brackets.</p>
+
+  <div class="q-card" id="q1">
+    <div class="q-num">Question 1 of 6</div>
+    <div class="q-text">She enjoys <span class="blank">___</span> early in the morning. <span style="font-size:.82rem;color:var(--muted)">(run)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q1','running')">to run</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','running')">running</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','running')">run</button>
+      <button class="mc-btn" onclick="checkMC(this,'q1','running')">to running</button>
+    </div>
+    <div class="fb" id="q1-fb"></div>
+  </div>
+
+  <div class="q-card" id="q2">
+    <div class="q-num">Question 2 of 6</div>
+    <div class="q-text">He decided <span class="blank">___</span> the job. <span style="font-size:.82rem;color:var(--muted)">(accept)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">accepting</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">to accept</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">accept</button>
+      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">to accepting</button>
+    </div>
+    <div class="fb" id="q2-fb"></div>
+  </div>
+
+  <div class="q-card" id="q3">
+    <div class="q-num">Question 3 of 6</div>
+    <div class="q-text">I can't imagine <span class="blank">___</span> in a city this cold. <span style="font-size:.82rem;color:var(--muted)">(live)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q3','living')">to live</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','living')">living</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','living')">live</button>
+      <button class="mc-btn" onclick="checkMC(this,'q3','living')">to living</button>
+    </div>
+    <div class="fb" id="q3-fb"></div>
+  </div>
+
+  <div class="q-card" id="q4">
+    <div class="q-num">Question 4 of 6</div>
+    <div class="q-text">They agreed <span class="blank">___</span> at the café at noon. <span style="font-size:.82rem;color:var(--muted)">(meet)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">meeting</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">to meet</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">meet</button>
+      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">to meeting</button>
+    </div>
+    <div class="fb" id="q4-fb"></div>
+  </div>
+
+  <div class="q-card" id="q5">
+    <div class="q-num">Question 5 of 6</div>
+    <div class="q-text">She is very good at <span class="blank">___</span> under pressure. <span style="font-size:.82rem;color:var(--muted)">(work)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q5','working')">to work</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','working')">working</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','working')">work</button>
+      <button class="mc-btn" onclick="checkMC(this,'q5','working')">worked</button>
+    </div>
+    <div class="fb" id="q5-fb"></div>
+  </div>
+
+  <div class="q-card" id="q6">
+    <div class="q-num">Question 6 of 6</div>
+    <div class="q-text">I'm looking forward to <span class="blank">___</span> you at the conference. <span style="font-size:.82rem;color:var(--muted)">(see)</span></div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">see</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">to see</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">seeing</button>
+      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">having seen</button>
+    </div>
+    <div class="fb" id="q6-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -380,118 +520,9 @@
 </div>
 <hr class="div">
 
-<!-- SECTION 4: AFTER PREPOSITIONS -->
-<div class="section">
-  <h2 class="sec-title">After Prepositions — Always Gerund</h2>
-  <p class="sec-sub">When a verb follows a preposition, it must be a gerund. No exceptions.</p>
-
-  <div class="prep-box">
-    <div class="prep-title">Rule: preposition + gerund (-ing)</div>
-    <div class="prep-rule">Any preposition (at, for, about, in, of, on, without…) must be followed by a gerund, not an infinitive.</div>
-    <div class="prep-ex">
-      "She is good <strong>at cooking</strong>." &nbsp;·&nbsp; "He's thinking <strong>about leaving</strong>."<br>
-      "I'm interested <strong>in learning</strong> more." &nbsp;·&nbsp; "They left <strong>without saying</strong> goodbye."<br>
-      "She's afraid <strong>of failing</strong>." &nbsp;·&nbsp; "Thank you <strong>for helping</strong> me."
-    </div>
-  </div>
-
-  <div class="trap-box">
-    <div class="trap-title">⚠️ The "to" preposition trap</div>
-    <div class="trap-row">
-      Sometimes <strong>to</strong> is a preposition, not the infinitive marker. In these cases, the verb that follows must be a gerund:<br><br>
-      "I'm <strong>looking forward to</strong> <span class="ex-bad">see</span> you." &nbsp;→&nbsp; "…<strong>looking forward to <span class="ex-good">seeing</span></strong> you." ✓<br>
-      "She's <strong>used to</strong> <span class="ex-bad">work</span> late." &nbsp;→&nbsp; "…<strong>used to <span class="ex-good">working</span></strong> late." ✓<br>
-      "He <strong>objects to</strong> <span class="ex-bad">be</span> treated like that." &nbsp;→&nbsp; "…<strong>objects to <span class="ex-good">being</span></strong> treated…" ✓<br><br>
-      <span style="font-size:.85rem;color:var(--muted)">Test: if you can replace "to" with "towards" or "about", it is a preposition → use gerund.</span>
-    </div>
-  </div>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 1 ══ -->
-<div class="section" id="ex1">
-  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Gerund or Infinitive?</h2></div>
-  <p class="sec-sub" style="margin-bottom:1.5rem">Choose the correct form of the verb in brackets.</p>
-
-  <div class="q-card" id="q1">
-    <div class="q-num">Question 1 of 6</div>
-    <div class="q-text">She enjoys <span class="blank">___</span> early in the morning. <span style="font-size:.82rem;color:var(--muted)">(run)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q1','running')">to run</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','running')">running</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','running')">run</button>
-      <button class="mc-btn" onclick="checkMC(this,'q1','running')">to running</button>
-    </div>
-    <div class="fb" id="q1-fb"></div>
-  </div>
-
-  <div class="q-card" id="q2">
-    <div class="q-num">Question 2 of 6</div>
-    <div class="q-text">He decided <span class="blank">___</span> the job. <span style="font-size:.82rem;color:var(--muted)">(accept)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">accepting</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">to accept</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">accept</button>
-      <button class="mc-btn" onclick="checkMC(this,'q2','to accept')">to accepting</button>
-    </div>
-    <div class="fb" id="q2-fb"></div>
-  </div>
-
-  <div class="q-card" id="q3">
-    <div class="q-num">Question 3 of 6</div>
-    <div class="q-text">I can't imagine <span class="blank">___</span> in a city this cold. <span style="font-size:.82rem;color:var(--muted)">(live)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q3','living')">to live</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','living')">living</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','living')">live</button>
-      <button class="mc-btn" onclick="checkMC(this,'q3','living')">to living</button>
-    </div>
-    <div class="fb" id="q3-fb"></div>
-  </div>
-
-  <div class="q-card" id="q4">
-    <div class="q-num">Question 4 of 6</div>
-    <div class="q-text">They agreed <span class="blank">___</span> at the café at noon. <span style="font-size:.82rem;color:var(--muted)">(meet)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">meeting</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">to meet</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">meet</button>
-      <button class="mc-btn" onclick="checkMC(this,'q4','to meet')">to meeting</button>
-    </div>
-    <div class="fb" id="q4-fb"></div>
-  </div>
-
-  <div class="q-card" id="q5">
-    <div class="q-num">Question 5 of 6</div>
-    <div class="q-text">She is very good at <span class="blank">___</span> under pressure. <span style="font-size:.82rem;color:var(--muted)">(work)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q5','working')">to work</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','working')">working</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','working')">work</button>
-      <button class="mc-btn" onclick="checkMC(this,'q5','working')">worked</button>
-    </div>
-    <div class="fb" id="q5-fb"></div>
-  </div>
-
-  <div class="q-card" id="q6">
-    <div class="q-num">Question 6 of 6</div>
-    <div class="q-text">I'm looking forward to <span class="blank">___</span> you at the conference. <span style="font-size:.82rem;color:var(--muted)">(see)</span></div>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">see</button>
-      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">to see</button>
-      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">seeing</button>
-      <button class="mc-btn" onclick="checkMC(this,'q6','seeing')">having seen</button>
-    </div>
-    <div class="fb" id="q6-fb"></div>
-  </div>
-
-  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx1()">Reset Exercise ↺</button>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 2 ══ -->
+<!-- ══ EXERCISE 3 ══ -->
 <div class="section" id="ex2">
-  <div class="ex-hdr"><span class="ex-badge violet">Exercise 2</span><h2 class="ex-title">What Does It Mean?</h2></div>
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 3</span><h2 class="ex-title">What Does It Mean?</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Each sentence uses one of the tricky verbs. Choose the correct interpretation.</p>
 
   <div class="q-card" id="f1">
@@ -553,68 +584,94 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 3 ══ -->
-<div class="section" id="ex3">
-  <div class="ex-hdr"><span class="ex-badge blue">Exercise 3</span><h2 class="ex-title">Click the Gerund or Infinitive</h2></div>
-  <p class="sec-sub" style="margin-bottom:1.5rem">Read the task, then click all the words that make up the gerund or infinitive phrase.</p>
+<!-- SECTION 4: AFTER PREPOSITIONS -->
+<div class="section">
+  <h2 class="sec-title">After Prepositions — Always Gerund</h2>
+  <p class="sec-sub">When a verb follows a preposition, it must be a gerund. No exceptions.</p>
 
-  <div class="id-card" id="i1">
-    <div class="q-num">Sentence 1 of 5</div>
-    <div class="id-task">🎯 Click the <strong>gerund used as the subject</strong> of the sentence.</div>
-    <div class="id-instruct">Click all the words in the gerund phrase.</div>
-    <div class="tokens" id="i1-tok"></div>
-    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
-    <div class="fb" id="i1-fb"></div>
+  <div class="prep-box">
+    <div class="prep-title">Rule: preposition + gerund (-ing)</div>
+    <div class="prep-rule">Any preposition (at, for, about, in, of, on, without…) must be followed by a gerund, not an infinitive.</div>
+    <div class="prep-ex">
+      "She is good <strong>at cooking</strong>." &nbsp;·&nbsp; "He's thinking <strong>about leaving</strong>."<br>
+      "I'm interested <strong>in learning</strong> more." &nbsp;·&nbsp; "They left <strong>without saying</strong> goodbye."<br>
+      "She's afraid <strong>of failing</strong>." &nbsp;·&nbsp; "Thank you <strong>for helping</strong> me."
+    </div>
   </div>
 
-  <div class="id-card" id="i2">
-    <div class="q-num">Sentence 2 of 5</div>
-    <div class="id-task">🎯 Click the <strong>infinitive</strong> that follows the verb <em>offered</em>.</div>
-    <div class="id-instruct">Click all the words in the infinitive phrase.</div>
-    <div class="tokens" id="i2-tok"></div>
-    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
-    <div class="fb" id="i2-fb"></div>
+  <div class="trap-box">
+    <div class="trap-title">⚠️ The "to" preposition trap</div>
+    <div class="trap-row">
+      Sometimes <strong>to</strong> is a preposition, not the infinitive marker. In these cases, the verb that follows must be a gerund:<br><br>
+      "I'm <strong>looking forward to</strong> <span class="ex-bad">see</span> you." &nbsp;→&nbsp; "…<strong>looking forward to <span class="ex-good">seeing</span></strong> you." ✓<br>
+      "She's <strong>used to</strong> <span class="ex-bad">work</span> late." &nbsp;→&nbsp; "…<strong>used to <span class="ex-good">working</span></strong> late." ✓<br>
+      "He <strong>objects to</strong> <span class="ex-bad">be</span> treated like that." &nbsp;→&nbsp; "…<strong>objects to <span class="ex-good">being</span></strong> treated…" ✓<br><br>
+      <span style="font-size:.85rem;color:var(--muted)">Test: if you can replace "to" with "towards" or "about", it is a preposition → use gerund.</span>
+    </div>
+  </div>
+</div>
+<hr class="div">
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="nq1">
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 4</span><h2 class="ex-title">After a Preposition, Use -ing</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">A verb after a preposition must be a gerund (-ing form). Choose the correct form.</p>
+
+  <div class="q-card" id="nq1_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">She is good at __________ new languages.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','learning','After the preposition at we use the -ing form.')">learn</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','learning','After the preposition at we use the -ing form.')">learning</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','learning','After the preposition at we use the -ing form.')">to learn</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','learning','After the preposition at we use the -ing form.')">learned</button>
+    </div>
+    <div class="fb" id="nq1_1-fb"></div>
   </div>
 
-  <div class="id-card" id="i3">
-    <div class="q-num">Sentence 3 of 5</div>
-    <div class="id-task">🎯 Click the <strong>gerund after a preposition</strong>.</div>
-    <div class="id-instruct">Click all the words in the gerund phrase.</div>
-    <div class="tokens" id="i3-tok"></div>
-    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
-    <div class="fb" id="i3-fb"></div>
+  <div class="q-card" id="nq1_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">Thank you for __________ me with my homework.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','helping','After the preposition for we use the -ing form.')">helping</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','helping','After the preposition for we use the -ing form.')">help</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','helping','After the preposition for we use the -ing form.')">to help</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','helping','After the preposition for we use the -ing form.')">helped</button>
+    </div>
+    <div class="fb" id="nq1_2-fb"></div>
   </div>
 
-  <div class="id-card" id="i4">
-    <div class="q-num">Sentence 4 of 5</div>
-    <div class="id-task">🎯 Click the <strong>gerund</strong> that is the object of the verb <em>admitted</em>.</div>
-    <div class="id-instruct">Click all the words in the gerund phrase.</div>
-    <div class="tokens" id="i4-tok"></div>
-    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
-    <div class="fb" id="i4-fb"></div>
+  <div class="q-card" id="nq1_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">I'm looking forward to __________ you next week.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','seeing','In look forward to, the word to is a preposition, so the -ing form follows.')">see</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','seeing','In look forward to, the word to is a preposition, so the -ing form follows.')">to see</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','seeing','In look forward to, the word to is a preposition, so the -ing form follows.')">seeing</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','seeing','In look forward to, the word to is a preposition, so the -ing form follows.')">saw</button>
+    </div>
+    <div class="fb" id="nq1_3-fb"></div>
   </div>
 
-  <div class="id-card" id="i5">
-    <div class="q-num">Sentence 5 of 5</div>
-    <div class="id-task">🎯 Click the <strong>infinitive</strong> that follows the verb <em>managed</em>.</div>
-    <div class="id-instruct">Click all the words in the infinitive phrase.</div>
-    <div class="tokens" id="i5-tok"></div>
-    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
-    <div class="fb" id="i5-fb"></div>
+  <div class="q-card" id="nq1_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">They left without __________ goodbye.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','saying','After the preposition without we use the -ing form.')">saying</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','saying','After the preposition without we use the -ing form.')">say</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','saying','After the preposition without we use the -ing form.')">to say</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','saying','After the preposition without we use the -ing form.')">said</button>
+    </div>
+    <div class="fb" id="nq1_4-fb"></div>
   </div>
 
-  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 4 ══ -->
+
+<!-- ══ EXERCISE 5 ══ -->
 <div class="section" id="ex4">
-  <div class="ex-hdr"><span class="ex-badge amber">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <div class="ex-hdr"><span class="ex-badge amber">Exercise 5</span><h2 class="ex-title">Mixed Review</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — gerund-only and infinitive-only verbs, verbs taking either, verbs that change meaning, and prepositions.</p>
 
   <div class="mini-cat">Gerund-Only vs Infinitive-Only Verbs</div>
@@ -820,11 +877,11 @@
   <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/36</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all the exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Gerunds &amp; Infinitives — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=32;
+const TOTAL=(32) + 4;
 const scores={mc:{},fix:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.fix).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.fix).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -976,6 +1033,23 @@ function resetEx3(){sents.forEach(s=>resetId(s.id));}
 function resetEx4(){resetGroup(['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16'],'mc');}
 
 buildTokens();
+</script>
+<script>
+(function(){
+  function resetMini(ids){
+    ids.forEach(function(id){
+      var card=document.getElementById(id);if(!card)return;
+      card.classList.remove('correct','wrong');
+      card.querySelectorAll('.mc-btn').forEach(function(b){b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+      if(scores&&scores.mc)delete scores.mc[id];
+      var fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+    });
+    updateProgress();
+  }
+  window.resetNq1=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4']);};
+  var _retry=retryAll;
+  retryAll=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4']);_retry();};
+})();
 </script>
 </body>
 </html>

@@ -360,6 +360,63 @@
 </div>
 <hr class="div">
 
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="ex3">
+  <div class="ex-hdr">
+    <span class="ex-badge emerald">Exercise 1</span>
+    <h2 class="ex-title">Click the Independent Clause(s)</h2>
+  </div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Click every word that belongs to an independent clause. In compound sentences there will be more than one to find!</p>
+
+  <div class="id-card" id="i1">
+    <div class="q-num">Sentence 1 of 5 &nbsp;·&nbsp; <span class="hint">one independent clause to find</span></div>
+    <div class="id-instruct">Click all the words that form the independent clause.</div>
+    <div class="tokens" id="i1-tok"></div>
+    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
+    <div class="fb" id="i1-fb"></div>
+  </div>
+
+  <div class="id-card" id="i2">
+    <div class="q-num">Sentence 2 of 5 &nbsp;·&nbsp; <span class="hint">one independent clause to find</span></div>
+    <div class="id-instruct">Click all the words that form the independent clause.</div>
+    <div class="tokens" id="i2-tok"></div>
+    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
+    <div class="fb" id="i2-fb"></div>
+  </div>
+
+  <div class="id-card" id="i3">
+    <div class="q-num">Sentence 3 of 5 &nbsp;·&nbsp; <span class="hint">the whole sentence is one independent clause</span></div>
+    <div class="id-instruct">Click all the words that form the independent clause.</div>
+    <div class="tokens" id="i3-tok"></div>
+    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
+    <div class="fb" id="i3-fb"></div>
+  </div>
+
+  <div class="id-card" id="i4">
+    <div class="q-num">Sentence 4 of 5 &nbsp;·&nbsp; <span class="hint">two independent clauses to find</span></div>
+    <div class="id-instruct">Click all the words that belong to an independent clause (there are two — click both).</div>
+    <div class="tokens" id="i4-tok"></div>
+    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
+    <div class="fb" id="i4-fb"></div>
+  </div>
+
+  <div class="id-card" id="i5">
+    <div class="q-num">Sentence 5 of 5 &nbsp;·&nbsp; <span class="hint">two independent clauses to find</span></div>
+    <div class="id-instruct">Click all the words that belong to an independent clause (there are two — click both).</div>
+    <div class="tokens" id="i5-tok"></div>
+    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
+    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
+    <div class="fb" id="i5-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 <!-- SECTION 2: FOUR TYPES -->
 <div class="section">
   <h2 class="sec-title">The Four Sentence Types</h2>
@@ -401,70 +458,10 @@
 </div>
 <hr class="div">
 
-<!-- SECTION 3 -->
-<div class="section">
-  <h2 class="sec-title">Joining with Conjunctive Adverbs</h2>
-  <p class="sec-sub">FANBOYS aren't the only way to join two independent clauses — but the punctuation changes with a different set of connecting words.</p>
-
-  <div class="def-box">
-    Words like <strong>however, therefore, moreover, nevertheless, consequently,</strong> and <strong>otherwise</strong> can also connect two independent clauses. But unlike FANBOYS, they need a <strong>semicolon before</strong> them and a <strong>comma after</strong>.
-  </div>
-
-  <div class="compare">
-    <div class="cmp indep">
-      <div class="lbl">With a coordinator</div>
-      <div class="sent">"It was raining, <strong>so</strong> we stayed inside."</div>
-      <div class="note">Comma before the coordinator.</div>
-    </div>
-    <div class="cmp dep" style="background:var(--navy-lt);border-color:var(--navy-mid)">
-      <div class="lbl" style="color:var(--navy)">With a conjunctive adverb</div>
-      <div class="sent">"It was raining; <strong>therefore,</strong> we stayed inside."</div>
-      <div class="note" style="color:var(--navy)">✓ Semicolon before, comma after.</div>
-    </div>
-  </div>
-
-  <div class="key-rule">
-    🔑 <strong>Key rule:</strong> Independent clause + <em>;</em> + conjunctive adverb + <em>,</em> + independent clause.
-  </div>
-</div>
-<hr class="div">
-
-<!-- SECTION 4 -->
-<div class="section">
-  <h2 class="sec-title">Choosing the Right Coordinator (and the "Nor" Trick)</h2>
-  <p class="sec-sub">FANBOYS words don't all mean the same thing — and one of them, "nor," even flips your word order.</p>
-
-  <div class="def-box">
-    Each coordinator carries its own meaning: <strong>but</strong> shows a direct contrast, <strong>yet</strong> shows a surprising or unexpected contrast, <strong>so</strong> shows a result, and <strong>nor</strong> adds another negative idea. Because "nor" already means "and not," it needs special word order.
-  </div>
-
-  <div class="compare">
-    <div class="cmp indep">
-      <div class="lbl">Normal word order</div>
-      <div class="sent">"She does not like coffee."</div>
-      <div class="note">Subject before verb, as usual.</div>
-    </div>
-    <div class="cmp dep" style="background:var(--navy-lt);border-color:var(--navy-mid)">
-      <div class="lbl" style="color:var(--navy)">After "nor"</div>
-      <div class="sent">"She does not like coffee, <strong>nor does she like</strong> tea."</div>
-      <div class="note" style="color:var(--navy)">✓ Helping verb flips before the subject — like a question.</div>
-    </div>
-  </div>
-
-  <div class="analogy">
-    💡 Never add a second "not" after "nor" — "nor" already carries the negative for you.
-  </div>
-
-  <div class="key-rule">
-    🔑 <strong>Key rule:</strong> nor + helping verb + subject + main verb. No extra "not" needed — "nor" already means "and not."
-  </div>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 1 ══ -->
+<!-- ══ EXERCISE 2 ══ -->
 <div class="section" id="ex1">
   <div class="ex-hdr">
-    <span class="ex-badge">Exercise 1</span>
+    <span class="ex-badge">Exercise 2</span>
     <h2 class="ex-title">Identify the Sentence Type</h2>
   </div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Read each sentence and choose the correct type.</p>
@@ -533,10 +530,10 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 2 ══ -->
+<!-- ══ EXERCISE 3 ══ -->
 <div class="section" id="ex2">
   <div class="ex-hdr">
-    <span class="ex-badge gold">Exercise 2</span>
+    <span class="ex-badge gold">Exercise 3</span>
     <h2 class="ex-title">Build the Sentence Type</h2>
   </div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Combine the ideas below to make the sentence type shown. Use the correct connectors and punctuation.</p>
@@ -598,67 +595,184 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 3 ══ -->
-<div class="section" id="ex3">
-  <div class="ex-hdr">
-    <span class="ex-badge emerald">Exercise 3</span>
-    <h2 class="ex-title">Click the Independent Clause(s)</h2>
-  </div>
-  <p class="sec-sub" style="margin-bottom:1.5rem">Click every word that belongs to an independent clause. In compound sentences there will be more than one to find!</p>
+<!-- SECTION 3 -->
+<div class="section">
+  <h2 class="sec-title">Joining with Conjunctive Adverbs</h2>
+  <p class="sec-sub">FANBOYS aren't the only way to join two independent clauses — but the punctuation changes with a different set of connecting words.</p>
 
-  <div class="id-card" id="i1">
-    <div class="q-num">Sentence 1 of 5 &nbsp;·&nbsp; <span class="hint">one independent clause to find</span></div>
-    <div class="id-instruct">Click all the words that form the independent clause.</div>
-    <div class="tokens" id="i1-tok"></div>
-    <button class="verify-btn" onclick="checkId('i1')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i1')">Reset</button>
-    <div class="fb" id="i1-fb"></div>
+  <div class="def-box">
+    Words like <strong>however, therefore, moreover, nevertheless, consequently,</strong> and <strong>otherwise</strong> can also connect two independent clauses. But unlike FANBOYS, they need a <strong>semicolon before</strong> them and a <strong>comma after</strong>.
   </div>
 
-  <div class="id-card" id="i2">
-    <div class="q-num">Sentence 2 of 5 &nbsp;·&nbsp; <span class="hint">one independent clause to find</span></div>
-    <div class="id-instruct">Click all the words that form the independent clause.</div>
-    <div class="tokens" id="i2-tok"></div>
-    <button class="verify-btn" onclick="checkId('i2')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i2')">Reset</button>
-    <div class="fb" id="i2-fb"></div>
+  <div class="compare">
+    <div class="cmp indep">
+      <div class="lbl">With a coordinator</div>
+      <div class="sent">"It was raining, <strong>so</strong> we stayed inside."</div>
+      <div class="note">Comma before the coordinator.</div>
+    </div>
+    <div class="cmp dep" style="background:var(--navy-lt);border-color:var(--navy-mid)">
+      <div class="lbl" style="color:var(--navy)">With a conjunctive adverb</div>
+      <div class="sent">"It was raining; <strong>therefore,</strong> we stayed inside."</div>
+      <div class="note" style="color:var(--navy)">✓ Semicolon before, comma after.</div>
+    </div>
   </div>
 
-  <div class="id-card" id="i3">
-    <div class="q-num">Sentence 3 of 5 &nbsp;·&nbsp; <span class="hint">the whole sentence is one independent clause</span></div>
-    <div class="id-instruct">Click all the words that form the independent clause.</div>
-    <div class="tokens" id="i3-tok"></div>
-    <button class="verify-btn" onclick="checkId('i3')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i3')">Reset</button>
-    <div class="fb" id="i3-fb"></div>
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> Independent clause + <em>;</em> + conjunctive adverb + <em>,</em> + independent clause.
+  </div>
+</div>
+<hr class="div">
+<!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="nq1">
+  <div class="ex-hdr"><span class="ex-badge gold">Exercise 4</span><h2 class="ex-title">Semicolons and Conjunctive Adverbs</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Words like however and therefore need a semicolon before them and a comma after them.</p>
+
+  <div class="q-card" id="nq1_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">It was raining __________ we stayed inside.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','; therefore,','Pattern: clause + ; + conjunctive adverb + , + clause.')">, therefore,</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','; therefore,','Pattern: clause + ; + conjunctive adverb + , + clause.')">; therefore,</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','; therefore,','Pattern: clause + ; + conjunctive adverb + , + clause.')">: therefore,</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','; therefore,','Pattern: clause + ; + conjunctive adverb + , + clause.')">. therefore,</button>
+    </div>
+    <div class="fb" id="nq1_1-fb"></div>
   </div>
 
-  <div class="id-card" id="i4">
-    <div class="q-num">Sentence 4 of 5 &nbsp;·&nbsp; <span class="hint">two independent clauses to find</span></div>
-    <div class="id-instruct">Click all the words that belong to an independent clause (there are two — click both).</div>
-    <div class="tokens" id="i4-tok"></div>
-    <button class="verify-btn" onclick="checkId('i4')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i4')">Reset</button>
-    <div class="fb" id="i4-fb"></div>
+  <div class="q-card" id="nq1_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">Which sentence is punctuated correctly?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','The test was difficult; however, most students passed.','A comma alone cannot join two independent clauses. Use a semicolon before and a comma after however.')">The test was difficult; however, most students passed.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','The test was difficult; however, most students passed.','A comma alone cannot join two independent clauses. Use a semicolon before and a comma after however.')">The test was difficult, however, most students passed.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','The test was difficult; however, most students passed.','A comma alone cannot join two independent clauses. Use a semicolon before and a comma after however.')">The test was difficult; however most students passed,</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','The test was difficult; however, most students passed.','A comma alone cannot join two independent clauses. Use a semicolon before and a comma after however.')">The test was difficult however; most students passed.</button>
+    </div>
+    <div class="fb" id="nq1_2-fb"></div>
   </div>
 
-  <div class="id-card" id="i5">
-    <div class="q-num">Sentence 5 of 5 &nbsp;·&nbsp; <span class="hint">two independent clauses to find</span></div>
-    <div class="id-instruct">Click all the words that belong to an independent clause (there are two — click both).</div>
-    <div class="tokens" id="i5-tok"></div>
-    <button class="verify-btn" onclick="checkId('i5')">Check ✓</button>
-    <button class="reset-btn" onclick="resetId('i5')">Reset</button>
-    <div class="fb" id="i5-fb"></div>
+  <div class="q-card" id="nq1_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">Which of these is a conjunctive adverb (not a coordinator)?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','moreover','And, but and so are coordinators. Moreover is a conjunctive adverb.')">and</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','moreover','And, but and so are coordinators. Moreover is a conjunctive adverb.')">but</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','moreover','And, but and so are coordinators. Moreover is a conjunctive adverb.')">moreover</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','moreover','And, but and so are coordinators. Moreover is a conjunctive adverb.')">so</button>
+    </div>
+    <div class="fb" id="nq1_3-fb"></div>
   </div>
 
-  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx3()">Reset Exercise ↺</button>
+  <div class="q-card" id="nq1_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">She was exhausted; __________, she kept working.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','nevertheless','Nevertheless shows contrast and fits after a semicolon.')">nevertheless</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','nevertheless','Nevertheless shows contrast and fits after a semicolon.')">because</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','nevertheless','Nevertheless shows contrast and fits after a semicolon.')">so</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','nevertheless','Nevertheless shows contrast and fits after a semicolon.')">and</button>
+    </div>
+    <div class="fb" id="nq1_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq1()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 4 ══ -->
+
+<!-- SECTION 4 -->
+<div class="section">
+  <h2 class="sec-title">Choosing the Right Coordinator (and the "Nor" Trick)</h2>
+  <p class="sec-sub">FANBOYS words don't all mean the same thing — and one of them, "nor," even flips your word order.</p>
+
+  <div class="def-box">
+    Each coordinator carries its own meaning: <strong>but</strong> shows a direct contrast, <strong>yet</strong> shows a surprising or unexpected contrast, <strong>so</strong> shows a result, and <strong>nor</strong> adds another negative idea. Because "nor" already means "and not," it needs special word order.
+  </div>
+
+  <div class="compare">
+    <div class="cmp indep">
+      <div class="lbl">Normal word order</div>
+      <div class="sent">"She does not like coffee."</div>
+      <div class="note">Subject before verb, as usual.</div>
+    </div>
+    <div class="cmp dep" style="background:var(--navy-lt);border-color:var(--navy-mid)">
+      <div class="lbl" style="color:var(--navy)">After "nor"</div>
+      <div class="sent">"She does not like coffee, <strong>nor does she like</strong> tea."</div>
+      <div class="note" style="color:var(--navy)">✓ Helping verb flips before the subject — like a question.</div>
+    </div>
+  </div>
+
+  <div class="analogy">
+    💡 Never add a second "not" after "nor" — "nor" already carries the negative for you.
+  </div>
+
+  <div class="key-rule">
+    🔑 <strong>Key rule:</strong> nor + helping verb + subject + main verb. No extra "not" needed — "nor" already means "and not."
+  </div>
+</div>
+<hr class="div">
+<!-- ══ EXERCISE 5 ══ -->
+<div class="section" id="nq2">
+  <div class="ex-hdr"><span class="ex-badge emerald">Exercise 5</span><h2 class="ex-title">Choosing the Right Coordinator</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">But, yet, so and nor each have their own meaning. Remember the "nor" word order.</p>
+
+  <div class="q-card" id="nq2_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">It was cold, __________ we went for a walk anyway. (a surprising contrast)</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','yet','Yet shows a surprising contrast.')">yet</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','yet','Yet shows a surprising contrast.')">so</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','yet','Yet shows a surprising contrast.')">nor</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','yet','Yet shows a surprising contrast.')">for</button>
+    </div>
+    <div class="fb" id="nq2_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">I was tired, __________ I went to bed early. (a result)</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','so','So shows a result.')">but</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','so','So shows a result.')">yet</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','so','So shows a result.')">so</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','so','So shows a result.')">nor</button>
+    </div>
+    <div class="fb" id="nq2_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">She doesn't like coffee, nor __________ tea.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','does she like','After nor the helping verb comes before the subject: nor does she like.')">does she like</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','does she like','After nor the helping verb comes before the subject: nor does she like.')">she likes</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','does she like','After nor the helping verb comes before the subject: nor does she like.')">she does like</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','does she like','After nor the helping verb comes before the subject: nor does she like.')">likes she</button>
+    </div>
+    <div class="fb" id="nq2_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">Which sentence is correct?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','He did not call, nor did he write.','Use nor + helping verb + subject, and no extra not.')">He did not call, nor he did not write.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','He did not call, nor did he write.','Use nor + helping verb + subject, and no extra not.')">He did not call, nor did he not write.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','He did not call, nor did he write.','Use nor + helping verb + subject, and no extra not.')">He did not call, nor did he write.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','He did not call, nor did he write.','Use nor + helping verb + subject, and no extra not.')">He did not call, nor he wrote.</button>
+    </div>
+    <div class="fb" id="nq2_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq2()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+
+<!-- ══ EXERCISE 6 ══ -->
 <div class="section" id="ex4">
   <div class="ex-hdr">
-    <span class="ex-badge rose">Exercise 4</span>
+    <span class="ex-badge rose">Exercise 6</span>
     <h2 class="ex-title">Mixed Review</h2>
   </div>
   <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — clauses, compound sentences, complex sentences, and compound-complex punctuation.</p>
@@ -851,16 +965,16 @@
 
 <!-- SCORE -->
 <div id="score-sec">
-  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/30</div></div>
+  <div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/38</div></div>
   <div class="s-msg" id="s-msg">Well done!</div>
-  <div class="s-sub" id="s-sub">You completed all four exercises.</div>
+  <div class="s-sub" id="s-sub">You completed all the exercises.</div>
   <button class="retry-btn" onclick="retryAll()">Try Again 🔄</button>
 </div>
 
 <footer>Sentence Structure — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL = 30; // 5 MC + 4 combine + 5 identify + 16 mixed review
+const TOTAL = (30) + 8; // 5 MC + 4 combine + 5 identify + 16 mixed review
 const scores = { mc:{}, cmb:{}, id:{} };
 
 function getScore(){ return Object.values(scores.mc).filter(Boolean).length + Object.values(scores.cmb).filter(Boolean).length + Object.values(scores.id).filter(Boolean).length; }
@@ -1080,6 +1194,24 @@ function resetEx3(){ sents.forEach(s=>resetId(s.id)); }
 function resetEx4(){ resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16'],'mc'); }
 
 buildTokens();
+</script>
+<script>
+(function(){
+  function resetMini(ids){
+    ids.forEach(function(id){
+      var card=document.getElementById(id);if(!card)return;
+      card.classList.remove('correct','wrong');
+      card.querySelectorAll('.mc-btn').forEach(function(b){b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+      if(scores&&scores.mc)delete scores.mc[id];
+      var fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+    });
+    updateProgress();
+  }
+  window.resetNq1=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4']);};
+  window.resetNq2=function(){resetMini(['nq2_1', 'nq2_2', 'nq2_3', 'nq2_4']);};
+  var _retry=retryAll;
+  retryAll=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4', 'nq2_1', 'nq2_2', 'nq2_3', 'nq2_4']);_retry();};
+})();
 </script>
 </body>
 </html>

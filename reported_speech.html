@@ -235,6 +235,63 @@
   <div class="analogy">💡 Think of it like passing on a message. If your friend said "I am coming", you wouldn't text someone else "She am coming" — you'd naturally say "She said she was coming." The language shifts to fit your new perspective.</div>
 </div>
 <hr class="div">
+<!-- ══ EXERCISE 1 ══ -->
+<div class="section" id="nq1">
+  <div class="ex-hdr"><span class="ex-badge amber">Exercise 1</span><h2 class="ex-title">Direct or Reported?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Notice what changes when we pass on what someone said.</p>
+
+  <div class="q-card" id="nq1_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">Which sentence is direct speech?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','&quot;I am tired,&quot; she said.','Direct speech uses the exact words in quotation marks.')">She said she was tired.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','&quot;I am tired,&quot; she said.','Direct speech uses the exact words in quotation marks.')">"I am tired," she said.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','&quot;I am tired,&quot; she said.','Direct speech uses the exact words in quotation marks.')">She told me she was tired.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_1','&quot;I am tired,&quot; she said.','Direct speech uses the exact words in quotation marks.')">She said that she was tired.</button>
+    </div>
+    <div class="fb" id="nq1_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">"I enjoy my job," she said. → She said she __________ her job.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','enjoyed','In reported speech the tense moves back one step: enjoy → enjoyed.')">enjoyed</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','enjoyed','In reported speech the tense moves back one step: enjoy → enjoyed.')">enjoy</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','enjoyed','In reported speech the tense moves back one step: enjoy → enjoyed.')">enjoys</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_2','enjoyed','In reported speech the tense moves back one step: enjoy → enjoyed.')">will enjoy</button>
+    </div>
+    <div class="fb" id="nq1_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">"I am hungry," Tom said. → Tom said __________ was hungry.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','he','Pronouns change to match the new speaker: I → he.')">I</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','he','Pronouns change to match the new speaker: I → he.')">you</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','he','Pronouns change to match the new speaker: I → he.')">he</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_3','he','Pronouns change to match the new speaker: I → he.')">we</button>
+    </div>
+    <div class="fb" id="nq1_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq1_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">She said (that) she was tired. Which word can be left out without changing the meaning?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','that','The word that is optional after said.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','that','The word that is optional after said.')">said</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','that','The word that is optional after said.')">she</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq1_4','that','The word that is optional after said.')">was</button>
+    </div>
+    <div class="fb" id="nq1_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq1()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
 
 <!-- SECTION 2: TENSE CHANGES -->
 <div class="section">
@@ -301,145 +358,9 @@
 </div>
 <hr class="div">
 
-<!-- SECTION 3: WORDS THAT CHANGE -->
-<div class="section">
-  <h2 class="sec-title">Words That Change</h2>
-  <p class="sec-sub">As well as tense, pronouns and time and place words usually need to change too.</p>
-
-  <h3 style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.7rem">Pronouns</h3>
-  <div class="word-grid" style="margin-bottom:1.5rem">
-    <div class="word-chip"><span class="wc-dir">I</span><span class="wc-arr">→</span><span class="wc-rep">he / she</span></div>
-    <div class="word-chip"><span class="wc-dir">we</span><span class="wc-arr">→</span><span class="wc-rep">they</span></div>
-    <div class="word-chip"><span class="wc-dir">my</span><span class="wc-arr">→</span><span class="wc-rep">his / her</span></div>
-    <div class="word-chip"><span class="wc-dir">our</span><span class="wc-arr">→</span><span class="wc-rep">their</span></div>
-    <div class="word-chip"><span class="wc-dir">me</span><span class="wc-arr">→</span><span class="wc-rep">him / her</span></div>
-    <div class="word-chip"><span class="wc-dir">you</span><span class="wc-arr">→</span><span class="wc-rep">I / he / she / they</span></div>
-  </div>
-
-  <h3 style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.7rem">Time and place words</h3>
-  <div class="word-grid">
-    <div class="word-chip"><span class="wc-dir">now</span><span class="wc-arr">→</span><span class="wc-rep">then</span></div>
-    <div class="word-chip"><span class="wc-dir">today</span><span class="wc-arr">→</span><span class="wc-rep">that day</span></div>
-    <div class="word-chip"><span class="wc-dir">yesterday</span><span class="wc-arr">→</span><span class="wc-rep">the day before</span></div>
-    <div class="word-chip"><span class="wc-dir">tomorrow</span><span class="wc-arr">→</span><span class="wc-rep">the next day</span></div>
-    <div class="word-chip"><span class="wc-dir">last week</span><span class="wc-arr">→</span><span class="wc-rep">the week before</span></div>
-    <div class="word-chip"><span class="wc-dir">next week</span><span class="wc-arr">→</span><span class="wc-rep">the following week</span></div>
-    <div class="word-chip"><span class="wc-dir">here</span><span class="wc-arr">→</span><span class="wc-rep">there</span></div>
-    <div class="word-chip"><span class="wc-dir">this</span><span class="wc-arr">→</span><span class="wc-rep">that</span></div>
-    <div class="word-chip"><span class="wc-dir">these</span><span class="wc-arr">→</span><span class="wc-rep">those</span></div>
-  </div>
-</div>
-<hr class="div">
-
-<!-- SECTION 4: SAY VS TELL -->
-<div class="section">
-  <h2 class="sec-title">Say or Tell?</h2>
-  <p class="sec-sub">Both introduce reported speech, but they work differently — this is one of the most common mistakes.</p>
-
-  <div class="say-grid">
-    <div class="say-card say">
-      <div class="say-title">say</div>
-      <div class="say-rule">No person after <em>say</em>. If you want to mention who was spoken to, add <em>to</em>.</div>
-      <div class="say-ex">
-        "She <strong>said</strong> she was tired." ✓<br>
-        "She <strong>said to me</strong> she was tired." ✓<br><br>
-        ❌ <span style="text-decoration:line-through;color:var(--rose8);font-style:italic">"She said me she was tired."</span>
-      </div>
-    </div>
-    <div class="say-card tell">
-      <div class="say-title">tell</div>
-      <div class="say-rule">Always has a person directly after it — no <em>to</em> needed.</div>
-      <div class="say-ex">
-        "She <strong>told me</strong> she was tired." ✓<br>
-        "He <strong>told us</strong> the meeting was cancelled." ✓<br><br>
-        ❌ <span style="text-decoration:line-through;color:var(--rose8);font-style:italic">"She told to me she was tired."</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="warn-box">
-    <div class="warn-title">⚠️ Quick check</div>
-    <div class="warn-row">
-      <span class="ex-wrong">"She said me it was late."</span> &nbsp;→&nbsp; <span class="ex-right">"She told me it was late."</span> ✓<br>
-      <span class="ex-wrong">"He told to her the news."</span> &nbsp;→&nbsp; <span class="ex-right">"He told her the news."</span> ✓<br>
-      <strong>Memory trick:</strong> <em>tell</em> takes a person like a direct object: "tell <u>someone</u> something". <em>Say</em> does not.
-    </div>
-  </div>
-</div>
-<hr class="div">
-
-<!-- SECTION 5: QUESTIONS -->
-<div class="section">
-  <h2 class="sec-title">Reporting Questions</h2>
-  <p class="sec-sub">When you report a question, two things happen: the question word order disappears, and the tense moves back.</p>
-
-  <div class="q-type">
-    <div class="qt-label">Yes/No questions → use "if" or "whether"</div>
-    <div class="qt-rule">Questions that can be answered yes or no use <strong>if</strong> or <strong>whether</strong> in reported speech. The subject comes before the verb — normal statement order.</div>
-    <div class="qt-ex">
-      <span class="dir-q">"Are you coming to the party?"</span> she asked.<br>
-      → She asked <span class="rep-q">if / whether I was coming to the party</span>.<br><br>
-      <span class="dir-q">"Have you eaten?"</span> he asked.<br>
-      → He asked <span class="rep-q">if I had eaten</span>.
-    </div>
-  </div>
-
-  <div class="q-type">
-    <div class="qt-label">Wh- questions → use the question word</div>
-    <div class="qt-rule">Keep the question word (who, what, where, when, why, how), but switch back to normal statement order. No <em>do / does / did</em>.</div>
-    <div class="qt-ex">
-      <span class="dir-q">"Where do you live?"</span> she asked.<br>
-      → She asked <span class="rep-q">where I lived</span>. &nbsp;<span style="font-size:.82rem;color:var(--muted)">(not: where did I live)</span><br><br>
-      <span class="dir-q">"What time does the train leave?"</span> he asked.<br>
-      → He asked <span class="rep-q">what time the train left</span>.
-    </div>
-  </div>
-
-  <div class="key-rule" style="margin-top:.85rem">🔑 <strong>The golden rule for reported questions:</strong> the word order goes back to normal — subject first, then verb, no question mark. "She asked where <strong>I lived</strong>" — not "where <strong>did I live</strong>".</div>
-</div>
-<hr class="div">
-
-<!-- SECTION 6: COMMANDS -->
-<div class="section">
-  <h2 class="sec-title">Reporting Commands and Requests</h2>
-  <p class="sec-sub">Commands and requests become <strong>tell / ask + person + to + verb</strong>.</p>
-
-  <div class="cmd-row">
-    <div class="cmd-type">Positive command</div>
-    <div>
-      <em style="color:var(--rose8)">"Sit down!"</em> he said to her.<br>
-      → He <strong>told her to sit down</strong>.
-    </div>
-  </div>
-  <div class="cmd-row">
-    <div class="cmd-type">Negative command</div>
-    <div>
-      <em style="color:var(--rose8)">"Don't be late!"</em> the teacher said.<br>
-      → The teacher <strong>told us not to be late</strong>.
-    </div>
-  </div>
-  <div class="cmd-row">
-    <div class="cmd-type">Polite request</div>
-    <div>
-      <em style="color:var(--rose8)">"Could you open the window?"</em> she said.<br>
-      → She <strong>asked me to open the window</strong>.
-    </div>
-  </div>
-  <div class="cmd-row">
-    <div class="cmd-type">Negative request</div>
-    <div>
-      <em style="color:var(--rose8)">"Please don't tell anyone,"</em> he said.<br>
-      → He <strong>asked me not to tell anyone</strong>.
-    </div>
-  </div>
-
-  <div class="key-rule">🔑 <strong>Commands become infinitives:</strong> <em>tell/ask + person + (not) to + verb</em>. No tense shift needed — the infinitive stays the same.</div>
-</div>
-<hr class="div">
-
-<!-- ══ EXERCISE 1 ══ -->
+<!-- ══ EXERCISE 2 ══ -->
 <div class="section" id="ex1">
-  <div class="ex-hdr"><span class="ex-badge">Exercise 1</span><h2 class="ex-title">Report What Was Said</h2></div>
+  <div class="ex-hdr"><span class="ex-badge">Exercise 2</span><h2 class="ex-title">Report What Was Said</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">Complete each reported speech sentence with the correct form.</p>
 
   <div class="q-card" id="q1">
@@ -524,77 +445,33 @@
 </div>
 <hr class="div">
 
-<!-- ══ EXERCISE 2 ══ -->
-<div class="section" id="ex2">
-  <div class="ex-hdr"><span class="ex-badge amber">Exercise 2</span><h2 class="ex-title">Questions and Commands</h2></div>
-  <p class="sec-sub" style="margin-bottom:1.5rem">Report each question or command correctly.</p>
+<!-- SECTION 3: WORDS THAT CHANGE -->
+<div class="section">
+  <h2 class="sec-title">Words That Change</h2>
+  <p class="sec-sub">As well as tense, pronouns and time and place words usually need to change too.</p>
 
-  <div class="q-card" id="f1">
-    <div class="q-num">Question 1 of 5</div>
-    <span class="q-dir">"Are you coming to the party?" she asked me.</span>
-    <span class="q-rep">She asked me <span class="blank">___</span> I was coming to the party.</span>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'f1','if')">that</button>
-      <button class="mc-btn" onclick="checkMC(this,'f1','if')">if</button>
-      <button class="mc-btn" onclick="checkMC(this,'f1','if')">what</button>
-      <button class="mc-btn" onclick="checkMC(this,'f1','if')">which</button>
-    </div>
-    <div class="fb" id="f1-fb"></div>
+  <h3 style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.7rem">Pronouns</h3>
+  <div class="word-grid" style="margin-bottom:1.5rem">
+    <div class="word-chip"><span class="wc-dir">I</span><span class="wc-arr">→</span><span class="wc-rep">he / she</span></div>
+    <div class="word-chip"><span class="wc-dir">we</span><span class="wc-arr">→</span><span class="wc-rep">they</span></div>
+    <div class="word-chip"><span class="wc-dir">my</span><span class="wc-arr">→</span><span class="wc-rep">his / her</span></div>
+    <div class="word-chip"><span class="wc-dir">our</span><span class="wc-arr">→</span><span class="wc-rep">their</span></div>
+    <div class="word-chip"><span class="wc-dir">me</span><span class="wc-arr">→</span><span class="wc-rep">him / her</span></div>
+    <div class="word-chip"><span class="wc-dir">you</span><span class="wc-arr">→</span><span class="wc-rep">I / he / she / they</span></div>
   </div>
 
-  <div class="q-card" id="f2">
-    <div class="q-num">Question 2 of 5</div>
-    <span class="q-dir">"Where do you work?" he asked.</span>
-    <span class="q-rep">He asked where I <span class="blank">___</span>.</span>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">work</button>
-      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">did work</button>
-      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">worked</button>
-      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">was working</button>
-    </div>
-    <div class="fb" id="f2-fb"></div>
+  <h3 style="font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.7rem">Time and place words</h3>
+  <div class="word-grid">
+    <div class="word-chip"><span class="wc-dir">now</span><span class="wc-arr">→</span><span class="wc-rep">then</span></div>
+    <div class="word-chip"><span class="wc-dir">today</span><span class="wc-arr">→</span><span class="wc-rep">that day</span></div>
+    <div class="word-chip"><span class="wc-dir">yesterday</span><span class="wc-arr">→</span><span class="wc-rep">the day before</span></div>
+    <div class="word-chip"><span class="wc-dir">tomorrow</span><span class="wc-arr">→</span><span class="wc-rep">the next day</span></div>
+    <div class="word-chip"><span class="wc-dir">last week</span><span class="wc-arr">→</span><span class="wc-rep">the week before</span></div>
+    <div class="word-chip"><span class="wc-dir">next week</span><span class="wc-arr">→</span><span class="wc-rep">the following week</span></div>
+    <div class="word-chip"><span class="wc-dir">here</span><span class="wc-arr">→</span><span class="wc-rep">there</span></div>
+    <div class="word-chip"><span class="wc-dir">this</span><span class="wc-arr">→</span><span class="wc-rep">that</span></div>
+    <div class="word-chip"><span class="wc-dir">these</span><span class="wc-arr">→</span><span class="wc-rep">those</span></div>
   </div>
-
-  <div class="q-card" id="f3">
-    <div class="q-num">Question 3 of 5</div>
-    <span class="q-dir">"Don't touch anything!" the guide told us.</span>
-    <span class="q-rep">The guide told us <span class="blank">___</span> anything.</span>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">don't touch</button>
-      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">to not touch</button>
-      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">not to touch</button>
-      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">to touch not</button>
-    </div>
-    <div class="fb" id="f3-fb"></div>
-  </div>
-
-  <div class="q-card" id="f4">
-    <div class="q-num">Question 4 of 5</div>
-    <span class="q-dir">"What time does the film start?" she asked.</span>
-    <span class="q-rep">She asked what time the film <span class="blank">___</span>.</span>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'f4','started')">starts</button>
-      <button class="mc-btn" onclick="checkMC(this,'f4','started')">did start</button>
-      <button class="mc-btn" onclick="checkMC(this,'f4','started')">started</button>
-      <button class="mc-btn" onclick="checkMC(this,'f4','started')">would start</button>
-    </div>
-    <div class="fb" id="f4-fb"></div>
-  </div>
-
-  <div class="q-card" id="f5">
-    <div class="q-num">Question 5 of 5</div>
-    <span class="q-dir">"Please help me with this," she said to him.</span>
-    <span class="q-rep">She asked him <span class="blank">___</span> her with it.</span>
-    <div class="mc-opts">
-      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">helping</button>
-      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">to help</button>
-      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">that he help</button>
-      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">he should help</button>
-    </div>
-    <div class="fb" id="f5-fb"></div>
-  </div>
-
-  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
 </div>
 <hr class="div">
 
@@ -672,9 +549,303 @@
 </div>
 <hr class="div">
 
+<!-- SECTION 4: SAY VS TELL -->
+<div class="section">
+  <h2 class="sec-title">Say or Tell?</h2>
+  <p class="sec-sub">Both introduce reported speech, but they work differently — this is one of the most common mistakes.</p>
+
+  <div class="say-grid">
+    <div class="say-card say">
+      <div class="say-title">say</div>
+      <div class="say-rule">No person after <em>say</em>. If you want to mention who was spoken to, add <em>to</em>.</div>
+      <div class="say-ex">
+        "She <strong>said</strong> she was tired." ✓<br>
+        "She <strong>said to me</strong> she was tired." ✓<br><br>
+        ❌ <span style="text-decoration:line-through;color:var(--rose8);font-style:italic">"She said me she was tired."</span>
+      </div>
+    </div>
+    <div class="say-card tell">
+      <div class="say-title">tell</div>
+      <div class="say-rule">Always has a person directly after it — no <em>to</em> needed.</div>
+      <div class="say-ex">
+        "She <strong>told me</strong> she was tired." ✓<br>
+        "He <strong>told us</strong> the meeting was cancelled." ✓<br><br>
+        ❌ <span style="text-decoration:line-through;color:var(--rose8);font-style:italic">"She told to me she was tired."</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">⚠️ Quick check</div>
+    <div class="warn-row">
+      <span class="ex-wrong">"She said me it was late."</span> &nbsp;→&nbsp; <span class="ex-right">"She told me it was late."</span> ✓<br>
+      <span class="ex-wrong">"He told to her the news."</span> &nbsp;→&nbsp; <span class="ex-right">"He told her the news."</span> ✓<br>
+      <strong>Memory trick:</strong> <em>tell</em> takes a person like a direct object: "tell <u>someone</u> something". <em>Say</em> does not.
+    </div>
+  </div>
+</div>
+<hr class="div">
 <!-- ══ EXERCISE 4 ══ -->
+<div class="section" id="nq2">
+  <div class="ex-hdr"><span class="ex-badge grn">Exercise 4</span><h2 class="ex-title">Say or Tell?</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Say and tell are used differently. Choose the correct verb or sentence.</p>
+
+  <div class="q-card" id="nq2_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">She __________ me she was tired.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','told','Tell is followed directly by a person: told me.')">told</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','told','Tell is followed directly by a person: told me.')">said</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','told','Tell is followed directly by a person: told me.')">spoke</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_1','told','Tell is followed directly by a person: told me.')">talked</button>
+    </div>
+    <div class="fb" id="nq2_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">He __________ he would be late.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','said','Say has no person straight after it.')">told</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','said','Say has no person straight after it.')">said to</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','said','Say has no person straight after it.')">said</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_2','said','Say has no person straight after it.')">told to</button>
+    </div>
+    <div class="fb" id="nq2_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">Which sentence is correct?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','She told me the news.','Tell takes a person directly, with no to.')">She told me the news.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','She told me the news.','Tell takes a person directly, with no to.')">She told to me the news.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','She told me the news.','Tell takes a person directly, with no to.')">She said me the news.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_3','She told me the news.','Tell takes a person directly, with no to.')">She told for me the news.</button>
+    </div>
+    <div class="fb" id="nq2_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq2_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">Which sentence is correct?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','He told us the meeting was cancelled.','Told us: tell + person, with no to.')">He said us the meeting was cancelled.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','He told us the meeting was cancelled.','Told us: tell + person, with no to.')">He told to us the meeting was cancelled.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','He told us the meeting was cancelled.','Told us: tell + person, with no to.')">He told us the meeting was cancelled.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq2_4','He told us the meeting was cancelled.','Told us: tell + person, with no to.')">He said to us that meeting cancelled.</button>
+    </div>
+    <div class="fb" id="nq2_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq2()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+
+<!-- SECTION 5: QUESTIONS -->
+<div class="section">
+  <h2 class="sec-title">Reporting Questions</h2>
+  <p class="sec-sub">When you report a question, two things happen: the question word order disappears, and the tense moves back.</p>
+
+  <div class="q-type">
+    <div class="qt-label">Yes/No questions → use "if" or "whether"</div>
+    <div class="qt-rule">Questions that can be answered yes or no use <strong>if</strong> or <strong>whether</strong> in reported speech. The subject comes before the verb — normal statement order.</div>
+    <div class="qt-ex">
+      <span class="dir-q">"Are you coming to the party?"</span> she asked.<br>
+      → She asked <span class="rep-q">if / whether I was coming to the party</span>.<br><br>
+      <span class="dir-q">"Have you eaten?"</span> he asked.<br>
+      → He asked <span class="rep-q">if I had eaten</span>.
+    </div>
+  </div>
+
+  <div class="q-type">
+    <div class="qt-label">Wh- questions → use the question word</div>
+    <div class="qt-rule">Keep the question word (who, what, where, when, why, how), but switch back to normal statement order. No <em>do / does / did</em>.</div>
+    <div class="qt-ex">
+      <span class="dir-q">"Where do you live?"</span> she asked.<br>
+      → She asked <span class="rep-q">where I lived</span>. &nbsp;<span style="font-size:.82rem;color:var(--muted)">(not: where did I live)</span><br><br>
+      <span class="dir-q">"What time does the train leave?"</span> he asked.<br>
+      → He asked <span class="rep-q">what time the train left</span>.
+    </div>
+  </div>
+
+  <div class="key-rule" style="margin-top:.85rem">🔑 <strong>The golden rule for reported questions:</strong> the word order goes back to normal — subject first, then verb, no question mark. "She asked where <strong>I lived</strong>" — not "where <strong>did I live</strong>".</div>
+</div>
+<hr class="div">
+<!-- ══ EXERCISE 5 ══ -->
+<div class="section" id="nq3">
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 5</span><h2 class="ex-title">Reporting Questions</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">In a reported question the word order goes back to normal and the tense moves back.</p>
+
+  <div class="q-card" id="nq3_1">
+    <div class="q-num">Question 1 of 4</div>
+    <div class="q-text">"Are you coming?" she asked. → She asked __________ I was coming.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq3_1','if','A yes/no question is reported with if or whether.')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_1','if','A yes/no question is reported with if or whether.')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_1','if','A yes/no question is reported with if or whether.')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_1','if','A yes/no question is reported with if or whether.')">do</button>
+    </div>
+    <div class="fb" id="nq3_1-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq3_2">
+    <div class="q-num">Question 2 of 4</div>
+    <div class="q-text">"Where do you live?" he asked. → He asked where __________.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq3_2','I lived','The word order goes back to normal and there is no do/did: where I lived.')">I lived</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_2','I lived','The word order goes back to normal and there is no do/did: where I lived.')">did I live</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_2','I lived','The word order goes back to normal and there is no do/did: where I lived.')">do I live</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_2','I lived','The word order goes back to normal and there is no do/did: where I lived.')">I do live</button>
+    </div>
+    <div class="fb" id="nq3_2-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq3_3">
+    <div class="q-num">Question 3 of 4</div>
+    <div class="q-text">"What time does the train leave?" → He asked what time the train __________.</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq3_3','left','No do/does/did in a reported question, and the tense moves back: left.')">did leave</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_3','left','No do/does/did in a reported question, and the tense moves back: left.')">does leave</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_3','left','No do/does/did in a reported question, and the tense moves back: left.')">left</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_3','left','No do/does/did in a reported question, and the tense moves back: left.')">leave</button>
+    </div>
+    <div class="fb" id="nq3_3-fb"></div>
+  </div>
+
+  <div class="q-card" id="nq3_4">
+    <div class="q-num">Question 4 of 4</div>
+    <div class="q-text">Which sentence is correct?</div>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'nq3_4','She asked me where I lived.','The word order goes back to normal (subject, then verb) with no did.')">She asked me where did I live.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_4','She asked me where I lived.','The word order goes back to normal (subject, then verb) with no did.')">She asked me where I lived.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_4','She asked me where I lived.','The word order goes back to normal (subject, then verb) with no did.')">She asked me where I did live.</button>
+      <button class="mc-btn" onclick="checkMC(this,'nq3_4','She asked me where I lived.','The word order goes back to normal (subject, then verb) with no did.')">She asked me where do I live.</button>
+    </div>
+    <div class="fb" id="nq3_4-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetNq3()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+
+<!-- SECTION 6: COMMANDS -->
+<div class="section">
+  <h2 class="sec-title">Reporting Commands and Requests</h2>
+  <p class="sec-sub">Commands and requests become <strong>tell / ask + person + to + verb</strong>.</p>
+
+  <div class="cmd-row">
+    <div class="cmd-type">Positive command</div>
+    <div>
+      <em style="color:var(--rose8)">"Sit down!"</em> he said to her.<br>
+      → He <strong>told her to sit down</strong>.
+    </div>
+  </div>
+  <div class="cmd-row">
+    <div class="cmd-type">Negative command</div>
+    <div>
+      <em style="color:var(--rose8)">"Don't be late!"</em> the teacher said.<br>
+      → The teacher <strong>told us not to be late</strong>.
+    </div>
+  </div>
+  <div class="cmd-row">
+    <div class="cmd-type">Polite request</div>
+    <div>
+      <em style="color:var(--rose8)">"Could you open the window?"</em> she said.<br>
+      → She <strong>asked me to open the window</strong>.
+    </div>
+  </div>
+  <div class="cmd-row">
+    <div class="cmd-type">Negative request</div>
+    <div>
+      <em style="color:var(--rose8)">"Please don't tell anyone,"</em> he said.<br>
+      → He <strong>asked me not to tell anyone</strong>.
+    </div>
+  </div>
+
+  <div class="key-rule">🔑 <strong>Commands become infinitives:</strong> <em>tell/ask + person + (not) to + verb</em>. No tense shift needed — the infinitive stays the same.</div>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 6 ══ -->
+<div class="section" id="ex2">
+  <div class="ex-hdr"><span class="ex-badge amber">Exercise 6</span><h2 class="ex-title">Questions and Commands</h2></div>
+  <p class="sec-sub" style="margin-bottom:1.5rem">Report each question or command correctly.</p>
+
+  <div class="q-card" id="f1">
+    <div class="q-num">Question 1 of 5</div>
+    <span class="q-dir">"Are you coming to the party?" she asked me.</span>
+    <span class="q-rep">She asked me <span class="blank">___</span> I was coming to the party.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f1','if')">that</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','if')">if</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','if')">what</button>
+      <button class="mc-btn" onclick="checkMC(this,'f1','if')">which</button>
+    </div>
+    <div class="fb" id="f1-fb"></div>
+  </div>
+
+  <div class="q-card" id="f2">
+    <div class="q-num">Question 2 of 5</div>
+    <span class="q-dir">"Where do you work?" he asked.</span>
+    <span class="q-rep">He asked where I <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">work</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">did work</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">worked</button>
+      <button class="mc-btn" onclick="checkMC(this,'f2','worked')">was working</button>
+    </div>
+    <div class="fb" id="f2-fb"></div>
+  </div>
+
+  <div class="q-card" id="f3">
+    <div class="q-num">Question 3 of 5</div>
+    <span class="q-dir">"Don't touch anything!" the guide told us.</span>
+    <span class="q-rep">The guide told us <span class="blank">___</span> anything.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">don't touch</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">to not touch</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">not to touch</button>
+      <button class="mc-btn" onclick="checkMC(this,'f3','not to touch')">to touch not</button>
+    </div>
+    <div class="fb" id="f3-fb"></div>
+  </div>
+
+  <div class="q-card" id="f4">
+    <div class="q-num">Question 4 of 5</div>
+    <span class="q-dir">"What time does the film start?" she asked.</span>
+    <span class="q-rep">She asked what time the film <span class="blank">___</span>.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f4','started')">starts</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','started')">did start</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','started')">started</button>
+      <button class="mc-btn" onclick="checkMC(this,'f4','started')">would start</button>
+    </div>
+    <div class="fb" id="f4-fb"></div>
+  </div>
+
+  <div class="q-card" id="f5">
+    <div class="q-num">Question 5 of 5</div>
+    <span class="q-dir">"Please help me with this," she said to him.</span>
+    <span class="q-rep">She asked him <span class="blank">___</span> her with it.</span>
+    <div class="mc-opts">
+      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">helping</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">to help</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">that he help</button>
+      <button class="mc-btn" onclick="checkMC(this,'f5','to help')">he should help</button>
+    </div>
+    <div class="fb" id="f5-fb"></div>
+  </div>
+
+  <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx2()">Reset Exercise ↺</button>
+</div>
+<hr class="div">
+
+<!-- ══ EXERCISE 7 ══ -->
 <div class="section" id="ex4">
-  <div class="ex-hdr"><span class="ex-badge violet">Exercise 4</span><h2 class="ex-title">Mixed Review</h2></div>
+  <div class="ex-hdr"><span class="ex-badge violet">Exercise 7</span><h2 class="ex-title">Mixed Review</h2></div>
   <p class="sec-sub" style="margin-bottom:1.5rem">A mix of everything — tense shifts, word changes, say vs tell, and reported questions and commands.</p>
 
   <div class="mini-cat">Tense Shifts</div>
@@ -888,11 +1059,11 @@
   <button class="reset-btn" style="margin-top:0.5rem" onclick="resetEx4()">Reset Exercise ↺</button>
 </div>
 
-<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/32</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all four exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
+<div id="score-sec"><div class="s-ring" id="s-ring"><div class="s-num" id="s-num">0/44</div></div><div class="s-msg" id="s-msg">Well done!</div><div class="s-sub" id="s-sub">You completed all the exercises.</div><button class="retry-btn" onclick="retryAll()">Try Again 🔄</button></div>
 <footer>Reported Speech — Interactive Lesson &nbsp;|&nbsp; All exercises check in your browser</footer>
 
 <script>
-const TOTAL=32;
+const TOTAL=(32) + 12;
 const scores={mc:{},id:{}};
 function getScore(){return Object.values(scores.mc).filter(Boolean).length+Object.values(scores.id).filter(Boolean).length;}
 function updateProgress(){const done=Object.keys(scores.mc).length+Object.keys(scores.id).length;document.getElementById('pb').style.width=Math.round(done/TOTAL*100)+'%';if(done===TOTAL)showScore();}
@@ -1013,6 +1184,25 @@ function resetEx3(){sents.forEach(s=>resetId(s.id));}
 function resetEx4(){resetGroup(['r1','r2','r3','r4','r5','r6','r7','r8','r9','r10','r11','r12','r13','r14','r15','r16']);}
 
 buildTokens();
+</script>
+<script>
+(function(){
+  function resetMini(ids){
+    ids.forEach(function(id){
+      var card=document.getElementById(id);if(!card)return;
+      card.classList.remove('correct','wrong');
+      card.querySelectorAll('.mc-btn').forEach(function(b){b.disabled=false;b.classList.remove('sel-ok','sel-bad','rev-ok','pop');});
+      if(scores&&scores.mc)delete scores.mc[id];
+      var fb=document.getElementById(id+'-fb');if(fb){fb.className='fb';fb.textContent='';}
+    });
+    updateProgress();
+  }
+  window.resetNq1=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4']);};
+  window.resetNq2=function(){resetMini(['nq2_1', 'nq2_2', 'nq2_3', 'nq2_4']);};
+  window.resetNq3=function(){resetMini(['nq3_1', 'nq3_2', 'nq3_3', 'nq3_4']);};
+  var _retry=retryAll;
+  retryAll=function(){resetMini(['nq1_1', 'nq1_2', 'nq1_3', 'nq1_4', 'nq2_1', 'nq2_2', 'nq2_3', 'nq2_4', 'nq3_1', 'nq3_2', 'nq3_3', 'nq3_4']);_retry();};
+})();
 </script>
 </body>
 </html>
